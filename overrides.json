@@ -251,6 +251,42 @@
       "anilist_id": 37887,
       "anilist_title": "Toriko",
       "note": "Verified against the AniList API; automatic matching returned a MANGA (Suitei Chijo, an unrelated work) entry of the same name"
+    },
+    "List of Berserk chapters": {
+      "series": "Berserk",
+      "anilist_id": 30002,
+      "anilist_title": "Berserk",
+      "note": "Prologue arc: Wikipedia lists these as unnumbered bullets with collapsed ranges ('The Guardians of Desire (2-3)'), and the aggregators only offer 'Prologue N'. The releases number them 0.01-0.16.",
+      "chapters": {
+        "0.01": "The Black Swordsman",
+        "0.02": "The Brand",
+        "0.03": "The Guardians of Desire (1)",
+        "0.04": "The Guardians of Desire (2)",
+        "0.05": "The Guardians of Desire (3)",
+        "0.06": "The Guardians of Desire (4)",
+        "0.07": "The Guardians of Desire (5)",
+        "0.08": "The Guardians of Desire (6)",
+        "0.09": "The Golden Age (1)",
+        "0.10": "The Golden Age (2)",
+        "0.11": "The Golden Age (3)",
+        "0.12": "The Golden Age (4)",
+        "0.13": "The Golden Age (5)",
+        "0.14": "The Golden Age (6)",
+        "0.15": "The Golden Age (7)",
+        "0.16": "The Golden Age (8)"
+      }
+    },
+    "List of Vinland Saga chapters": {
+      "series": "Vinland Saga",
+      "anilist_id": 30642,
+      "anilist_title": "Vinland Saga",
+      "note": "Volume-end extras. Comick numbers them one higher than the releases: the extra ships at the end of the volume it belongs to, so V24 (ending at 175) carries 175.5 rather than 176.5.",
+      "chapters": {
+        "175.5": "Assassin's Creed: Valhalla x Vinland Saga",
+        "176.5": "",
+        "191.5": "Omake",
+        "192.5": ""
+      }
     }
   }
 }

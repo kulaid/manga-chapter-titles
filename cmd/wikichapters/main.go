@@ -224,6 +224,7 @@ func runBuild(args []string) error {
 			if existing, ok := seriesByKey[key]; ok {
 				part := toSeries(article, result, nil)
 				gained := mergeSeriesChapters(existing, part)
+				applyCuratedChapters(existing, ovr)
 				if err := chaptertitles.Write(*out, existing); err != nil {
 					return fmt.Errorf("writing %s: %w", existing.Slug, err)
 				}
@@ -241,6 +242,7 @@ func runBuild(args []string) error {
 		s := toSeries(article, result, usedSlugs)
 		s.AniListID = knownIDs[article]
 		resolveAniListID(ani, ovr, s)
+		applyCuratedChapters(s, ovr)
 		if err := chaptertitles.Write(*out, s); err != nil {
 			return fmt.Errorf("writing %s: %w", s.Slug, err)
 		}
@@ -426,6 +428,7 @@ func runAdd(args []string) error {
 			if existing, ok := seriesByKey[key]; ok {
 				part := toSeries(article, result, nil)
 				gained := mergeSeriesChapters(existing, part)
+				applyCuratedChapters(existing, ovr)
 				if err := chaptertitles.Write(*dir, existing); err != nil {
 					return fmt.Errorf("writing %s: %w", existing.Slug, err)
 				}
@@ -448,6 +451,7 @@ func runAdd(args []string) error {
 		s := toSeries(article, result, usedSlugs)
 		s.AniListID = knownIDs[article]
 		resolveAniListID(ani, ovr, s)
+		applyCuratedChapters(s, ovr)
 		if err := chaptertitles.Write(*dir, s); err != nil {
 			return fmt.Errorf("writing %s: %w", s.Slug, err)
 		}
@@ -497,7 +501,7 @@ func runAdd(args []string) error {
 	fmt.Fprintf(os.Stderr, "\nEnriching %d new series...\n", len(fresh))
 	return enrichDataset(*dir, idx, srcs, func(e *chaptertitles.IndexEntry) bool {
 		return fresh[e.MatchKey]
-	}, 0)
+	}, 0, ovr)
 }
 
 func runFetch(args []string) error {
@@ -787,6 +791,23 @@ var trailingParenthetical = regexp.MustCompile(`\s*\([^()]*\)\s*$`)
 // rather than a volume one.
 func stripTrailingParenthetical(article string) string {
 	return strings.TrimSpace(trailingParenthetical.ReplaceAllString(article, ""))
+}
+
+// applyCuratedChapters writes the hand-curated titles for a series over
+// whatever was scraped, and keeps the count in step. Every command that writes
+// a series calls this last, so curated data survives a rebuild.
+func applyCuratedChapters(s *chaptertitles.Series, ovr *overrides.File) int {
+	if s.Chapters == nil {
+		s.Chapters = map[string]string{}
+	}
+	if s.ChapterSources == nil {
+		s.ChapterSources = map[string]string{}
+	}
+	n := ovr.ApplyChapters(s.Article, s.Chapters, s.ChapterSources)
+	if n > 0 {
+		s.ChapterCount = len(s.Chapters)
+	}
+	return n
 }
 
 // mergeSeriesChapters folds src's chapters into dst.
@@ -1149,7 +1170,13 @@ func runEnrich(args []string) error {
 	limit := fs.Int("limit", 0, "stop after N series (0 = no limit)")
 	useComick := fs.Bool("comick", true, "consult Comick")
 	useMangaDex := fs.Bool("mangadex", true, "consult MangaDex")
+	ovrPath := fs.String("overrides", overrides.DefaultFile, "hand-curated corrections applied after the sources")
 	if err := parseArgs(fs, args); err != nil {
+		return err
+	}
+
+	ovr, err := overrides.Load(*ovrPath)
+	if err != nil {
 		return err
 	}
 
@@ -1174,14 +1201,14 @@ func runEnrich(args []string) error {
 	want := func(e *chaptertitles.IndexEntry) bool {
 		return *only == "" || chaptertitles.MatchKey(*only) == e.MatchKey
 	}
-	return enrichDataset(*dir, idx, srcs, want, *limit)
+	return enrichDataset(*dir, idx, srcs, want, *limit, ovr)
 }
 
 // enrichDataset merges the aggregator sources into every series of idx that
 // want selects, writing each file and the index back as it goes. It is shared
 // by "enrich", which selects everything or one named series, and by "add",
 // which selects only the series it has just scraped.
-func enrichDataset(dir string, idx *chaptertitles.Index, srcs []sources.Source, want func(*chaptertitles.IndexEntry) bool, limit int) error {
+func enrichDataset(dir string, idx *chaptertitles.Index, srcs []sources.Source, want func(*chaptertitles.IndexEntry) bool, limit int, ovr *overrides.File) error {
 	var processed, enriched, addedTotal, skipped int
 
 	for i := range idx.Series {
@@ -1226,6 +1253,7 @@ func enrichDataset(dir string, idx *chaptertitles.Index, srcs []sources.Source, 
 
 		merged := sources.Merge(existing, sourceNameForExisting(s), results, names)
 		applyMerge(s, merged)
+		applyCuratedChapters(s, ovr)
 
 		if werr := chaptertitles.Write(dir, s); werr != nil {
 			return fmt.Errorf("writing %s: %w", s.Slug, werr)

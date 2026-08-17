@@ -42,6 +42,10 @@ type Entry struct {
 	// Note records why the automatic lookup could not be trusted, so a future
 	// reader can tell a deliberate correction from a stale guess.
 	Note string `json:"note,omitempty"`
+	// Chapters are hand-written chapter titles, keyed the same way the dataset
+	// keys them. They beat every scraped source and survive a rebuild; an empty
+	// value deletes a wrong title rather than setting one. See ApplyChapters.
+	Chapters map[string]string `json:"chapters,omitempty"`
 }
 
 // File is the whole overrides file: article title -> correction.
