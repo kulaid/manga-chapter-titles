@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T21:03:28.412583967Z",
+  "generated_at": "2026-08-17T21:06:50.095473841Z",
   "count": 367,
   "series": [
     {
@@ -288,7 +288,7 @@
       "anilist_id": 30002,
       "file": "berserk.json",
       "article": "List of Berserk chapters",
-      "chapter_count": 407,
+      "chapter_count": 406,
       "sources": [
         "wikipedia"
       ]

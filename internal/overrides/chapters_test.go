@@ -93,3 +93,67 @@ func TestApplyChapters_nilReceiverIsSafe(t *testing.T) {
 		t.Errorf("changed = %d, want 0", changed)
 	}
 }
+
+func TestApplyChapters_canonicalisesKeys(t *testing.T) {
+	// The dataset writes chapter keys with FormatFloat(-1), so 0.10 is stored
+	// as "0.1". A curated key of "0.10" is the same chapter, and taking it
+	// literally added a second key for it instead of overwriting the first --
+	// leaving "0.1": "Prologue 10" alongside "0.10": "The Golden Age (2)".
+	// Consumers parse both back to 0.1, so which title won came down to map
+	// iteration order.
+	f := &File{Overrides: map[string]Entry{
+		"A": {Chapters: map[string]string{"0.10": "The Golden Age (2)"}},
+	}}
+	chapters := map[string]string{"0.1": "Prologue 10"}
+	sources := map[string]string{"0.1": "comick"}
+
+	f.ApplyChapters("A", chapters, sources)
+
+	if got := len(chapters); got != 1 {
+		t.Errorf("got %d keys %v, want exactly 1", got, chapters)
+	}
+	if chapters["0.1"] != "The Golden Age (2)" {
+		t.Errorf(`chapters["0.1"] = %q, want the curated title`, chapters["0.1"])
+	}
+	if _, dup := chapters["0.10"]; dup {
+		t.Error(`"0.10" should have been canonicalised to "0.1"`)
+	}
+	if sources["0.1"] != SourceCurated {
+		t.Errorf("source = %q, want curated", sources["0.1"])
+	}
+}
+
+func TestApplyChapters_removesNonCanonicalDuplicatesAlreadyOnFile(t *testing.T) {
+	// A file that already carries both spellings must come out with one.
+	f := &File{Overrides: map[string]Entry{
+		"A": {Chapters: map[string]string{"0.10": "Right"}},
+	}}
+	chapters := map[string]string{"0.1": "Stale", "0.10": "Also Stale", "2": "Untouched"}
+	sources := map[string]string{"0.1": "comick", "0.10": "comick", "2": "wikipedia"}
+
+	f.ApplyChapters("A", chapters, sources)
+
+	if chapters["0.1"] != "Right" {
+		t.Errorf(`chapters["0.1"] = %q, want "Right"`, chapters["0.1"])
+	}
+	if _, dup := chapters["0.10"]; dup {
+		t.Error(`"0.10" should not survive alongside "0.1"`)
+	}
+	if chapters["2"] != "Untouched" {
+		t.Errorf("unrelated chapter changed to %q", chapters["2"])
+	}
+}
+
+func TestApplyChapters_deleteAlsoCanonicalises(t *testing.T) {
+	f := &File{Overrides: map[string]Entry{
+		"A": {Chapters: map[string]string{"0.10": ""}},
+	}}
+	chapters := map[string]string{"0.1": "Prologue 10"}
+	sources := map[string]string{"0.1": "comick"}
+
+	f.ApplyChapters("A", chapters, sources)
+
+	if len(chapters) != 0 {
+		t.Errorf("got %v, want the chapter removed", chapters)
+	}
+}
