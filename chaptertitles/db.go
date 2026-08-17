@@ -147,9 +147,11 @@ func (db *DB) Titles(series string) (map[float64]string, bool) {
 	return out, true
 }
 
-// MatchKey normalises a series name for lookup: lowercase alphanumerics only,
-// with a standalone "x" dropped so "Hunter × Hunter" and "Hunter x Hunter"
-// agree. Apply it to your own titles before comparing against IndexEntry.
+// MatchKey normalises a series name for lookup: accents folded to ASCII, then
+// lowercase alphanumerics only, with a standalone "x" dropped. So "Hunter ×
+// Hunter" and "Hunter x Hunter" agree, and so do "Boku wa Imōto" and the
+// plain-ASCII "Boku wa Imoto" someone is far more likely to type.
+// Apply it to your own titles before comparing against IndexEntry.
 func MatchKey(name string) string {
 	var words []string
 	var cur strings.Builder
@@ -159,7 +161,7 @@ func MatchKey(name string) string {
 			cur.Reset()
 		}
 	}
-	for _, r := range strings.ToLower(name) {
+	for _, r := range strings.ToLower(FoldAccents(name)) {
 		if (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') {
 			cur.WriteRune(r)
 		} else {

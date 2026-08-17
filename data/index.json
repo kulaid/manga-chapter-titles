@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T03:37:26.976471059Z",
+  "generated_at": "2026-08-17T03:53:53.620597882Z",
   "count": 341,
   "series": [
     {
@@ -392,19 +392,6 @@
       ]
     },
     {
-      "series": "Übel Blatt",
-      "slug": "bel-blatt",
-      "match_key": "belblatt",
-      "anilist_id": 30070,
-      "file": "bel-blatt.json",
-      "article": "List of Übel Blatt chapters",
-      "chapter_count": 171,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
-    },
-    {
       "series": "Berserk",
       "slug": "berserk",
       "match_key": "berserk",
@@ -604,10 +591,10 @@
     },
     {
       "series": "Boku wa Imōto ni Koi o Suru",
-      "slug": "boku-wa-im-to-ni-koi-o-suru",
-      "match_key": "bokuwaimtonikoiosuru",
+      "slug": "boku-wa-imoto-ni-koi-o-suru",
+      "match_key": "bokuwaimotonikoiosuru",
       "anilist_id": 33127,
-      "file": "boku-wa-im-to-ni-koi-o-suru.json",
+      "file": "boku-wa-imoto-ni-koi-o-suru.json",
       "article": "List of Boku wa Imōto ni Koi o Suru chapters",
       "chapter_count": 62,
       "sources": [
@@ -2759,10 +2746,10 @@
     },
     {
       "series": "Rainbow: Nisha Rokubō no Shichinin",
-      "slug": "rainbow-nisha-rokub-no-shichinin",
-      "match_key": "rainbownisharokubnoshichinin",
+      "slug": "rainbow-nisha-rokubo-no-shichinin",
+      "match_key": "rainbownisharokubonoshichinin",
       "anilist_id": 37482,
-      "file": "rainbow-nisha-rokub-no-shichinin.json",
+      "file": "rainbow-nisha-rokubo-no-shichinin.json",
       "article": "List of Rainbow: Nisha Rokubō no Shichinin chapters",
       "chapter_count": 259,
       "sources": [
@@ -3859,6 +3846,19 @@
       "file": "twin-star-exorcists.json",
       "article": "List of Twin Star Exorcists chapters",
       "chapter_count": 140,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
+    },
+    {
+      "series": "Übel Blatt",
+      "slug": "ubel-blatt",
+      "match_key": "ubelblatt",
+      "anilist_id": 30070,
+      "file": "ubel-blatt.json",
+      "article": "List of Übel Blatt chapters",
+      "chapter_count": 171,
       "sources": [
         "wikipedia",
         "comick"

@@ -103,10 +103,12 @@ func FormatChapterNumber(n float64) string {
 }
 
 // Slugify converts a series name into a filesystem- and URL-safe stem.
+// Accented letters are folded to ASCII first, so "Boku wa Imōto ni Koi o Suru"
+// becomes "boku-wa-imoto-..." rather than losing the ō to a separator.
 func Slugify(name string) string {
 	var b strings.Builder
 	lastDash := true // leading dashes are suppressed
-	for _, r := range strings.ToLower(name) {
+	for _, r := range strings.ToLower(FoldAccents(name)) {
 		switch {
 		case (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9'):
 			b.WriteRune(r)
