@@ -1,6 +1,7 @@
 package wikipedia
 
 import (
+	"fmt"
 	"html"
 	"regexp"
 	"strconv"
@@ -26,6 +27,34 @@ var wikiChapterNumPrefix = regexp.MustCompile(`^\s*(\d+(?:\.\d+)?)\s*(?:[–—-
 // "Bonus Material. " or "Extra. ", which denotes an entry that is not a
 // numbered chapter and must not consume a chapter slot.
 var wikiSpecialEntryPrefix = regexp.MustCompile(`^[A-Za-z][A-Za-z0-9 '\-]{0,30}\.\s+`)
+
+// wikiTitleRangeSuffix matches a trailing "(1–4)" on a title, which names the
+// span of parts a collapsed multi-chapter entry covers.
+var wikiTitleRangeSuffix = regexp.MustCompile(`^(.*?)\s*\((\d+)\s*[–—-]\s*(\d+)\)$`)
+
+// expandRangeLabel gives the chapter at offset i of a collapsed entry its own
+// part label: "Nosferatu Zodd (1–4)" over four chapters becomes "(1)".."(4)".
+//
+// Wikipedia writes consecutive same-titled chapters as a single line, and
+// repeating the range on every chapter loses which part is which. The label
+// enumerates the span exactly, so each part is derived rather than guessed --
+// and only when the count it names matches the number of chapters the entry
+// actually covers. Anything else is left untouched.
+func expandRangeLabel(title string, i, span int) string {
+	m := wikiTitleRangeSuffix.FindStringSubmatch(title)
+	if m == nil {
+		return title
+	}
+	first, err := strconv.Atoi(m[2])
+	if err != nil {
+		return title
+	}
+	last, err := strconv.Atoi(m[3])
+	if err != nil || last < first || last-first+1 != span {
+		return title
+	}
+	return fmt.Sprintf("%s (%d)", m[1], first+i)
+}
 
 // wikiListItemValue matches the <li value="245"> that restarts an ordered list
 // at a given chapter, used by articles continuing a series numbered elsewhere.
@@ -154,16 +183,29 @@ func parseChapters(wikitext string, allowBareNumbers bool) (Chapters, int, int) 
 	// number. It runs across every list on the page, in document order.
 	next := 1.0
 
+	// stated records which numbers came from the article rather than from list
+	// position, so an inferred number can be corrected but a stated one cannot.
+	stated := make(map[float64]bool)
+
 	// A few series (Berserk being the notable one) restart their chapter
 	// numbering per arc, so the same number appears more than once on the page.
 	// Keep the first title seen for a number.
-	assign := func(num float64, title string) {
+	//
+	// A number the article states outranks one inferred from list position,
+	// though. List of Berserk chapters opens with unnumbered bullets for the
+	// prologue arc before switching to explicit "* 001." numbering: the bullets
+	// claimed 1-8 positionally, and first-wins then discarded every explicitly
+	// numbered chapter that collided with them. The dataset ended up holding
+	// prologue titles for chapters 1-11 and had lost the real ones.
+	assign := func(num float64, title string, isStated bool) {
 		if title == "" {
 			return
 		}
-		if _, exists := chapters[num]; !exists {
-			chapters[num] = title
+		if _, exists := chapters[num]; exists && !(isStated && !stated[num]) {
+			return
 		}
+		chapters[num] = title
+		stated[num] = stated[num] || isStated
 	}
 
 	for _, field := range extractChapterListFields(wikitext) {
@@ -175,7 +217,7 @@ func parseChapters(wikitext string, allowBareNumbers bool) (Chapters, int, int) 
 			}
 			num := start
 			for _, entry := range numberedListEntries(field) {
-				assign(num, CleanTitle(entry))
+				assign(num, CleanTitle(entry), true)
 				num++
 			}
 			next = num
@@ -226,9 +268,11 @@ func parseChapters(wikitext string, allowBareNumbers bool) (Chapters, int, int) 
 				if title == "" {
 					continue
 				}
-				// A range shares one title across every chapter it covers.
+				// A range shares one title across every chapter it covers,
+				// each getting its own part label where the title names one.
+				span := int(end-start) + 1
 				for n := start; n <= end; n++ {
-					assign(n, title)
+					assign(n, expandRangeLabel(title, int(n-start), span), true)
 				}
 				next = end + 1
 				continue
@@ -256,7 +300,7 @@ func parseChapters(wikitext string, allowBareNumbers bool) (Chapters, int, int) 
 					continue
 				}
 				for n := start; n <= end; n++ {
-					assign(n, rest)
+					assign(n, rest, true)
 				}
 				next = end + 1
 				continue
@@ -267,7 +311,7 @@ func parseChapters(wikitext string, allowBareNumbers bool) (Chapters, int, int) 
 				continue
 			}
 
-			assign(next, title)
+			assign(next, title, false)
 			inferred++
 			next++
 		}

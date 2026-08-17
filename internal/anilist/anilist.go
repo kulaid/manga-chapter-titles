@@ -296,13 +296,18 @@ func matchRank(want string, m Media) int {
 		return len(matchRanks)
 	}
 
-	isNovel := m.Format == "NOVEL"
+	// A serial is the only thing a chapter list can join to. A light novel is
+	// the wrong medium, and a one-shot has a single chapter, so neither can be
+	// right for a multi-chapter series when a serial of the same name exists.
+	// Both stay acceptable as a last resort, because the dataset does carry
+	// light novel and one-shot entries.
+	serial := m.Format != "NOVEL" && m.Format != "ONE_SHOT"
 	switch {
-	case primary && !isNovel:
+	case primary && serial:
 		return 0
 	case primary:
 		return 1
-	case !isNovel:
+	case serial:
 		return 2
 	default:
 		return 3

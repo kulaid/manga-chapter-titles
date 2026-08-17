@@ -42,8 +42,10 @@ func TestParseChapters_numberedList(t *testing.T) {
 }
 
 func TestParseChapters_numberedBulletsAndRanges(t *testing.T) {
-	// "* 012." numbered bullets, including a "* 008–011." range that shares one
-	// title across four chapters, as used by List of Berserk chapters.
+	// "* 012." numbered bullets, including a "* 008–011." range that collapses
+	// four chapters onto one line, as used by List of Berserk chapters. The
+	// "(1–4)" label enumerates the span, so each chapter takes its own part
+	// number -- which is also how the releases themselves are named.
 	wikitext := `
 {{Graphic novel list
 |ChapterList =
@@ -57,10 +59,10 @@ func TestParseChapters_numberedBulletsAndRanges(t *testing.T) {
 
 	assertChapters(t, got, map[float64]string{
 		7:  "Master of the Sword (2)",
-		8:  "Assassin (1–4)",
-		9:  "Assassin (1–4)",
-		10: "Assassin (1–4)",
-		11: "Assassin (1–4)",
+		8:  "Assassin (1)",
+		9:  "Assassin (2)",
+		10: "Assassin (3)",
+		11: "Assassin (4)",
 		12: "Precious Thing",
 	})
 }
@@ -116,11 +118,19 @@ func TestParseChapters_skipsBonusEntries(t *testing.T) {
 
 func TestParseChapters_firstTitleWinsOnDuplicateNumbers(t *testing.T) {
 	// Berserk restarts its numbering per arc, so the same number appears twice
-	// on the page. The earlier entry wins.
+	// on the page. Between two entries that both state their number, the
+	// earlier one wins.
+	//
+	// This test used to assert the opposite of the case below it: that an
+	// unnumbered bullet which happened to land on 1 outranked an explicit
+	// "* 001.". That is the actual shape of List of Berserk chapters, and it
+	// cost the dataset the real titles for chapters 1-11, which were replaced
+	// by the prologue arc's. The assertion described the bug rather than the
+	// intent, so it now covers stated-versus-stated only.
 	wikitext := `
 {{Graphic novel list
 |ChapterList =
-* {{Nihongo|"The Black Swordsman"|黒い剣士|Kuroi Kenshi}}
+* 001. {{Nihongo|"The Black Swordsman"|黒い剣士|Kuroi Kenshi}}
 }}
 {{Graphic novel list
 |ChapterList =
@@ -548,4 +558,101 @@ func TestParseChapters_liValueAppliesPerVolume(t *testing.T) {
 		254: "Naruto's Growth!!",
 		255: "The Next Step",
 	})
+}
+
+func TestParseChapters_explicitNumberBeatsInferredOne(t *testing.T) {
+	// List of Berserk chapters opens with unnumbered bullets for the prologue
+	// arc and then switches to explicit "* 001." numbering. Numbering the
+	// bullets positionally claimed 1-8, and because the first title seen for a
+	// number used to win, every explicitly numbered chapter that followed was
+	// discarded -- the dataset held prologue titles for chapters 1-11 and lost
+	// the real ones entirely.
+	wikitext := `
+{{Graphic novel list
+|VolumeNumber=1
+|ChapterList=
+* {{Nihongo|"The Black Swordsman"|黒い剣士}}
+* {{Nihongo|"The Brand"|烙印}}
+}}
+{{Graphic novel list
+|VolumeNumber=5
+|ChapterList=
+* 001. {{Nihongo|"A Wind of Swords"|剣風}}
+* 002. {{Nihongo|"Nosferatu Zodd"|ゾッド}}
+}}`
+
+	got, _ := ParseChapters(wikitext)
+
+	if got[1] != "A Wind of Swords" {
+		t.Errorf("chapter 1 = %q, want %q (the explicitly numbered entry)", got[1], "A Wind of Swords")
+	}
+	if got[2] != "Nosferatu Zodd" {
+		t.Errorf("chapter 2 = %q, want %q", got[2], "Nosferatu Zodd")
+	}
+}
+
+func TestParseChapters_explicitNumberDoesNotOverwriteAnotherExplicitOne(t *testing.T) {
+	// Berserk really does reuse numbers across arcs. Between two entries that
+	// both state their number, the first still wins -- only inferred ones are
+	// replaceable.
+	wikitext := `
+{{Graphic novel list
+|ChapterList=
+* 001. {{Nihongo|"First Arc Opening"|A}}
+* 001. {{Nihongo|"Second Arc Opening"|B}}
+}}`
+
+	got, _ := ParseChapters(wikitext)
+
+	if got[1] != "First Arc Opening" {
+		t.Errorf("chapter 1 = %q, want the first explicit entry", got[1])
+	}
+}
+
+func TestParseChapters_expandsRangeLabelPerChapter(t *testing.T) {
+	// Wikipedia collapses consecutive same-titled chapters onto one line:
+	// "* 002–005. Nosferatu Zodd (1–4)" is four chapters whose titles are
+	// "(1)" through "(4)". Repeating the range label on each one loses which
+	// part is which, and disagrees with how the releases are actually named.
+	wikitext := `
+{{Graphic novel list
+|ChapterList=
+* 001. {{Nihongo|"A Wind of Swords"|剣風}}
+* 002–005. {{Nihongo|"Nosferatu Zodd (1–4)"|ゾッド}}
+* 006. {{Nihongo|"Master of the Sword (1)"|剣の主}}
+}}`
+
+	got, _ := ParseChapters(wikitext)
+
+	for num, want := range map[float64]string{
+		1: "A Wind of Swords",
+		2: "Nosferatu Zodd (1)",
+		3: "Nosferatu Zodd (2)",
+		4: "Nosferatu Zodd (3)",
+		5: "Nosferatu Zodd (4)",
+		6: "Master of the Sword (1)",
+	} {
+		if got[num] != want {
+			t.Errorf("chapter %v = %q, want %q", num, got[num], want)
+		}
+	}
+}
+
+func TestParseChapters_rangeLabelLeftAloneWhenCountsDisagree(t *testing.T) {
+	// Only expand when the label enumerates exactly as many parts as the range
+	// covers. Anything else is a guess, and a wrong guess relabels every
+	// chapter it touches.
+	wikitext := `
+{{Graphic novel list
+|ChapterList=
+* 002–005. {{Nihongo|"Something (1–2)"|X}}
+}}`
+
+	got, _ := ParseChapters(wikitext)
+
+	for _, n := range []float64{2, 3, 4, 5} {
+		if got[n] != "Something (1–2)" {
+			t.Errorf("chapter %v = %q, want the label left intact", n, got[n])
+		}
+	}
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T20:11:24.554832853Z",
+  "generated_at": "2026-08-17T20:53:56.752075928Z",
   "count": 367,
   "series": [
     {
@@ -42,7 +42,7 @@
       "series": "A Certain Magical Index",
       "slug": "a-certain-magical-index",
       "match_key": "acertainmagicalindex",
-      "anilist_id": 42854,
+      "anilist_id": 37775,
       "file": "a-certain-magical-index.json",
       "article": "List of A Certain Magical Index chapters",
       "chapter_count": 211
@@ -288,7 +288,11 @@
       "anilist_id": 30002,
       "file": "berserk.json",
       "article": "List of Berserk chapters",
-      "chapter_count": 406
+      "chapter_count": 406,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
     },
     {
       "series": "Beyblade: Metal Fusion",
@@ -338,7 +342,7 @@
       "series": "Black Clover",
       "slug": "black-clover",
       "match_key": "blackclover",
-      "anilist_id": 114652,
+      "anilist_id": 86123,
       "file": "black-clover.json",
       "article": "List of Black Clover chapters",
       "chapter_count": 392
@@ -377,11 +381,7 @@
       "anilist_id": 30012,
       "file": "bleach.json",
       "article": "List of Bleach chapters (1–187)",
-      "chapter_count": 706,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 706
     },
     {
       "series": "Blood+",
@@ -405,7 +405,7 @@
       "series": "Blue Box",
       "slug": "blue-box",
       "match_key": "bluebox",
-      "anilist_id": 122342,
+      "anilist_id": 132182,
       "file": "blue-box.json",
       "article": "List of Blue Box chapters",
       "chapter_count": 234
@@ -497,11 +497,7 @@
       "anilist_id": 85307,
       "file": "bungo-stray-dogs.json",
       "article": "List of Bungo Stray Dogs chapters",
-      "chapter_count": 151,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 151
     },
     {
       "series": "Bunny Drop",
@@ -528,10 +524,7 @@
       "anilist_id": 31789,
       "file": "captain-tsubasa.json",
       "article": "List of Captain Tsubasa chapters",
-      "chapter_count": 116,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 116
     },
     {
       "series": "Captain Tsubasa Road to 2002",
@@ -540,11 +533,7 @@
       "anilist_id": 31791,
       "file": "captain-tsubasa-road-to-2002.json",
       "article": "List of Captain Tsubasa Road to 2002 chapters",
-      "chapter_count": 154,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 154
     },
     {
       "series": "Captain Tsubasa World Youth",
@@ -570,10 +559,7 @@
       "anilist_id": 41176,
       "file": "case-closed.json",
       "article": "List of Case Closed volumes (1–20)",
-      "chapter_count": 1055,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 1055
     },
     {
       "series": "Cat's Eye",
@@ -731,7 +717,7 @@
       "series": "Date A Live",
       "slug": "date-a-live",
       "match_key": "datealive",
-      "anilist_id": 67523,
+      "anilist_id": 67163,
       "file": "date-a-live.json",
       "article": "List of Date A Live volumes",
       "chapter_count": 13
@@ -794,7 +780,7 @@
       "series": "Do You Love Your Mom and Her Two-Hit Multi-Target Attacks?",
       "slug": "do-you-love-your-mom-and-her-two-hit-multi-target-attacks",
       "match_key": "doyouloveyourmomandhertwohitmultitargetattacks",
-      "anilist_id": 98280,
+      "anilist_id": 100310,
       "file": "do-you-love-your-mom-and-her-two-hit-multi-target-attacks.json",
       "article": "List of Do You Love Your Mom and Her Two-Hit Multi-Target Attacks? volumes",
       "chapter_count": 12
@@ -860,11 +846,7 @@
       "anilist_id": 30042,
       "file": "dragon-ball.json",
       "article": "List of Dragon Ball manga volumes",
-      "chapter_count": 521,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 521
     },
     {
       "series": "Dragon Ball Super",
@@ -873,11 +855,7 @@
       "anilist_id": 86508,
       "file": "dragon-ball-super.json",
       "article": "List of Dragon Ball Super chapters",
-      "chapter_count": 107,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 107
     },
     {
       "series": "Dragon Ball Z",
@@ -886,10 +864,7 @@
       "anilist_id": 30042,
       "file": "dragon-ball-z.json",
       "article": "List of Dragon Ball Z chapters",
-      "chapter_count": 325,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 325
     },
     {
       "series": "Dragon Eye",
@@ -922,7 +897,7 @@
       "series": "Dragonar Academy",
       "slug": "dragonar-academy",
       "match_key": "dragonaracademy",
-      "anilist_id": 56742,
+      "anilist_id": 56589,
       "file": "dragonar-academy.json",
       "article": "List of Dragonar Academy volumes",
       "chapter_count": 65
@@ -988,11 +963,7 @@
       "anilist_id": 30598,
       "file": "fairy-tail.json",
       "article": "List of Fairy Tail chapters (volumes 1–15)",
-      "chapter_count": 552,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 552
     },
     {
       "series": "Fairy Tail: 100 Years Quest",
@@ -1133,7 +1104,7 @@
       "series": "Future Diary",
       "slug": "future-diary",
       "match_key": "futurediary",
-      "anilist_id": 95441,
+      "anilist_id": 30584,
       "file": "future-diary.json",
       "article": "List of Future Diary chapters",
       "chapter_count": 59
@@ -1154,10 +1125,7 @@
       "anilist_id": 33572,
       "file": "gambling-apocalypse-kaiji.json",
       "article": "List of Gambling Apocalypse: Kaiji chapters",
-      "chapter_count": 158,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 158
     },
     {
       "series": "Gantz",
@@ -1208,7 +1176,6 @@
       "series": "Girlfriend, Girlfriend",
       "slug": "girlfriend-girlfriend",
       "match_key": "girlfriendgirlfriend",
-      "anilist_id": 116266,
       "file": "girlfriend-girlfriend.json",
       "article": "List of Girlfriend, Girlfriend chapters",
       "chapter_count": 152
@@ -1292,11 +1259,7 @@
       "anilist_id": 30007,
       "file": "hajime-no-ippo.json",
       "article": "List of Hajime no Ippo volumes (1–20)",
-      "chapter_count": 1517,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 1517
     },
     {
       "series": "Hana-Kimi",
@@ -1337,7 +1300,7 @@
       "series": "Heaven's Lost Property",
       "slug": "heaven-s-lost-property",
       "match_key": "heavenslostproperty",
-      "anilist_id": 95876,
+      "anilist_id": 38144,
       "file": "heaven-s-lost-property.json",
       "article": "List of Heaven's Lost Property chapters",
       "chapter_count": 77
@@ -1364,7 +1327,7 @@
       "series": "Hellsing",
       "slug": "hellsing",
       "match_key": "hellsing",
-      "anilist_id": 39760,
+      "anilist_id": 30267,
       "file": "hellsing.json",
       "article": "List of Hellsing chapters",
       "chapter_count": 89
@@ -1497,7 +1460,7 @@
       "series": "In Another World with My Smartphone",
       "slug": "in-another-world-with-my-smartphone",
       "match_key": "inanotherworldwithmysmartphone",
-      "anilist_id": 87174,
+      "anilist_id": 99465,
       "file": "in-another-world-with-my-smartphone.json",
       "article": "List of In Another World with My Smartphone volumes",
       "chapter_count": 153
@@ -1518,17 +1481,13 @@
       "anilist_id": 30676,
       "file": "inuyasha.json",
       "article": "List of Inuyasha chapters (1–198)",
-      "chapter_count": 559,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 559
     },
     {
       "series": "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
       "slug": "is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon",
       "match_key": "isitwrongtotrytopickupgirlsinadungeon",
-      "anilist_id": 85162,
+      "anilist_id": 85161,
       "file": "is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon.json",
       "article": "List of Is It Wrong to Try to Pick Up Girls in a Dungeon? chapters",
       "chapter_count": 87
@@ -1537,7 +1496,7 @@
       "series": "Is It Wrong to Try to Pick Up Girls in a Dungeon? On the Side: Sword Oratoria",
       "slug": "is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-on-the-side-sword-oratoria",
       "match_key": "isitwrongtotrytopickupgirlsinadungeononthesideswordoratoria",
-      "anilist_id": 85635,
+      "anilist_id": 85634,
       "file": "is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-on-the-side-sword-oratoria.json",
       "article": "List of Is It Wrong to Try to Pick Up Girls in a Dungeon? On the Side: Sword Oratoria chapters",
       "chapter_count": 12
@@ -1576,11 +1535,7 @@
       "anilist_id": 120760,
       "file": "kaiju-no-8.json",
       "article": "List of Kaiju No. 8 chapters",
-      "chapter_count": 93,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 93
     },
     {
       "series": "Kakegurui",
@@ -1649,7 +1604,7 @@
       "series": "Kimi ni Todoke",
       "slug": "kimi-ni-todoke",
       "match_key": "kiminitodoke",
-      "anilist_id": 53942,
+      "anilist_id": 33378,
       "file": "kimi-ni-todoke.json",
       "article": "List of Kimi ni Todoke chapters",
       "chapter_count": 124
@@ -1730,7 +1685,7 @@
       "series": "Love Hina",
       "slug": "love-hina",
       "match_key": "lovehina",
-      "anilist_id": 35931,
+      "anilist_id": 30016,
       "file": "love-hina.json",
       "article": "List of Love Hina chapters",
       "chapter_count": 118
@@ -1777,10 +1732,7 @@
       "anilist_id": 40978,
       "file": "major.json",
       "article": "List of Major volumes (1–20)",
-      "chapter_count": 747,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 747
     },
     {
       "series": "Major 2nd",
@@ -1789,11 +1741,7 @@
       "anilist_id": 86144,
       "file": "major-2nd.json",
       "article": "List of Major 2nd volumes",
-      "chapter_count": 274,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 274
     },
     {
       "series": "Mao",
@@ -1817,7 +1765,7 @@
       "series": "Mars",
       "slug": "mars",
       "match_key": "mars",
-      "anilist_id": 195085,
+      "anilist_id": 60935,
       "file": "mars.json",
       "article": "List of Mars chapters",
       "chapter_count": 3
@@ -1916,7 +1864,7 @@
       "series": "My Hero Academia",
       "slug": "my-hero-academia",
       "match_key": "myheroacademia",
-      "anilist_id": 97154,
+      "anilist_id": 85486,
       "file": "my-hero-academia.json",
       "article": "List of My Hero Academia chapters",
       "chapter_count": 431
@@ -1946,11 +1894,7 @@
       "anilist_id": 30011,
       "file": "naruto.json",
       "article": "List of Naruto chapters (Part I)",
-      "chapter_count": 700,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 700
     },
     {
       "series": "Negima! Magister Negi Magi",
@@ -1983,13 +1927,10 @@
       "series": "Nisekoi",
       "slug": "nisekoi",
       "match_key": "nisekoi",
-      "anilist_id": 54172,
+      "anilist_id": 61499,
       "file": "nisekoi.json",
       "article": "List of Nisekoi chapters",
-      "chapter_count": 219,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 219
     },
     {
       "series": "Nodame Cantabile",
@@ -2040,13 +1981,10 @@
       "series": "Omamori Himari",
       "slug": "omamori-himari",
       "match_key": "omamorihimari",
-      "anilist_id": 54763,
+      "anilist_id": 31745,
       "file": "omamori-himari.json",
       "article": "List of Omamori Himari chapters",
-      "chapter_count": 81,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 81
     },
     {
       "series": "One Piece",
@@ -2055,11 +1993,7 @@
       "anilist_id": 30013,
       "file": "one-piece.json",
       "article": "List of One Piece chapters (1–186)",
-      "chapter_count": 1193,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 1193
     },
     {
       "series": "One-Punch Man",
@@ -2190,7 +2124,7 @@
       "series": "Radiant",
       "slug": "radiant",
       "match_key": "radiant",
-      "anilist_id": 104693,
+      "anilist_id": 137453,
       "file": "radiant.json",
       "article": "List of Radiant volumes",
       "chapter_count": 148
@@ -2211,11 +2145,7 @@
       "anilist_id": 30023,
       "file": "ranma.json",
       "article": "List of Ranma ½ chapters",
-      "chapter_count": 408,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 408
     },
     {
       "series": "Rave Master",
@@ -2320,7 +2250,7 @@
       "series": "Saekano",
       "slug": "saekano",
       "match_key": "saekano",
-      "anilist_id": 79567,
+      "anilist_id": 81309,
       "file": "saekano.json",
       "article": "List of Saekano volumes",
       "chapter_count": 51
@@ -2341,10 +2271,7 @@
       "anilist_id": 31045,
       "file": "saint-seiya.json",
       "article": "List of Saint Seiya chapters (series)",
-      "chapter_count": 110,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 110
     },
     {
       "series": "Saint Seiya Episode.G",
@@ -2353,11 +2280,7 @@
       "anilist_id": 31046,
       "file": "saint-seiya-episode-g.json",
       "article": "List of Saint Seiya Episode.G chapters",
-      "chapter_count": 139,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 139
     },
     {
       "series": "Saint Seiya: The Lost Canvas",
@@ -2434,7 +2357,7 @@
       "series": "Seirei Gensouki: Spirit Chronicles",
       "slug": "seirei-gensouki-spirit-chronicles",
       "match_key": "seireigensoukispiritchronicles",
-      "anilist_id": 86774,
+      "anilist_id": 99587,
       "file": "seirei-gensouki-spirit-chronicles.json",
       "article": "List of Seirei Gensouki: Spirit Chronicles volumes",
       "chapter_count": 60
@@ -2590,10 +2513,7 @@
       "anilist_id": 37546,
       "file": "speed-racer.json",
       "article": "List of Speed Racer chapters",
-      "chapter_count": 4,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 4
     },
     {
       "series": "Spy × Family",
@@ -2725,7 +2645,7 @@
       "series": "The Executioner and Her Way of Life",
       "slug": "the-executioner-and-her-way-of-life",
       "match_key": "theexecutionerandherwayoflife",
-      "anilist_id": 110683,
+      "anilist_id": 119857,
       "file": "the-executioner-and-her-way-of-life.json",
       "article": "List of The Executioner and Her Way of Life volumes",
       "chapter_count": 47
@@ -2743,7 +2663,7 @@
       "series": "The Flowers of Evil",
       "slug": "the-flowers-of-evil",
       "match_key": "theflowersofevil",
-      "anilist_id": 35767,
+      "anilist_id": 54705,
       "file": "the-flowers-of-evil.json",
       "article": "List of The Flowers of Evil chapters",
       "chapter_count": 56
@@ -2824,7 +2744,7 @@
       "series": "The Saga of Tanya the Evil",
       "slug": "the-saga-of-tanya-the-evil",
       "match_key": "thesagaoftanyatheevil",
-      "anilist_id": 94846,
+      "anilist_id": 97216,
       "file": "the-saga-of-tanya-the-evil.json",
       "article": "List of The Saga of Tanya the Evil volumes",
       "chapter_count": 116
@@ -2899,10 +2819,7 @@
       "anilist_id": 33574,
       "file": "tobaku-datenroku-kaiji.json",
       "article": "List of Tobaku Datenroku Kaiji chapters",
-      "chapter_count": 131,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 131
     },
     {
       "series": "Tobaku Datenroku Kaiji: 24 Oku Dasshutsu-hen",
@@ -2911,10 +2828,7 @@
       "anilist_id": 101556,
       "file": "tobaku-datenroku-kaiji-24-oku-dasshutsu-hen.json",
       "article": "List of Tobaku Datenroku Kaiji: 24 Oku Dasshutsu-hen chapters",
-      "chapter_count": 203,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 203
     },
     {
       "series": "Tobaku Datenroku Kaiji: Kazuya-hen",
@@ -2923,10 +2837,7 @@
       "anilist_id": 46659,
       "file": "tobaku-datenroku-kaiji-kazuya-hen.json",
       "article": "List of Tobaku Datenroku Kaiji: Kazuya-hen chapters",
-      "chapter_count": 100,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 100
     },
     {
       "series": "Tobaku Datenroku Kaiji: One Poker-hen",
@@ -2935,10 +2846,7 @@
       "anilist_id": 89278,
       "file": "tobaku-datenroku-kaiji-one-poker-hen.json",
       "article": "List of Tobaku Datenroku Kaiji: One Poker-hen chapters",
-      "chapter_count": 155,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 155
     },
     {
       "series": "Tobaku Hakairoku Kaiji",
@@ -2947,10 +2855,7 @@
       "anilist_id": 33573,
       "file": "tobaku-hakairoku-kaiji.json",
       "article": "List of Tobaku Hakairoku Kaiji chapters",
-      "chapter_count": 134,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 134
     },
     {
       "series": "Toilet-Bound Hanako-kun",
@@ -2992,7 +2897,7 @@
       "series": "Tomie",
       "slug": "tomie",
       "match_key": "tomie",
-      "anilist_id": 145235,
+      "anilist_id": 30912,
       "file": "tomie.json",
       "article": "List of Tomie chapters",
       "chapter_count": 20
@@ -3010,7 +2915,7 @@
       "series": "Toriko",
       "slug": "toriko",
       "match_key": "toriko",
-      "anilist_id": 121318,
+      "anilist_id": 37887,
       "file": "toriko.json",
       "article": "List of Toriko chapters",
       "chapter_count": 396
@@ -3037,7 +2942,7 @@
       "series": "Trigun",
       "slug": "trigun",
       "match_key": "trigun",
-      "anilist_id": 151099,
+      "anilist_id": 30703,
       "file": "trigun.json",
       "article": "List of Trigun chapters",
       "chapter_count": 98
@@ -3298,7 +3203,7 @@
       "series": "Yona of the Dawn",
       "slug": "yona-of-the-dawn",
       "match_key": "yonaofthedawn",
-      "anilist_id": 87035,
+      "anilist_id": 51525,
       "file": "yona-of-the-dawn.json",
       "article": "List of Yona of the Dawn volumes",
       "chapter_count": 274
@@ -3316,7 +3221,7 @@
       "series": "Yu-Gi-Oh!",
       "slug": "yu-gi-oh",
       "match_key": "yugioh",
-      "anilist_id": 94558,
+      "anilist_id": 30054,
       "file": "yu-gi-oh.json",
       "article": "List of Yu-Gi-Oh! chapters",
       "chapter_count": 343
@@ -3334,7 +3239,7 @@
       "series": "Yu-Gi-Oh! Arc-V",
       "slug": "yu-gi-oh-arc-v",
       "match_key": "yugioharcv",
-      "anilist_id": 91641,
+      "anilist_id": 95866,
       "file": "yu-gi-oh-arc-v.json",
       "article": "List of Yu-Gi-Oh! Arc-V chapters",
       "chapter_count": 45
@@ -3391,10 +3296,7 @@
       "anilist_id": 31534,
       "file": "zetman.json",
       "article": "List of Zetman chapters",
-      "chapter_count": 226,
-      "sources": [
-        "wikipedia"
-      ]
+      "chapter_count": 226
     }
   ]
 }

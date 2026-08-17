@@ -184,3 +184,27 @@ func TestMatch_primaryTitleBeatsSynonymOnAnotherWork(t *testing.T) {
 		t.Errorf("Match = %d, want the novel 92603 over the doujin", got)
 	}
 }
+
+func TestMatch_prefersSerialOverOneShot(t *testing.T) {
+	// AniList carries a one-chapter "Medaka Box" one-shot alongside the
+	// 194-chapter serial. Both are comics and both match the name, so ranking
+	// on format alone left search order to decide and it picked the one-shot.
+	// A single-chapter work can never be the right join for a chapter list.
+	oneShot := Media{ID: 45143, Format: "ONE_SHOT"}
+	oneShot.Title.Romaji = "Medaka Box"
+	serial := Media{ID: 43949, Format: "MANGA"}
+	serial.Title.Romaji = "Medaka Box"
+
+	if got, _ := Match("Medaka Box", []Media{oneShot, serial}); got != 43949 {
+		t.Errorf("Match = %d, want the serial 43949", got)
+	}
+}
+
+func TestMatch_acceptsOneShotWhenItIsTheOnlyMatch(t *testing.T) {
+	// Some entries in the dataset really are one-shots.
+	only := Media{ID: 55482, Format: "ONE_SHOT"}
+	only.Title.Romaji = "Fairy Tail x Rave"
+	if got, ok := Match("Fairy Tail x Rave", []Media{only}); !ok || got != 55482 {
+		t.Errorf("Match = %d, %v; want 55482, true", got, ok)
+	}
+}
