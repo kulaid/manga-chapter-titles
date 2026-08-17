@@ -1,6 +1,9 @@
 package wikipedia
 
-import "testing"
+import (
+	"strings"
+	"testing"
+)
 
 // The fixtures below are trimmed from real articles; each one covers a list
 // format or markup quirk that broke an earlier version of the parser.
@@ -397,4 +400,101 @@ func TestParseChapters_mixedBulletAndOrderedMarkers(t *testing.T) {
 	got, _ := ParseChapters(wikitext)
 
 	assertChapters(t, got, map[float64]string{1: "One", 2: "Two", 3: "Three"})
+}
+
+// A {{efn}} footnote annotates a title; its body is prose about the title, not
+// part of it. Unwrapping it to the first positional parameter — correct for
+// {{Nihongo}} — spliced a paragraph of commentary into Vinland Saga chapter
+// 101, producing a "title" far too long to be a filename.
+func TestCleanTitle_dropsExplanatoryFootnotes(t *testing.T) {
+	entry := `{{Nihongo|"The Fettered Tern (1)"{{efn|In the Japanese release, the ` +
+		`titles of the "Fettered Tern" chapters feature the word クリーア in ` +
+		`parentheses. This is a rendering of kría, the Icelandic word for the ` +
+		`Arctic tern.}}|繋がれた鴎（クリーア）|Tsunagareta Kurīa}}`
+
+	got := CleanTitle(entry)
+
+	if want := "The Fettered Tern (1)"; got != want {
+		t.Errorf("CleanTitle() = %q, want %q", got, want)
+	}
+}
+
+func TestCleanTitle_dropsCitationsAndRefTemplates(t *testing.T) {
+	cases := map[string]string{
+		`"Ragnarok"{{refn|group=note|Serialised out of order.}}`: "Ragnarok",
+		`"Sword"{{sfn|Yukimura|2007|p=12}}`:                      "Sword",
+		`"Cage"{{cite web|url=http://x|title=Not The Title}}`:    "Cage",
+		`"Troll"{{r|source1}}`:                                   "Troll",
+	}
+
+	for entry, want := range cases {
+		if got := CleanTitle(entry); got != want {
+			t.Errorf("CleanTitle(%q) = %q, want %q", entry, got, want)
+		}
+	}
+}
+
+// The drop list must not swallow templates that legitimately supply title text.
+func TestCleanTitle_keepsTitleBearingTemplates(t *testing.T) {
+	cases := map[string]string{
+		`{{Nihongo|"Normanni"|ノルマンニ|Norumanni}}`: "Normanni",
+		`{{W|Shueisha}}`: "Shueisha",
+	}
+
+	for entry, want := range cases {
+		if got := CleanTitle(entry); got != want {
+			t.Errorf("CleanTitle(%q) = %q, want %q", entry, got, want)
+		}
+	}
+}
+
+// resolveTemplates removes one template per pass, so a fixed pass cap silently
+// left the surplus in place. Entries that bundle a chapter with its extras —
+// each a {{Nihongo}} wrapping a {{Ruby-ja}} — cleared ten easily, leaking raw
+// "}}" and the next entry's text into the title (Arifureta chapter 20 and 65
+// others in the built dataset).
+func TestCleanTitle_resolvesMoreThanTenTemplates(t *testing.T) {
+	entry := `{{Nihongo|"The Reisen Labyrinth"|樹海の迷宮|Jukai no Meikyū}}`
+	for i := 0; i < 15; i++ {
+		entry += ` {{W|extra}}`
+	}
+
+	got := CleanTitle(entry)
+
+	if strings.Contains(got, "{{") || strings.Contains(got, "}}") {
+		t.Errorf("unresolved template markup survived: %q", got)
+	}
+	if !strings.HasPrefix(got, "The Reisen Labyrinth") {
+		t.Errorf("CleanTitle() = %q, want it to start with the real title", got)
+	}
+}
+
+// Articles routinely follow a {{Numbered list}} with ":*" bullets for epilogues
+// and extra chapters. When one of those bullets contained its own {{Nihongo}},
+// taking the last "}}" in the field as the list's close swallowed the trailing
+// bullets into the final chapter title (Arifureta chapters 20, 26, 32 and 63
+// others in the built dataset).
+func TestParseChapters_trailingBulletsAfterNumberedList(t *testing.T) {
+	wikitext := `
+{{Graphic novel list
+| ChapterList     =
+{{Numbered list|start=19
+ | "Rabbit Reformation"
+ | "The Reisen Labyrinth"
+}}
+:* "Epilogue"
+:* Extra Chapter: {{Nihongo|"Yeah, I'm a Monster."|魔物ですが何か|Mamono desu ga Nanika}}
+| LineColor       = CC0000
+}}`
+
+	got, _ := ParseChapters(wikitext)
+
+	if title := got[20]; title != "The Reisen Labyrinth" {
+		t.Errorf("chapter 20 = %q, want %q — trailing bullets leaked into the title", title, "The Reisen Labyrinth")
+	}
+	for num, title := range got {
+		if strings.Contains(title, "{{") || strings.Contains(title, "}}") {
+			t.Errorf("chapter %v kept raw template markup: %q", num, title)
+		}
+	}
 }

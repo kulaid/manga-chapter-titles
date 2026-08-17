@@ -57,6 +57,54 @@ var wikiRefTag = regexp.MustCompile(`(?is)<ref[^>]*/>|<ref[^>]*>.*?</ref>`)
 // wikiComment strips <!-- ... --> comments.
 var wikiComment = regexp.MustCompile(`(?s)<!--.*?-->`)
 
+// wikiDroppedTemplates names templates whose body is an annotation about the
+// title rather than part of it — explanatory footnotes and citations.
+//
+// These must be removed whole, not unwrapped. resolveTemplates replaces a
+// template with its first positional parameter, which is right for {{Nihongo}}
+// but catastrophic here: the first parameter of {{efn|In the Japanese release
+// the titles feature クリーア...}} is the footnote prose itself, so unwrapping
+// splices a paragraph of commentary into the chapter title.
+var wikiDroppedTemplates = map[string]bool{
+	"efn":      true,
+	"efn-ua":   true,
+	"efn-lr":   true,
+	"efn-lg":   true,
+	"refn":     true,
+	"notetag":  true,
+	"note":     true,
+	"ref":      true,
+	"r":        true,
+	"sfn":      true,
+	"sfnp":     true,
+	"harvnb":   true,
+	"harvtxt":  true,
+	"citation": true,
+}
+
+// templateName returns a template's lowercased name — the text before the first
+// parameter separator. Citation templates are a family ("cite web", "cite
+// book", ...), so the leading word is compared too.
+func templateName(body string) string {
+	name := body
+	if i := strings.IndexByte(name, '|'); i >= 0 {
+		name = name[:i]
+	}
+	name = strings.ToLower(strings.TrimSpace(name))
+	name = strings.TrimPrefix(name, "#tag:")
+	if first, _, found := strings.Cut(name, " "); found && first == "cite" {
+		return "cite"
+	}
+	return name
+}
+
+// isDroppedTemplate reports whether a template body belongs to an annotation
+// template that must be removed rather than unwrapped.
+func isDroppedTemplate(body string) bool {
+	name := templateName(body)
+	return name == "cite" || wikiDroppedTemplates[name]
+}
+
 // wikiHTMLTag strips any leftover HTML tags (e.g. <br />, <small>).
 var wikiHTMLTag = regexp.MustCompile(`(?s)<[^>]+>`)
 
@@ -310,8 +358,15 @@ func numberedListEntries(field string) []string {
 		return nil
 	}
 	// Trim to the template body, excluding the outer "{{" and "}}".
+	//
+	// The close brace has to be the one that actually matches this "{{", found
+	// by tracking nesting depth. Taking the last "}}" in the field instead
+	// swallowed everything after the list: articles routinely follow a
+	// {{Numbered list}} with ":*" bullets for epilogues and extra chapters, and
+	// when one of those contained its own {{Nihongo}}, its "}}" was mistaken for
+	// the list's own — gluing the trailing bullets onto the final chapter title.
 	body := field[start+2:]
-	if end := strings.LastIndex(body, "}}"); end >= 0 {
+	if end := matchingClose(body); end >= 0 {
 		body = body[:end]
 	}
 
@@ -394,9 +449,14 @@ func CleanTitle(entry string) string {
 // parameter, working innermost-first. For {{Nihongo|"X"|漢字|romaji}} this
 // yields the English title; for {{W|Shueisha}} it yields the plain word.
 func resolveTemplates(s string) string {
-	// Bounded loop: each pass removes at least one template, and deeply nested
-	// titles are rare, so this converges well before the limit.
-	for pass := 0; pass < 10; pass++ {
+	// Each pass removes exactly one template, so the bound has to scale with how
+	// many the entry actually contains. A fixed cap of 10 silently left the rest
+	// in place, and an entry that bundles a chapter with its extras — each one a
+	// {{Nihongo}} wrapping a {{Ruby-ja}} — passes that easily, leaking raw "}}"
+	// and the following entry's text into the title. The +2 covers the closing
+	// pass; the count is an exact upper bound on the work remaining.
+	maxPasses := strings.Count(s, "{{") + 2
+	for pass := 0; pass < maxPasses; pass++ {
 		open := -1
 		for i := 0; i+1 < len(s); i++ {
 			if s[i] == '{' && s[i+1] == '{' {
@@ -404,7 +464,11 @@ func resolveTemplates(s string) string {
 			}
 			if s[i] == '}' && s[i+1] == '}' && open >= 0 {
 				body := s[open+2 : i]
-				s = s[:open] + firstPositionalParam(body) + s[i+2:]
+				replacement := ""
+				if !isDroppedTemplate(body) {
+					replacement = firstPositionalParam(body)
+				}
+				s = s[:open] + replacement + s[i+2:]
 				open = -1
 				break
 			}
@@ -457,4 +521,26 @@ func resolveLinks(s string) string {
 		s = s[:open] + inner + s[end+2:]
 	}
 	return s
+}
+
+// matchingClose returns the index of the "}}" that closes a template whose
+// opening "{{" has already been consumed, or -1 if the body is unterminated.
+// Nested templates and wikilinks are skipped, so the result is the outer
+// template's own close rather than whichever "}}" happens to come last.
+func matchingClose(body string) int {
+	depth := 0
+	for i := 0; i+1 < len(body); i++ {
+		switch {
+		case strings.HasPrefix(body[i:], "{{"), strings.HasPrefix(body[i:], "[["):
+			depth++
+			i++
+		case strings.HasPrefix(body[i:], "}}"), strings.HasPrefix(body[i:], "]]"):
+			if depth == 0 {
+				return i
+			}
+			depth--
+			i++
+		}
+	}
+	return -1
 }
