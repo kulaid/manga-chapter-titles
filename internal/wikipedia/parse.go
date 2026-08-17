@@ -27,6 +27,10 @@ var wikiChapterNumPrefix = regexp.MustCompile(`^\s*(\d+(?:\.\d+)?)\s*(?:[–—-
 // numbered chapter and must not consume a chapter slot.
 var wikiSpecialEntryPrefix = regexp.MustCompile(`^[A-Za-z][A-Za-z0-9 '\-]{0,30}\.\s+`)
 
+// wikiListItemValue matches the <li value="245"> that restarts an ordered list
+// at a given chapter, used by articles continuing a series numbered elsewhere.
+var wikiListItemValue = regexp.MustCompile(`^<li\s+value\s*=\s*["']?(\d+(?:\.\d+)?)["']?\s*>\s*`)
+
 // wikiExtraEntry matches a cleaned title that names bonus content rather than a
 // numbered chapter, e.g. "Bonus Navigation: Colds and Pudding" or "Afterword".
 // These sit inside chapter lists but are not part of the numbering.
@@ -189,6 +193,21 @@ func parseChapters(wikitext string, allowBareNumbers bool) (Chapters, int, int) 
 			entry := strings.TrimSpace(strings.TrimLeft(line, "*#"))
 			if entry == "" {
 				continue
+			}
+
+			// An article continuing a series numbered in an earlier article
+			// carries the real chapter number as <li value="245">, because the
+			// ordered list itself would restart at 1. The attribute is exact,
+			// so it overrides the running count and every following entry
+			// counts on from it.
+			if m := wikiListItemValue.FindStringSubmatch(entry); m != nil {
+				if v, err := strconv.ParseFloat(m[1], 64); err == nil {
+					next = v
+				}
+				entry = strings.TrimSpace(entry[len(m[0]):])
+				if entry == "" {
+					continue
+				}
 			}
 
 			if m := wikiChapterNumPrefix.FindStringSubmatch(entry); m != nil {

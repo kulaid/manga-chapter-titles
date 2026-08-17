@@ -498,3 +498,54 @@ func TestParseChapters_trailingBulletsAfterNumberedList(t *testing.T) {
 		}
 	}
 }
+
+func TestParseChapters_liValueSetsChapterNumber(t *testing.T) {
+	// List of Naruto chapters (Part II, volumes 28–48) continues a series that
+	// began in another article. The ordered list would restart at 1, so the
+	// real number is carried as an HTML <li value="..."> attribute and every
+	// following entry counts on from it. Ignoring it numbered 450+ licensed
+	// titles from 1, where they collided with Part I and were discarded.
+	wikitext := `
+{{Graphic novel list
+|VolumeNumber=28
+|ChapterList=
+#<li value="245">{{nihongo|"Homecoming!!"|ナルトの帰郷!!|"Naruto no kikyō!!"}}</li>
+#{{nihongo-s|"My, How They've Grown!!"|二人の成長!!|"Futari no seichō!!"}}
+#{{nihongo-s|"Intruders in the Sand"|砂への侵入者たち|"Suna e no shinnyūsha-tachi"}}
+}}`
+
+	got, _ := ParseChapters(wikitext)
+
+	assertChapters(t, got, map[float64]string{
+		245: "Homecoming!!",
+		246: "My, How They've Grown!!",
+		247: "Intruders in the Sand",
+	})
+}
+
+func TestParseChapters_liValueAppliesPerVolume(t *testing.T) {
+	// Each volume block carries its own <li value=...>, and the count has to
+	// pick up from each one rather than run on from the previous list.
+	wikitext := `
+{{Graphic novel list
+|VolumeNumber=28
+|ChapterList=
+#<li value="245">{{nihongo|"Homecoming!!"|ナルトの帰郷!!}}</li>
+#{{nihongo-s|"My, How They've Grown!!"|二人の成長!!}}
+}}
+{{Graphic novel list
+|VolumeNumber=29
+|ChapterList=
+#<li value="254">{{nihongo|"Naruto's Growth!!"|ナルトの成長!!}}</li>
+#{{nihongo-s|"The Next Step"|次の一歩}}
+}}`
+
+	got, _ := ParseChapters(wikitext)
+
+	assertChapters(t, got, map[float64]string{
+		245: "Homecoming!!",
+		246: "My, How They've Grown!!",
+		254: "Naruto's Growth!!",
+		255: "The Next Step",
+	})
+}

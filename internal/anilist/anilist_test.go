@@ -120,3 +120,67 @@ func TestNamesSkipsEmptyTitles(t *testing.T) {
 		}
 	}
 }
+
+func TestMatch_prefersComicOverNovel(t *testing.T) {
+	// AniList's type:MANGA covers light novels too, and it returned the
+	// 29-chapter "FAIRY TAIL" novel ahead of the 549-chapter manga. Both
+	// normalise to the same title, so search order decided it and the dataset
+	// ended up joined to the wrong work.
+	candidates := []Media{
+		{ID: 92603, Format: "NOVEL"},
+		{ID: 30598, Format: "MANGA"},
+	}
+	candidates[0].Title.Romaji = "FAIRY TAIL"
+	candidates[1].Title.Romaji = "FAIRY TAIL"
+
+	got, ok := Match("Fairy Tail", candidates)
+	if !ok {
+		t.Fatal("Match reported no candidate")
+	}
+	if got != 30598 {
+		t.Errorf("Match = %d, want the manga 30598", got)
+	}
+}
+
+func TestMatch_acceptsNovelWhenItIsTheOnlyMatch(t *testing.T) {
+	// The dataset legitimately carries light novel series, so a novel is a
+	// valid answer when nothing else matches the name.
+	candidates := []Media{{ID: 12345, Format: "NOVEL"}}
+	candidates[0].Title.Romaji = "Monogatari"
+
+	got, ok := Match("Monogatari", candidates)
+	if !ok || got != 12345 {
+		t.Errorf("Match = %d, %v; want 12345, true", got, ok)
+	}
+}
+
+func TestMatch_keepsSearchOrderWithinTheSameFormat(t *testing.T) {
+	candidates := []Media{{ID: 111, Format: "MANGA"}, {ID: 222, Format: "MANGA"}}
+	candidates[0].Title.Romaji = "Berserk"
+	candidates[1].Title.Romaji = "Berserk"
+
+	if got, _ := Match("Berserk", candidates); got != 111 {
+		t.Errorf("Match = %d, want the first match 111", got)
+	}
+}
+
+func TestMatch_primaryTitleBeatsSynonymOnAnotherWork(t *testing.T) {
+	// "Pantsu Agerune" is a nine-chapter doujin carrying "Fairy Tail" as a
+	// synonym. Preferring a comic over a novel is right, but not at the cost of
+	// picking an unrelated work over the series itself.
+	doujin := Media{ID: 128087, Format: "MANGA", Synonyms: []string{"Fairy Tail"}}
+	doujin.Title.Romaji = "Pantsu Agerune"
+	novel := Media{ID: 92603, Format: "NOVEL"}
+	novel.Title.Romaji = "FAIRY TAIL"
+	manga := Media{ID: 30598, Format: "MANGA"}
+	manga.Title.Romaji = "FAIRY TAIL"
+
+	if got, _ := Match("Fairy Tail", []Media{novel, doujin, manga}); got != 30598 {
+		t.Errorf("Match = %d, want the manga 30598", got)
+	}
+	// Even with no manga present, the novel that is actually named Fairy Tail
+	// beats the doujin that merely lists it.
+	if got, _ := Match("Fairy Tail", []Media{doujin, novel}); got != 92603 {
+		t.Errorf("Match = %d, want the novel 92603 over the doujin", got)
+	}
+}

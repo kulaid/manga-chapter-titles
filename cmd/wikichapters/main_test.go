@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"path/filepath"
+	"reflect"
 	"testing"
 
 	"github.com/kulaid/manga-chapter-titles/chaptertitles"
@@ -156,5 +157,47 @@ func TestMergeCollisionWarning(t *testing.T) {
 	// An article that legitimately holds nothing must not warn either.
 	if w := mergeCollisionWarning("Empty", 0, 0); w != "" {
 		t.Errorf("expected no warning for an empty part, got %q", w)
+	}
+}
+
+func TestOrderArticlesForMerge_chaptersBeforeVolumes(t *testing.T) {
+	// Wikipedia often has both a "volumes" and a "chapters" article for one
+	// series. The volumes article numbers entries by position within each
+	// volume; the chapters article carries the real chapter numbers. Whichever
+	// is merged first keeps the numbering, so the chapters article has to win.
+	// Captain Tsubasa's chapters article contributed 0 of its 114 chapters
+	// until this ordering existed.
+	got := orderArticlesForMerge([]string{
+		"List of Captain Tsubasa volumes",
+		"List of Captain Tsubasa chapters",
+	})
+	want := []string{
+		"List of Captain Tsubasa chapters",
+		"List of Captain Tsubasa volumes",
+	}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %q, want %q", got, want)
+	}
+}
+
+func TestOrderArticlesForMerge_keepsSeriesOrderAndPartOrder(t *testing.T) {
+	// Series keep the order they were enumerated in, and the parts of one
+	// series keep theirs, so a rebuild stays predictable.
+	got := orderArticlesForMerge([]string{
+		"List of Zetman chapters",
+		"List of Fairy Tail volumes",
+		"List of Fairy Tail chapters (volumes 1–15)",
+		"List of Fairy Tail chapters (volumes 16–30)",
+		"List of Berserk chapters",
+	})
+	want := []string{
+		"List of Zetman chapters",
+		"List of Fairy Tail chapters (volumes 1–15)",
+		"List of Fairy Tail chapters (volumes 16–30)",
+		"List of Fairy Tail volumes",
+		"List of Berserk chapters",
+	}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %q\nwant %q", got, want)
 	}
 }

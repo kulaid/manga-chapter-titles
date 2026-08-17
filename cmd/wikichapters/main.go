@@ -13,6 +13,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"regexp"
 	"sort"
 	"strconv"
 	"strings"
@@ -179,6 +180,7 @@ func runBuild(args []string) error {
 	if *limit > 0 && len(articles) > *limit {
 		articles = articles[:*limit]
 	}
+	articles = orderArticlesForMerge(articles)
 	fmt.Fprintf(os.Stderr, "Scraping %d articles into %s/ (delay %s)\n\n", len(articles), *out, *delay)
 
 	// Reuse the IDs an earlier run already resolved. Each lookup costs ~1.5s of
@@ -303,6 +305,7 @@ func runAdd(args []string) error {
 	useComick := fs.Bool("comick", true, "consult Comick")
 	useMangaDex := fs.Bool("mangadex", true, "consult MangaDex")
 	dryRun := fs.Bool("dry-run", false, "list what would be added without scraping")
+	refresh := fs.Bool("refresh", false, "re-scrape -series even though it is already in the dataset")
 	if err := parseArgs(fs, args); err != nil {
 		return err
 	}
@@ -318,6 +321,10 @@ func runAdd(args []string) error {
 		have[e.MatchKey] = true
 		usedSlugs[e.Slug] = true
 	}
+
+	// AniList IDs already resolved cost ~1.5s each to re-derive, and a refresh
+	// would otherwise drop the one it has.
+	knownIDs := existingAniListIDs(*dir)
 
 	ovr, err := overrides.Load(*ovrPath)
 	if err != nil {
@@ -336,6 +343,35 @@ func runAdd(args []string) error {
 	if *series != "" {
 		wantKey = chaptertitles.MatchKey(*series)
 	}
+
+	// A refresh rebuilds one series from its articles. Forget what is held for
+	// it — the match key, its slug and its index row — so the normal scrape
+	// path treats it as new and every part is merged in from scratch.
+	if *refresh {
+		if wantKey == "" {
+			return fmt.Errorf("-refresh needs -series to say which series to re-scrape")
+		}
+		if !have[wantKey] {
+			return fmt.Errorf("-refresh: %q is not in the dataset", *series)
+		}
+		kept := idx.Series[:0]
+		for _, e := range idx.Series {
+			if e.MatchKey == wantKey {
+				delete(usedSlugs, e.Slug)
+				continue
+			}
+			kept = append(kept, e)
+		}
+		idx.Series = kept
+		delete(have, wantKey)
+		// Re-resolve the AniList ID too. A refresh is how a wrong one gets
+		// corrected, so seeding the stored value back would defeat it.
+		for article := range knownIDs {
+			if wikipedia.NormalizeName(wikipedia.SeriesNameFromArticle(article)) == wantKey {
+				delete(knownIDs, article)
+			}
+		}
+	}
 	var todo []string
 	for _, a := range articles {
 		key := wikipedia.NormalizeName(wikipedia.SeriesNameFromArticle(a))
@@ -347,6 +383,8 @@ func runAdd(args []string) error {
 		}
 		todo = append(todo, a)
 	}
+
+	todo = orderArticlesForMerge(todo)
 
 	if len(todo) == 0 {
 		fmt.Fprintln(os.Stderr, "Nothing to add: every series in the category is already in the dataset.")
@@ -408,6 +446,7 @@ func runAdd(args []string) error {
 		}
 
 		s := toSeries(article, result, usedSlugs)
+		s.AniListID = knownIDs[article]
 		resolveAniListID(ani, ovr, s)
 		if err := chaptertitles.Write(*dir, s); err != nil {
 			return fmt.Errorf("writing %s: %w", s.Slug, err)
@@ -671,6 +710,74 @@ func resolveAniListID(ani *anilist.Client, ovr *overrides.File, s *chaptertitles
 	if ok {
 		s.AniListID = id
 	}
+}
+
+// orderArticlesForMerge groups a category listing by series and puts each
+// series' chapter-list articles ahead of its volume-list articles.
+//
+// Wikipedia frequently carries both for one series. A volume list numbers its
+// entries by position within each volume, while the chapter list carries the
+// real chapter numbers, so whichever is merged first decides the numbering for
+// the whole series. Captain Tsubasa's chapters article contributed 0 of its 114
+// chapters — every one collided with the volume list scraped before it.
+//
+// Series keep the order they were enumerated in, and the parts within a series
+// keep theirs, so the result is stable across runs.
+func orderArticlesForMerge(articles []string) []string {
+	type keyed struct {
+		article  string
+		seriesAt int
+		prec     int
+		at       int
+	}
+
+	seriesAt := map[string]int{}
+	items := make([]keyed, 0, len(articles))
+	for i, a := range articles {
+		key := wikipedia.NormalizeName(wikipedia.SeriesNameFromArticle(a))
+		if _, seen := seriesAt[key]; !seen {
+			seriesAt[key] = len(seriesAt)
+		}
+		items = append(items, keyed{article: a, seriesAt: seriesAt[key], prec: articleMergePrecedence(a), at: i})
+	}
+
+	sort.SliceStable(items, func(i, j int) bool {
+		if items[i].seriesAt != items[j].seriesAt {
+			return items[i].seriesAt < items[j].seriesAt
+		}
+		if items[i].prec != items[j].prec {
+			return items[i].prec < items[j].prec
+		}
+		return items[i].at < items[j].at
+	})
+
+	out := make([]string, len(items))
+	for i, it := range items {
+		out[i] = it.article
+	}
+	return out
+}
+
+// articleMergePrecedence ranks an article title by how trustworthy its chapter
+// numbering is: a "List of X chapters" article beats a "List of X volumes" one.
+// The descriptor is the word before any trailing parenthetical, so
+// "List of Fairy Tail chapters (volumes 1–15)" counts as a chapter list.
+func articleMergePrecedence(article string) int {
+	name := strings.ToLower(stripTrailingParenthetical(article))
+	if strings.HasSuffix(name, "chapters") {
+		return 0
+	}
+	return 1
+}
+
+// trailingParenthetical matches a parenthetical at the end of an article title.
+var trailingParenthetical = regexp.MustCompile(`\s*\([^()]*\)\s*$`)
+
+// stripTrailingParenthetical exposes the descriptor word an article title ends
+// with, so "List of Fairy Tail chapters (volumes 1–15)" reads as a chapter list
+// rather than a volume one.
+func stripTrailingParenthetical(article string) string {
+	return strings.TrimSpace(trailingParenthetical.ReplaceAllString(article, ""))
 }
 
 // mergeSeriesChapters folds src's chapters into dst.

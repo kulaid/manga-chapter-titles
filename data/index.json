@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T19:57:32.325349734Z",
+  "generated_at": "2026-08-17T20:11:24.554832853Z",
   "count": 367,
   "series": [
     {
@@ -527,7 +527,7 @@
       "match_key": "captaintsubasa",
       "anilist_id": 31789,
       "file": "captain-tsubasa.json",
-      "article": "List of Captain Tsubasa volumes",
+      "article": "List of Captain Tsubasa chapters",
       "chapter_count": 116,
       "sources": [
         "wikipedia"
@@ -985,12 +985,13 @@
       "series": "Fairy Tail",
       "slug": "fairy-tail",
       "match_key": "fairytail",
-      "anilist_id": 92603,
+      "anilist_id": 30598,
       "file": "fairy-tail.json",
-      "article": "List of Fairy Tail volumes",
-      "chapter_count": 295,
+      "article": "List of Fairy Tail chapters (volumes 1–15)",
+      "chapter_count": 552,
       "sources": [
-        "wikipedia"
+        "wikipedia",
+        "comick"
       ]
     },
     {

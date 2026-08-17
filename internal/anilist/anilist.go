@@ -46,6 +46,7 @@ const searchQuery = `query($search:String){
   Page(page:1,perPage:5){
     media(search:$search,type:MANGA){
       id
+      format
       title{romaji english native}
       synonyms
     }
@@ -54,8 +55,11 @@ const searchQuery = `query($search:String){
 
 // Media is one AniList manga entry.
 type Media struct {
-	ID    int `json:"id"`
-	Title struct {
+	ID int `json:"id"`
+	// Format separates a comic from a light novel. AniList's type:MANGA covers
+	// both, so this is the only thing telling them apart.
+	Format string `json:"format"`
+	Title  struct {
 		Romaji  string `json:"romaji"`
 		English string `json:"english"`
 		Native  string `json:"native"`
@@ -241,12 +245,66 @@ func Match(seriesName string, candidates []Media) (int, bool) {
 	if want == "" {
 		return 0, false
 	}
+
+	// Rank the candidates that agree on the name rather than taking the first,
+	// because AniList's ordering is relevance and relevance gets this wrong in
+	// two distinct ways.
+	//
+	// A match on a primary title outranks a match on a synonym: "Pantsu
+	// Agerune" is a nine-chapter doujin that merely lists "Fairy Tail" among
+	// its synonyms, and it must never outrank the series itself. Within the
+	// same kind of match, a comic outranks a light novel: AniList's type:MANGA
+	// covers both, and it answered "Fairy Tail" with a 29-chapter novel ahead
+	// of the 549-chapter manga. A novel is still a valid answer when nothing
+	// better matches, since the dataset does carry light novel series.
+	best, bestRank := 0, len(matchRanks)
 	for _, m := range candidates {
-		for _, name := range m.Names() {
+		rank := matchRank(want, m)
+		if rank < bestRank {
+			best, bestRank = m.ID, rank
+		}
+		if bestRank == 0 {
+			break
+		}
+	}
+	return best, best != 0
+}
+
+// matchRanks names the tiers matchRank returns, best first.
+var matchRanks = [...]string{"primary/comic", "primary/novel", "synonym/comic", "synonym/novel"}
+
+// matchRank scores how well a candidate answers to want. Lower is better;
+// len(matchRanks) means it does not answer to that name at all.
+func matchRank(want string, m Media) int {
+	primary := false
+	synonym := false
+	for _, name := range []string{m.Title.Romaji, m.Title.English, m.Title.Native} {
+		if name != "" && chaptertitles.MatchKey(name) == want {
+			primary = true
+			break
+		}
+	}
+	if !primary {
+		for _, name := range m.Synonyms {
 			if chaptertitles.MatchKey(name) == want {
-				return m.ID, true
+				synonym = true
+				break
 			}
 		}
 	}
-	return 0, false
+	if !primary && !synonym {
+		return len(matchRanks)
+	}
+
+	isNovel := m.Format == "NOVEL"
+	switch {
+	case primary && !isNovel:
+		return 0
+	case primary:
+		return 1
+	case !isNovel:
+		return 2
+	default:
+		return 3
+	}
 }
