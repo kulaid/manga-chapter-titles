@@ -2,11 +2,11 @@
   "series": "Omamori Himari",
   "slug": "omamori-himari",
   "match_key": "omamorihimari",
-  "anilist_id": 31745,
+  "anilist_id": 54763,
   "article": "List of Omamori Himari chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Omamori_Himari_chapters",
-  "scraped_at": "2026-08-17T03:15:54.37361159Z",
-  "chapter_count": 82,
+  "scraped_at": "2026-08-17T19:05:54.800785569Z",
+  "chapter_count": 81,
   "inferred_numbers": 21,
   "chapters": {
     "1": "Character sketches (Himari, Yuto, and Rinko)",
@@ -26,7 +26,6 @@
     "22": "The Art Cat \u0026 Memories at the Bottom of the Cliff",
     "23": "Kitty Cat Phantasm",
     "24": "Kitten Impossible",
-    "24.5": "Hot Spring Extra",
     "25": "Character sketches (Ageha ver.2, Sasa ver.2, Commence Operation! characters)",
     "26": "Blood Makes the Kitten Dance",
     "27": "The Pretty Miss Kitty Festival",
@@ -110,7 +109,6 @@
     "22": "wikipedia",
     "23": "wikipedia",
     "24": "wikipedia",
-    "24.5": "comick",
     "25": "wikipedia",
     "26": "wikipedia",
     "27": "wikipedia",
@@ -182,18 +180,6 @@
       "ref": "List of Omamori Himari chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Omamori_Himari_chapters",
       "count": 81
-    },
-    {
-      "name": "comick",
-      "ref": "omamori-himari",
-      "url": "https://comick.dev/comic/omamori-himari",
-      "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "ce3560f9-ce30-4ab9-a124-836270014857",
-      "url": "https://mangadex.org/title/ce3560f9-ce30-4ab9-a124-836270014857",
-      "count": 0
     }
   ]
 }

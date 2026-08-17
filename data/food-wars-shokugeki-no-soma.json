@@ -5,7 +5,7 @@
   "anilist_id": 75757,
   "article": "List of Food Wars!: Shokugeki no Soma chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Food_Wars%21:_Shokugeki_no_Soma_chapters",
-  "scraped_at": "2026-08-17T03:11:16.389021711Z",
+  "scraped_at": "2026-08-17T19:02:15.709980987Z",
   "chapter_count": 330,
   "inferred_numbers": 1,
   "chapters": {
@@ -43,10 +43,10 @@
     "124": "Singing the School Anthem",
     "125": "The Moon Festival",
     "126": "Booth Battle Strategy Session",
-    "127": "Moonlight Whispers\" }}",
+    "127": "Moonlight Whispers",
     "127.2": "Food Wars! Second Stomach! 3",
     "127.3": "Food Wars! Second Stomach! 4",
-    "128": "{{nihongo|\"Food Wars! Second Stomach! 3 and 4\"|食戟のソーマ 別腹! (#3.#4)|\"Shoku No sōma betsubara! (#3.#4)",
+    "128": "Blindside",
     "129": "Lion vs. Lion",
     "13": "The Quiet Bowl, the Eloquent Bowl",
     "130": "A Pride of Young Lions",
@@ -107,8 +107,8 @@
     "179": "Confrontation",
     "18": "The Seed of an Idea",
     "180": "Rematch",
-    "181": "Becoming One With the Bear\" }}",
-    "182": "{{nihongo|\"Food Wars! Second Stomach! 6 and 7\"|食戟のソーマ 別腹! (#6.#7)|\"Shoku No sōma betsubara! (#6.#7)",
+    "181": "Becoming One With the Bear",
+    "182": "The Birth of the New Council",
     "183": "A New Approach",
     "184": "Debt of Gratitude",
     "185": "Rematch With a Rival",
@@ -140,7 +140,7 @@
     "207": "Bad Luck",
     "208": "Staying Grounded",
     "209": "The Life of a Reject",
-    "21": "The Perfect Recette\" }}",
+    "21": "The Perfect Recette",
     "21.5": "Cuoco in Italia",
     "210": "The Unsavory Ties of East and West",
     "211": "Absolutely Judges",
@@ -152,7 +152,7 @@
     "217": "Results of the First Bout",
     "218": "Second Bout",
     "219": "Proving His Existence",
-    "22": "Special Short: {{nihongo|\"Your and My Romance Counseling\"|キミと私の恋愛相談|Kimi to watashi no ren'ai sōdan",
+    "22": "The Graduates",
     "220": "Rindo Takes the Stage",
     "221": "The Great Spice Battle",
     "222": "What We Want to Protect",
@@ -300,9 +300,9 @@
     "62": "Enter the Best",
     "63": "Plots",
     "64": "On the Edge",
-    "65": "The Evolution of the Boxed Lunch\" }}",
+    "65": "The Evolution of the Boxed Lunch",
     "65.5": "Erina's Summer Vacation",
-    "66": "Erina's Summer Vacation\"{{efn|The side story \"Erina's Summer Vacation\" was originally published in Weekly Shonen Jump 2014 issue 4/5 along with chapter 53; however due to size constraints, it was moved to Vol. 8 of the graphic novel",
+    "66": "What Belongs in the Box",
     "67": "Light Side, Dark Side",
     "68": "Bay Town Battle",
     "69": "Ruler of the Kitchen",
@@ -378,7 +378,7 @@
     "127": "wikipedia",
     "127.2": "comick",
     "127.3": "comick",
-    "128": "wikipedia",
+    "128": "comick",
     "129": "comick",
     "13": "comick",
     "130": "comick",
@@ -677,13 +677,13 @@
       "name": "wikipedia",
       "ref": "List of Food Wars!: Shokugeki no Soma chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Food_Wars%21:_Shokugeki_no_Soma_chapters",
-      "count": 225
+      "count": 224
     },
     {
       "name": "comick",
       "ref": "00-shokugeki-no-soma",
       "url": "https://comick.dev/comic/00-shokugeki-no-soma",
-      "count": 105
+      "count": 106
     }
   ]
 }

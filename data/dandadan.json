@@ -5,8 +5,8 @@
   "anilist_id": 132029,
   "article": "List of Dandadan chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dandadan_chapters",
-  "scraped_at": "2026-08-17T03:08:54.771607955Z",
-  "chapter_count": 248,
+  "scraped_at": "2026-08-17T19:01:00.894173792Z",
+  "chapter_count": 249,
   "inferred_numbers": 0,
   "chapters": {
     "1": "That's How Love Starts, Ya Know!",
@@ -173,6 +173,7 @@
     "241": "The Glamour Boy's Courtship",
     "242": "A Big Ol' Dinosaur",
     "243": "Yo, The Big Track Meet's On",
+    "244": "Dragon Knights Track Meet",
     "25": "It Makes Your Heart Race, Don't It?",
     "26": "We Picked Up a Kappa Monster",
     "27": "Have You Ever Seen a Cattle Mutilation?",
@@ -423,6 +424,7 @@
     "241": "comick",
     "242": "comick",
     "243": "comick",
+    "244": "comick",
     "25": "wikipedia",
     "26": "wikipedia",
     "27": "wikipedia",
@@ -519,7 +521,7 @@
       "name": "comick",
       "ref": "dandadan",
       "url": "https://comick.dev/comic/dandadan",
-      "count": 16
+      "count": 17
     },
     {
       "name": "mangadex",
