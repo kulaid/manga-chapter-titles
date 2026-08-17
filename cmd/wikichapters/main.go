@@ -178,6 +178,15 @@ func runBuild(args []string) error {
 	}
 	fmt.Fprintf(os.Stderr, "Scraping %d articles into %s/ (delay %s)\n\n", len(articles), *out, *delay)
 
+	// Reuse the IDs an earlier run already resolved. Each lookup costs ~1.5s of
+	// rate-limited AniList traffic, so re-deriving IDs that are already on disk
+	// roughly doubles the runtime of an incremental rebuild for no new data.
+	// Use "wikichapters anilist -force" to re-resolve them deliberately.
+	knownIDs := existingAniListIDs(*out)
+	if len(knownIDs) > 0 {
+		fmt.Fprintf(os.Stderr, "Reusing %d AniList ID(s) already in %s/\n\n", len(knownIDs), *out)
+	}
+
 	var entries []chaptertitles.IndexEntry
 	usedSlugs := map[string]bool{}
 	var skipped, failed int
@@ -200,6 +209,7 @@ func runBuild(args []string) error {
 		}
 
 		s := toSeries(article, result, usedSlugs)
+		s.AniListID = knownIDs[article]
 		resolveAniListID(ani, ovr, s)
 		if err := chaptertitles.Write(*out, s); err != nil {
 			return fmt.Errorf("writing %s: %w", s.Slug, err)
@@ -454,6 +464,28 @@ func resolveAniListID(ani *anilist.Client, ovr *overrides.File, s *chaptertitles
 	if ok {
 		s.AniListID = id
 	}
+}
+
+// existingAniListIDs reads the AniList IDs a previous run already resolved,
+// keyed by Wikipedia article title. Article is the key rather than slug because
+// a slug can change when a series is renamed, while the article it was scraped
+// from is what build iterates over.
+//
+// Every failure here is silent and yields an empty map: no dataset is the
+// normal first-run case, and a corrupt index only costs the AniList lookups
+// this is trying to avoid. Neither is a reason to abort a scrape.
+func existingAniListIDs(dir string) map[string]int {
+	ids := map[string]int{}
+	idx, err := chaptertitles.ReadIndex(dir)
+	if err != nil {
+		return ids
+	}
+	for _, e := range idx.Series {
+		if e.Article != "" && e.AniListID != 0 {
+			ids[e.Article] = e.AniListID
+		}
+	}
+	return ids
 }
 
 // indexEntryFor builds the index row for a series record.
