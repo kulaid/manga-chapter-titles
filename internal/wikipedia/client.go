@@ -25,8 +25,20 @@ type Client struct {
 	UserAgent string        // sent on every request
 	Delay     time.Duration // minimum pause between requests
 	HTTP      *http.Client
+	// APIBase overrides the derived "https://<Host>/w/api.php" endpoint. It
+	// exists so tests can point the client at a local server; leave it empty
+	// in production code.
+	APIBase string
 
 	lastRequest time.Time
+}
+
+// endpoint returns the api.php URL this client posts queries to.
+func (c *Client) endpoint() string {
+	if c.APIBase != "" {
+		return c.APIBase
+	}
+	return fmt.Sprintf("https://%s/w/api.php", c.Host)
 }
 
 // NewClient returns a Client for the English Wikipedia with polite defaults.
@@ -47,7 +59,7 @@ func (c *Client) get(params url.Values, out interface{}) error {
 	}
 	c.lastRequest = time.Now()
 
-	apiURL := fmt.Sprintf("https://%s/w/api.php?%s", c.Host, params.Encode())
+	apiURL := fmt.Sprintf("%s?%s", c.endpoint(), params.Encode())
 	req, err := http.NewRequest("GET", apiURL, nil)
 	if err != nil {
 		return fmt.Errorf("creating request: %w", err)
@@ -119,9 +131,66 @@ type categoryResponse struct {
 	} `json:"continue"`
 }
 
-// CategoryMembers returns every main-namespace article in a category, following
-// continuation until the category is exhausted.
+// Namespace numbers used when listing category members: 0 is an ordinary
+// article, 14 is a subcategory.
+const (
+	nsArticle  = "0"
+	nsCategory = "14"
+)
+
+// CategoryMembers returns every main-namespace article in a category and in its
+// immediate subcategories, deduplicated and in listing order.
+//
+// The subcategory pass is not optional detail. Wikipedia files long-running
+// series whose chapter list spans several articles — One Piece, Naruto, Bleach,
+// Case Closed and a dozen more — under a per-series subcategory rather than
+// directly in the parent. Listing only direct members silently omits all of
+// them, which is a far bigger hole than it looks: those are among the longest
+// series there are.
+//
+// Descent stops at one level. That is all the category layout uses, and it
+// makes a cycle in Wikipedia's category graph impossible to fall into.
 func (c *Client) CategoryMembers(category string) ([]string, error) {
+	titles, err := c.categoryPages(category, nsArticle)
+	if err != nil {
+		return nil, err
+	}
+
+	subs, err := c.categoryPages(category, nsCategory)
+	if err != nil {
+		return nil, err
+	}
+
+	seen := make(map[string]bool, len(titles))
+	out := make([]string, 0, len(titles))
+	add := func(list []string) {
+		for _, t := range list {
+			if seen[t] {
+				continue
+			}
+			seen[t] = true
+			out = append(out, t)
+		}
+	}
+	add(titles)
+
+	for _, sub := range subs {
+		// Enumeration happens once, before hundreds of article fetches. A
+		// dropped subcategory would erase a whole series from the dataset, so
+		// this fails loudly rather than continuing with a partial list.
+		members, err := c.categoryPages(sub, nsArticle)
+		if err != nil {
+			return nil, fmt.Errorf("listing %s: %w", sub, err)
+		}
+		add(members)
+	}
+
+	return out, nil
+}
+
+// categoryPages lists one namespace of a category, following continuation until
+// the category is exhausted.
+func (c *Client) categoryPages(category, namespace string) ([]string, error) {
 	var titles []string
 	cont := ""
 
@@ -131,7 +200,7 @@ func (c *Client) CategoryMembers(category string) ([]string, error) {
 		params.Set("list", "categorymembers")
 		params.Set("cmtitle", category)
 		params.Set("cmlimit", "500")
-		params.Set("cmnamespace", "0")
+		params.Set("cmnamespace", namespace)
 		params.Set("format", "json")
 		params.Set("formatversion", "2")
 		if cont != "" {
