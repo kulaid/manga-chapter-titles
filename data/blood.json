@@ -2,9 +2,10 @@
   "series": "Blood+",
   "slug": "blood",
   "match_key": "blood",
+  "anilist_id": 30747,
   "article": "List of Blood+ chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Blood+_chapters",
-  "scraped_at": "2026-08-17T02:11:44.620670967Z",
+  "scraped_at": "2026-08-17T03:07:02.176828756Z",
   "chapter_count": 17,
   "inferred_numbers": 17,
   "chapters": {
@@ -25,5 +26,32 @@
     "7": "Blood+ 05",
     "8": "Blood+ Adagio 1",
     "9": "Character Profiles"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Blood+ chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Blood+_chapters",
+      "count": 17
+    }
+  ]
 }

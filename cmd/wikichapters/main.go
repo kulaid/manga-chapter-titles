@@ -19,6 +19,11 @@ import (
 	"time"
 
 	"github.com/kulaid/manga-chapter-titles/chaptertitles"
+	"github.com/kulaid/manga-chapter-titles/internal/anilist"
+	"github.com/kulaid/manga-chapter-titles/internal/comick"
+	"github.com/kulaid/manga-chapter-titles/internal/mangadex"
+	"github.com/kulaid/manga-chapter-titles/internal/overrides"
+	"github.com/kulaid/manga-chapter-titles/internal/sources"
 	"github.com/kulaid/manga-chapter-titles/internal/wikipedia"
 )
 
@@ -38,6 +43,14 @@ func main() {
 		err = runList(os.Args[2:])
 	case "lookup":
 		err = runLookup(os.Args[2:])
+	case "anilist":
+		err = runAniList(os.Args[2:])
+	case "override":
+		err = runOverride(os.Args[2:])
+	case "missing":
+		err = runMissing(os.Args[2:])
+	case "enrich":
+		err = runEnrich(os.Args[2:])
 	case "-h", "--help", "help":
 		usage()
 		return
@@ -61,6 +74,10 @@ Commands:
   fetch     Scrape one series by name, article title, or URL
   list      Print the articles that build would scrape
   lookup    Read a series back out of an existing dataset
+  anilist   Backfill missing AniList IDs into an existing dataset
+  enrich    Fill chapter-title gaps from Comick and MangaDex
+  missing   List series whose AniList ID could not be resolved automatically
+  override  Record a hand-verified AniList ID that automatic lookup cannot find
 
 Run "wikichapters <command> -h" for flags.
 `)
@@ -130,11 +147,26 @@ func runBuild(args []string) error {
 	delay := fs.Duration("delay", wikipedia.DefaultDelay, "pause between API requests")
 	limit := fs.Int("limit", 0, "stop after N series (0 = no limit); useful for a smoke test")
 	minChapters := fs.Int("min-chapters", 1, "skip series with fewer than N chapter titles")
+	withAniList := fs.Bool("anilist", true, "resolve each series' AniList ID (adds ~1.5s per series)")
+	ovrPath := fs.String("overrides", overrides.DefaultFile, "hand-curated corrections applied after automatic resolution")
 	if err := parseArgs(fs, args); err != nil {
 		return err
 	}
 
 	client := newClient(*delay)
+
+	var ani *anilist.Client
+	if *withAniList {
+		ani = anilist.NewClient()
+	}
+
+	ovr, err := overrides.Load(*ovrPath)
+	if err != nil {
+		return err
+	}
+	if ovr.Len() > 0 {
+		fmt.Fprintf(os.Stderr, "Applying %d manual override(s) from %s\n", ovr.Len(), *ovrPath)
+	}
 
 	fmt.Fprintf(os.Stderr, "Enumerating %s...\n", wikipedia.ChapterListCategory)
 	articles, err := client.CategoryMembers(wikipedia.ChapterListCategory)
@@ -168,37 +200,47 @@ func runBuild(args []string) error {
 		}
 
 		s := toSeries(article, result, usedSlugs)
+		resolveAniListID(ani, ovr, s)
 		if err := chaptertitles.Write(*out, s); err != nil {
 			return fmt.Errorf("writing %s: %w", s.Slug, err)
 		}
 		usedSlugs[s.Slug] = true
 
-		entries = append(entries, chaptertitles.IndexEntry{
-			Series:       s.Series,
-			Slug:         s.Slug,
-			MatchKey:     s.MatchKey,
-			File:         s.Slug + ".json",
-			Article:      s.Article,
-			ChapterCount: s.ChapterCount,
-		})
+		entries = append(entries, indexEntryFor(s))
+
+		// Write the index as we go, not just at the end: the index is how
+		// consumers find these files, so an interrupted run would otherwise
+		// leave a directory of series nothing can look up.
+		const flushEvery = 20
+		if len(entries)%flushEvery == 0 {
+			if ferr := writeIndexCopy(*out, entries); ferr != nil {
+				return fmt.Errorf("writing index: %w", ferr)
+			}
+		}
 
 		note := ""
 		if result.Inferred > 0 {
 			note = fmt.Sprintf(" (%d inferred)", result.Inferred)
 		}
+		if s.AniListID != 0 {
+			note += fmt.Sprintf(" [al:%d]", s.AniListID)
+		}
 		fmt.Fprintf(os.Stderr, "%s %-60s %d titles%s\n", progress, truncate(article, 60), len(result.Chapters), note)
 	}
 
-	if err := chaptertitles.WriteIndex(*out, entries); err != nil {
+	if err := writeIndexCopy(*out, entries); err != nil {
 		return fmt.Errorf("writing index: %w", err)
 	}
 
-	total := 0
+	total, withIDs := 0, 0
 	for _, e := range entries {
 		total += e.ChapterCount
+		if e.AniListID != 0 {
+			withIDs++
+		}
 	}
-	fmt.Fprintf(os.Stderr, "\nDone: %d series, %d chapter titles, %d skipped, %d failed\n",
-		len(entries), total, skipped, failed)
+	fmt.Fprintf(os.Stderr, "\nDone: %d series, %d chapter titles, %d with AniList IDs, %d skipped, %d failed\n",
+		len(entries), total, withIDs, skipped, failed)
 	return nil
 }
 
@@ -245,6 +287,11 @@ func runFetch(args []string) error {
 	}
 
 	s := toSeries(article, result, nil)
+	ovr, oerr := overrides.Load(overrides.DefaultFile)
+	if oerr != nil {
+		return oerr
+	}
+	resolveAniListID(anilist.NewClient(), ovr, s)
 
 	if *stdout {
 		return printJSON(s)
@@ -384,4 +431,457 @@ func truncate(s string, n int) string {
 		return s
 	}
 	return s[:n-1] + "…"
+}
+
+// resolveAniListID fills in s.AniListID, leaving it zero when AniList has no
+// entry that can be confirmed as this series. A lookup failure is reported but
+// never fatal: the chapter titles are the point, the ID is a convenience.
+func resolveAniListID(ani *anilist.Client, ovr *overrides.File, s *chaptertitles.Series) {
+	// A hand-verified ID always wins, and short-circuits the lookup: it was
+	// recorded precisely because automatic resolution gets this series wrong.
+	if e, ok := ovr.Get(s.Article); ok && e.AniListID != 0 {
+		s.AniListID = e.AniListID
+		return
+	}
+	if ani == nil || s.AniListID != 0 {
+		return
+	}
+	id, ok, err := ani.FindID(s.Series)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "  AniList lookup for %q failed: %v\n", s.Series, err)
+		return
+	}
+	if ok {
+		s.AniListID = id
+	}
+}
+
+// indexEntryFor builds the index row for a series record.
+func indexEntryFor(s *chaptertitles.Series) chaptertitles.IndexEntry {
+	return chaptertitles.IndexEntry{
+		Series:       s.Series,
+		Slug:         s.Slug,
+		MatchKey:     s.MatchKey,
+		AniListID:    s.AniListID,
+		File:         s.Slug + ".json",
+		Article:      s.Article,
+		ChapterCount: s.ChapterCount,
+	}
+}
+
+// runAniList backfills AniList IDs into an existing dataset, so adding the IDs
+// does not require re-scraping every Wikipedia article.
+func runAniList(args []string) error {
+	fs := flag.NewFlagSet("anilist", flag.ExitOnError)
+	dir := fs.String("data", "data", "dataset directory to update in place")
+	delay := fs.Duration("delay", anilist.DefaultDelay, "pause between AniList requests")
+	force := fs.Bool("force", false, "re-resolve series that already have an ID")
+	ovrPath := fs.String("overrides", overrides.DefaultFile, "hand-curated corrections applied after automatic resolution")
+	if err := parseArgs(fs, args); err != nil {
+		return err
+	}
+
+	idx, err := chaptertitles.ReadIndex(*dir)
+	if err != nil {
+		return fmt.Errorf("reading dataset: %w", err)
+	}
+
+	ani := anilist.NewClient()
+	ani.Delay = *delay
+
+	ovr, oerr := overrides.Load(*ovrPath)
+	if oerr != nil {
+		return oerr
+	}
+	if ovr.Len() > 0 {
+		fmt.Fprintf(os.Stderr, "Applying %d manual override(s) from %s\n", ovr.Len(), *ovrPath)
+	}
+
+	var entries []chaptertitles.IndexEntry
+	var resolved, already, missed int
+
+	// The index is what consumers look series up through, so it has to be
+	// rewritten as we go rather than only at the end: an interrupted run would
+	// otherwise leave IDs in the series files that nothing can find. Rows not
+	// yet reached are carried over unchanged, so every flush is a complete index.
+	flushIndex := func(processed int) error {
+		complete := append(append([]chaptertitles.IndexEntry{}, entries...), idx.Series[processed:]...)
+		return chaptertitles.WriteIndex(*dir, complete)
+	}
+
+	for i, e := range idx.Series {
+		progress := fmt.Sprintf("[%d/%d]", i+1, len(idx.Series))
+
+		s, rerr := chaptertitles.Read(*dir, e.Slug)
+		if rerr != nil {
+			fmt.Fprintf(os.Stderr, "%s %-44s FAILED: %v\n", progress, truncate(e.Series, 44), rerr)
+			entries = append(entries, e)
+			continue
+		}
+
+		if s.AniListID != 0 && !*force {
+			already++
+			entries = append(entries, indexEntryFor(s))
+			continue
+		}
+		if *force {
+			s.AniListID = 0
+		}
+
+		resolveAniListID(ani, ovr, s)
+		if s.AniListID != 0 {
+			resolved++
+			fmt.Fprintf(os.Stderr, "%s %-44s al:%d\n", progress, truncate(e.Series, 44), s.AniListID)
+		} else {
+			missed++
+			fmt.Fprintf(os.Stderr, "%s %-44s no confident match\n", progress, truncate(e.Series, 44))
+		}
+
+		if werr := chaptertitles.Write(*dir, s); werr != nil {
+			return fmt.Errorf("writing %s: %w", s.Slug, werr)
+		}
+		entries = append(entries, indexEntryFor(s))
+
+		const flushEvery = 20
+		if len(entries)%flushEvery == 0 {
+			if ferr := flushIndex(i + 1); ferr != nil {
+				return fmt.Errorf("writing index: %w", ferr)
+			}
+		}
+	}
+
+	if err := flushIndex(len(idx.Series)); err != nil {
+		return fmt.Errorf("writing index: %w", err)
+	}
+
+	fmt.Fprintf(os.Stderr, "\nDone: %d resolved, %d already had an ID, %d without a confident match\n",
+		resolved, already, missed)
+	return nil
+}
+
+// writeIndexCopy writes the index from a copy of entries. WriteIndex sorts what
+// it is given, and the build loop keeps appending to its accumulator afterwards,
+// so handing over the live slice would shuffle it mid-run.
+func writeIndexCopy(dir string, entries []chaptertitles.IndexEntry) error {
+	return chaptertitles.WriteIndex(dir, append([]chaptertitles.IndexEntry{}, entries...))
+}
+
+// runMissing lists the series whose AniList ID could not be resolved. It is the
+// entry point to the manual pass: whatever it prints is what needs a hand-
+// verified override.
+func runMissing(args []string) error {
+	fs := flag.NewFlagSet("missing", flag.ExitOnError)
+	dir := fs.String("data", "data", "dataset directory to inspect")
+	if err := parseArgs(fs, args); err != nil {
+		return err
+	}
+
+	idx, err := chaptertitles.ReadIndex(*dir)
+	if err != nil {
+		return fmt.Errorf("reading dataset: %w", err)
+	}
+
+	var missing []chaptertitles.IndexEntry
+	for _, e := range idx.Series {
+		if e.AniListID == 0 {
+			missing = append(missing, e)
+		}
+	}
+
+	for _, e := range missing {
+		// Print the article title, since that is the key `override` takes.
+		fmt.Printf("%-44s %s\n", truncate(e.Series, 44), e.Article)
+	}
+	fmt.Fprintf(os.Stderr, "\n%d of %d series have no AniList ID.\n", len(missing), len(idx.Series))
+	if len(missing) > 0 {
+		fmt.Fprintf(os.Stderr, "Record one with:\n  wikichapters override \"<series>\" -anilist <id>\n")
+	}
+	return nil
+}
+
+// runOverride records a hand-verified AniList ID for a series, and applies it to
+// the dataset immediately so the correction takes effect without a full rebuild.
+func runOverride(args []string) error {
+	fs := flag.NewFlagSet("override", flag.ExitOnError)
+	dir := fs.String("data", "data", "dataset directory to update")
+	ovrPath := fs.String("overrides", overrides.DefaultFile, "overrides file to write")
+	anilistID := fs.Int("anilist", 0, "hand-verified AniList manga ID")
+	note := fs.String("note", "", "why automatic lookup could not find it")
+	article := fs.String("article", "", "target the Wikipedia article directly instead of by series name")
+	force := fs.Bool("force", false, "record the ID without contacting AniList at all")
+	yes := fs.Bool("yes", false, "record the ID even though its AniList title does not match the series name")
+	if err := parseArgs(fs, args); err != nil {
+		return err
+	}
+
+	name := strings.Join(fs.Args(), " ")
+	if name == "" && *article == "" {
+		return fmt.Errorf("usage: wikichapters override \"<series>\" -anilist <id> [-note \"...\"]")
+	}
+	if *anilistID <= 0 {
+		return fmt.Errorf("-anilist must be a positive AniList manga ID")
+	}
+
+	idx, err := chaptertitles.ReadIndex(*dir)
+	if err != nil {
+		return fmt.Errorf("reading dataset: %w", err)
+	}
+
+	// Resolve the series to its article, which is what overrides are keyed on:
+	// article titles survive the series name, slug and match key being adjusted.
+	var target *chaptertitles.IndexEntry
+	for i := range idx.Series {
+		e := &idx.Series[i]
+		if *article != "" {
+			if e.Article == *article {
+				target = e
+				break
+			}
+			continue
+		}
+		if e.MatchKey == chaptertitles.MatchKey(name) || strings.EqualFold(e.Series, name) {
+			target = e
+			break
+		}
+	}
+	if target == nil {
+		return fmt.Errorf("no series in %s matches %q — run \"wikichapters missing\" to see the exact names", *dir, name+*article)
+	}
+
+	// Confirm the ID is the series the curator meant. An override skips the
+	// title verification that automatic resolution applies, and a wrong number
+	// is usually still a valid AniList ID belonging to some other manga, so
+	// without this a typo records silently and then looks authoritative.
+	anilistTitle := ""
+	if !*force {
+		m, found, lerr := anilist.NewClient().ByID(*anilistID)
+		if lerr != nil {
+			return fmt.Errorf("confirming AniList ID %d: %w (use -force to skip the check)", *anilistID, lerr)
+		}
+		if !found {
+			return fmt.Errorf("AniList has no manga with ID %d", *anilistID)
+		}
+		anilistTitle = m.Title.Romaji
+		if anilistTitle == "" {
+			anilistTitle = m.Title.English
+		}
+
+		// Overrides exist precisely because the names disagree, so a mismatch
+		// cannot simply be rejected. It can be made impossible to miss: the
+		// command stops and shows what the ID actually is, and recording it
+		// takes a second, deliberate run.
+		if _, ok := anilist.Match(target.Series, []anilist.Media{m}); !ok && !*yes {
+			fmt.Fprintf(os.Stderr, "AniList %d is %q.\n", *anilistID, anilistTitle)
+			for _, n := range m.Names() {
+				fmt.Fprintf(os.Stderr, "    also known as: %s\n", n)
+			}
+			return fmt.Errorf("that does not look like %q — if it is correct, re-run with -yes", target.Series)
+		}
+		fmt.Fprintf(os.Stderr, "AniList %d is %q\n", *anilistID, anilistTitle)
+	}
+
+	ovr, err := overrides.Load(*ovrPath)
+	if err != nil {
+		return err
+	}
+	ovr.Set(target.Article, overrides.Entry{
+		Series:       target.Series,
+		AniListID:    *anilistID,
+		AniListTitle: anilistTitle,
+		Note:         *note,
+	})
+	if err := ovr.Save(*ovrPath); err != nil {
+		return err
+	}
+
+	// Apply it now, so the dataset is correct without waiting for a rebuild.
+	s, err := chaptertitles.Read(*dir, target.Slug)
+	if err != nil {
+		return fmt.Errorf("reading %s: %w", target.Slug, err)
+	}
+	s.AniListID = *anilistID
+	if err := chaptertitles.Write(*dir, s); err != nil {
+		return fmt.Errorf("writing %s: %w", target.Slug, err)
+	}
+	target.AniListID = *anilistID
+	if err := chaptertitles.WriteIndex(*dir, idx.Series); err != nil {
+		return fmt.Errorf("writing index: %w", err)
+	}
+
+	fmt.Fprintf(os.Stderr, "%s (%s) -> AniList %d\nRecorded in %s; it will survive future builds.\n",
+		target.Series, target.Article, *anilistID, *ovrPath)
+	return nil
+}
+
+// runEnrich fills chapter-title gaps from the aggregator sources.
+//
+// It works on an existing dataset rather than rebuilding it: Wikipedia supplies
+// the licensed titles, and this adds titles for the chapters — and the series —
+// Wikipedia does not cover, without re-scraping anything already collected.
+//
+// Every source is joined on the AniList ID, so a series without one is skipped
+// rather than matched by name.
+func runEnrich(args []string) error {
+	fs := flag.NewFlagSet("enrich", flag.ExitOnError)
+	dir := fs.String("data", "data", "dataset directory to update in place")
+	only := fs.String("only", "", "restrict to one series (by name), for spot checks")
+	limit := fs.Int("limit", 0, "stop after N series (0 = no limit)")
+	useComick := fs.Bool("comick", true, "consult Comick")
+	useMangaDex := fs.Bool("mangadex", true, "consult MangaDex")
+	if err := parseArgs(fs, args); err != nil {
+		return err
+	}
+
+	idx, err := chaptertitles.ReadIndex(*dir)
+	if err != nil {
+		return fmt.Errorf("reading dataset: %w", err)
+	}
+
+	// Priority order: the licensed Wikipedia titles already in the file win,
+	// then Comick (which names more chapters than MangaDex), then MangaDex.
+	var srcs []sources.Source
+	if *useComick {
+		srcs = append(srcs, comick.New(wikipedia.DefaultUserAgent))
+	}
+	if *useMangaDex {
+		srcs = append(srcs, mangadex.New(wikipedia.DefaultUserAgent))
+	}
+	if len(srcs) == 0 {
+		return fmt.Errorf("no sources enabled")
+	}
+
+	var processed, enriched, addedTotal, skipped int
+
+	for i := range idx.Series {
+		e := &idx.Series[i]
+		if *limit > 0 && processed >= *limit {
+			break
+		}
+		if *only != "" && chaptertitles.MatchKey(*only) != e.MatchKey {
+			continue
+		}
+		if e.AniListID == 0 {
+			// No exact key, so there is nothing safe to join on.
+			skipped++
+			continue
+		}
+		processed++
+
+		s, rerr := chaptertitles.Read(*dir, e.Slug)
+		if rerr != nil {
+			fmt.Fprintf(os.Stderr, "[%d] %-38s FAILED: %v\n", processed, truncate(e.Series, 38), rerr)
+			continue
+		}
+
+		before := len(s.Chapters)
+		existing := make(sources.Titles, len(s.Chapters))
+		for k, v := range s.Chapters {
+			if n, perr := strconv.ParseFloat(k, 64); perr == nil {
+				existing[n] = v
+			}
+		}
+
+		var results []sources.Result
+		var names []string
+		for _, src := range srcs {
+			r, ferr := src.Fetch(e.AniListID, s.Series)
+			if ferr != nil {
+				fmt.Fprintf(os.Stderr, "      %s: %v\n", src.Name(), ferr)
+			}
+			results = append(results, r)
+			names = append(names, src.Name())
+		}
+
+		merged := sources.Merge(existing, sourceNameForExisting(s), results, names)
+		applyMerge(s, merged)
+
+		if werr := chaptertitles.Write(*dir, s); werr != nil {
+			return fmt.Errorf("writing %s: %w", s.Slug, werr)
+		}
+		e.ChapterCount = s.ChapterCount
+		e.SourceNames = sourceNames(s)
+
+		added := len(s.Chapters) - before
+		addedTotal += added
+		if added > 0 {
+			enriched++
+		}
+		fmt.Fprintf(os.Stderr, "[%d] %-38s %d -> %d (+%d) %v\n",
+			processed, truncate(e.Series, 38), before, len(s.Chapters), added, e.SourceNames)
+
+		const flushEvery = 20
+		if processed%flushEvery == 0 {
+			if ferr := writeIndexCopy(*dir, idx.Series); ferr != nil {
+				return fmt.Errorf("writing index: %w", ferr)
+			}
+		}
+	}
+
+	if err := writeIndexCopy(*dir, idx.Series); err != nil {
+		return fmt.Errorf("writing index: %w", err)
+	}
+
+	fmt.Fprintf(os.Stderr, "\nDone: %d series checked, %d gained titles, %d titles added, %d skipped (no AniList ID)\n",
+		processed, enriched, addedTotal, skipped)
+	return nil
+}
+
+// sourceNameForExisting reports which source the titles already in a file came
+// from. Files written before provenance existed hold Wikipedia titles.
+func sourceNameForExisting(s *chaptertitles.Series) string {
+	if s.Article != "" {
+		return "wikipedia"
+	}
+	return ""
+}
+
+// applyMerge writes a merge result back onto a series record.
+func applyMerge(s *chaptertitles.Series, merged sources.Merged) {
+	chapters := make(map[string]string, len(merged.Titles))
+	provenance := make(map[string]string, len(merged.Provenance))
+	for num, title := range merged.Titles {
+		key := chaptertitles.FormatChapterNumber(num)
+		chapters[key] = title
+		if src, ok := merged.Provenance[num]; ok && src != "" {
+			provenance[key] = src
+		}
+	}
+	s.Chapters = chapters
+	s.ChapterSources = provenance
+	s.ChapterCount = len(chapters)
+
+	// Rebuild the source list, keeping the Wikipedia entry that the scrape
+	// recorded and appending whatever the aggregators contributed.
+	var refs []chaptertitles.SourceRef
+	if s.Article != "" {
+		wikiCount := 0
+		for _, src := range provenance {
+			if src == "wikipedia" {
+				wikiCount++
+			}
+		}
+		refs = append(refs, chaptertitles.SourceRef{
+			Name: "wikipedia", Ref: s.Article, URL: s.SourceURL, Count: wikiCount,
+		})
+	}
+	for _, c := range merged.Contributions {
+		if c.Added == 0 && c.Total == 0 {
+			continue
+		}
+		refs = append(refs, chaptertitles.SourceRef{
+			Name: c.Name, Ref: c.Ref, URL: c.URL, Count: c.Added,
+		})
+	}
+	s.Sources = refs
+}
+
+// sourceNames lists the names of the sources that contributed to a series.
+func sourceNames(s *chaptertitles.Series) []string {
+	var out []string
+	for _, r := range s.Sources {
+		if r.Count > 0 {
+			out = append(out, r.Name)
+		}
+	}
+	return out
 }

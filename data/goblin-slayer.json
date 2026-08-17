@@ -2,9 +2,10 @@
   "series": "Goblin Slayer",
   "slug": "goblin-slayer",
   "match_key": "goblinslayer",
+  "anilist_id": 87321,
   "article": "List of Goblin Slayer volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Goblin_Slayer_volumes",
-  "scraped_at": "2026-08-17T02:13:12.826125223Z",
+  "scraped_at": "2026-08-17T03:11:41.924519854Z",
   "chapter_count": 13,
   "inferred_numbers": 5,
   "chapters": {
@@ -21,5 +22,28 @@
     "7": "Goblin Slayer",
     "8": "Nihongo",
     "9": "Goblin Slaying"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "15": "wikipedia",
+    "18": "wikipedia",
+    "19": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Goblin Slayer volumes",
+      "url": "https://en.wikipedia.org/wiki/List_of_Goblin_Slayer_volumes",
+      "count": 13
+    }
+  ]
 }

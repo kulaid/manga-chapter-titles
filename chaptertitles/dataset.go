@@ -33,6 +33,10 @@ type Series struct {
 	Slug string `json:"slug"`
 	// MatchKey is Series normalised for lookup; see wikipedia.NormalizeName.
 	MatchKey string `json:"match_key"`
+	// AniListID is the series' AniList manga ID, or 0 when it could not be
+	// confirmed. Consumers that already hold an AniList ID should match on it
+	// rather than on MatchKey, since it is exact.
+	AniListID int `json:"anilist_id,omitempty"`
 	// Article is the Wikipedia article the titles came from.
 	Article string `json:"article"`
 	// SourceURL is the canonical URL of that article.
@@ -47,6 +51,28 @@ type Series struct {
 	InferredNumbers int `json:"inferred_numbers"`
 	// Chapters maps a chapter number, as a decimal string, to its title.
 	Chapters map[string]string `json:"chapters"`
+	// ChapterSources records which source each title came from, keyed the same
+	// way as Chapters. It exists so a curator can see why a title looks the way
+	// it does — a licensed Wikipedia title reads differently from a scanlator
+	// one — and can be ignored by consumers that only want the titles.
+	ChapterSources map[string]string `json:"chapter_sources,omitempty"`
+	// Sources lists every source consulted for this series, in the priority
+	// order they were merged.
+	Sources []SourceRef `json:"sources,omitempty"`
+}
+
+// SourceRef records one source's contribution to a series.
+type SourceRef struct {
+	// Name is the source identifier, e.g. "wikipedia", "comick", "mangadex".
+	Name string `json:"name"`
+	// Ref identifies the series within that source (an article title, a
+	// MangaDex UUID, a Comick slug).
+	Ref string `json:"ref,omitempty"`
+	// URL links to that source's page for the series.
+	URL string `json:"url,omitempty"`
+	// Count is how many titles this source supplied that no higher-priority
+	// source already had.
+	Count int `json:"count"`
 }
 
 // IndexEntry is one row of index.json.
@@ -54,9 +80,13 @@ type IndexEntry struct {
 	Series       string `json:"series"`
 	Slug         string `json:"slug"`
 	MatchKey     string `json:"match_key"`
+	AniListID    int    `json:"anilist_id,omitempty"`
 	File         string `json:"file"`
 	Article      string `json:"article"`
 	ChapterCount int    `json:"chapter_count"`
+	// SourceNames lists the sources that contributed titles, so the index alone
+	// shows the coverage without opening every series file.
+	SourceNames []string `json:"sources,omitempty"`
 }
 
 // Index is the contents of index.json.

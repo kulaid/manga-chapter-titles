@@ -2,13 +2,40 @@
   "series": "Marmalade Boy",
   "slug": "marmalade-boy",
   "match_key": "marmaladeboy",
+  "anilist_id": 30091,
   "article": "List of Marmalade Boy chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Marmalade_Boy_chapters",
-  "scraped_at": "2026-08-17T02:14:32.077764435Z",
-  "chapter_count": 2,
+  "scraped_at": "2026-08-17T03:15:06.114949992Z",
+  "chapter_count": 3,
   "inferred_numbers": 2,
   "chapters": {
     "40": "The Inside Story of Marmalade Boy",
-    "41": "The Inside Story of Marmalade Boy II"
-  }
+    "41": "The Inside Story of Marmalade Boy II",
+    "9.5": "Extras"
+  },
+  "chapter_sources": {
+    "40": "wikipedia",
+    "41": "wikipedia",
+    "9.5": "comick"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Marmalade Boy chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Marmalade_Boy_chapters",
+      "count": 2
+    },
+    {
+      "name": "comick",
+      "ref": "marmalade-boy",
+      "url": "https://comick.dev/comic/marmalade-boy",
+      "count": 1
+    },
+    {
+      "name": "mangadex",
+      "ref": "e33d3ab4-eebc-4ee9-b09d-ef3de07266bf",
+      "url": "https://mangadex.org/title/e33d3ab4-eebc-4ee9-b09d-ef3de07266bf",
+      "count": 0
+    }
+  ]
 }

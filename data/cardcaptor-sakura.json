@@ -2,17 +2,44 @@
   "series": "Cardcaptor Sakura",
   "slug": "cardcaptor-sakura",
   "match_key": "cardcaptorsakura",
+  "anilist_id": 30106,
   "article": "List of Cardcaptor Sakura chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Cardcaptor_Sakura_chapters",
-  "scraped_at": "2026-08-17T02:11:59.007020104Z",
-  "chapter_count": 6,
+  "scraped_at": "2026-08-17T03:07:24.720492784Z",
+  "chapter_count": 8,
   "inferred_numbers": 6,
   "chapters": {
     "45": "Short Story",
     "50": "Short Story 2",
+    "50.5": "Illustration Collection Special 1",
+    "50.6": "Illustration Collection Special 2",
     "51": "Until We Meet Again bonus story (Special edition only)",
     "55": "Short Story 3",
     "56": "Short Story 4",
     "60": "Short Story 5"
-  }
+  },
+  "chapter_sources": {
+    "45": "wikipedia",
+    "50": "wikipedia",
+    "50.5": "comick",
+    "50.6": "comick",
+    "51": "wikipedia",
+    "55": "wikipedia",
+    "56": "wikipedia",
+    "60": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Cardcaptor Sakura chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Cardcaptor_Sakura_chapters",
+      "count": 6
+    },
+    {
+      "name": "comick",
+      "ref": "00-cardcaptor-sakura",
+      "url": "https://comick.dev/comic/00-cardcaptor-sakura",
+      "count": 2
+    }
+  ]
 }

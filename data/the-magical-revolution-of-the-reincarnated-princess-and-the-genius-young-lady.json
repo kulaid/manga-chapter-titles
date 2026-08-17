@@ -2,10 +2,11 @@
   "series": "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady",
   "slug": "the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady",
   "match_key": "themagicalrevolutionofthereincarnatedprincessandthegeniusyounglady",
+  "anilist_id": 122344,
   "article": "List of The Magical Revolution of the Reincarnated Princess and the Genius Young Lady volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_The_Magical_Revolution_of_the_Reincarnated_Princess_and_the_Genius_Young_Lady_volumes",
-  "scraped_at": "2026-08-17T02:14:21.305142629Z",
-  "chapter_count": 13,
+  "scraped_at": "2026-08-17T03:14:50.810047854Z",
+  "chapter_count": 15,
   "inferred_numbers": 22,
   "chapters": {
     "1": "Opening",
@@ -13,13 +14,46 @@
     "11": "The Magic of Beginnings",
     "12": "Ending",
     "13": "Opening",
+    "17.5": "Bonus",
     "2": "The Reincarnated Princess Makes a House Call",
     "3": "The Reincarnated Princess’s Magicology Lesson",
     "4": "Like Picturing a Rainbow",
     "5": "The Reincarnated Princess Still Yearns for Magic",
+    "5.5": "Bonus",
     "6": "Ending",
     "7": "Opening",
     "8": "Opening",
     "9": "Peeling Off the Mask"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "17.5": "comick",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "5.5": "comick",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of The Magical Revolution of the Reincarnated Princess and the Genius Young Lady volumes",
+      "url": "https://en.wikipedia.org/wiki/List_of_The_Magical_Revolution_of_the_Reincarnated_Princess_and_the_Genius_Young_Lady_volumes",
+      "count": 13
+    },
+    {
+      "name": "comick",
+      "ref": "00-the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady",
+      "url": "https://comick.dev/comic/00-the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady",
+      "count": 2
+    }
+  ]
 }

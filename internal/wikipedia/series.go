@@ -121,19 +121,41 @@ func PickChapterListArticle(seriesTitle string, hits []string) string {
 	return ""
 }
 
-// SeriesNameFromArticle strips the "List of ... chapters" wrapper from an
-// article title, returning the series name. Titles that don't follow the
-// convention are returned unchanged.
+// articleDescriptorWords are the trailing nouns Wikipedia appends when naming a
+// list article — "List of Girls und Panzer books", "List of Lupin the Third
+// manga", "List of Angels of Death manga chapters". They describe the article,
+// not the series, so they must come off before the name is used to search other
+// sites.
+var articleDescriptorWords = []string{"chapters", "volumes", "books", "manga", "light novels", "novels"}
+
+// SeriesNameFromArticle strips the "List of ..." wrapper and any trailing
+// descriptor words from an article title, returning the series name. Titles
+// that don't follow the convention are returned unchanged.
 func SeriesNameFromArticle(article string) string {
-	if m := chapterListTitleRegex.FindStringSubmatch(article); m != nil {
-		return strings.TrimSpace(m[1])
+	name := strings.TrimSpace(article)
+	name = strings.TrimPrefix(name, "List of ")
+
+	// Peel descriptors off one at a time: "Angels of Death manga chapters"
+	// needs both "chapters" and "manga" removed. A descriptor is only dropped
+	// when something is left behind, so a series actually called "Manga" or
+	// "Books" survives.
+	for changed := true; changed; {
+		changed = false
+		for _, w := range articleDescriptorWords {
+			suffix := " " + w
+			if !strings.HasSuffix(strings.ToLower(name), suffix) {
+				continue
+			}
+			trimmed := strings.TrimSpace(name[:len(name)-len(suffix)])
+			if trimmed == "" {
+				continue
+			}
+			name, changed = trimmed, true
+			break
+		}
 	}
-	// Some articles are named "List of <series> volumes" instead.
-	trimmed := strings.TrimSpace(article)
-	if strings.HasPrefix(trimmed, "List of ") && strings.HasSuffix(trimmed, " volumes") {
-		return strings.TrimSpace(strings.TrimSuffix(strings.TrimPrefix(trimmed, "List of "), " volumes"))
-	}
-	return trimmed
+
+	return strings.TrimSpace(name)
 }
 
 // FindChapterListLink returns the title of a linked "List of <series> chapters"

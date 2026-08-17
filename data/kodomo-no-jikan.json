@@ -2,10 +2,11 @@
   "series": "Kodomo no Jikan",
   "slug": "kodomo-no-jikan",
   "match_key": "kodomonojikan",
+  "anilist_id": 30582,
   "article": "List of Kodomo no Jikan chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Kodomo_no_Jikan_chapters",
-  "scraped_at": "2026-08-17T02:14:14.09529512Z",
-  "chapter_count": 27,
+  "scraped_at": "2026-08-17T03:14:41.322410535Z",
+  "chapter_count": 31,
   "inferred_numbers": 27,
   "chapters": {
     "1": "Class Period 1–7: 2005 – Grade 3, first trimester (early April to late July)",
@@ -30,10 +31,67 @@
     "27": "Class Period",
     "3": "Class Period 8–9: 2005 – Grade 3, first trimester (early April to late July)",
     "4": "Class Period 9–12: 2005 – Summer vacation (late July to end of August)",
+    "47.5": "DVD Special 1",
+    "49.5": "DVD Special 2",
     "5": "Class Period 13–14: 2005 – Grade 3, second trimester (early September to late December)",
+    "51.5": "DVD Special 3",
     "6": "Class Period 9: July 22, 2005, July 23, 2005, and late July 2005",
+    "64.5": "Time in the Home",
     "7": "Class Period 11: August 14, 2005, and between October 2001 and May 2002 (flashback)",
     "8": "Class Period 12: August 14, 2005, and between May 2002 and March 2003 (flashback)",
     "9": "Class Period 14: uncertain, possibly October 3, 2005 and October 4, 2005"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "18": "wikipedia",
+    "19": "wikipedia",
+    "2": "wikipedia",
+    "20": "wikipedia",
+    "21": "wikipedia",
+    "22": "wikipedia",
+    "23": "wikipedia",
+    "24": "wikipedia",
+    "25": "wikipedia",
+    "26": "wikipedia",
+    "27": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "47.5": "comick",
+    "49.5": "comick",
+    "5": "wikipedia",
+    "51.5": "comick",
+    "6": "wikipedia",
+    "64.5": "comick",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Kodomo no Jikan chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Kodomo_no_Jikan_chapters",
+      "count": 27
+    },
+    {
+      "name": "comick",
+      "ref": "kodomo-no-jikan",
+      "url": "https://comick.dev/comic/kodomo-no-jikan",
+      "count": 4
+    },
+    {
+      "name": "mangadex",
+      "ref": "60d417e7-97d6-4b78-b33b-495489c20230",
+      "url": "https://mangadex.org/title/60d417e7-97d6-4b78-b33b-495489c20230",
+      "count": 0
+    }
+  ]
 }

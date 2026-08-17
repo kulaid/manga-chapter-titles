@@ -2,9 +2,10 @@
   "series": "Peace Maker",
   "slug": "peace-maker",
   "match_key": "peacemaker",
+  "anilist_id": 30474,
   "article": "List of Peace Maker chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Peace_Maker_chapters",
-  "scraped_at": "2026-08-17T02:15:11.215632319Z",
+  "scraped_at": "2026-08-17T03:17:09.193409838Z",
   "chapter_count": 29,
   "inferred_numbers": 0,
   "chapters": {
@@ -37,5 +38,56 @@
     "7": "I'm a Loser",
     "8": "Get Back",
     "9": "All I've Got to Do"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "18": "wikipedia",
+    "19": "wikipedia",
+    "2": "wikipedia",
+    "20": "wikipedia",
+    "21": "wikipedia",
+    "22": "wikipedia",
+    "23": "wikipedia",
+    "24": "wikipedia",
+    "25": "wikipedia",
+    "26": "wikipedia",
+    "27": "wikipedia",
+    "28": "wikipedia",
+    "29": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Peace Maker chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Peace_Maker_chapters",
+      "count": 29
+    },
+    {
+      "name": "comick",
+      "ref": "shinsengumi-imon-peace-maker",
+      "url": "https://comick.dev/comic/shinsengumi-imon-peace-maker",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "59bebf5e-0bbf-45dc-9f9d-9eea5b6cb0b0",
+      "url": "https://mangadex.org/title/59bebf5e-0bbf-45dc-9f9d-9eea5b6cb0b0",
+      "count": 0
+    }
+  ]
 }

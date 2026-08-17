@@ -354,3 +354,47 @@ func assertChapters(t *testing.T, got Chapters, want map[float64]string) {
 		}
 	}
 }
+
+func TestParseChapters_orderedListMarkup(t *testing.T) {
+	// "#" is MediaWiki's ordered-list marker and appears in chapter lists just
+	// as often as "*" — Attack on Titan numbers its first volume this way.
+	// Skipping those lines silently truncated the series.
+	wikitext := `
+{{Graphic novel list
+| ChapterList     =
+# {{nihongo|"To You, 2,000 Years from Now"|二千年後の君へ|Ni Sen Nen Go no Kimi e}}
+# {{nihongo|"That Day"|その日|Sono Hi}}
+# {{nihongo|"Night of the Disbanding Ceremony"|解散式の夜|Kaisanshiki no Yoru}}
+| Summary = With the advent of giant humanoid beings known as "Titans"...
+}}`
+
+	got, inferred := ParseChapters(wikitext)
+
+	assertChapters(t, got, map[float64]string{
+		1: "To You, 2,000 Years from Now",
+		2: "That Day",
+		3: "Night of the Disbanding Ceremony",
+	})
+	if inferred != 3 {
+		t.Errorf("inferred = %d, want 3 (ordered-list markup carries no explicit number)", inferred)
+	}
+}
+
+func TestParseChapters_mixedBulletAndOrderedMarkers(t *testing.T) {
+	// An article may switch markers between volumes; numbering must run
+	// continuously across both.
+	wikitext := `
+{{Graphic novel list
+|ChapterList =
+# {{Nihongo|"One"|一|Ichi}}
+# {{Nihongo|"Two"|二|Ni}}
+}}
+{{Graphic novel list
+|ChapterList =
+* {{Nihongo|"Three"|三|San}}
+}}`
+
+	got, _ := ParseChapters(wikitext)
+
+	assertChapters(t, got, map[float64]string{1: "One", 2: "Two", 3: "Three"})
+}

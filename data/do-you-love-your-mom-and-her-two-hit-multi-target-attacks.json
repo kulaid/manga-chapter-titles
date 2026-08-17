@@ -2,9 +2,10 @@
   "series": "Do You Love Your Mom and Her Two-Hit Multi-Target Attacks?",
   "slug": "do-you-love-your-mom-and-her-two-hit-multi-target-attacks",
   "match_key": "doyouloveyourmomandhertwohitmultitargetattacks",
+  "anilist_id": 100310,
   "article": "List of Do You Love Your Mom and Her Two-Hit Multi-Target Attacks? volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Do_You_Love_Your_Mom_and_Her_Two-Hit_Multi-Target_Attacks%3F_volumes",
-  "scraped_at": "2026-08-17T02:12:29.624082983Z",
+  "scraped_at": "2026-08-17T03:09:36.148011513Z",
   "chapter_count": 12,
   "inferred_numbers": 25,
   "chapters": {
@@ -20,5 +21,27 @@
     "7": "Prologue: One Boy's Progress Report",
     "8": "Prologue: To All MMMMMORPG (Working Title) Test Players",
     "9": "Last Chapter: \"If I Don't Tell Her, She'll Never Get It, but If I Do, She'll Probably Hit Me. Families Are Tough. ①"
-  }
+  },
+  "chapter_sources": {
+    "0": "wikipedia",
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Do You Love Your Mom and Her Two-Hit Multi-Target Attacks? volumes",
+      "url": "https://en.wikipedia.org/wiki/List_of_Do_You_Love_Your_Mom_and_Her_Two-Hit_Multi-Target_Attacks%3F_volumes",
+      "count": 12
+    }
+  ]
 }

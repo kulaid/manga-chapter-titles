@@ -2,9 +2,10 @@
   "series": "Hot Gimmick",
   "slug": "hot-gimmick",
   "match_key": "hotgimmick",
+  "anilist_id": 30647,
   "article": "List of Hot Gimmick chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Hot_Gimmick_chapters",
-  "scraped_at": "2026-08-17T02:13:36.2959577Z",
+  "scraped_at": "2026-08-17T03:13:36.00522699Z",
   "chapter_count": 4,
   "inferred_numbers": 4,
   "chapters": {
@@ -12,5 +13,19 @@
     "37": "Hot Gimmick01",
     "5": "A Neighborhood Tour",
     "55": "Ten Days"
-  }
+  },
+  "chapter_sources": {
+    "10": "wikipedia",
+    "37": "wikipedia",
+    "5": "wikipedia",
+    "55": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Hot Gimmick chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Hot_Gimmick_chapters",
+      "count": 4
+    }
+  ]
 }

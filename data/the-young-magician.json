@@ -2,12 +2,36 @@
   "series": "The Young Magician",
   "slug": "the-young-magician",
   "match_key": "theyoungmagician",
+  "anilist_id": 30827,
   "article": "List of The Young Magician chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_The_Young_Magician_chapters",
-  "scraped_at": "2026-08-17T02:17:03.659778448Z",
+  "scraped_at": "2026-08-17T03:21:26.711250776Z",
   "chapter_count": 1,
   "inferred_numbers": 1,
   "chapters": {
     "1": "Jack the Ripper in Hong Kong"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of The Young Magician chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_The_Young_Magician_chapters",
+      "count": 1
+    },
+    {
+      "name": "comick",
+      "ref": "shounen-mahoushi",
+      "url": "https://comick.dev/comic/shounen-mahoushi",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "8ddafb81-ae42-4e04-9f38-7087753d0ecc",
+      "url": "https://mangadex.org/title/8ddafb81-ae42-4e04-9f38-7087753d0ecc",
+      "count": 0
+    }
+  ]
 }

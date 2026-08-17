@@ -18,6 +18,7 @@ import (
 type DB struct {
 	dir     string
 	byKey   map[string]IndexEntry // match key -> entry
+	byAniID map[int]IndexEntry    // AniList ID -> entry
 	entries []IndexEntry
 
 	mu     sync.Mutex
@@ -34,6 +35,7 @@ func Load(dir string) (*DB, error) {
 	db := &DB{
 		dir:     dir,
 		byKey:   make(map[string]IndexEntry, len(idx.Series)),
+		byAniID: make(map[int]IndexEntry, len(idx.Series)),
 		entries: idx.Series,
 		loaded:  make(map[string]*Series),
 	}
@@ -41,6 +43,11 @@ func Load(dir string) (*DB, error) {
 		// The first entry wins, so a later duplicate key cannot displace it.
 		if _, exists := db.byKey[e.MatchKey]; !exists {
 			db.byKey[e.MatchKey] = e
+		}
+		if e.AniListID != 0 {
+			if _, exists := db.byAniID[e.AniListID]; !exists {
+				db.byAniID[e.AniListID] = e
+			}
 		}
 	}
 	return db, nil
@@ -61,7 +68,39 @@ func (db *DB) Series(name string) (*Series, bool) {
 	if !ok {
 		return nil, false
 	}
+	return db.load(entry)
+}
 
+// SeriesByAniListID loads the record for an AniList manga ID. Prefer this over
+// Series when you already hold an ID: it is an exact key, whereas a name match
+// can miss when the two sources title a series differently.
+func (db *DB) SeriesByAniListID(id int) (*Series, bool) {
+	if id == 0 {
+		return nil, false
+	}
+	entry, ok := db.byAniID[id]
+	if !ok {
+		return nil, false
+	}
+	return db.load(entry)
+}
+
+// TitleByAniListID returns one chapter's title for a series identified by its
+// AniList ID.
+func (db *DB) TitleByAniListID(id int, chapter float64) (string, bool) {
+	s, ok := db.SeriesByAniListID(id)
+	if !ok {
+		return "", false
+	}
+	title, ok := s.Chapters[FormatChapterNumber(chapter)]
+	if !ok || title == "" {
+		return "", false
+	}
+	return title, true
+}
+
+// load reads and caches the series file an index entry points at.
+func (db *DB) load(entry IndexEntry) (*Series, bool) {
 	db.mu.Lock()
 	defer db.mu.Unlock()
 

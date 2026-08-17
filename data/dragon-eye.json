@@ -2,9 +2,10 @@
   "series": "Dragon Eye",
   "slug": "dragon-eye",
   "match_key": "dragoneye",
+  "anilist_id": 30343,
   "article": "List of Dragon Eye chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dragon_Eye_chapters",
-  "scraped_at": "2026-08-17T02:12:36.794599944Z",
+  "scraped_at": "2026-08-17T03:09:46.326582876Z",
   "chapter_count": 12,
   "inferred_numbers": 12,
   "chapters": {
@@ -20,5 +21,27 @@
     "7": "Mission 7: The Leader of the Rabid",
     "8": "Mission 8: A Stratagem with Low Odds",
     "9": "Mission 9: The Man Once Known as Leda"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Dragon Eye chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Dragon_Eye_chapters",
+      "count": 12
+    }
+  ]
 }

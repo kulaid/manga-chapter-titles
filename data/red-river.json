@@ -2,9 +2,10 @@
   "series": "Red River",
   "slug": "red-river",
   "match_key": "redriver",
+  "anilist_id": 30079,
   "article": "List of Red River chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Red_River_chapters",
-  "scraped_at": "2026-08-17T02:15:27.455384568Z",
+  "scraped_at": "2026-08-17T03:17:30.265736386Z",
   "chapter_count": 6,
   "inferred_numbers": 6,
   "chapters": {
@@ -14,5 +15,21 @@
     "31": "Gallery Illustration",
     "37": "Illustration Gallery",
     "51": "Illustration Gallery"
-  }
+  },
+  "chapter_sources": {
+    "15": "wikipedia",
+    "20": "wikipedia",
+    "28": "wikipedia",
+    "31": "wikipedia",
+    "37": "wikipedia",
+    "51": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Red River chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Red_River_chapters",
+      "count": 6
+    }
+  ]
 }

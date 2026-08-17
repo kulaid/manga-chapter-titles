@@ -13,10 +13,12 @@ func newTestDataset(t *testing.T) string {
 	series := []*Series{
 		{
 			Series: "Chainsaw Man", Slug: "chainsaw-man", MatchKey: "chainsawman",
+			AniListID: 105778,
 			ScrapedAt: time.Now().UTC(), ChapterCount: 2,
 			Chapters: map[string]string{"1": "Dog & Chainsaw", "4.5": "Interlude"},
 		},
 		{
+			// No AniList ID: not every series can be confirmed.
 			Series: "Hunter × Hunter", Slug: "hunter-hunter", MatchKey: "hunterhunter",
 			ScrapedAt: time.Now().UTC(), ChapterCount: 1,
 			Chapters: map[string]string{"1": "The Day of Departure"},
@@ -30,7 +32,8 @@ func newTestDataset(t *testing.T) string {
 		}
 		entries = append(entries, IndexEntry{
 			Series: s.Series, Slug: s.Slug, MatchKey: s.MatchKey,
-			File: s.Slug + ".json", ChapterCount: s.ChapterCount,
+			AniListID: s.AniListID,
+			File:      s.Slug + ".json", ChapterCount: s.ChapterCount,
 		})
 	}
 	if err := WriteIndex(dir, entries); err != nil {
@@ -125,5 +128,46 @@ func TestMatchKey(t *testing.T) {
 		if got := MatchKey(tt.in); got != tt.want {
 			t.Errorf("MatchKey(%q) = %q, want %q", tt.in, got, tt.want)
 		}
+	}
+}
+
+func TestSeriesByAniListID(t *testing.T) {
+	db, err := Load(newTestDataset(t))
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+
+	s, ok := db.SeriesByAniListID(105778)
+	if !ok {
+		t.Fatal("SeriesByAniListID(105778) reported the series missing")
+	}
+	if s.Series != "Chainsaw Man" {
+		t.Errorf("resolved to %q, want %q", s.Series, "Chainsaw Man")
+	}
+
+	if _, ok := db.SeriesByAniListID(999999); ok {
+		t.Error("reported a series for an unknown AniList ID")
+	}
+	// Zero means "no ID recorded" and must never match the entries that lack one.
+	if _, ok := db.SeriesByAniListID(0); ok {
+		t.Error("AniList ID 0 matched a series")
+	}
+}
+
+func TestTitleByAniListID(t *testing.T) {
+	db, err := Load(newTestDataset(t))
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+
+	title, ok := db.TitleByAniListID(105778, 4.5)
+	if !ok || title != "Interlude" {
+		t.Errorf("TitleByAniListID(105778, 4.5) = %q, %v; want %q, true", title, ok, "Interlude")
+	}
+	if _, ok := db.TitleByAniListID(105778, 999); ok {
+		t.Error("reported a title for a chapter that does not exist")
+	}
+	if _, ok := db.TitleByAniListID(999999, 1); ok {
+		t.Error("reported a title for an unknown AniList ID")
 	}
 }

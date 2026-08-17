@@ -2,9 +2,10 @@
   "series": "Ikki Tousen",
   "slug": "ikki-tousen",
   "match_key": "ikkitousen",
+  "anilist_id": 30372,
   "article": "List of Ikki Tousen chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Ikki_Tousen_chapters",
-  "scraped_at": "2026-08-17T02:13:44.354826022Z",
+  "scraped_at": "2026-08-17T03:13:46.541775602Z",
   "chapter_count": 24,
   "inferred_numbers": 23,
   "chapters": {
@@ -32,5 +33,39 @@
     "75": "Four Panels Extra I",
     "76": "Four Panels Extra II",
     "77": "Gallery of Chapter Covers (from 55 - 74)"
-  }
+  },
+  "chapter_sources": {
+    "0": "wikipedia",
+    "103": "wikipedia",
+    "131": "wikipedia",
+    "145": "wikipedia",
+    "146": "wikipedia",
+    "147": "wikipedia",
+    "148": "wikipedia",
+    "149": "wikipedia",
+    "150": "wikipedia",
+    "151": "wikipedia",
+    "152": "wikipedia",
+    "153": "wikipedia",
+    "154": "wikipedia",
+    "155": "wikipedia",
+    "156": "wikipedia",
+    "167": "wikipedia",
+    "32": "wikipedia",
+    "33": "wikipedia",
+    "40": "wikipedia",
+    "55": "wikipedia",
+    "62": "wikipedia",
+    "75": "wikipedia",
+    "76": "wikipedia",
+    "77": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Ikki Tousen chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Ikki_Tousen_chapters",
+      "count": 24
+    }
+  ]
 }

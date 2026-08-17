@@ -2,9 +2,10 @@
   "series": "Speed Racer",
   "slug": "speed-racer",
   "match_key": "speedracer",
+  "anilist_id": 37546,
   "article": "List of Speed Racer chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Speed_Racer_chapters",
-  "scraped_at": "2026-08-17T02:16:06.934314537Z",
+  "scraped_at": "2026-08-17T03:19:40.800372246Z",
   "chapter_count": 4,
   "inferred_numbers": 0,
   "chapters": {
@@ -12,5 +13,25 @@
     "2": "Challenge Of the Masked Racer",
     "3": "Race for Revenge",
     "4": "The Fire Race"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Speed Racer chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Speed_Racer_chapters",
+      "count": 4
+    },
+    {
+      "name": "comick",
+      "ref": "mach-go-go-go",
+      "url": "https://comick.dev/comic/mach-go-go-go",
+      "count": 0
+    }
+  ]
 }

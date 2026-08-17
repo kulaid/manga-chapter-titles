@@ -2,13 +2,62 @@
   "series": "Fruits Basket",
   "slug": "fruits-basket",
   "match_key": "fruitsbasket",
+  "anilist_id": 30102,
   "article": "List of Fruits Basket chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Fruits_Basket_chapters",
-  "scraped_at": "2026-08-17T02:12:58.451464123Z",
-  "chapter_count": 2,
+  "scraped_at": "2026-08-17T03:11:20.879679848Z",
+  "chapter_count": 14,
   "inferred_numbers": 2,
   "chapters": {
+    "12.5": "Volume 2 Extras",
     "14": "The Three Musketeers Arc Chapters 1-3",
-    "15": "The Three Musketeers Arc 2 Chapters 1-3"
-  }
+    "15": "The Three Musketeers Arc 2 Chapters 1-3",
+    "18.5": "Volume 3 Extras",
+    "24.5": "Volume 4 Extras",
+    "30.5": "Volume 5 Extras",
+    "36.5": "Volume 6 Extras",
+    "42.5": "Volume 7 Extras",
+    "48.5": "Volume 8 Extras",
+    "53.5": "Volume 5 Extras",
+    "59.5": "Volume 10 Extras",
+    "6.5": "Volume 1 Extras",
+    "65.5": "Volume 11 Extras",
+    "71.5": "Volume 12 Extras"
+  },
+  "chapter_sources": {
+    "12.5": "comick",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "18.5": "comick",
+    "24.5": "comick",
+    "30.5": "comick",
+    "36.5": "comick",
+    "42.5": "comick",
+    "48.5": "comick",
+    "53.5": "comick",
+    "59.5": "comick",
+    "6.5": "comick",
+    "65.5": "comick",
+    "71.5": "comick"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Fruits Basket chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Fruits_Basket_chapters",
+      "count": 2
+    },
+    {
+      "name": "comick",
+      "ref": "fruits-basket",
+      "url": "https://comick.dev/comic/fruits-basket",
+      "count": 12
+    },
+    {
+      "name": "mangadex",
+      "ref": "e9b1d4ba-b8fb-48c3-8d52-5a4eefd05980",
+      "url": "https://mangadex.org/title/e9b1d4ba-b8fb-48c3-8d52-5a4eefd05980",
+      "count": 0
+    }
+  ]
 }

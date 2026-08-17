@@ -2,12 +2,24 @@
   "series": "Beck",
   "slug": "beck",
   "match_key": "beck",
+  "anilist_id": 30145,
   "article": "List of Beck chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Beck_chapters",
-  "scraped_at": "2026-08-17T02:11:31.042035157Z",
+  "scraped_at": "2026-08-17T03:06:24.654990051Z",
   "chapter_count": 1,
   "inferred_numbers": 1,
   "chapters": {
     "103": "The Last Day of Eddie Lee"
-  }
+  },
+  "chapter_sources": {
+    "103": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Beck chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Beck_chapters",
+      "count": 1
+    }
+  ]
 }

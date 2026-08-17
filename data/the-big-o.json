@@ -2,9 +2,10 @@
   "series": "The Big O",
   "slug": "the-big-o",
   "match_key": "thebigo",
+  "anilist_id": 30283,
   "article": "List of The Big O chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_The_Big_O_chapters",
-  "scraped_at": "2026-08-17T02:11:35.564254973Z",
+  "scraped_at": "2026-08-17T03:06:47.17660817Z",
   "chapter_count": 24,
   "inferred_numbers": 13,
   "chapters": {
@@ -32,5 +33,45 @@
     "7": "Tief Im Schwarzwald",
     "8": "Paradigme Gallery",
     "9": "Making of The Big O"
-  }
+  },
+  "chapter_sources": {
+    "0": "wikipedia",
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "18": "wikipedia",
+    "19": "wikipedia",
+    "2": "wikipedia",
+    "20": "wikipedia",
+    "21": "wikipedia",
+    "22": "wikipedia",
+    "23": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of The Big O chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_The_Big_O_chapters",
+      "count": 24
+    },
+    {
+      "name": "comick",
+      "ref": "the-big-o",
+      "url": "https://comick.dev/comic/the-big-o",
+      "count": 0
+    }
+  ]
 }

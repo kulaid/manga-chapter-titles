@@ -77,6 +77,8 @@ var wikiWhitespace = regexp.MustCompile(`\s+`)
 //     that share a single title (e.g. Vinland Saga, Berserk)
 //   - "* {{Nihongo|...}}" plain bullets with no numbers at all (e.g. Berserk's
 //     first volume), which continue from the previous entry's number
+//   - "# {{Nihongo|...}}" ordered-list markup, treated exactly like a plain
+//     bullet (e.g. Attack on Titan)
 func ParseChapters(wikitext string) (Chapters, int) {
 	// Articles that number chapters inside the title are inconsistent about
 	// zero-padding: "Arisa" writes "01 Tsubasa" through "09 ..." and then plain
@@ -130,10 +132,13 @@ func parseChapters(wikitext string, allowBareNumbers bool) (Chapters, int, int) 
 
 		for _, line := range strings.Split(field, "\n") {
 			line = strings.TrimSpace(line)
-			if !strings.HasPrefix(line, "*") {
+			// "*" is an unordered list, "#" an ordered one. Articles use both
+			// for chapter lists — Attack on Titan numbers its first volume with
+			// "#" — and neither marker carries a chapter number of its own.
+			if !strings.HasPrefix(line, "*") && !strings.HasPrefix(line, "#") {
 				continue
 			}
-			entry := strings.TrimSpace(strings.TrimLeft(line, "*"))
+			entry := strings.TrimSpace(strings.TrimLeft(line, "*#"))
 			if entry == "" {
 				continue
 			}

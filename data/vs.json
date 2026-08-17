@@ -2,13 +2,26 @@
   "series": "VS",
   "slug": "vs",
   "match_key": "vs",
+  "anilist_id": 179705,
   "article": "List of VS chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_VS_chapters",
-  "scraped_at": "2026-08-17T02:16:45.660635681Z",
+  "scraped_at": "2026-08-17T03:20:46.757784726Z",
   "chapter_count": 2,
   "inferred_numbers": 2,
   "chapters": {
     "1": "Opus 1. Enfants Terribles",
     "2": "Opus 28."
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "2": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of VS chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_VS_chapters",
+      "count": 2
+    }
+  ]
 }

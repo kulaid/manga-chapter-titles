@@ -146,6 +146,17 @@ func TestSeriesNameFromArticle(t *testing.T) {
 		{"List of Chainsaw Man chapters", "Chainsaw Man"},
 		{"List of 7 Seeds volumes", "7 Seeds"},
 		{"Dandadan", "Dandadan"},
+
+		// Trailing descriptors describe the article, not the series, and break
+		// lookups on other sites if they survive.
+		{"List of Angels of Death manga chapters", "Angels of Death"},
+		{"List of Girls und Panzer books", "Girls und Panzer"},
+		{"List of Lupin the Third manga", "Lupin the Third"},
+		{"List of Monogatari light novels", "Monogatari"},
+
+		// A series whose name ends in a descriptor word must survive: dropping
+		// it would leave nothing.
+		{"List of Manga", "Manga"},
 	}
 	for _, tt := range tests {
 		if got := SeriesNameFromArticle(tt.in); got != tt.want {

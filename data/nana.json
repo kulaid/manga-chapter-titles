@@ -2,13 +2,60 @@
   "series": "Nana",
   "slug": "nana",
   "match_key": "nana",
+  "anilist_id": 30028,
   "article": "List of Nana chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Nana_chapters",
-  "scraped_at": "2026-08-17T02:14:47.41880217Z",
-  "chapter_count": 2,
+  "scraped_at": "2026-08-17T03:15:39.472091341Z",
+  "chapter_count": 16,
   "inferred_numbers": 2,
   "chapters": {
+    "0.1": "Nana Komatsu",
+    "0.2": "Nana Osaki",
     "1": "Nana – Nana Komatsu",
-    "2": "Nana – Nana Osaki"
-  }
+    "12.5": "Extra",
+    "16.5": "Extra",
+    "2": "Nana – Nana Osaki",
+    "32.5": "Naoki",
+    "36.5": "Extra",
+    "41.5": "Extra",
+    "45.5": "Extra",
+    "49.5": "Extra",
+    "53.5": "Extra",
+    "57.5": "Extra",
+    "61.5": "Nobu",
+    "61.6": "Nobu",
+    "69.5": "Takumi"
+  },
+  "chapter_sources": {
+    "0.1": "comick",
+    "0.2": "comick",
+    "1": "wikipedia",
+    "12.5": "comick",
+    "16.5": "comick",
+    "2": "wikipedia",
+    "32.5": "comick",
+    "36.5": "comick",
+    "41.5": "comick",
+    "45.5": "comick",
+    "49.5": "comick",
+    "53.5": "comick",
+    "57.5": "comick",
+    "61.5": "comick",
+    "61.6": "comick",
+    "69.5": "comick"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Nana chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Nana_chapters",
+      "count": 2
+    },
+    {
+      "name": "comick",
+      "ref": "nana",
+      "url": "https://comick.dev/comic/nana",
+      "count": 14
+    }
+  ]
 }

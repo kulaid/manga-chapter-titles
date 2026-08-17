@@ -2,9 +2,10 @@
   "series": "Kaze no Daichi",
   "slug": "kaze-no-daichi",
   "match_key": "kazenodaichi",
+  "anilist_id": 89026,
   "article": "List of Kaze no Daichi chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Kaze_no_Daichi_chapters",
-  "scraped_at": "2026-08-17T02:14:00.576089916Z",
+  "scraped_at": "2026-08-17T03:14:26.733856743Z",
   "chapter_count": 18,
   "inferred_numbers": 0,
   "chapters": {
@@ -26,5 +27,33 @@
     "7": "夢のあとさき",
     "8": "出会い",
     "9": "成長"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "18": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Kaze no Daichi chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Kaze_no_Daichi_chapters",
+      "count": 18
+    }
+  ]
 }

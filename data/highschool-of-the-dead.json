@@ -2,10 +2,11 @@
   "series": "Highschool of the Dead",
   "slug": "highschool-of-the-dead",
   "match_key": "highschoolofthedead",
+  "anilist_id": 30669,
   "article": "List of Highschool of the Dead chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Highschool_of_the_Dead_chapters",
-  "scraped_at": "2026-08-17T02:13:30.830699378Z",
-  "chapter_count": 29,
+  "scraped_at": "2026-08-17T03:13:28.558279508Z",
+  "chapter_count": 32,
   "inferred_numbers": 29,
   "chapters": {
     "1": "Act.1: Spring of the Dead",
@@ -23,7 +24,10 @@
     "20": "Act.20: Blood and Dead",
     "21": "Act.21: The Good, the Bad, and the Dead",
     "22": "Act.22: Dead Rush",
+    "22.1": "Extra Episode 01: Beginning of The Dead",
+    "22.2": "Extra Episode 02: Cosplay of the Dead",
     "23": "Act.23: Dead Lovers",
+    "23.5": "Dead Illusion",
     "24": "Act.24: Dance with the Dead",
     "25": "Act.25: Duty and Dead",
     "26": "Act.26: The Dead Badge of Coward",
@@ -37,5 +41,53 @@
     "7": "Act.7: Dead Night and the Dead Ruck",
     "8": "Act.8: Alice in Dead Land",
     "9": "Act.9: The Dead Way Home"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "18": "wikipedia",
+    "19": "wikipedia",
+    "2": "wikipedia",
+    "20": "wikipedia",
+    "21": "wikipedia",
+    "22": "wikipedia",
+    "22.1": "comick",
+    "22.2": "comick",
+    "23": "wikipedia",
+    "23.5": "comick",
+    "24": "wikipedia",
+    "25": "wikipedia",
+    "26": "wikipedia",
+    "27": "wikipedia",
+    "28": "wikipedia",
+    "29": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Highschool of the Dead chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Highschool_of_the_Dead_chapters",
+      "count": 29
+    },
+    {
+      "name": "comick",
+      "ref": "highschool-of-the-dead",
+      "url": "https://comick.dev/comic/highschool-of-the-dead",
+      "count": 3
+    }
+  ]
 }

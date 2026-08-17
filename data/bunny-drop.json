@@ -2,13 +2,54 @@
   "series": "Bunny Drop",
   "slug": "bunny-drop",
   "match_key": "bunnydrop",
+  "anilist_id": 33468,
   "article": "List of Bunny Drop chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Bunny_Drop_chapters",
-  "scraped_at": "2026-08-17T02:11:56.257655985Z",
-  "chapter_count": 2,
+  "scraped_at": "2026-08-17T03:07:20.17450613Z",
+  "chapter_count": 10,
   "inferred_numbers": 2,
   "chapters": {
     "1": "last episode",
-    "6": "Final Chapter"
-  }
+    "24.1": "Bonus Track ~ Arigatou",
+    "56.1": "Bonus Track ~ Arigatou",
+    "57": "Tiny Heart",
+    "58": "There's No Way I Could Hate Him",
+    "59": "Two Families",
+    "6": "Final Chapter",
+    "60": "Spectacles Drop",
+    "61": "Careless Labyrinth",
+    "62": "Since Then"
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "24.1": "comick",
+    "56.1": "comick",
+    "57": "comick",
+    "58": "comick",
+    "59": "comick",
+    "6": "wikipedia",
+    "60": "comick",
+    "61": "comick",
+    "62": "comick"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Bunny Drop chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Bunny_Drop_chapters",
+      "count": 2
+    },
+    {
+      "name": "comick",
+      "ref": "usagi-drop",
+      "url": "https://comick.dev/comic/usagi-drop",
+      "count": 8
+    },
+    {
+      "name": "mangadex",
+      "ref": "a24e7759-f588-4b5d-8727-1e28c0787dba",
+      "url": "https://mangadex.org/title/a24e7759-f588-4b5d-8727-1e28c0787dba",
+      "count": 0
+    }
+  ]
 }

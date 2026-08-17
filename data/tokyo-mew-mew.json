@@ -2,9 +2,10 @@
   "series": "Tokyo Mew Mew",
   "slug": "tokyo-mew-mew",
   "match_key": "tokyomewmew",
+  "anilist_id": 30554,
   "article": "List of Tokyo Mew Mew chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tokyo_Mew_Mew_chapters",
-  "scraped_at": "2026-08-17T02:16:24.09726056Z",
+  "scraped_at": "2026-08-17T03:20:12.25301564Z",
   "chapter_count": 28,
   "inferred_numbers": 13,
   "chapters": {
@@ -36,5 +37,49 @@
     "7": "Afterward",
     "8": "Three Plus Two",
     "9": "Three Plus Two"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "18": "wikipedia",
+    "19": "wikipedia",
+    "2": "wikipedia",
+    "20": "wikipedia",
+    "21": "wikipedia",
+    "22": "wikipedia",
+    "23": "wikipedia",
+    "24": "wikipedia",
+    "25": "wikipedia",
+    "26": "wikipedia",
+    "27": "wikipedia",
+    "28": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Tokyo Mew Mew chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Tokyo_Mew_Mew_chapters",
+      "count": 28
+    },
+    {
+      "name": "comick",
+      "ref": "tokyo-mew-mew",
+      "url": "https://comick.dev/comic/tokyo-mew-mew",
+      "count": 0
+    }
+  ]
 }

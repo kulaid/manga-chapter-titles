@@ -2,9 +2,10 @@
   "series": "Date A Live",
   "slug": "date-a-live",
   "match_key": "datealive",
+  "anilist_id": 67523,
   "article": "List of Date A Live volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Date_A_Live_volumes",
-  "scraped_at": "2026-08-17T02:12:21.526759337Z",
+  "scraped_at": "2026-08-17T03:08:57.7899567Z",
   "chapter_count": 13,
   "inferred_numbers": 35,
   "chapters": {
@@ -21,5 +22,28 @@
     "7": "Prologue: A New Day",
     "8": "Swimwear Battle",
     "9": "Final Rendezvous"
-  }
+  },
+  "chapter_sources": {
+    "0": "wikipedia",
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Date A Live volumes",
+      "url": "https://en.wikipedia.org/wiki/List_of_Date_A_Live_volumes",
+      "count": 13
+    }
+  ]
 }

@@ -2,9 +2,10 @@
   "series": "Outlaw Star",
   "slug": "outlaw-star",
   "match_key": "outlawstar",
+  "anilist_id": 37438,
   "article": "List of Outlaw Star chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Outlaw_Star_chapters",
-  "scraped_at": "2026-08-17T02:15:07.620197584Z",
+  "scraped_at": "2026-08-17T03:17:03.187450568Z",
   "chapter_count": 18,
   "inferred_numbers": 6,
   "chapters": {
@@ -26,5 +27,45 @@
     "7": "Zero-Range Attack",
     "8": "The Promise",
     "9": "Let's Do It"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "18": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Outlaw Star chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Outlaw_Star_chapters",
+      "count": 18
+    },
+    {
+      "name": "comick",
+      "ref": "outlaw-star",
+      "url": "https://comick.dev/comic/outlaw-star",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "0cb9c6a7-93d0-420c-90c9-00fb0ea547c7",
+      "url": "https://mangadex.org/title/0cb9c6a7-93d0-420c-90c9-00fb0ea547c7",
+      "count": 0
+    }
+  ]
 }

@@ -1,0 +1,64 @@
+{
+  "overrides": {
+    "List of KonoSuba volumes": {
+      "series": "KonoSuba",
+      "anilist_id": 85702,
+      "anilist_title": "Kono Subarashii Sekai ni Shukufuku wo!",
+      "note": "Wikipedia abbreviates the title; AniList search returns spin-offs"
+    },
+    "List of Akagi chapters": {
+      "series": "Akagi",
+      "anilist_id": 31218,
+      "anilist_title": "Akagi: Yami ni Oritatta Tensai",
+      "note": "Wikipedia uses the short title; AniList search returns unrelated 'Akagi' works"
+    },
+    "List of Beyblade: Metal Fusion chapters": {
+      "series": "Beyblade: Metal Fusion",
+      "anilist_id": 40600,
+      "anilist_title": "Metal Fight Beyblade",
+      "note": "Licensed under a different name than the Japanese original"
+    },
+    "List of Big Windup! chapters": {
+      "series": "Big Windup!",
+      "anilist_id": 30994,
+      "anilist_title": "Ookiku Furikabutte",
+      "note": "Licensed English title differs from the romaji AniList lists"
+    },
+    "List of Boku wa Imōto ni Koi o Suru chapters": {
+      "series": "Boku wa Imōto ni Koi o Suru",
+      "anilist_id": 33127,
+      "anilist_title": "Boku wa Imouto ni Koi wo Suru: Secret Sweethearts",
+      "note": "AniList appends the subtitle; macrons differ"
+    },
+    "List of Hell Teacher: Jigoku Sensei Nube chapters": {
+      "series": "Hell Teacher: Jigoku Sensei Nube",
+      "anilist_id": 31044,
+      "anilist_title": "Jigoku Sensei Nube",
+      "note": "Wikipedia prefixes the licensed English title"
+    },
+    "List of Neuro: Supernatural Detective chapters": {
+      "series": "Neuro: Supernatural Detective",
+      "anilist_id": 30674,
+      "anilist_title": "Majin Tantei Nougami Neuro",
+      "note": "Licensed English title differs; the 203-chapter series, not the 2004 one-shot"
+    },
+    "List of Rainbow: Nisha Rokubō no Shichinin chapters": {
+      "series": "Rainbow: Nisha Rokubō no Shichinin",
+      "anilist_id": 37482,
+      "anilist_title": "RAINBOW: Nisha Rokubou no Shichinin",
+      "note": "Macron spelling differs"
+    },
+    "List of The Wallflower chapters": {
+      "series": "The Wallflower",
+      "anilist_id": 30422,
+      "anilist_title": "Yamato Nadeshiko Shichi Henge",
+      "note": "Licensed English title bears no resemblance to the romaji"
+    },
+    "List of Trinity Seven chapters": {
+      "series": "Trinity Seven",
+      "anilist_id": 54822,
+      "anilist_title": "Trinity Seven: The Seven Magicians",
+      "note": "AniList appends the subtitle"
+    }
+  }
+}

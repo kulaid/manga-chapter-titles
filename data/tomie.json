@@ -2,9 +2,10 @@
   "series": "Tomie",
   "slug": "tomie",
   "match_key": "tomie",
+  "anilist_id": 145235,
   "article": "List of Tomie chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tomie_chapters",
-  "scraped_at": "2026-08-17T02:16:25.868691784Z",
+  "scraped_at": "2026-08-17T03:20:15.258700775Z",
   "chapter_count": 20,
   "inferred_numbers": 21,
   "chapters": {
@@ -28,5 +29,35 @@
     "7": "07.Tomie Part 2",
     "8": "08.Basement",
     "9": "09.Painter"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "18": "wikipedia",
+    "19": "wikipedia",
+    "2": "wikipedia",
+    "20": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Tomie chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_Tomie_chapters",
+      "count": 20
+    }
+  ]
 }

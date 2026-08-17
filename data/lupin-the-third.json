@@ -1,10 +1,10 @@
 {
-  "series": "List of Lupin the Third manga",
-  "slug": "list-of-lupin-the-third-manga",
-  "match_key": "listoflupinthethirdmanga",
+  "series": "Lupin the Third",
+  "slug": "lupin-the-third",
+  "match_key": "lupinthethird",
   "article": "List of Lupin the Third manga",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Lupin_the_Third_manga",
-  "scraped_at": "2026-08-17T02:14:27.570902669Z",
+  "scraped_at": "2026-08-17T03:14:59.840112832Z",
   "chapter_count": 87,
   "inferred_numbers": 0,
   "chapters": {
