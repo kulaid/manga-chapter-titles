@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-17T19:33:00.125499128Z",
-  "count": 341,
+  "generated_at": "2026-08-17T19:57:32.325349734Z",
+  "count": 367,
   "series": [
     {
       "series": "07-Ghost",
@@ -371,6 +371,19 @@
       "chapter_count": 207
     },
     {
+      "series": "Bleach",
+      "slug": "bleach",
+      "match_key": "bleach",
+      "anilist_id": 30012,
+      "file": "bleach.json",
+      "article": "List of Bleach chapters (1–187)",
+      "chapter_count": 706,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
+    },
+    {
       "series": "Blood+",
       "slug": "blood",
       "match_key": "blood",
@@ -443,6 +456,14 @@
       "chapter_count": 68
     },
     {
+      "series": "Boruto",
+      "slug": "boruto",
+      "match_key": "boruto",
+      "file": "boruto.json",
+      "article": "List of Boruto chapters",
+      "chapter_count": 80
+    },
+    {
       "series": "Boy's Abyss",
       "slug": "boy-s-abyss",
       "match_key": "boysabyss",
@@ -501,6 +522,39 @@
       "chapter_count": 82
     },
     {
+      "series": "Captain Tsubasa",
+      "slug": "captain-tsubasa",
+      "match_key": "captaintsubasa",
+      "anilist_id": 31789,
+      "file": "captain-tsubasa.json",
+      "article": "List of Captain Tsubasa volumes",
+      "chapter_count": 116,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
+      "series": "Captain Tsubasa Road to 2002",
+      "slug": "captain-tsubasa-road-to-2002",
+      "match_key": "captaintsubasaroadto2002",
+      "anilist_id": 31791,
+      "file": "captain-tsubasa-road-to-2002.json",
+      "article": "List of Captain Tsubasa Road to 2002 chapters",
+      "chapter_count": 154,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
+    },
+    {
+      "series": "Captain Tsubasa World Youth",
+      "slug": "captain-tsubasa-world-youth",
+      "match_key": "captaintsubasaworldyouth",
+      "file": "captain-tsubasa-world-youth.json",
+      "article": "List of Captain Tsubasa World Youth chapters",
+      "chapter_count": 64
+    },
+    {
       "series": "Cardcaptor Sakura",
       "slug": "cardcaptor-sakura",
       "match_key": "cardcaptorsakura",
@@ -508,6 +562,18 @@
       "file": "cardcaptor-sakura.json",
       "article": "List of Cardcaptor Sakura chapters",
       "chapter_count": 8
+    },
+    {
+      "series": "Case Closed",
+      "slug": "case-closed",
+      "match_key": "caseclosed",
+      "anilist_id": 41176,
+      "file": "case-closed.json",
+      "article": "List of Case Closed volumes (1–20)",
+      "chapter_count": 1055,
+      "sources": [
+        "wikipedia"
+      ]
     },
     {
       "series": "Cat's Eye",
@@ -788,6 +854,44 @@
       "chapter_count": 236
     },
     {
+      "series": "Dragon Ball",
+      "slug": "dragon-ball",
+      "match_key": "dragonball",
+      "anilist_id": 30042,
+      "file": "dragon-ball.json",
+      "article": "List of Dragon Ball manga volumes",
+      "chapter_count": 521,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
+    },
+    {
+      "series": "Dragon Ball Super",
+      "slug": "dragon-ball-super",
+      "match_key": "dragonballsuper",
+      "anilist_id": 86508,
+      "file": "dragon-ball-super.json",
+      "article": "List of Dragon Ball Super chapters",
+      "chapter_count": 107,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
+    },
+    {
+      "series": "Dragon Ball Z",
+      "slug": "dragon-ball-z",
+      "match_key": "dragonballz",
+      "anilist_id": 30042,
+      "file": "dragon-ball-z.json",
+      "article": "List of Dragon Ball Z chapters",
+      "chapter_count": 325,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
       "series": "Dragon Eye",
       "slug": "dragon-eye",
       "match_key": "dragoneye",
@@ -876,6 +980,18 @@
       "file": "eyeshield-21.json",
       "article": "List of Eyeshield 21 chapters",
       "chapter_count": 333
+    },
+    {
+      "series": "Fairy Tail",
+      "slug": "fairy-tail",
+      "match_key": "fairytail",
+      "anilist_id": 92603,
+      "file": "fairy-tail.json",
+      "article": "List of Fairy Tail volumes",
+      "chapter_count": 295,
+      "sources": [
+        "wikipedia"
+      ]
     },
     {
       "series": "Fairy Tail: 100 Years Quest",
@@ -1031,6 +1147,18 @@
       "chapter_count": 201
     },
     {
+      "series": "Gambling Apocalypse: Kaiji",
+      "slug": "gambling-apocalypse-kaiji",
+      "match_key": "gamblingapocalypsekaiji",
+      "anilist_id": 33572,
+      "file": "gambling-apocalypse-kaiji.json",
+      "article": "List of Gambling Apocalypse: Kaiji chapters",
+      "chapter_count": 158,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
       "series": "Gantz",
       "slug": "gantz",
       "match_key": "gantz",
@@ -1155,6 +1283,19 @@
       "file": "haikyu.json",
       "article": "List of Haikyu!! chapters",
       "chapter_count": 408
+    },
+    {
+      "series": "Hajime no Ippo",
+      "slug": "hajime-no-ippo",
+      "match_key": "hajimenoippo",
+      "anilist_id": 30007,
+      "file": "hajime-no-ippo.json",
+      "article": "List of Hajime no Ippo volumes (1–20)",
+      "chapter_count": 1517,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
     },
     {
       "series": "Hana-Kimi",
@@ -1368,6 +1509,19 @@
       "file": "initial-d.json",
       "article": "List of Initial D chapters",
       "chapter_count": 722
+    },
+    {
+      "series": "Inuyasha",
+      "slug": "inuyasha",
+      "match_key": "inuyasha",
+      "anilist_id": 30676,
+      "file": "inuyasha.json",
+      "article": "List of Inuyasha chapters (1–198)",
+      "chapter_count": 559,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
     },
     {
       "series": "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
@@ -1616,6 +1770,31 @@
       "chapter_count": 372
     },
     {
+      "series": "Major",
+      "slug": "major",
+      "match_key": "major",
+      "anilist_id": 40978,
+      "file": "major.json",
+      "article": "List of Major volumes (1–20)",
+      "chapter_count": 747,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
+      "series": "Major 2nd",
+      "slug": "major-2nd",
+      "match_key": "major2nd",
+      "anilist_id": 86144,
+      "file": "major-2nd.json",
+      "article": "List of Major 2nd volumes",
+      "chapter_count": 274,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
+    },
+    {
       "series": "Mao",
       "slug": "mao",
       "match_key": "mao",
@@ -1760,6 +1939,19 @@
       "chapter_count": 16
     },
     {
+      "series": "Naruto",
+      "slug": "naruto",
+      "match_key": "naruto",
+      "anilist_id": 30011,
+      "file": "naruto.json",
+      "article": "List of Naruto chapters (Part I)",
+      "chapter_count": 700,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
+    },
+    {
       "series": "Negima! Magister Negi Magi",
       "slug": "negima-magister-negi-magi",
       "match_key": "negimamagisternegimagi",
@@ -1856,6 +2048,19 @@
       ]
     },
     {
+      "series": "One Piece",
+      "slug": "one-piece",
+      "match_key": "onepiece",
+      "anilist_id": 30013,
+      "file": "one-piece.json",
+      "article": "List of One Piece chapters (1–186)",
+      "chapter_count": 1193,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
+    },
+    {
       "series": "One-Punch Man",
       "slug": "one-punch-man",
       "match_key": "onepunchman",
@@ -1944,6 +2149,14 @@
       "file": "pet-shop-of-horrors.json",
       "article": "List of Pet Shop of Horrors chapters",
       "chapter_count": 43
+    },
+    {
+      "series": "Pokémon Adventures",
+      "slug": "pokemon-adventures",
+      "match_key": "pokemonadventures",
+      "file": "pokemon-adventures.json",
+      "article": "List of Pokémon Adventures volumes (1–20)",
+      "chapter_count": 617
     },
     {
       "series": "Prison School",
@@ -2119,6 +2332,39 @@
       "file": "sailor-moon.json",
       "article": "List of Sailor Moon chapters",
       "chapter_count": 80
+    },
+    {
+      "series": "Saint Seiya",
+      "slug": "saint-seiya",
+      "match_key": "saintseiya",
+      "anilist_id": 31045,
+      "file": "saint-seiya.json",
+      "article": "List of Saint Seiya chapters (series)",
+      "chapter_count": 110,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
+      "series": "Saint Seiya Episode.G",
+      "slug": "saint-seiya-episode-g",
+      "match_key": "saintseiyaepisodeg",
+      "anilist_id": 31046,
+      "file": "saint-seiya-episode-g.json",
+      "article": "List of Saint Seiya Episode.G chapters",
+      "chapter_count": 139,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
+    },
+    {
+      "series": "Saint Seiya: The Lost Canvas",
+      "slug": "saint-seiya-the-lost-canvas",
+      "match_key": "saintseiyathelostcanvas",
+      "file": "saint-seiya-the-lost-canvas.json",
+      "article": "List of Saint Seiya: The Lost Canvas chapters",
+      "chapter_count": 228
     },
     {
       "series": "Saiyuki",
@@ -2644,6 +2890,66 @@
       "file": "to-your-eternity.json",
       "article": "List of To Your Eternity chapters",
       "chapter_count": 299
+    },
+    {
+      "series": "Tobaku Datenroku Kaiji",
+      "slug": "tobaku-datenroku-kaiji",
+      "match_key": "tobakudatenrokukaiji",
+      "anilist_id": 33574,
+      "file": "tobaku-datenroku-kaiji.json",
+      "article": "List of Tobaku Datenroku Kaiji chapters",
+      "chapter_count": 131,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
+      "series": "Tobaku Datenroku Kaiji: 24 Oku Dasshutsu-hen",
+      "slug": "tobaku-datenroku-kaiji-24-oku-dasshutsu-hen",
+      "match_key": "tobakudatenrokukaiji24okudasshutsuhen",
+      "anilist_id": 101556,
+      "file": "tobaku-datenroku-kaiji-24-oku-dasshutsu-hen.json",
+      "article": "List of Tobaku Datenroku Kaiji: 24 Oku Dasshutsu-hen chapters",
+      "chapter_count": 203,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
+      "series": "Tobaku Datenroku Kaiji: Kazuya-hen",
+      "slug": "tobaku-datenroku-kaiji-kazuya-hen",
+      "match_key": "tobakudatenrokukaijikazuyahen",
+      "anilist_id": 46659,
+      "file": "tobaku-datenroku-kaiji-kazuya-hen.json",
+      "article": "List of Tobaku Datenroku Kaiji: Kazuya-hen chapters",
+      "chapter_count": 100,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
+      "series": "Tobaku Datenroku Kaiji: One Poker-hen",
+      "slug": "tobaku-datenroku-kaiji-one-poker-hen",
+      "match_key": "tobakudatenrokukaijionepokerhen",
+      "anilist_id": 89278,
+      "file": "tobaku-datenroku-kaiji-one-poker-hen.json",
+      "article": "List of Tobaku Datenroku Kaiji: One Poker-hen chapters",
+      "chapter_count": 155,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
+      "series": "Tobaku Hakairoku Kaiji",
+      "slug": "tobaku-hakairoku-kaiji",
+      "match_key": "tobakuhakairokukaiji",
+      "anilist_id": 33573,
+      "file": "tobaku-hakairoku-kaiji.json",
+      "article": "List of Tobaku Hakairoku Kaiji chapters",
+      "chapter_count": 134,
+      "sources": [
+        "wikipedia"
+      ]
     },
     {
       "series": "Toilet-Bound Hanako-kun",

@@ -128,12 +128,41 @@ func PickChapterListArticle(seriesTitle string, hits []string) string {
 // sites.
 var articleDescriptorWords = []string{"chapters", "volumes", "books", "manga", "light novels", "novels"}
 
+// partParentheticalRegex matches a trailing parenthetical that identifies which
+// slice of a long series an article covers, rather than which work it is:
+// "(1–186)", "(1016–current)", "(Part I)", "(Part II, volumes 28–48)",
+// "(volumes 1–15)", "(series)".
+//
+// It deliberately does not match a disambiguator like "(manga)" or
+// "(2023 series)" that appears mid-title, because that is part of the series
+// identity — dropping it would collapse two different works onto one slug.
+var partParentheticalRegex = regexp.MustCompile(
+	`(?i)\s*\((?:` +
+		`series|current|` + // "(series)"
+		`(?:part\s+[IVXLC0-9]+|volumes?\s*[0-9]+|[0-9]+)` + // a part or a number
+		`[^()]*` + // whatever completes the range
+		`)\)$`)
+
+// stripPartParenthetical removes that trailing range so every article of a
+// split series resolves to the same name. Without it the six One Piece
+// articles become six series.
+func stripPartParenthetical(name string) string {
+	trimmed := strings.TrimSpace(partParentheticalRegex.ReplaceAllString(name, ""))
+	if trimmed == "" {
+		// The parenthetical was the whole name; keep the original rather than
+		// return nothing.
+		return name
+	}
+	return trimmed
+}
+
 // SeriesNameFromArticle strips the "List of ..." wrapper and any trailing
 // descriptor words from an article title, returning the series name. Titles
 // that don't follow the convention are returned unchanged.
 func SeriesNameFromArticle(article string) string {
 	name := strings.TrimSpace(article)
 	name = strings.TrimPrefix(name, "List of ")
+	name = stripPartParenthetical(name)
 
 	// Peel descriptors off one at a time: "Angels of Death manga chapters"
 	// needs both "chapters" and "manga" removed. A descriptor is only dropped

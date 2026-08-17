@@ -37,6 +37,8 @@ func main() {
 	switch os.Args[1] {
 	case "build":
 		err = runBuild(os.Args[2:])
+	case "add":
+		err = runAdd(os.Args[2:])
 	case "fetch":
 		err = runFetch(os.Args[2:])
 	case "list":
@@ -71,6 +73,7 @@ func usage() {
 
 Commands:
   build     Scrape every series in Wikipedia's chapter-list category
+  add       Scrape and enrich only series missing from an existing dataset
   fetch     Scrape one series by name, article title, or URL
   list      Print the articles that build would scrape
   lookup    Read a series back out of an existing dataset
@@ -189,7 +192,12 @@ func runBuild(args []string) error {
 
 	var entries []chaptertitles.IndexEntry
 	usedSlugs := map[string]bool{}
-	var skipped, failed int
+	// Articles of a split series resolve to the same name, so they are folded
+	// into the record already written for it instead of taking a second slug.
+	// Keyed by MatchKey, which is the same normalisation consumers look up by.
+	seriesByKey := map[string]*chaptertitles.Series{}
+	entryByKey := map[string]int{}
+	var skipped, failed, merged int
 
 	for i, article := range articles {
 		progress := fmt.Sprintf("[%d/%d]", i+1, len(articles))
@@ -208,6 +216,26 @@ func runBuild(args []string) error {
 			continue
 		}
 
+		// Resolve the name first so a further part of an already-scraped
+		// series can be recognised before a slug is claimed for it.
+		if key := wikipedia.NormalizeName(wikipedia.SeriesNameFromArticle(result.Article)); key != "" {
+			if existing, ok := seriesByKey[key]; ok {
+				part := toSeries(article, result, nil)
+				gained := mergeSeriesChapters(existing, part)
+				if err := chaptertitles.Write(*out, existing); err != nil {
+					return fmt.Errorf("writing %s: %w", existing.Slug, err)
+				}
+				entries[entryByKey[key]] = indexEntryFor(existing)
+				merged++
+				fmt.Fprintf(os.Stderr, "%s %-60s +%d titles, merged into %s (%d)\n",
+					progress, truncate(article, 60), gained, existing.Slug, existing.ChapterCount)
+				if w := mergeCollisionWarning(article, gained, len(part.Chapters)); w != "" {
+					fmt.Fprint(os.Stderr, w)
+				}
+				continue
+			}
+		}
+
 		s := toSeries(article, result, usedSlugs)
 		s.AniListID = knownIDs[article]
 		resolveAniListID(ani, ovr, s)
@@ -215,6 +243,10 @@ func runBuild(args []string) error {
 			return fmt.Errorf("writing %s: %w", s.Slug, err)
 		}
 		usedSlugs[s.Slug] = true
+		if s.MatchKey != "" {
+			seriesByKey[s.MatchKey] = s
+			entryByKey[s.MatchKey] = len(entries)
+		}
 
 		entries = append(entries, indexEntryFor(s))
 
@@ -249,9 +281,184 @@ func runBuild(args []string) error {
 			withIDs++
 		}
 	}
-	fmt.Fprintf(os.Stderr, "\nDone: %d series, %d chapter titles, %d with AniList IDs, %d skipped, %d failed\n",
-		len(entries), total, withIDs, skipped, failed)
+	fmt.Fprintf(os.Stderr, "\nDone: %d series, %d chapter titles, %d with AniList IDs, %d merged parts, %d skipped, %d failed\n",
+		len(entries), total, withIDs, merged, skipped, failed)
 	return nil
+}
+
+// runAdd scrapes and enriches only the series a dataset does not already have.
+//
+// A full "build" plus "enrich" costs the better part of an hour, nearly all of
+// it re-deriving series that have not changed. Picking up newly reachable
+// articles — a dozen after the subcategory fix — should cost a minute, so this
+// filters the category listing against the existing index and touches nothing
+// else.
+func runAdd(args []string) error {
+	fs := flag.NewFlagSet("add", flag.ExitOnError)
+	dir := fs.String("data", "data", "dataset directory to add to")
+	series := fs.String("series", "", "add only this series (by name); default is every missing one")
+	delay := fs.Duration("delay", wikipedia.DefaultDelay, "pause between API requests")
+	minChapters := fs.Int("min-chapters", 1, "skip series with fewer than N chapter titles")
+	ovrPath := fs.String("overrides", overrides.DefaultFile, "hand-curated corrections applied after automatic resolution")
+	useComick := fs.Bool("comick", true, "consult Comick")
+	useMangaDex := fs.Bool("mangadex", true, "consult MangaDex")
+	dryRun := fs.Bool("dry-run", false, "list what would be added without scraping")
+	if err := parseArgs(fs, args); err != nil {
+		return err
+	}
+
+	idx, err := chaptertitles.ReadIndex(*dir)
+	if err != nil {
+		return fmt.Errorf("reading dataset: %w", err)
+	}
+
+	have := make(map[string]bool, len(idx.Series))
+	usedSlugs := make(map[string]bool, len(idx.Series))
+	for _, e := range idx.Series {
+		have[e.MatchKey] = true
+		usedSlugs[e.Slug] = true
+	}
+
+	ovr, err := overrides.Load(*ovrPath)
+	if err != nil {
+		return err
+	}
+
+	client := newClient(*delay)
+	fmt.Fprintf(os.Stderr, "Enumerating %s...\n", wikipedia.ChapterListCategory)
+	articles, err := client.CategoryMembers(wikipedia.ChapterListCategory)
+	if err != nil {
+		return fmt.Errorf("listing category: %w", err)
+	}
+
+	// Filter on the article title alone, before spending a fetch on it.
+	wantKey := ""
+	if *series != "" {
+		wantKey = chaptertitles.MatchKey(*series)
+	}
+	var todo []string
+	for _, a := range articles {
+		key := wikipedia.NormalizeName(wikipedia.SeriesNameFromArticle(a))
+		if key == "" || have[key] {
+			continue
+		}
+		if wantKey != "" && key != wantKey {
+			continue
+		}
+		todo = append(todo, a)
+	}
+
+	if len(todo) == 0 {
+		fmt.Fprintln(os.Stderr, "Nothing to add: every series in the category is already in the dataset.")
+		return nil
+	}
+	fmt.Fprintf(os.Stderr, "%d article(s) not in the dataset:\n", len(todo))
+	for _, a := range todo {
+		fmt.Fprintf(os.Stderr, "  %s\n", a)
+	}
+	if *dryRun {
+		return nil
+	}
+	fmt.Fprintln(os.Stderr)
+
+	ani := anilist.NewClient()
+	seriesByKey := map[string]*chaptertitles.Series{}
+	entryByKey := map[string]int{}
+	var added, mergedParts, skipped, failed int
+
+	for i, article := range todo {
+		progress := fmt.Sprintf("[%d/%d]", i+1, len(todo))
+
+		result, err := client.Fetch(article)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "%s %-60s FAILED: %v\n", progress, truncate(article, 60), err)
+			failed++
+			continue
+		}
+		if len(result.Chapters) < *minChapters {
+			fmt.Fprintf(os.Stderr, "%s %-60s skipped (%d titles)\n", progress, truncate(article, 60), len(result.Chapters))
+			skipped++
+			continue
+		}
+
+		// The fetch may have followed a redirect to an article whose name
+		// resolves to a series already held, so re-check after fetching.
+		key := wikipedia.NormalizeName(wikipedia.SeriesNameFromArticle(result.Article))
+		if key != "" {
+			if existing, ok := seriesByKey[key]; ok {
+				part := toSeries(article, result, nil)
+				gained := mergeSeriesChapters(existing, part)
+				if err := chaptertitles.Write(*dir, existing); err != nil {
+					return fmt.Errorf("writing %s: %w", existing.Slug, err)
+				}
+				idx.Series[entryByKey[key]] = indexEntryFor(existing)
+				mergedParts++
+				fmt.Fprintf(os.Stderr, "%s %-60s +%d titles, merged into %s (%d)\n",
+					progress, truncate(article, 60), gained, existing.Slug, existing.ChapterCount)
+				if w := mergeCollisionWarning(article, gained, len(part.Chapters)); w != "" {
+					fmt.Fprint(os.Stderr, w)
+				}
+				continue
+			}
+			if have[key] {
+				fmt.Fprintf(os.Stderr, "%s %-60s already in the dataset\n", progress, truncate(article, 60))
+				skipped++
+				continue
+			}
+		}
+
+		s := toSeries(article, result, usedSlugs)
+		resolveAniListID(ani, ovr, s)
+		if err := chaptertitles.Write(*dir, s); err != nil {
+			return fmt.Errorf("writing %s: %w", s.Slug, err)
+		}
+		usedSlugs[s.Slug] = true
+		have[s.MatchKey] = true
+		if s.MatchKey != "" {
+			seriesByKey[s.MatchKey] = s
+			entryByKey[s.MatchKey] = len(idx.Series)
+		}
+		idx.Series = append(idx.Series, indexEntryFor(s))
+		added++
+
+		note := ""
+		if s.AniListID != 0 {
+			note = fmt.Sprintf(" [al:%d]", s.AniListID)
+		}
+		fmt.Fprintf(os.Stderr, "%s %-60s %d titles%s\n", progress, truncate(article, 60), len(result.Chapters), note)
+	}
+
+	if err := writeIndexCopy(*dir, idx.Series); err != nil {
+		return fmt.Errorf("writing index: %w", err)
+	}
+	fmt.Fprintf(os.Stderr, "\nScraped: %d added, %d merged parts, %d skipped, %d failed\n",
+		added, mergedParts, skipped, failed)
+
+	if added == 0 {
+		return nil
+	}
+
+	var srcs []sources.Source
+	if *useComick {
+		srcs = append(srcs, comick.New(wikipedia.DefaultUserAgent))
+	}
+	if *useMangaDex {
+		srcs = append(srcs, mangadex.New(wikipedia.DefaultUserAgent))
+	}
+	if len(srcs) == 0 {
+		return nil
+	}
+
+	// Enrich exactly what was just scraped, leaving the rest of the dataset
+	// untouched.
+	fresh := make(map[string]bool, len(seriesByKey))
+	for key := range seriesByKey {
+		fresh[key] = true
+	}
+	fmt.Fprintf(os.Stderr, "\nEnriching %d new series...\n", len(fresh))
+	return enrichDataset(*dir, idx, srcs, func(e *chaptertitles.IndexEntry) bool {
+		return fresh[e.MatchKey]
+	}, 0)
 }
 
 func runFetch(args []string) error {
@@ -464,6 +671,48 @@ func resolveAniListID(ani *anilist.Client, ovr *overrides.File, s *chaptertitles
 	if ok {
 		s.AniListID = id
 	}
+}
+
+// mergeSeriesChapters folds src's chapters into dst.
+//
+// Wikipedia splits a long series across several articles — One Piece has six,
+// Naruto three — and each is scraped separately. They are one series, so their
+// chapters are unioned rather than written to competing slugs. dst keeps the
+// title on the rare overlapping chapter, which makes a rebuild deterministic,
+// and keeps its own article as the record's provenance.
+// It returns how many of src's chapters were new. A part that contributes far
+// fewer than it holds is the signature of an article that restarts its
+// numbering at 1 — Naruto's "Part II" articles do — so its chapters collide
+// with the first part's and are dropped. The count lets the caller say so
+// rather than silently losing several hundred licensed titles. Guessing an
+// offset to realign them is deliberately not attempted: a wrong guess attaches
+// the wrong title to every chapter it touches.
+func mergeSeriesChapters(dst, src *chaptertitles.Series) int {
+	if dst.Chapters == nil {
+		dst.Chapters = make(map[string]string, len(src.Chapters))
+	}
+	added := 0
+	for num, title := range src.Chapters {
+		if _, taken := dst.Chapters[num]; taken {
+			continue
+		}
+		dst.Chapters[num] = title
+		added++
+	}
+	dst.ChapterCount = len(dst.Chapters)
+	dst.InferredNumbers += src.InferredNumbers
+	return added
+}
+
+// mergeCollisionWarning describes a part whose chapters mostly collided with
+// what the series already had, or "" when the merge looks healthy.
+func mergeCollisionWarning(article string, added, held int) string {
+	if held == 0 || added*2 >= held {
+		return ""
+	}
+	return fmt.Sprintf("      warning: %s contributed %d of its %d chapters; "+
+		"the rest collided, so this article probably restarts numbering at 1\n",
+		article, added, held)
 }
 
 // existingAniListIDs reads the AniList IDs a previous run already resolved,
@@ -782,14 +1031,25 @@ func runEnrich(args []string) error {
 		return fmt.Errorf("no sources enabled")
 	}
 
+	want := func(e *chaptertitles.IndexEntry) bool {
+		return *only == "" || chaptertitles.MatchKey(*only) == e.MatchKey
+	}
+	return enrichDataset(*dir, idx, srcs, want, *limit)
+}
+
+// enrichDataset merges the aggregator sources into every series of idx that
+// want selects, writing each file and the index back as it goes. It is shared
+// by "enrich", which selects everything or one named series, and by "add",
+// which selects only the series it has just scraped.
+func enrichDataset(dir string, idx *chaptertitles.Index, srcs []sources.Source, want func(*chaptertitles.IndexEntry) bool, limit int) error {
 	var processed, enriched, addedTotal, skipped int
 
 	for i := range idx.Series {
 		e := &idx.Series[i]
-		if *limit > 0 && processed >= *limit {
+		if limit > 0 && processed >= limit {
 			break
 		}
-		if *only != "" && chaptertitles.MatchKey(*only) != e.MatchKey {
+		if want != nil && !want(e) {
 			continue
 		}
 		if e.AniListID == 0 {
@@ -799,7 +1059,7 @@ func runEnrich(args []string) error {
 		}
 		processed++
 
-		s, rerr := chaptertitles.Read(*dir, e.Slug)
+		s, rerr := chaptertitles.Read(dir, e.Slug)
 		if rerr != nil {
 			fmt.Fprintf(os.Stderr, "[%d] %-38s FAILED: %v\n", processed, truncate(e.Series, 38), rerr)
 			continue
@@ -827,7 +1087,7 @@ func runEnrich(args []string) error {
 		merged := sources.Merge(existing, sourceNameForExisting(s), results, names)
 		applyMerge(s, merged)
 
-		if werr := chaptertitles.Write(*dir, s); werr != nil {
+		if werr := chaptertitles.Write(dir, s); werr != nil {
 			return fmt.Errorf("writing %s: %w", s.Slug, werr)
 		}
 		e.ChapterCount = s.ChapterCount
@@ -843,13 +1103,13 @@ func runEnrich(args []string) error {
 
 		const flushEvery = 20
 		if processed%flushEvery == 0 {
-			if ferr := writeIndexCopy(*dir, idx.Series); ferr != nil {
+			if ferr := writeIndexCopy(dir, idx.Series); ferr != nil {
 				return fmt.Errorf("writing index: %w", ferr)
 			}
 		}
 	}
 
-	if err := writeIndexCopy(*dir, idx.Series); err != nil {
+	if err := writeIndexCopy(dir, idx.Series); err != nil {
 		return fmt.Errorf("writing index: %w", err)
 	}
 

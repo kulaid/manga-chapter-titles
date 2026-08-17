@@ -157,6 +157,25 @@ func TestSeriesNameFromArticle(t *testing.T) {
 		// A series whose name ends in a descriptor word must survive: dropping
 		// it would leave nothing.
 		{"List of Manga", "Manga"},
+
+		// Long series are split across several articles distinguished by a
+		// trailing range. All of them name the same series, so the range has to
+		// come off before the descriptor words, or every part becomes its own
+		// entry (one-piece, one-piece-2, ...).
+		{"List of One Piece chapters (1–186)", "One Piece"},
+		{"List of One Piece chapters (1016–current)", "One Piece"},
+		{"List of Bleach chapters (424–686)", "Bleach"},
+		{"List of Naruto chapters (Part I)", "Naruto"},
+		{"List of Naruto chapters (Part II, volumes 28–48)", "Naruto"},
+		{"List of Fairy Tail chapters (volumes 1–15)", "Fairy Tail"},
+		{"List of Case Closed volumes (101–current)", "Case Closed"},
+		{"List of Dragon Ball chapters (series)", "Dragon Ball"},
+
+		// A trailing parenthetical that disambiguates the work rather than
+		// naming a range is part of the series identity and must stay, or two
+		// different manga collapse onto one slug.
+		{"List of Monster (manga) chapters", "Monster (manga)"},
+		{"List of Trigun (2023 series) chapters", "Trigun (2023 series)"},
 	}
 	for _, tt := range tests {
 		if got := SeriesNameFromArticle(tt.in); got != tt.want {
