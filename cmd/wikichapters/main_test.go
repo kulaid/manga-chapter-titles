@@ -201,3 +201,23 @@ func TestOrderArticlesForMerge_keepsSeriesOrderAndPartOrder(t *testing.T) {
 		t.Errorf("got %q\nwant %q", got, want)
 	}
 }
+
+func TestResolveAniListID_negativeOverrideMeansNoID(t *testing.T) {
+	// Radiant is a French series AniList does not carry as manga. Its only
+	// "matches" are unrelated works that happen to list the name as a synonym,
+	// and attaching one pulls another series' chapter titles through Comick.
+	// A negative override records "there is deliberately no ID here" so the
+	// lookup stops re-attaching junk on every run.
+	ovr := emptyOverrides(t)
+	ovr.Set("List of Radiant volumes", overrides.Entry{AniListID: -1})
+
+	s := &chaptertitles.Series{
+		Series:    "Radiant",
+		Article:   "List of Radiant volumes",
+		AniListID: 137453,
+	}
+	resolveAniListID(nil, ovr, s)
+	if s.AniListID != 0 {
+		t.Errorf("AniListID = %d, want 0 (deliberately unresolved)", s.AniListID)
+	}
+}

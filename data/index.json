@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T20:53:56.752075928Z",
+  "generated_at": "2026-08-17T21:01:04.488943846Z",
   "count": 367,
   "series": [
     {
@@ -288,11 +288,7 @@
       "anilist_id": 30002,
       "file": "berserk.json",
       "article": "List of Berserk chapters",
-      "chapter_count": 406,
-      "sources": [
-        "wikipedia",
-        "comick"
-      ]
+      "chapter_count": 406
     },
     {
       "series": "Beyblade: Metal Fusion",
@@ -1176,6 +1172,7 @@
       "series": "Girlfriend, Girlfriend",
       "slug": "girlfriend-girlfriend",
       "match_key": "girlfriendgirlfriend",
+      "anilist_id": 116266,
       "file": "girlfriend-girlfriend.json",
       "article": "List of Girlfriend, Girlfriend chapters",
       "chapter_count": 152
@@ -2124,7 +2121,6 @@
       "series": "Radiant",
       "slug": "radiant",
       "match_key": "radiant",
-      "anilist_id": 137453,
       "file": "radiant.json",
       "article": "List of Radiant volumes",
       "chapter_count": 148

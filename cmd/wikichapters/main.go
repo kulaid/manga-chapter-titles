@@ -696,6 +696,15 @@ func resolveAniListID(ani *anilist.Client, ovr *overrides.File, s *chaptertitles
 	// A hand-verified ID always wins, and short-circuits the lookup: it was
 	// recorded precisely because automatic resolution gets this series wrong.
 	if e, ok := ovr.Get(s.Article); ok && e.AniListID != 0 {
+		// A negative ID records that the series deliberately has none: AniList
+		// carries no entry for it, and the only candidates that match its name
+		// are unrelated works listing it as a synonym. Attaching one of those
+		// pulls another series' chapter titles through the aggregators, so no
+		// ID is the correct answer and it has to stick across runs.
+		if e.AniListID < 0 {
+			s.AniListID = 0
+			return
+		}
 		s.AniListID = e.AniListID
 		return
 	}
@@ -904,6 +913,30 @@ func runAniList(args []string) error {
 		if rerr != nil {
 			fmt.Fprintf(os.Stderr, "%s %-44s FAILED: %v\n", progress, truncate(e.Series, 44), rerr)
 			entries = append(entries, e)
+			continue
+		}
+
+		// An override is a deliberate correction, so it applies even to a
+		// series that already carries an ID. Without this a wrong ID, or one
+		// recorded as deliberately absent, could only be fixed by re-resolving
+		// the whole dataset -- and AniList's search is not stable enough run to
+		// run for that to be a safe thing to reach for.
+		if e, ok := ovr.Get(s.Article); ok && e.AniListID != 0 {
+			want := e.AniListID
+			if want < 0 {
+				want = 0
+			}
+			if s.AniListID != want {
+				s.AniListID = want
+				if werr := chaptertitles.Write(*dir, s); werr != nil {
+					return fmt.Errorf("writing %s: %w", s.Slug, werr)
+				}
+				fmt.Fprintf(os.Stderr, "[%d/%d] %-38s override -> %d\n", i+1, len(idx.Series), truncate(s.Series, 38), want)
+				resolved++
+			}
+			// This loop rebuilds the index from entries, so every path has to
+			// contribute its row or the series drops out of the dataset.
+			entries = append(entries, indexEntryFor(s))
 			continue
 		}
 
