@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T03:53:53.620597882Z",
+  "generated_at": "2026-08-17T06:28:43.259427359Z",
   "count": 341,
   "series": [
     {
@@ -223,9 +223,14 @@
       "series": "Arifureta",
       "slug": "arifureta",
       "match_key": "arifureta",
+      "anilist_id": 96834,
       "file": "arifureta.json",
       "article": "List of Arifureta volumes",
-      "chapter_count": 89
+      "chapter_count": 94,
+      "sources": [
+        "wikipedia",
+        "comick"
+      ]
     },
     {
       "series": "Arisa",

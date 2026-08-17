@@ -1,16 +1,16 @@
 {
   "overrides": {
-    "List of KonoSuba volumes": {
-      "series": "KonoSuba",
-      "anilist_id": 85702,
-      "anilist_title": "Kono Subarashii Sekai ni Shukufuku wo!",
-      "note": "Wikipedia abbreviates the title; AniList search returns spin-offs"
-    },
     "List of Akagi chapters": {
       "series": "Akagi",
       "anilist_id": 31218,
       "anilist_title": "Akagi: Yami ni Oritatta Tensai",
       "note": "Wikipedia uses the short title; AniList search returns unrelated 'Akagi' works"
+    },
+    "List of Arifureta volumes": {
+      "series": "Arifureta",
+      "anilist_id": 96834,
+      "anilist_title": "Arifureta Shokugyou de Sekai Saikyou",
+      "note": "Wikipedia article is 'List of Arifureta volumes'; automatic title matching does not reach the AniList entry"
     },
     "List of Beyblade: Metal Fusion chapters": {
       "series": "Beyblade: Metal Fusion",
@@ -35,6 +35,12 @@
       "anilist_id": 31044,
       "anilist_title": "Jigoku Sensei Nube",
       "note": "Wikipedia prefixes the licensed English title"
+    },
+    "List of KonoSuba volumes": {
+      "series": "KonoSuba",
+      "anilist_id": 85702,
+      "anilist_title": "Kono Subarashii Sekai ni Shukufuku wo!",
+      "note": "Wikipedia abbreviates the title; AniList search returns spin-offs"
     },
     "List of Neuro: Supernatural Detective chapters": {
       "series": "Neuro: Supernatural Detective",
