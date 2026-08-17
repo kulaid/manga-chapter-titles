@@ -1,0 +1,24 @@
+{
+  "series": "Dragon Eye",
+  "slug": "dragon-eye",
+  "match_key": "dragoneye",
+  "article": "List of Dragon Eye chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Dragon_Eye_chapters",
+  "scraped_at": "2026-08-17T02:12:36.794599944Z",
+  "chapter_count": 12,
+  "inferred_numbers": 12,
+  "chapters": {
+    "1": "Mission 1: The Man with the Dragon Eye",
+    "10": "Mission 10: If You Should Ever Recall This Day Someday",
+    "11": "Mission 11: Leila's Errand",
+    "12": "Mission 12: The Evil Plot in Motion",
+    "2": "Mission 2: Squad Zero, Deployed",
+    "3": "Mission 3: The Mysterious Wooden Box",
+    "4": "Mission 4: The Forgotten Promise",
+    "5": "Mission 5: The Captain Demoted!?",
+    "6": "Mission 6: The Battle on the Lines",
+    "7": "Mission 7: The Leader of the Rabid",
+    "8": "Mission 8: A Stratagem with Low Odds",
+    "9": "Mission 9: The Man Once Known as Leda"
+  }
+}

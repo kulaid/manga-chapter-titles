@@ -1,0 +1,19 @@
+{
+  "series": "Shaman King",
+  "slug": "shaman-king",
+  "match_key": "shamanking",
+  "article": "List of Shaman King chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Shaman_King_chapters",
+  "scraped_at": "2026-08-17T02:15:54.316872356Z",
+  "chapter_count": 7,
+  "inferred_numbers": 7,
+  "chapters": {
+    "1": "A Special One-shot Story: \"Exotica",
+    "2": "A Special One-shot Story, Part 2: Exotica Diary",
+    "3": "Funbari Poem: Chapter 1: Prologue",
+    "4": "Funbari Poem: Chapter 2: Legendary Warrior",
+    "5": "Funbari Poem: Chapter 3: Lost Child",
+    "6": "Funbari Poem: Chapter 4: Trying Hard",
+    "7": "Funbari Poem: Chapter 5: Funbari Poem"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "series": "Fate/Stay Night",
+  "slug": "fate-stay-night",
+  "match_key": "fatestaynight",
+  "article": "List of Fate/Stay Night chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Fate%2FStay_Night_chapters",
+  "scraped_at": "2026-08-17T02:14:19.518667316Z",
+  "chapter_count": 13,
+  "inferred_numbers": 13,
+  "chapters": {
+    "1": "Sign of the Holy Grail (聖杯のしるし, Seihai no Shirushi)",
+    "10": "Command Seal (コマンドシール, Komandoshīru)",
+    "11": "The Knight of the Wind (風の騎士, Kaze no Kishi)",
+    "12": "The Enemy is Berserker (敵はバーサーカー, Teki wa Bāsākā)",
+    "13": "Boys \u0026 Girls (VI)",
+    "2": "The Night of Summoning (召喚の夜, Shōkan no Yoru)",
+    "3": "The Seventh Servant (第七の召使い, Dainana no Meshitsukai)",
+    "4": "The Girl of Steel (I) (鋼鉄の少女, Kōtetsu no Shōjo)",
+    "5": "The Girl of Steel (II) (鋼鉄少女二, Kōtetsu Shōjo Ni)",
+    "6": "The Girl of Steel (III) (鋼鉄少女三つ, Kōtetsu Shōjo Mittsu)",
+    "7": "The Girl of Steel (IV) (鋼鉄少女二4, Kōtetsu Shōjo Yon)",
+    "8": "The Girl in the Mansion (大邸宅の少女, Dai Teitaku no Shōjo)",
+    "9": "The Unbeatable Berserker (無敵のバーサーカー, Muteki no Bāsākā)"
+  }
+}

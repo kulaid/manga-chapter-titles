@@ -1,0 +1,29 @@
+{
+  "series": "Wild Adapter",
+  "slug": "wild-adapter",
+  "match_key": "wildadapter",
+  "article": "List of Wild Adapter chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Wild_Adapter_chapters",
+  "scraped_at": "2026-08-17T02:16:52.902358526Z",
+  "chapter_count": 17,
+  "inferred_numbers": 17,
+  "chapters": {
+    "1": "Dice 01 - 06",
+    "10": "Do you believe in words? As soon as you speak it, words have the power to make it happen.",
+    "11": "Lime Green",
+    "12": "Dice 26 - 33",
+    "13": "One knows it is so precious, when one fears to lose it",
+    "14": "Turquoise",
+    "15": "Dice 34 - 41",
+    "16": "Let me go under the deep of the sea, if it is a future of mine to live without you",
+    "17": "Maroon",
+    "2": "Red",
+    "3": "Dice 07 - 12",
+    "4": "We were given shapes each, when we were born. And live under it, trying to keep somehow. Till the end we melt away",
+    "5": "Yellow",
+    "6": "Dice 13 - 18",
+    "7": "Our Lord, please show me the beautiful world that thou had seen before",
+    "8": "Purple",
+    "9": "Dice 19 - 25"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "series": "Rurouni Kenshin",
+  "slug": "rurouni-kenshin",
+  "match_key": "rurounikenshin",
+  "article": "List of Rurouni Kenshin chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Rurouni_Kenshin_chapters",
+  "scraped_at": "2026-08-17T02:15:36.462029775Z",
+  "chapter_count": 7,
+  "inferred_numbers": 6,
+  "chapters": {
+    "1": "End-of-Volume Special (1): \"Rurouni Meiji Swordsman Romantic Story",
+    "2": "End-of-Volume Special (2): \"Rurouni Meiji Swordsman Romantic Story",
+    "255": "(Finale) \"Toward a New Era",
+    "256": "Final Volume Short Story 2: \"Meteor Strike",
+    "257": "Buso Renkin Special Manga Preview\" (US edition only)",
+    "3": "End-of-Volume Special (3): \"Crescent Moon in the Warring States",
+    "4": "Act 216.\"The Two in Black (Part 1)"
+  }
+}

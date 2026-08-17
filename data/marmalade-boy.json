@@ -1,0 +1,14 @@
+{
+  "series": "Marmalade Boy",
+  "slug": "marmalade-boy",
+  "match_key": "marmaladeboy",
+  "article": "List of Marmalade Boy chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Marmalade_Boy_chapters",
+  "scraped_at": "2026-08-17T02:14:32.077764435Z",
+  "chapter_count": 2,
+  "inferred_numbers": 2,
+  "chapters": {
+    "40": "The Inside Story of Marmalade Boy",
+    "41": "The Inside Story of Marmalade Boy II"
+  }
+}

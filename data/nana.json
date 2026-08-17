@@ -1,0 +1,14 @@
+{
+  "series": "Nana",
+  "slug": "nana",
+  "match_key": "nana",
+  "article": "List of Nana chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Nana_chapters",
+  "scraped_at": "2026-08-17T02:14:47.41880217Z",
+  "chapter_count": 2,
+  "inferred_numbers": 2,
+  "chapters": {
+    "1": "Nana – Nana Komatsu",
+    "2": "Nana – Nana Osaki"
+  }
+}

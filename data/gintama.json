@@ -1,0 +1,25 @@
+{
+  "series": "Gintama",
+  "slug": "gintama",
+  "match_key": "gintama",
+  "article": "List of Gintama chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Gintama_chapters",
+  "scraped_at": "2026-08-17T02:13:09.261131712Z",
+  "chapter_count": 13,
+  "inferred_numbers": 13,
+  "chapters": {
+    "1": "Dandelion",
+    "10": "Kintama Lesson 6 (Lesson 377). \"Writing \"Enemy\" and Reading it as \"Friend",
+    "11": "Kintama Lesson 7 (Lesson 378). \"Steel Memories",
+    "12": "Kintama Final Lesson (Lesson 379). \"A Protagonist Is",
+    "13": "Mantama Counter 1 (Lesson 380). \"A Man's Sword",
+    "2": "Shirokuro",
+    "3": "13",
+    "4": "ばんからさんが通る",
+    "5": "Kintama Lesson 1 (Lesson 372). \"Nobody with a Straight Perm is a Bad Guy",
+    "6": "Kintama Lesson 2 (Lesson 373). \"Nobody with a Straight Perm is a Bad Guy; 2",
+    "7": "Kintama Lesson 3 (Lesson 374). \"Gold or Silver",
+    "8": "Kintama Lesson 4 (Lesson 375). \"Kin-san's Kin****",
+    "9": "Kintama Lesson 5 (Lesson 376). \"Writing \"Friend\" and Reading it as \"Enemy"
+  }
+}

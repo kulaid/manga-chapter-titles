@@ -1,0 +1,28 @@
+{
+  "series": "Kaiju No. 8",
+  "slug": "kaiju-no-8",
+  "match_key": "kaijuno8",
+  "article": "List of Kaiju No. 8 chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Kaiju_No._8_chapters",
+  "scraped_at": "2026-08-17T02:13:53.343615687Z",
+  "chapter_count": 16,
+  "inferred_numbers": 16,
+  "chapters": {
+    "1": "Chapter: 1–7",
+    "10": "Chapter: 74–81",
+    "11": "Chapter: 82–89",
+    "12": "Chapter: 90–97",
+    "13": "Chapter: 98–104",
+    "14": "Chapter: 105–112",
+    "15": "Chapter: 113–119",
+    "16": "Chapter: 120–129",
+    "2": "Chapter: 8–17",
+    "3": "Chapter: 18–26",
+    "4": "Chapter: 27–35",
+    "5": "Chapter: 36–43",
+    "6": "Chapter: 44–51",
+    "7": "Chapter: 52–59",
+    "8": "Chapter: 60–66",
+    "9": "Chapter: 67–73"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "series": "Rozen Maiden",
+  "slug": "rozen-maiden",
+  "match_key": "rozenmaiden",
+  "article": "List of Rozen Maiden volumes",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Rozen_Maiden_volumes",
+  "scraped_at": "2026-08-17T02:15:35.590415005Z",
+  "chapter_count": 21,
+  "inferred_numbers": 21,
+  "chapters": {
+    "1": "Prologue 1 \u0026 2",
+    "10": "lit. \"How to Make a Girl",
+    "11": "Tale 1–5",
+    "12": "Tale 6–12",
+    "13": "Tale 13–19",
+    "14": "Tale 20–25",
+    "15": "Tale 26–31",
+    "16": "Tale 32–37",
+    "17": "Tale 38–43",
+    "18": "Tale 44–49",
+    "19": "Tale 50–56",
+    "2": "Phase 1–4",
+    "20": "Tale 57–65",
+    "21": "Final Tale",
+    "3": "Phase 5–11",
+    "4": "Phase 12–18",
+    "5": "Phase 19–22",
+    "6": "Phase 23–28",
+    "7": "Phase 29–33",
+    "8": "Phase 34–40",
+    "9": "Phase 41–43"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "series": "Nodame Cantabile",
+  "slug": "nodame-cantabile",
+  "match_key": "nodamecantabile",
+  "article": "List of Nodame Cantabile chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Nodame_Cantabile_chapters",
+  "scraped_at": "2026-08-17T02:14:51.979746718Z",
+  "chapter_count": 1,
+  "inferred_numbers": 1,
+  "chapters": {
+    "53": "Prelude"
+  }
+}

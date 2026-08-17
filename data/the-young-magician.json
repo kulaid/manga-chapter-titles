@@ -1,0 +1,13 @@
+{
+  "series": "The Young Magician",
+  "slug": "the-young-magician",
+  "match_key": "theyoungmagician",
+  "article": "List of The Young Magician chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_The_Young_Magician_chapters",
+  "scraped_at": "2026-08-17T02:17:03.659778448Z",
+  "chapter_count": 1,
+  "inferred_numbers": 1,
+  "chapters": {
+    "1": "Jack the Ripper in Hong Kong"
+  }
+}

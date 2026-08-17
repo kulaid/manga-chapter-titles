@@ -1,0 +1,25 @@
+{
+  "series": "Cowboy Bebop",
+  "slug": "cowboy-bebop",
+  "match_key": "cowboybebop",
+  "article": "List of Cowboy Bebop chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Cowboy_Bebop_chapters",
+  "scraped_at": "2026-08-17T02:12:13.424114282Z",
+  "chapter_count": 13,
+  "inferred_numbers": 13,
+  "chapters": {
+    "1": "Behind the Bebop, the Untold Story",
+    "10": "Thinking Bird, Happy Song",
+    "11": "Like a Rolling Stone",
+    "12": "What's Your Number",
+    "13": "Fight For Your Right",
+    "2": "Behind the Bebop, the Untold Story",
+    "3": "It's Showtime",
+    "4": "We Will Rock You",
+    "5": "Cheap Trick",
+    "6": "Black Diamond",
+    "7": "She's a Rainbow",
+    "8": "Great Deceiver",
+    "9": "Bebop Special Short"
+  }
+}

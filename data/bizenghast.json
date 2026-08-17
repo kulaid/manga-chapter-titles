@@ -1,0 +1,19 @@
+{
+  "series": "Bizenghast",
+  "slug": "bizenghast",
+  "match_key": "bizenghast",
+  "article": "List of Bizenghast volumes",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Bizenghast_volumes",
+  "scraped_at": "2026-08-17T02:11:37.382940051Z",
+  "chapter_count": 7,
+  "inferred_numbers": 0,
+  "chapters": {
+    "1": "The Sickness",
+    "2": "The Gilded Cage",
+    "3": "The Stranglehold",
+    "4": "The Coming Storm",
+    "5": "The Fairywaters",
+    "6": "The Wild Beast",
+    "7": "The Angel in Disguise"
+  }
+}

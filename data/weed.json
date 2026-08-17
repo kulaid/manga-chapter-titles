@@ -1,0 +1,13 @@
+{
+  "series": "Weed",
+  "slug": "weed",
+  "match_key": "weed",
+  "article": "List of Weed volumes",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Weed_volumes",
+  "scraped_at": "2026-08-17T02:16:49.308166414Z",
+  "chapter_count": 1,
+  "inferred_numbers": 1,
+  "chapters": {
+    "216": "Chapters"
+  }
+}

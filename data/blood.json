@@ -1,0 +1,29 @@
+{
+  "series": "Blood+",
+  "slug": "blood",
+  "match_key": "blood",
+  "article": "List of Blood+ chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Blood+_chapters",
+  "scraped_at": "2026-08-17T02:11:44.620670967Z",
+  "chapter_count": 17,
+  "inferred_numbers": 17,
+  "chapters": {
+    "1": "Blood+ 01",
+    "10": "Blood+ Adagio 2",
+    "11": "Character Sketches by Kumiko Suekane",
+    "12": "First Night",
+    "13": "Second Night",
+    "14": "Third Night",
+    "15": "Fourth Night",
+    "16": "Fifth Night",
+    "17": "解説がわりのプロデューサー対談",
+    "2": "Message from Chizu Hashii",
+    "3": "Preview of the Blood+: First Kiss novel",
+    "4": "Blood+ 02",
+    "5": "Blood+ 03",
+    "6": "Blood+ 04",
+    "7": "Blood+ 05",
+    "8": "Blood+ Adagio 1",
+    "9": "Character Profiles"
+  }
+}

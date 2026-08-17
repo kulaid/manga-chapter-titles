@@ -1,0 +1,32 @@
+{
+  "series": "Tomie",
+  "slug": "tomie",
+  "match_key": "tomie",
+  "article": "List of Tomie chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Tomie_chapters",
+  "scraped_at": "2026-08-17T02:16:25.868691784Z",
+  "chapter_count": 20,
+  "inferred_numbers": 21,
+  "chapters": {
+    "1": "01.Tomie",
+    "10": "10.Murder",
+    "11": "11.Hair",
+    "12": "12.Orphan Girl",
+    "13": "05.Kiss",
+    "14": "06.Mansion",
+    "15": "07.Revenge",
+    "16": "08.The Basin of the Waterfall",
+    "17": "09.Painter",
+    "18": "Passing Demon",
+    "19": "Top Model",
+    "2": "02.Photograph",
+    "20": "Old and Ugly",
+    "3": "03.Kiss",
+    "4": "04.Mansion",
+    "5": "05.Revenge",
+    "6": "06.The Basin of the Waterfall",
+    "7": "07.Tomie Part 2",
+    "8": "08.Basement",
+    "9": "09.Painter"
+  }
+}

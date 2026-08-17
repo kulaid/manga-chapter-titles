@@ -1,0 +1,15 @@
+{
+  "series": "Mars",
+  "slug": "mars",
+  "match_key": "mars",
+  "article": "List of Mars chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Mars_chapters",
+  "scraped_at": "2026-08-17T02:14:32.99892056Z",
+  "chapter_count": 3,
+  "inferred_numbers": 3,
+  "chapters": {
+    "1": "A Horse with No Name",
+    "2": "Sleeping Lion",
+    "3": "1-Karat Gem"
+  }
+}

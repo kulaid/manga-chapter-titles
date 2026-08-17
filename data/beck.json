@@ -1,0 +1,13 @@
+{
+  "series": "Beck",
+  "slug": "beck",
+  "match_key": "beck",
+  "article": "List of Beck chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Beck_chapters",
+  "scraped_at": "2026-08-17T02:11:31.042035157Z",
+  "chapter_count": 1,
+  "inferred_numbers": 1,
+  "chapters": {
+    "103": "The Last Day of Eddie Lee"
+  }
+}

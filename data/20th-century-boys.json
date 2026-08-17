@@ -1,0 +1,21 @@
+{
+  "series": "20th Century Boys",
+  "slug": "20th-century-boys",
+  "match_key": "20thcenturyboys",
+  "article": "List of 20th Century Boys chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_20th_Century_Boys_chapters",
+  "scraped_at": "2026-08-17T02:11:04.186333151Z",
+  "chapter_count": 9,
+  "inferred_numbers": 0,
+  "chapters": {
+    "10": "Yukiji",
+    "11": "Open Your Eyes!!",
+    "12": "Memories of the Science Room",
+    "13": "Over the Rainbow",
+    "5": "Ghost of the Future",
+    "6": "Flag on the Moon",
+    "7": "Softball",
+    "8": "Digging a Hole",
+    "9": "Message"
+  }
+}

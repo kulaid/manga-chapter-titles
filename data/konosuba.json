@@ -1,0 +1,17 @@
+{
+  "series": "KonoSuba",
+  "slug": "konosuba",
+  "match_key": "konosuba",
+  "article": "List of KonoSuba volumes",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_KonoSuba_volumes",
+  "scraped_at": "2026-08-17T02:14:15.865540022Z",
+  "chapter_count": 5,
+  "inferred_numbers": 0,
+  "chapters": {
+    "1": "May I Go to a New World with This Self-Proclaimed Goddess!",
+    "2": "May There Be Treasure (By Which I Mean Panties) in This Right Hand!",
+    "3": "May the Self-Proclaimed Goddess Have Her First Pressing at This Lake!",
+    "4": "May There Be an End to This Useless Battle!",
+    "5": "May We Do Away with This Outrageous Fortress!"
+  }
+}

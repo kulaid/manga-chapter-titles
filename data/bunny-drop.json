@@ -1,0 +1,14 @@
+{
+  "series": "Bunny Drop",
+  "slug": "bunny-drop",
+  "match_key": "bunnydrop",
+  "article": "List of Bunny Drop chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Bunny_Drop_chapters",
+  "scraped_at": "2026-08-17T02:11:56.257655985Z",
+  "chapter_count": 2,
+  "inferred_numbers": 2,
+  "chapters": {
+    "1": "last episode",
+    "6": "Final Chapter"
+  }
+}

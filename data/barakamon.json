@@ -1,0 +1,16 @@
+{
+  "series": "Barakamon",
+  "slug": "barakamon",
+  "match_key": "barakamon",
+  "article": "List of Barakamon chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Barakamon_chapters",
+  "scraped_at": "2026-08-17T02:11:27.474194366Z",
+  "chapter_count": 4,
+  "inferred_numbers": 1,
+  "chapters": {
+    "3.5": "Hitokkuruma",
+    "6.5": "Gouchou-gai no Mushiko",
+    "92.5": "One Cold Day",
+    "93.5": "Act 113.Onin Oran Uchi"
+  }
+}

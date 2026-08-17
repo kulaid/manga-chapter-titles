@@ -1,0 +1,18 @@
+{
+  "series": "Cardcaptor Sakura",
+  "slug": "cardcaptor-sakura",
+  "match_key": "cardcaptorsakura",
+  "article": "List of Cardcaptor Sakura chapters",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Cardcaptor_Sakura_chapters",
+  "scraped_at": "2026-08-17T02:11:59.007020104Z",
+  "chapter_count": 6,
+  "inferred_numbers": 6,
+  "chapters": {
+    "45": "Short Story",
+    "50": "Short Story 2",
+    "51": "Until We Meet Again bonus story (Special edition only)",
+    "55": "Short Story 3",
+    "56": "Short Story 4",
+    "60": "Short Story 5"
+  }
+}
