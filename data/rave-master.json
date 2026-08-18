@@ -616,12 +616,6 @@
       "ref": "rave",
       "url": "https://comick.dev/comic/rave",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "5923081c-ad82-4a8b-a509-89ebe752db01",
-      "url": "https://mangadex.org/title/5923081c-ad82-4a8b-a509-89ebe752db01",
-      "count": 0
     }
   ]
 }

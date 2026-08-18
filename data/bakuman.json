@@ -376,12 +376,6 @@
       "ref": "00-bakuman",
       "url": "https://comick.dev/comic/00-bakuman",
       "count": 27
-    },
-    {
-      "name": "mangadex",
-      "ref": "fa3e0b2f-4e1f-48ee-9af0-1de9dc28ca51",
-      "url": "https://mangadex.org/title/fa3e0b2f-4e1f-48ee-9af0-1de9dc28ca51",
-      "count": 0
     }
   ]
 }

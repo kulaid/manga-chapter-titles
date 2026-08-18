@@ -214,12 +214,6 @@
       "ref": "hellsing",
       "url": "https://comick.dev/comic/hellsing",
       "count": 6
-    },
-    {
-      "name": "mangadex",
-      "ref": "6fcfaa0e-6023-403e-97f9-5301dd3c258c",
-      "url": "https://mangadex.org/title/6fcfaa0e-6023-403e-97f9-5301dd3c258c",
-      "count": 0
     }
   ]
 }

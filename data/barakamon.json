@@ -132,12 +132,6 @@
       "ref": "barakamon",
       "url": "https://comick.dev/comic/barakamon",
       "count": 50
-    },
-    {
-      "name": "mangadex",
-      "ref": "b9a99e3f-6803-4efe-9f7c-f7d566703e4c",
-      "url": "https://mangadex.org/title/b9a99e3f-6803-4efe-9f7c-f7d566703e4c",
-      "count": 0
     }
   ]
 }

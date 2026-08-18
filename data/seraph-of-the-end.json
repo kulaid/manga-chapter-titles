@@ -3,13 +3,14 @@
   "slug": "seraph-of-the-end",
   "match_key": "seraphoftheend",
   "anilist_id": 73661,
+  "mangaplus_id": 100024,
   "article": "List of Seraph of the End chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Seraph_of_the_End_chapters",
   "scraped_at": "2026-08-18T00:13:39.11070874Z",
   "chapter_count": 159,
   "inferred_numbers": 0,
   "chapters": {
-    "1": "Blood Vessel World",
+    "1": "The World of Blood Legacy",
     "10": "Vampire Attack",
     "100": "A Demon Appears",
     "101": "My Desire",
@@ -79,7 +80,7 @@
     "17": "Cursed Guinea Pig",
     "18": "Possessed by Mahiru",
     "19": "Cause for Madness",
-    "2": "Post-Apocalyptic Man",
+    "2": "Humanity After the Fall",
     "20": "The Demon's Nightmare",
     "21": "Kiseki-ō's Box",
     "22": "Taboo Krul",
@@ -90,7 +91,7 @@
     "27": "Vampire Noble Lucal",
     "28": "Livestock Revolt",
     "29": "Who's Pulling the Strings?",
-    "3": "The Demon That Dwells In Your Heart",
+    "3": "The Demon in Your Heart",
     "30": "Sword of Justice",
     "31": "Shinya and Guren",
     "32": "Crowley in Control",
@@ -170,7 +171,7 @@
     "99": "Mortal Love"
   },
   "chapter_sources": {
-    "1": "comick",
+    "1": "mangaplus",
     "10": "wikipedia",
     "100": "wikipedia",
     "101": "wikipedia",
@@ -233,14 +234,14 @@
     "153": "wikipedia",
     "154": "wikipedia",
     "155": "wikipedia",
-    "156": "comick",
-    "157": "comick",
-    "158": "comick",
+    "156": "mangaplus",
+    "157": "mangaplus",
+    "158": "mangaplus",
     "16": "wikipedia",
     "17": "wikipedia",
     "18": "wikipedia",
     "19": "wikipedia",
-    "2": "comick",
+    "2": "mangaplus",
     "20": "wikipedia",
     "21": "wikipedia",
     "22": "wikipedia",
@@ -251,7 +252,7 @@
     "27": "wikipedia",
     "28": "wikipedia",
     "29": "wikipedia",
-    "3": "comick",
+    "3": "mangaplus",
     "30": "wikipedia",
     "31": "wikipedia",
     "32": "wikipedia",
@@ -338,16 +339,16 @@
       "count": 152
     },
     {
+      "name": "mangaplus",
+      "ref": "100024",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100024",
+      "count": 6
+    },
+    {
       "name": "comick",
       "ref": "owari-no-seraph",
       "url": "https://comick.dev/comic/owari-no-seraph",
-      "count": 7
-    },
-    {
-      "name": "mangadex",
-      "ref": "17ce37ea-1cda-4429-b062-c4b627814225",
-      "url": "https://mangadex.org/title/17ce37ea-1cda-4429-b062-c4b627814225",
-      "count": 0
+      "count": 1
     }
   ]
 }

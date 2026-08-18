@@ -3,6 +3,7 @@
   "slug": "death-note",
   "match_key": "deathnote",
   "anilist_id": 30021,
+  "mangaplus_id": 100008,
   "article": "List of Death Note chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Death_Note_chapters",
   "scraped_at": "2026-08-18T00:09:45.831668102Z",
@@ -250,16 +251,16 @@
       "count": 108
     },
     {
+      "name": "mangaplus",
+      "ref": "100008",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100008",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "death-note",
       "url": "https://comick.dev/comic/death-note",
       "count": 7
-    },
-    {
-      "name": "mangadex",
-      "ref": "75ee72ab-c6bf-4b87-badd-de839156934c",
-      "url": "https://mangadex.org/title/75ee72ab-c6bf-4b87-badd-de839156934c",
-      "count": 0
     }
   ]
 }

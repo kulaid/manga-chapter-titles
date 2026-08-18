@@ -3,6 +3,7 @@
   "slug": "we-never-learn",
   "match_key": "weneverlearn",
   "anilist_id": 98235,
+  "mangaplus_id": 100035,
   "article": "List of We Never Learn chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_We_Never_Learn_chapters",
   "scraped_at": "2026-08-18T00:14:44.352205233Z",
@@ -418,16 +419,16 @@
       "count": 187
     },
     {
+      "name": "mangaplus",
+      "ref": "100035",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100035",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "00-bokutachi-wa-benkyou-ga-dekinai",
       "url": "https://comick.dev/comic/00-bokutachi-wa-benkyou-ga-dekinai",
       "count": 12
-    },
-    {
-      "name": "mangadex",
-      "ref": "6ce4c88e-381e-4c4a-a858-7585fff92f47",
-      "url": "https://mangadex.org/title/6ce4c88e-381e-4c4a-a858-7585fff92f47",
-      "count": 0
     }
   ]
 }

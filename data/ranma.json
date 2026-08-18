@@ -840,12 +840,6 @@
       "ref": "00-ranma-1",
       "url": "https://comick.dev/comic/00-ranma-1",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "d41bebac-1fd3-45dd-80f4-c371db540a2a",
-      "url": "https://mangadex.org/title/d41bebac-1fd3-45dd-80f4-c371db540a2a",
-      "count": 0
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T00:31:20.365020093Z",
+  "generated_at": "2026-08-18T00:39:00.820758759Z",
   "count": 367,
   "series": [
     {
@@ -20,6 +20,7 @@
       "slug": "2-5-dimensional-seduction",
       "match_key": "25dimensionalseduction",
       "anilist_id": 110785,
+      "mangaplus_id": 100282,
       "file": "2-5-dimensional-seduction.json",
       "article": "List of 2.5 Dimensional Seduction chapters",
       "chapter_count": 257,
@@ -149,12 +150,13 @@
       "slug": "akane-banashi",
       "match_key": "akanebanashi",
       "anilist_id": 144866,
+      "mangaplus_id": 100185,
       "file": "akane-banashi.json",
       "article": "List of Akane-banashi chapters",
       "chapter_count": 218,
       "sources": [
         "wikipedia",
-        "comick"
+        "mangaplus"
       ]
     },
     {
@@ -250,6 +252,7 @@
       "slug": "assassination-classroom",
       "match_key": "assassinationclassroom",
       "anilist_id": 69883,
+      "mangaplus_id": 100001,
       "file": "assassination-classroom.json",
       "article": "List of Assassination Classroom chapters",
       "chapter_count": 186,
@@ -475,6 +478,7 @@
       "slug": "black-clover",
       "match_key": "blackclover",
       "anilist_id": 86123,
+      "mangaplus_id": 100003,
       "file": "black-clover.json",
       "article": "List of Black Clover chapters",
       "chapter_count": 393,
@@ -526,6 +530,7 @@
       "slug": "bleach",
       "match_key": "bleach",
       "anilist_id": 30012,
+      "mangaplus_id": 100004,
       "file": "bleach.json",
       "article": "List of Bleach chapters (1–187)",
       "chapter_count": 706,
@@ -564,11 +569,13 @@
       "slug": "blue-box",
       "match_key": "bluebox",
       "anilist_id": 132182,
+      "mangaplus_id": 100157,
       "file": "blue-box.json",
       "article": "List of Blue Box chapters",
       "chapter_count": 252,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -577,11 +584,13 @@
       "slug": "blue-exorcist",
       "match_key": "blueexorcist",
       "anilist_id": 43492,
+      "mangaplus_id": 100005,
       "file": "blue-exorcist.json",
       "article": "List of Blue Exorcist chapters",
       "chapter_count": 163,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -726,6 +735,7 @@
       "slug": "captain-tsubasa",
       "match_key": "captaintsubasa",
       "anilist_id": 31789,
+      "mangaplus_id": 200014,
       "file": "captain-tsubasa.json",
       "article": "List of Captain Tsubasa chapters",
       "chapter_count": 116,
@@ -809,6 +819,7 @@
       "slug": "chainsaw-man",
       "match_key": "chainsawman",
       "anilist_id": 105778,
+      "mangaplus_id": 100037,
       "file": "chainsaw-man.json",
       "article": "List of Chainsaw Man chapters",
       "chapter_count": 232,
@@ -982,11 +993,13 @@
       "slug": "dandadan",
       "match_key": "dandadan",
       "anilist_id": 132029,
+      "mangaplus_id": 100171,
       "file": "dandadan.json",
       "article": "List of Dandadan chapters",
       "chapter_count": 249,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -1032,6 +1045,7 @@
       "slug": "death-note",
       "match_key": "deathnote",
       "anilist_id": 30021,
+      "mangaplus_id": 100008,
       "file": "death-note.json",
       "article": "List of Death Note chapters",
       "chapter_count": 115,
@@ -1160,6 +1174,7 @@
       "slug": "dr-stone",
       "match_key": "drstone",
       "anilist_id": 98416,
+      "mangaplus_id": 100010,
       "file": "dr-stone.json",
       "article": "List of Dr. Stone chapters",
       "chapter_count": 236,
@@ -1173,11 +1188,13 @@
       "slug": "dragon-ball",
       "match_key": "dragonball",
       "anilist_id": 30042,
+      "mangaplus_id": 100011,
       "file": "dragon-ball.json",
       "article": "List of Dragon Ball chapters (series)",
       "chapter_count": 521,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -1186,6 +1203,7 @@
       "slug": "dragon-ball-super",
       "match_key": "dragonballsuper",
       "anilist_id": 86508,
+      "mangaplus_id": 100012,
       "file": "dragon-ball-super.json",
       "article": "List of Dragon Ball Super chapters",
       "chapter_count": 107,
@@ -1199,11 +1217,13 @@
       "slug": "dragon-ball-z",
       "match_key": "dragonballz",
       "anilist_id": 30042,
+      "mangaplus_id": 100011,
       "file": "dragon-ball-z.json",
       "article": "List of Dragon Ball Z chapters",
-      "chapter_count": 325,
+      "chapter_count": 326,
       "sources": [
-        "wikipedia"
+        "wikipedia",
+        "mangaplus"
       ]
     },
     {
@@ -1448,11 +1468,13 @@
       "slug": "food-wars-shokugeki-no-soma",
       "match_key": "foodwarsshokugekinosoma",
       "anilist_id": 75757,
+      "mangaplus_id": 100013,
       "file": "food-wars-shokugeki-no-soma.json",
       "article": "List of Food Wars!: Shokugeki no Soma chapters",
       "chapter_count": 330,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -2008,11 +2030,13 @@
       "slug": "hunter-hunter",
       "match_key": "hunterhunter",
       "anilist_id": 30026,
+      "mangaplus_id": 100015,
       "file": "hunter-hunter.json",
       "article": "List of Hunter × Hunter chapters",
       "chapter_count": 420,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -2111,6 +2135,7 @@
       "slug": "jujutsu-kaisen",
       "match_key": "jujutsukaisen",
       "anilist_id": 101517,
+      "mangaplus_id": 100034,
       "file": "jujutsu-kaisen.json",
       "article": "List of Jujutsu Kaisen chapters",
       "chapter_count": 275,
@@ -2477,6 +2502,7 @@
       "slug": "mashle",
       "match_key": "mashle",
       "anilist_id": 114960,
+      "mangaplus_id": 100083,
       "file": "mashle.json",
       "article": "List of Mashle chapters",
       "chapter_count": 165,
@@ -2642,6 +2668,7 @@
       "slug": "naruto",
       "match_key": "naruto",
       "anilist_id": 30011,
+      "mangaplus_id": 100018,
       "file": "naruto.json",
       "article": "List of Naruto chapters (Part I)",
       "chapter_count": 700,
@@ -2784,11 +2811,13 @@
       "slug": "one-piece",
       "match_key": "onepiece",
       "anilist_id": 30013,
+      "mangaplus_id": 100020,
       "file": "one-piece.json",
       "article": "List of One Piece chapters (1–186)",
       "chapter_count": 1193,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -3091,6 +3120,7 @@
       "slug": "rosario-vampire",
       "match_key": "rosariovampire",
       "anilist_id": 30894,
+      "mangaplus_id": 100022,
       "file": "rosario-vampire.json",
       "article": "List of Rosario + Vampire chapters",
       "chapter_count": 41,
@@ -3104,6 +3134,7 @@
       "slug": "rosario-vampire-season-ii",
       "match_key": "rosariovampireseasonii",
       "anilist_id": 33403,
+      "mangaplus_id": 100070,
       "file": "rosario-vampire-season-ii.json",
       "article": "List of Rosario + Vampire: Season II chapters",
       "chapter_count": 82,
@@ -3214,11 +3245,13 @@
       "slug": "sakamoto-days",
       "match_key": "sakamotodays",
       "anilist_id": 125828,
+      "mangaplus_id": 100127,
       "file": "sakamoto-days.json",
       "article": "List of Sakamoto Days chapters",
       "chapter_count": 266,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -3318,11 +3351,13 @@
       "slug": "seraph-of-the-end",
       "match_key": "seraphoftheend",
       "anilist_id": 73661,
+      "mangaplus_id": 100024,
       "file": "seraph-of-the-end.json",
       "article": "List of Seraph of the End chapters",
       "chapter_count": 159,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -3521,11 +3556,13 @@
       "slug": "spy-family",
       "match_key": "spyfamily",
       "anilist_id": 108556,
+      "mangaplus_id": 100056,
       "file": "spy-family.json",
       "article": "List of Spy × Family chapters",
       "chapter_count": 110,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -3689,6 +3726,7 @@
       "slug": "the-elusive-samurai",
       "match_key": "theelusivesamurai",
       "anilist_id": 128666,
+      "mangaplus_id": 100139,
       "file": "the-elusive-samurai.json",
       "article": "List of The Elusive Samurai chapters",
       "chapter_count": 238,
@@ -4019,6 +4057,7 @@
       "slug": "tokyo-ghoul",
       "match_key": "tokyoghoul",
       "anilist_id": 63327,
+      "mangaplus_id": 100027,
       "file": "tokyo-ghoul.json",
       "article": "List of Tokyo Ghoul chapters",
       "chapter_count": 181,
@@ -4324,6 +4363,7 @@
       "slug": "we-never-learn",
       "match_key": "weneverlearn",
       "anilist_id": 98235,
+      "mangaplus_id": 100035,
       "file": "we-never-learn.json",
       "article": "List of We Never Learn chapters",
       "chapter_count": 199,
@@ -4413,11 +4453,13 @@
       "slug": "witch-watch",
       "match_key": "witchwatch",
       "anilist_id": 128896,
+      "mangaplus_id": 100145,
       "file": "witch-watch.json",
       "article": "List of Witch Watch chapters",
       "chapter_count": 258,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },
@@ -4452,11 +4494,13 @@
       "slug": "world-trigger",
       "match_key": "worldtrigger",
       "anilist_id": 78151,
+      "mangaplus_id": 100028,
       "file": "world-trigger.json",
       "article": "List of World Trigger chapters",
       "chapter_count": 263,
       "sources": [
         "wikipedia",
+        "mangaplus",
         "comick"
       ]
     },

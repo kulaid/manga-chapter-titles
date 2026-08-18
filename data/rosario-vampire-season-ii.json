@@ -3,6 +3,7 @@
   "slug": "rosario-vampire-season-ii",
   "match_key": "rosariovampireseasonii",
   "anilist_id": 33403,
+  "mangaplus_id": 100070,
   "article": "List of Rosario + Vampire: Season II chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Rosario_+_Vampire:_Season_II_chapters",
   "scraped_at": "2026-08-18T00:13:22.107647801Z",
@@ -184,16 +185,16 @@
       "count": 60
     },
     {
+      "name": "mangaplus",
+      "ref": "100070",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100070",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "rosario-to-vampire-season-ii",
       "url": "https://comick.dev/comic/rosario-to-vampire-season-ii",
       "count": 22
-    },
-    {
-      "name": "mangadex",
-      "ref": "eda269d8-a529-4696-a88e-1e529e4e763f",
-      "url": "https://mangadex.org/title/eda269d8-a529-4696-a88e-1e529e4e763f",
-      "count": 0
     }
   ]
 }

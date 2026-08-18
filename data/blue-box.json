@@ -3,6 +3,7 @@
   "slug": "blue-box",
   "match_key": "bluebox",
   "anilist_id": 132182,
+  "mangaplus_id": 100157,
   "article": "List of Blue Box chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Blue_Box_chapters",
   "scraped_at": "2026-08-18T00:09:01.441516191Z",
@@ -431,7 +432,7 @@
     "248": "comick",
     "249": "comick",
     "25": "wikipedia",
-    "250": "comick",
+    "250": "mangaplus",
     "26": "wikipedia",
     "27": "wikipedia",
     "28": "wikipedia",
@@ -524,16 +525,16 @@
       "count": 234
     },
     {
+      "name": "mangaplus",
+      "ref": "100157",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100157",
+      "count": 1
+    },
+    {
       "name": "comick",
       "ref": "ao-no-hako3OH4",
       "url": "https://comick.dev/comic/ao-no-hako3OH4",
-      "count": 18
-    },
-    {
-      "name": "mangadex",
-      "ref": "ed5dddc0-999d-4fd2-a702-9fef1ec2c955",
-      "url": "https://mangadex.org/title/ed5dddc0-999d-4fd2-a702-9fef1ec2c955",
-      "count": 0
+      "count": 17
     }
   ]
 }

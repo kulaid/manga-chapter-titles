@@ -678,12 +678,6 @@
       "ref": "00-vagabond",
       "url": "https://comick.dev/comic/00-vagabond",
       "count": 5
-    },
-    {
-      "name": "mangadex",
-      "ref": "d1a9fdeb-f713-407f-960c-8326b586e6fd",
-      "url": "https://mangadex.org/title/d1a9fdeb-f713-407f-960c-8326b586e6fd",
-      "count": 0
     }
   ]
 }

@@ -3,6 +3,7 @@
   "slug": "chainsaw-man",
   "match_key": "chainsawman",
   "anilist_id": 105778,
+  "mangaplus_id": 100037,
   "article": "List of Chainsaw Man chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Chainsaw_Man_chapters",
   "scraped_at": "2026-08-18T00:09:23.751015114Z",
@@ -484,15 +485,9 @@
       "count": 232
     },
     {
-      "name": "comick",
-      "ref": "02-chainsaw-man",
-      "url": "https://comick.dev/comic/02-chainsaw-man",
-      "count": 0
-    },
-    {
-      "name": "mangadex",
-      "ref": "a77742b1-befd-49a4-bff5-1ad4e6b0ef7b",
-      "url": "https://mangadex.org/title/a77742b1-befd-49a4-bff5-1ad4e6b0ef7b",
+      "name": "mangaplus",
+      "ref": "100037",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100037",
       "count": 0
     }
   ]

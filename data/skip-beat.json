@@ -708,12 +708,6 @@
       "ref": "skip-beat",
       "url": "https://comick.dev/comic/skip-beat",
       "count": 8
-    },
-    {
-      "name": "mangadex",
-      "ref": "9356fa3f-9ecd-4ff7-a7fe-241884680079",
-      "url": "https://mangadex.org/title/9356fa3f-9ecd-4ff7-a7fe-241884680079",
-      "count": 0
     }
   ]
 }

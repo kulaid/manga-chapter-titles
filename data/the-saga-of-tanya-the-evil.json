@@ -262,12 +262,6 @@
       "ref": "00-youjo-senki",
       "url": "https://comick.dev/comic/00-youjo-senki",
       "count": 3
-    },
-    {
-      "name": "mangadex",
-      "ref": "d773c8be-8e82-4ff1-a4e9-46171395319b",
-      "url": "https://mangadex.org/title/d773c8be-8e82-4ff1-a4e9-46171395319b",
-      "count": 0
     }
   ]
 }

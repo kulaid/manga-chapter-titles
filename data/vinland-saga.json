@@ -479,13 +479,7 @@
       "name": "comick",
       "ref": "03-vinland-saga",
       "url": "https://comick.dev/comic/03-vinland-saga",
-      "count": 6
-    },
-    {
-      "name": "mangadex",
-      "ref": "5d1fc77e-706a-4fc5-bea8-486c9be0145d",
-      "url": "https://mangadex.org/title/5d1fc77e-706a-4fc5-bea8-486c9be0145d",
-      "count": 0
+      "count": 4
     }
   ]
 }

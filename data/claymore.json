@@ -252,12 +252,6 @@
       "ref": "claymore",
       "url": "https://comick.dev/comic/claymore",
       "count": 11
-    },
-    {
-      "name": "mangadex",
-      "ref": "be8fe64b-37da-4fba-b14d-603aba19be1f",
-      "url": "https://mangadex.org/title/be8fe64b-37da-4fba-b14d-603aba19be1f",
-      "count": 0
     }
   ]
 }

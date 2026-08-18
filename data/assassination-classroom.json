@@ -3,6 +3,7 @@
   "slug": "assassination-classroom",
   "match_key": "assassinationclassroom",
   "anilist_id": 69883,
+  "mangaplus_id": 100001,
   "article": "List of Assassination Classroom chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Assassination_Classroom_chapters",
   "scraped_at": "2026-08-18T00:08:35.420341405Z",
@@ -392,16 +393,16 @@
       "count": 180
     },
     {
+      "name": "mangaplus",
+      "ref": "100001",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100001",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "00-assassination-classroom",
       "url": "https://comick.dev/comic/00-assassination-classroom",
       "count": 6
-    },
-    {
-      "name": "mangadex",
-      "ref": "333f4d22-7753-4e3b-b0da-0a69b2cdce4f",
-      "url": "https://mangadex.org/title/333f4d22-7753-4e3b-b0da-0a69b2cdce4f",
-      "count": 0
     }
   ]
 }

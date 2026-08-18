@@ -542,12 +542,6 @@
       "ref": "rainbow",
       "url": "https://comick.dev/comic/rainbow",
       "count": 130
-    },
-    {
-      "name": "mangadex",
-      "ref": "94a7d0d5-18c6-4f24-826c-4157e36608e6",
-      "url": "https://mangadex.org/title/94a7d0d5-18c6-4f24-826c-4157e36608e6",
-      "count": 0
     }
   ]
 }

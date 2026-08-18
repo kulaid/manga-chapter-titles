@@ -182,12 +182,6 @@
       "ref": "00-rockman-exe",
       "url": "https://comick.dev/comic/00-rockman-exe",
       "count": 73
-    },
-    {
-      "name": "mangadex",
-      "ref": "085a46d0-2adc-42f3-9fd3-4874000e2421",
-      "url": "https://mangadex.org/title/085a46d0-2adc-42f3-9fd3-4874000e2421",
-      "count": 0
     }
   ]
 }

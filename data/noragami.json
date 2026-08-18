@@ -340,12 +340,6 @@
       "ref": "noragami",
       "url": "https://comick.dev/comic/noragami",
       "count": 35
-    },
-    {
-      "name": "mangadex",
-      "ref": "e5ce88e2-8c46-482d-8acf-5c6d5a64a585",
-      "url": "https://mangadex.org/title/e5ce88e2-8c46-482d-8acf-5c6d5a64a585",
-      "count": 0
     }
   ]
 }

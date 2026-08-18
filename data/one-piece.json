@@ -3,6 +3,7 @@
   "slug": "one-piece",
   "match_key": "onepiece",
   "anilist_id": 30013,
+  "mangaplus_id": 100020,
   "article": "List of One Piece chapters (1–186)",
   "source_url": "https://en.wikipedia.org/wiki/List_of_One_Piece_chapters_%281%E2%80%93186%29",
   "scraped_at": "2026-08-18T00:12:38.458499722Z",
@@ -220,7 +221,7 @@
     "1184": "We're All Bones When We Die",
     "1185": "Mindja Own Beeswax",
     "1186": "One More Time",
-    "1187": "The Clause",
+    "1187": "The Root of the Problem",
     "1188": "Vohu",
     "1189": "King of the World",
     "119": "Deadly Improvisation",
@@ -1415,11 +1416,11 @@
     "1184": "comick",
     "1185": "comick",
     "1186": "comick",
-    "1187": "comick",
-    "1188": "comick",
-    "1189": "comick",
+    "1187": "mangaplus",
+    "1188": "mangaplus",
+    "1189": "mangaplus",
     "119": "wikipedia",
-    "1190": "comick",
+    "1190": "mangaplus",
     "12": "wikipedia",
     "120": "wikipedia",
     "121": "wikipedia",
@@ -2406,16 +2407,16 @@
       "count": 1179
     },
     {
+      "name": "mangaplus",
+      "ref": "100020",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100020",
+      "count": 4
+    },
+    {
       "name": "comick",
       "ref": "02-one-piece",
       "url": "https://comick.dev/comic/02-one-piece",
-      "count": 14
-    },
-    {
-      "name": "mangadex",
-      "ref": "a1c7c817-4e59-43b7-9365-09675a149a6f",
-      "url": "https://mangadex.org/title/a1c7c817-4e59-43b7-9365-09675a149a6f",
-      "count": 0
+      "count": 10
     }
   ]
 }

@@ -3,6 +3,7 @@
   "slug": "jujutsu-kaisen",
   "match_key": "jujutsukaisen",
   "anilist_id": 101517,
+  "mangaplus_id": 100034,
   "article": "List of Jujutsu Kaisen chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Jujutsu_Kaisen_chapters",
   "scraped_at": "2026-08-18T00:11:24.105266095Z",
@@ -570,16 +571,16 @@
       "count": 272
     },
     {
+      "name": "mangaplus",
+      "ref": "100034",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100034",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "00-jujutsu-kaisen",
       "url": "https://comick.dev/comic/00-jujutsu-kaisen",
       "count": 3
-    },
-    {
-      "name": "mangadex",
-      "ref": "c52b2ce3-7f95-469c-96b0-479524fb7a1a",
-      "url": "https://mangadex.org/title/c52b2ce3-7f95-469c-96b0-479524fb7a1a",
-      "count": 0
     }
   ]
 }

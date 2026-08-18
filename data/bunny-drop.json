@@ -44,12 +44,6 @@
       "ref": "usagi-drop",
       "url": "https://comick.dev/comic/usagi-drop",
       "count": 8
-    },
-    {
-      "name": "mangadex",
-      "ref": "a24e7759-f588-4b5d-8727-1e28c0787dba",
-      "url": "https://mangadex.org/title/a24e7759-f588-4b5d-8727-1e28c0787dba",
-      "count": 0
     }
   ]
 }

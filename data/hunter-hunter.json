@@ -3,6 +3,7 @@
   "slug": "hunter-hunter",
   "match_key": "hunterhunter",
   "anilist_id": 30026,
+  "mangaplus_id": 100015,
   "article": "List of Hunter × Hunter chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Hunter_%C3%97_Hunter_chapters",
   "scraped_at": "2026-08-18T00:11:12.026337535Z",
@@ -784,10 +785,10 @@
     "411": "comick",
     "412": "comick",
     "413": "comick",
-    "414": "comick",
-    "415": "comick",
-    "416": "comick",
-    "417": "comick",
+    "414": "mangaplus",
+    "415": "mangaplus",
+    "416": "mangaplus",
+    "417": "mangaplus",
     "42": "wikipedia",
     "43": "wikipedia",
     "44": "wikipedia",
@@ -860,16 +861,16 @@
       "count": 410
     },
     {
+      "name": "mangaplus",
+      "ref": "100015",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100015",
+      "count": 4
+    },
+    {
       "name": "comick",
       "ref": "02-hunter-x-hunter",
       "url": "https://comick.dev/comic/02-hunter-x-hunter",
-      "count": 10
-    },
-    {
-      "name": "mangadex",
-      "ref": "db692d58-4b13-4174-ae8c-30c515c0689c",
-      "url": "https://mangadex.org/title/db692d58-4b13-4174-ae8c-30c515c0689c",
-      "count": 0
+      "count": 6
     }
   ]
 }

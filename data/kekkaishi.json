@@ -718,12 +718,6 @@
       "ref": "00-kekkaishi",
       "url": "https://comick.dev/comic/00-kekkaishi",
       "count": 2
-    },
-    {
-      "name": "mangadex",
-      "ref": "cc3eac46-e0d6-423d-bf0b-73e1ad59fe06",
-      "url": "https://mangadex.org/title/cc3eac46-e0d6-423d-bf0b-73e1ad59fe06",
-      "count": 0
     }
   ]
 }

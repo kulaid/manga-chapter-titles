@@ -124,12 +124,6 @@
       "ref": "wild-adapter",
       "url": "https://comick.dev/comic/wild-adapter",
       "count": 33
-    },
-    {
-      "name": "mangadex",
-      "ref": "24c47dc1-9aa3-4301-ac31-7260d2945371",
-      "url": "https://mangadex.org/title/24c47dc1-9aa3-4301-ac31-7260d2945371",
-      "count": 0
     }
   ]
 }

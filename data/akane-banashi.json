@@ -3,6 +3,7 @@
   "slug": "akane-banashi",
   "match_key": "akanebanashi",
   "anilist_id": 144866,
+  "mangaplus_id": 100185,
   "article": "List of Akane-banashi chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Akane-banashi_chapters",
   "scraped_at": "2026-08-18T00:08:24.335018202Z",
@@ -138,7 +139,7 @@
     "212": "I Have Something To Say",
     "213": "God of Death - Inner",
     "214": "Emotional Narration",
-    "215": "Story 215: The Winner Is",
+    "215": "The Winner Is",
     "216": "Arakawa Symphony of Strife",
     "217": "Natural Enemy",
     "218": "Hates to Lose",
@@ -358,10 +359,10 @@
     "212": "wikipedia",
     "213": "wikipedia",
     "214": "wikipedia",
-    "215": "comick",
-    "216": "comick",
-    "217": "comick",
-    "218": "comick",
+    "215": "mangaplus",
+    "216": "mangaplus",
+    "217": "mangaplus",
+    "218": "mangaplus",
     "22": "wikipedia",
     "23": "wikipedia",
     "24": "wikipedia",
@@ -456,16 +457,10 @@
       "count": 214
     },
     {
-      "name": "comick",
-      "ref": "akane-banashi",
-      "url": "https://comick.dev/comic/akane-banashi",
+      "name": "mangaplus",
+      "ref": "100185",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100185",
       "count": 4
-    },
-    {
-      "name": "mangadex",
-      "ref": "792e28fb-27be-425d-b92a-64e2d5474657",
-      "url": "https://mangadex.org/title/792e28fb-27be-425d-b92a-64e2d5474657",
-      "count": 0
     }
   ]
 }

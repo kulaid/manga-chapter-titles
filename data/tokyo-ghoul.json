@@ -3,6 +3,7 @@
   "slug": "tokyo-ghoul",
   "match_key": "tokyoghoul",
   "anilist_id": 63327,
+  "mangaplus_id": 100027,
   "article": "List of Tokyo Ghoul chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tokyo_Ghoul_chapters",
   "scraped_at": "2026-08-18T00:14:16.243984966Z",
@@ -382,16 +383,16 @@
       "count": 180
     },
     {
+      "name": "mangaplus",
+      "ref": "100027",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100027",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "tokyo-ghoul",
       "url": "https://comick.dev/comic/tokyo-ghoul",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "6a1d1cb1-ecd5-40d9-89ff-9d88e40b136b",
-      "url": "https://mangadex.org/title/6a1d1cb1-ecd5-40d9-89ff-9d88e40b136b",
-      "count": 0
     }
   ]
 }

@@ -3,6 +3,7 @@
   "slug": "naruto",
   "match_key": "naruto",
   "anilist_id": 30011,
+  "mangaplus_id": 100018,
   "article": "List of Naruto chapters (Part I)",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Naruto_chapters_%28Part_I%29",
   "scraped_at": "2026-08-18T00:16:03.667207961Z",
@@ -1420,16 +1421,16 @@
       "count": 698
     },
     {
+      "name": "mangaplus",
+      "ref": "100018",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100018",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "naruto",
       "url": "https://comick.dev/comic/naruto",
       "count": 2
-    },
-    {
-      "name": "mangadex",
-      "ref": "6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
-      "url": "https://mangadex.org/title/6b1eb93e-473a-4ab3-9922-1a66d2a29a4a",
-      "count": 0
     }
   ]
 }

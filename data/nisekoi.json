@@ -488,12 +488,6 @@
       "ref": "00-nisekoi",
       "url": "https://comick.dev/comic/00-nisekoi",
       "count": 13
-    },
-    {
-      "name": "mangadex",
-      "ref": "ce16b1c3-d6bb-41e0-8671-d8b065248ba2",
-      "url": "https://mangadex.org/title/ce16b1c3-d6bb-41e0-8671-d8b065248ba2",
-      "count": 0
     }
   ]
 }

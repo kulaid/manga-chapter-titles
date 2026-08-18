@@ -3,13 +3,14 @@
   "slug": "blue-exorcist",
   "match_key": "blueexorcist",
   "anilist_id": 43492,
+  "mangaplus_id": 100005,
   "article": "List of Blue Exorcist chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Blue_Exorcist_chapters",
   "scraped_at": "2026-08-18T00:09:02.513295619Z",
   "chapter_count": 163,
   "inferred_numbers": 0,
   "chapters": {
-    "1": "Sneering Satan",
+    "1": "The Mockery of Satan",
     "10": "Proof",
     "104": "SsC20:20",
     "105": "SsC19:21",
@@ -81,12 +82,12 @@
     "164": "Of One Cloth – Confusion",
     "165": "Of One Cloth – Going Ahead",
     "166": "Of One Cloth – To the Extreme",
-    "167": "Of One Cloth- Out of the Blue",
+    "167": "Of One Cloth—Out of the Blue",
     "168": "Of One Cloth—Rivals",
     "17": "Let's Go to Kyoto!",
     "18": "Discord",
     "19": "Drunken Son",
-    "2": "Brothers",
+    "2": "Big Brother, Little Brother",
     "20": "Traitor",
     "21": "Calamity",
     "22": "Flare-up",
@@ -98,7 +99,7 @@
     "27": "Battle at Kongo-Shinzan",
     "28": "Crimson Lotus",
     "29": "Barrier Spell",
-    "3": "The Amahara Garden",
+    "3": "The Garden of Amahara",
     "30": "Fateful Occurrence",
     "31": "Death",
     "32": "Abyss",
@@ -174,7 +175,7 @@
     "99": "Beyond the Snow: Part 8-A"
   },
   "chapter_sources": {
-    "1": "comick",
+    "1": "mangaplus",
     "10": "wikipedia",
     "104": "wikipedia",
     "105": "wikipedia",
@@ -246,12 +247,12 @@
     "164": "wikipedia",
     "165": "wikipedia",
     "166": "wikipedia",
-    "167": "comick",
-    "168": "comick",
+    "167": "mangaplus",
+    "168": "mangaplus",
     "17": "wikipedia",
     "18": "wikipedia",
     "19": "wikipedia",
-    "2": "comick",
+    "2": "mangaplus",
     "20": "wikipedia",
     "21": "wikipedia",
     "22": "wikipedia",
@@ -263,7 +264,7 @@
     "27": "wikipedia",
     "28": "wikipedia",
     "29": "wikipedia",
-    "3": "comick",
+    "3": "mangaplus",
     "30": "wikipedia",
     "31": "wikipedia",
     "32": "wikipedia",
@@ -346,16 +347,16 @@
       "count": 156
     },
     {
+      "name": "mangaplus",
+      "ref": "100005",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100005",
+      "count": 5
+    },
+    {
       "name": "comick",
       "ref": "ao-no-exorcist",
       "url": "https://comick.dev/comic/ao-no-exorcist",
-      "count": 7
-    },
-    {
-      "name": "mangadex",
-      "ref": "3ee952f1-45c7-4c39-aea2-7df7676606d4",
-      "url": "https://mangadex.org/title/3ee952f1-45c7-4c39-aea2-7df7676606d4",
-      "count": 0
+      "count": 2
     }
   ]
 }

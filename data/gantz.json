@@ -800,12 +800,6 @@
       "ref": "gantz",
       "url": "https://comick.dev/comic/gantz",
       "count": 5
-    },
-    {
-      "name": "mangadex",
-      "ref": "c196dcc8-d942-4abf-987f-bfa244650585",
-      "url": "https://mangadex.org/title/c196dcc8-d942-4abf-987f-bfa244650585",
-      "count": 0
     }
   ]
 }

@@ -858,12 +858,6 @@
       "ref": "diamond-no-ace",
       "url": "https://comick.dev/comic/diamond-no-ace",
       "count": 5
-    },
-    {
-      "name": "mangadex",
-      "ref": "60879eb7-3845-4dff-b86d-5a612108053b",
-      "url": "https://mangadex.org/title/60879eb7-3845-4dff-b86d-5a612108053b",
-      "count": 0
     }
   ]
 }

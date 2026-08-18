@@ -790,12 +790,6 @@
       "ref": "doraemon",
       "url": "https://comick.dev/comic/doraemon",
       "count": 62
-    },
-    {
-      "name": "mangadex",
-      "ref": "e36da8b0-feca-46dd-9120-d5dc2f3feae8",
-      "url": "https://mangadex.org/title/e36da8b0-feca-46dd-9120-d5dc2f3feae8",
-      "count": 0
     }
   ]
 }

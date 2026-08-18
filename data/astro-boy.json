@@ -224,12 +224,6 @@
       "ref": "tetsuwan-atom",
       "url": "https://comick.dev/comic/tetsuwan-atom",
       "count": 4
-    },
-    {
-      "name": "mangadex",
-      "ref": "ca4c84bb-7272-45aa-a22d-dc1282b52372",
-      "url": "https://mangadex.org/title/ca4c84bb-7272-45aa-a22d-dc1282b52372",
-      "count": 0
     }
   ]
 }

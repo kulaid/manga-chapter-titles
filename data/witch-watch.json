@@ -3,6 +3,7 @@
   "slug": "witch-watch",
   "match_key": "witchwatch",
   "anilist_id": 128896,
+  "mangaplus_id": 100145,
   "article": "List of Witch Watch chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Witch_Watch_chapters",
   "scraped_at": "2026-08-18T00:14:51.372603104Z",
@@ -182,7 +183,7 @@
     "252": "Bone Crisis, Part 21",
     "253": "253 Bone Crisis, Part 22",
     "254": "254 Bone Crisis, Part 23",
-    "255": "255 Bone Crisis, Part 24 ~Memories of Roswitha, Part 1~",
+    "255": "Bone Crisis, Part 24 ~Memories of Roswitha, Part 1~",
     "256": "Bone Crisis, Part 25 ~Memories of Roswitha, Part 2~",
     "257": "Bone Crisis, Part 26",
     "258": "Bone Crisis, Part 27",
@@ -442,10 +443,10 @@
     "252": "comick",
     "253": "comick",
     "254": "comick",
-    "255": "comick",
-    "256": "comick",
-    "257": "comick",
-    "258": "comick",
+    "255": "mangaplus",
+    "256": "mangaplus",
+    "257": "mangaplus",
+    "258": "mangaplus",
     "26": "wikipedia",
     "27": "wikipedia",
     "28": "wikipedia",
@@ -536,16 +537,16 @@
       "count": 243
     },
     {
+      "name": "mangaplus",
+      "ref": "100145",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100145",
+      "count": 4
+    },
+    {
       "name": "comick",
       "ref": "00-witch-watch",
       "url": "https://comick.dev/comic/00-witch-watch",
-      "count": 15
-    },
-    {
-      "name": "mangadex",
-      "ref": "4801f266-cc4e-4c3b-8d1d-f50f08b25b62",
-      "url": "https://mangadex.org/title/4801f266-cc4e-4c3b-8d1d-f50f08b25b62",
-      "count": 0
+      "count": 11
     }
   ]
 }

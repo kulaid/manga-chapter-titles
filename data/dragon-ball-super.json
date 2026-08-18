@@ -3,6 +3,7 @@
   "slug": "dragon-ball-super",
   "match_key": "dragonballsuper",
   "anilist_id": 86508,
+  "mangaplus_id": 100012,
   "article": "List of Dragon Ball Super chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dragon_Ball_Super_chapters",
   "scraped_at": "2026-08-18T00:15:30.540141525Z",
@@ -234,16 +235,16 @@
       "count": 104
     },
     {
+      "name": "mangaplus",
+      "ref": "100012",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100012",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "00-dragon-ball-super",
       "url": "https://comick.dev/comic/00-dragon-ball-super",
       "count": 3
-    },
-    {
-      "name": "mangadex",
-      "ref": "37b87be0-b1f4-4507-affa-06c99ebb27f8",
-      "url": "https://mangadex.org/title/37b87be0-b1f4-4507-affa-06c99ebb27f8",
-      "count": 0
     }
   ]
 }

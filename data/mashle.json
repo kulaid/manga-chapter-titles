@@ -3,6 +3,7 @@
   "slug": "mashle",
   "match_key": "mashle",
   "anilist_id": 114960,
+  "mangaplus_id": 100083,
   "article": "List of Mashle chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Mashle_chapters",
   "scraped_at": "2026-08-18T00:12:12.300070484Z",
@@ -350,16 +351,16 @@
       "count": 162
     },
     {
+      "name": "mangaplus",
+      "ref": "100083",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100083",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "mashle-magic-and-muscles",
       "url": "https://comick.dev/comic/mashle-magic-and-muscles",
       "count": 3
-    },
-    {
-      "name": "mangadex",
-      "ref": "558c2122-7342-4649-85e9-a866727bb2e8",
-      "url": "https://mangadex.org/title/558c2122-7342-4649-85e9-a866727bb2e8",
-      "count": 0
     }
   ]
 }

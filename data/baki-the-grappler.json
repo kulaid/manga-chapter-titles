@@ -768,12 +768,6 @@
       "ref": "grappler-baki",
       "url": "https://comick.dev/comic/grappler-baki",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "ea3122bb-0c28-4669-8686-d6df1274512f",
-      "url": "https://mangadex.org/title/ea3122bb-0c28-4669-8686-d6df1274512f",
-      "count": 0
     }
   ]
 }

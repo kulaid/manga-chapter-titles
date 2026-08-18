@@ -52,12 +52,6 @@
       "ref": "fruits-basket",
       "url": "https://comick.dev/comic/fruits-basket",
       "count": 12
-    },
-    {
-      "name": "mangadex",
-      "ref": "e9b1d4ba-b8fb-48c3-8d52-5a4eefd05980",
-      "url": "https://mangadex.org/title/e9b1d4ba-b8fb-48c3-8d52-5a4eefd05980",
-      "count": 0
     }
   ]
 }

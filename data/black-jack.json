@@ -510,12 +510,6 @@
       "ref": "black-jack",
       "url": "https://comick.dev/comic/black-jack",
       "count": 11
-    },
-    {
-      "name": "mangadex",
-      "ref": "fd86eab2-f0f3-47d3-bce5-5628e97f37dc",
-      "url": "https://mangadex.org/title/fd86eab2-f0f3-47d3-bce5-5628e97f37dc",
-      "count": 0
     }
   ]
 }

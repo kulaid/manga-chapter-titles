@@ -462,12 +462,6 @@
       "ref": "freezing",
       "url": "https://comick.dev/comic/freezing",
       "count": 3
-    },
-    {
-      "name": "mangadex",
-      "ref": "087ca0c7-33e8-4c71-b8eb-64bf27aedb11",
-      "url": "https://mangadex.org/title/087ca0c7-33e8-4c71-b8eb-64bf27aedb11",
-      "count": 0
     }
   ]
 }

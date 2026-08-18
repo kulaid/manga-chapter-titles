@@ -3,6 +3,7 @@
   "slug": "spy-family",
   "match_key": "spyfamily",
   "anilist_id": 108556,
+  "mangaplus_id": 100056,
   "article": "List of Spy × Family chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Spy_%C3%97_Family_chapters",
   "scraped_at": "2026-08-18T00:14:00.185901905Z",
@@ -158,8 +159,8 @@
     "127.3": "comick",
     "129": "comick",
     "13": "wikipedia",
-    "137": "comick",
-    "138": "comick",
+    "137": "mangaplus",
+    "138": "mangaplus",
     "14": "wikipedia",
     "15": "wikipedia",
     "16": "wikipedia",
@@ -240,16 +241,16 @@
       "count": 29
     },
     {
+      "name": "mangaplus",
+      "ref": "100056",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100056",
+      "count": 2
+    },
+    {
       "name": "comick",
       "ref": "00-spy-family",
       "url": "https://comick.dev/comic/00-spy-family",
-      "count": 81
-    },
-    {
-      "name": "mangadex",
-      "ref": "6b958848-c885-4735-9201-12ee77abcb3c",
-      "url": "https://mangadex.org/title/6b958848-c885-4735-9201-12ee77abcb3c",
-      "count": 0
+      "count": 79
     }
   ]
 }

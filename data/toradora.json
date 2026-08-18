@@ -222,12 +222,6 @@
       "ref": "00-toradora",
       "url": "https://comick.dev/comic/00-toradora",
       "count": 2
-    },
-    {
-      "name": "mangadex",
-      "ref": "e9dc373b-314c-44ff-9428-ae63319ae86b",
-      "url": "https://mangadex.org/title/e9dc373b-314c-44ff-9428-ae63319ae86b",
-      "count": 0
     }
   ]
 }

@@ -3,10 +3,11 @@
   "slug": "dragon-ball-z",
   "match_key": "dragonballz",
   "anilist_id": 30042,
+  "mangaplus_id": 100011,
   "article": "List of Dragon Ball Z chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dragon_Ball_Z_chapters",
   "scraped_at": "2026-08-18T00:15:31.499961422Z",
-  "chapter_count": 325,
+  "chapter_count": 326,
   "inferred_numbers": 1,
   "chapters": {
     "1": "The Mysterious Warrior From Space",
@@ -282,6 +283,7 @@
     "5": "An Unexpected Strength",
     "50": "The Mysterious Spaceship",
     "51": "3... 2... 1... Lift Off!",
+    "519": "Farewell, Dragon World!",
     "52": "The Return of Vegeta",
     "53": "Planet Namek, Cold and Dark",
     "54": "The Mysterious Strangers",
@@ -609,6 +611,7 @@
     "5": "wikipedia",
     "50": "wikipedia",
     "51": "wikipedia",
+    "519": "mangaplus",
     "52": "wikipedia",
     "53": "wikipedia",
     "54": "wikipedia",
@@ -670,16 +673,10 @@
       "count": 325
     },
     {
-      "name": "comick",
-      "ref": "dragon-ball-z-anime-kids-comics",
-      "url": "https://comick.dev/comic/dragon-ball-z-anime-kids-comics",
-      "count": 0
-    },
-    {
-      "name": "mangadex",
-      "ref": "40bc649f-7b49-4645-859e-6cd94136e722",
-      "url": "https://mangadex.org/title/40bc649f-7b49-4645-859e-6cd94136e722",
-      "count": 0
+      "name": "mangaplus",
+      "ref": "100011",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100011",
+      "count": 1
     }
   ]
 }

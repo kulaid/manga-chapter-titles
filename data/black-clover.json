@@ -3,6 +3,7 @@
   "slug": "black-clover",
   "match_key": "blackclover",
   "anilist_id": 86123,
+  "mangaplus_id": 100003,
   "article": "List of Black Clover chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Black_Clover_chapters",
   "scraped_at": "2026-08-18T00:08:55.467006497Z",
@@ -806,16 +807,16 @@
       "count": 392
     },
     {
+      "name": "mangaplus",
+      "ref": "100003",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100003",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "black-clover",
       "url": "https://comick.dev/comic/black-clover",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "e7eabe96-aa17-476f-b431-2497d5e9d060",
-      "url": "https://mangadex.org/title/e7eabe96-aa17-476f-b431-2497d5e9d060",
-      "count": 0
     }
   ]
 }

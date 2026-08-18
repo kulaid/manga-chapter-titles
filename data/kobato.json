@@ -110,12 +110,6 @@
       "ref": "kobato",
       "url": "https://comick.dev/comic/kobato",
       "count": 4
-    },
-    {
-      "name": "mangadex",
-      "ref": "e47adf50-f2de-4f19-8f32-412a9369a48d",
-      "url": "https://mangadex.org/title/e47adf50-f2de-4f19-8f32-412a9369a48d",
-      "count": 0
     }
   ]
 }

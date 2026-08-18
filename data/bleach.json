@@ -3,6 +3,7 @@
   "slug": "bleach",
   "match_key": "bleach",
   "anilist_id": 30012,
+  "mangaplus_id": 100004,
   "article": "List of Bleach chapters (1–187)",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Bleach_chapters_%281%E2%80%93187%29",
   "scraped_at": "2026-08-18T00:15:12.502949425Z",
@@ -1432,16 +1433,16 @@
       "count": 690
     },
     {
+      "name": "mangaplus",
+      "ref": "100004",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100004",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "bleach",
       "url": "https://comick.dev/comic/bleach",
       "count": 16
-    },
-    {
-      "name": "mangadex",
-      "ref": "239d6260-d71f-43b0-afff-074e3619e3de",
-      "url": "https://mangadex.org/title/239d6260-d71f-43b0-afff-074e3619e3de",
-      "count": 0
     }
   ]
 }

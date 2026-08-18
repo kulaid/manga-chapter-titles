@@ -3,6 +3,7 @@
   "slug": "2-5-dimensional-seduction",
   "match_key": "25dimensionalseduction",
   "anilist_id": 110785,
+  "mangaplus_id": 100282,
   "article": "List of 2.5 Dimensional Seduction chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_2.5_Dimensional_Seduction_chapters",
   "scraped_at": "2026-08-18T00:08:12.287588938Z",
@@ -534,16 +535,16 @@
       "count": 201
     },
     {
+      "name": "mangaplus",
+      "ref": "100282",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100282",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "2-5-dimensional-seduction",
       "url": "https://comick.dev/comic/2-5-dimensional-seduction",
       "count": 56
-    },
-    {
-      "name": "mangadex",
-      "ref": "7bf163e3-123a-41c1-b2bc-8254dbe5a09b",
-      "url": "https://mangadex.org/title/7bf163e3-123a-41c1-b2bc-8254dbe5a09b",
-      "count": 0
     }
   ]
 }

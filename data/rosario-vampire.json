@@ -3,6 +3,7 @@
   "slug": "rosario-vampire",
   "match_key": "rosariovampire",
   "anilist_id": 30894,
+  "mangaplus_id": 100022,
   "article": "List of Rosario + Vampire chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Rosario_+_Vampire_chapters",
   "scraped_at": "2026-08-18T00:13:21.115169293Z",
@@ -102,16 +103,16 @@
       "count": 40
     },
     {
+      "name": "mangaplus",
+      "ref": "100022",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100022",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "rosario-to-vampire",
       "url": "https://comick.dev/comic/rosario-to-vampire",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "205f6092-cfaf-470d-b997-eb2f5d3b60b2",
-      "url": "https://mangadex.org/title/205f6092-cfaf-470d-b997-eb2f5d3b60b2",
-      "count": 0
     }
   ]
 }

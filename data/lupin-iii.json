@@ -246,12 +246,6 @@
       "ref": "lupin-iii",
       "url": "https://comick.dev/comic/lupin-iii",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "50fe4f79-8c94-4052-bf66-2cf87f8efd34",
-      "url": "https://mangadex.org/title/50fe4f79-8c94-4052-bf66-2cf87f8efd34",
-      "count": 0
     }
   ]
 }

@@ -3,6 +3,7 @@
   "slug": "dr-stone",
   "match_key": "drstone",
   "anilist_id": 98416,
+  "mangaplus_id": 100010,
   "article": "List of Dr. Stone chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dr._Stone_chapters",
   "scraped_at": "2026-08-18T00:10:00.728312526Z",
@@ -492,16 +493,16 @@
       "count": 235
     },
     {
+      "name": "mangaplus",
+      "ref": "100010",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100010",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "dr-stone",
       "url": "https://comick.dev/comic/dr-stone",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "cfc3d743-bd89-48e2-991f-63e680cc4edf",
-      "url": "https://mangadex.org/title/cfc3d743-bd89-48e2-991f-63e680cc4edf",
-      "count": 0
     }
   ]
 }

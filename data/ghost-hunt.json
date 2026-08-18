@@ -146,12 +146,6 @@
       "ref": "ghost-hunt",
       "url": "https://comick.dev/comic/ghost-hunt",
       "count": 10
-    },
-    {
-      "name": "mangadex",
-      "ref": "f9edefd8-f284-44ef-86be-8d5fcfced0c7",
-      "url": "https://mangadex.org/title/f9edefd8-f284-44ef-86be-8d5fcfced0c7",
-      "count": 0
     }
   ]
 }

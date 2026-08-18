@@ -3,6 +3,7 @@
   "slug": "world-trigger",
   "match_key": "worldtrigger",
   "anilist_id": 78151,
+  "mangaplus_id": 100028,
   "article": "List of World Trigger chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_World_Trigger_chapters",
   "scraped_at": "2026-08-18T00:14:54.399040139Z",
@@ -453,10 +454,10 @@
     "258": "comick",
     "259": "comick",
     "26": "wikipedia",
-    "260": "comick",
-    "261": "comick",
-    "262": "comick",
-    "263": "comick",
+    "260": "mangaplus",
+    "261": "mangaplus",
+    "262": "mangaplus",
+    "263": "mangaplus",
     "27": "wikipedia",
     "28": "wikipedia",
     "29": "wikipedia",
@@ -546,16 +547,16 @@
       "count": 257
     },
     {
+      "name": "mangaplus",
+      "ref": "100028",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100028",
+      "count": 4
+    },
+    {
       "name": "comick",
       "ref": "01-world-trigger",
       "url": "https://comick.dev/comic/01-world-trigger",
-      "count": 6
-    },
-    {
-      "name": "mangadex",
-      "ref": "7ae7067a-7e68-4bd2-a064-5e3e3c059078",
-      "url": "https://mangadex.org/title/7ae7067a-7e68-4bd2-a064-5e3e3c059078",
-      "count": 0
+      "count": 2
     }
   ]
 }

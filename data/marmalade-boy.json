@@ -30,12 +30,6 @@
       "ref": "marmalade-boy",
       "url": "https://comick.dev/comic/marmalade-boy",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "e33d3ab4-eebc-4ee9-b09d-ef3de07266bf",
-      "url": "https://mangadex.org/title/e33d3ab4-eebc-4ee9-b09d-ef3de07266bf",
-      "count": 0
     }
   ]
 }

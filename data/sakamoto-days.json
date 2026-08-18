@@ -3,6 +3,7 @@
   "slug": "sakamoto-days",
   "match_key": "sakamotodays",
   "anilist_id": 125828,
+  "mangaplus_id": 100127,
   "article": "List of Sakamoto Days chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Sakamoto_Days_chapters",
   "scraped_at": "2026-08-18T00:13:30.094891303Z",
@@ -191,7 +192,7 @@
     "265": "Atari's Reading",
     "266": "No Limit",
     "267": "Days 267 The Third Store",
-    "268": "Days 268 Prisoner of the Past",
+    "268": "Prisoner of the Past",
     "269": "Inner Beast",
     "27": "Days 27: \"Sakamoto's vs. The Lab",
     "270": "Prime",
@@ -459,11 +460,11 @@
     "265": "comick",
     "266": "comick",
     "267": "comick",
-    "268": "comick",
-    "269": "comick",
+    "268": "mangaplus",
+    "269": "mangaplus",
     "27": "wikipedia",
-    "270": "comick",
-    "271": "comick",
+    "270": "mangaplus",
+    "271": "mangaplus",
     "28": "wikipedia",
     "29": "wikipedia",
     "3": "wikipedia",
@@ -552,16 +553,16 @@
       "count": 214
     },
     {
+      "name": "mangaplus",
+      "ref": "100127",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100127",
+      "count": 4
+    },
+    {
       "name": "comick",
       "ref": "01-sakamoto-days",
       "url": "https://comick.dev/comic/01-sakamoto-days",
-      "count": 52
-    },
-    {
-      "name": "mangadex",
-      "ref": "9d9b04ad-9a83-49f4-8ae4-a9a3780fe9c0",
-      "url": "https://mangadex.org/title/9d9b04ad-9a83-49f4-8ae4-a9a3780fe9c0",
-      "count": 0
+      "count": 48
     }
   ]
 }

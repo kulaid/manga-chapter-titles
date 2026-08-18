@@ -3,6 +3,7 @@
   "slug": "captain-tsubasa",
   "match_key": "captaintsubasa",
   "anilist_id": 31789,
+  "mangaplus_id": 200014,
   "article": "List of Captain Tsubasa chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Captain_Tsubasa_chapters",
   "scraped_at": "2026-08-18T00:15:17.508689813Z",
@@ -252,15 +253,9 @@
       "count": 116
     },
     {
-      "name": "comick",
-      "ref": "captain-tsubasa",
-      "url": "https://comick.dev/comic/captain-tsubasa",
-      "count": 0
-    },
-    {
-      "name": "mangadex",
-      "ref": "94be07be-2a8f-4557-a575-7a26a8a6194e",
-      "url": "https://mangadex.org/title/94be07be-2a8f-4557-a575-7a26a8a6194e",
+      "name": "mangaplus",
+      "ref": "200014",
+      "url": "https://mangaplus.shueisha.co.jp/titles/200014",
       "count": 0
     }
   ]

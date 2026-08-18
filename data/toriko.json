@@ -822,12 +822,6 @@
       "ref": "00-toriko",
       "url": "https://comick.dev/comic/00-toriko",
       "count": 3
-    },
-    {
-      "name": "mangadex",
-      "ref": "a7a8149f-65cf-4cab-a243-9b00b91e3b24",
-      "url": "https://mangadex.org/title/a7a8149f-65cf-4cab-a243-9b00b91e3b24",
-      "count": 0
     }
   ]
 }

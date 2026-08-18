@@ -336,12 +336,6 @@
       "ref": "kiss-x-sis",
       "url": "https://comick.dev/comic/kiss-x-sis",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "bf55dd16-ba26-49de-adb3-cbf7d2bc6775",
-      "url": "https://mangadex.org/title/bf55dd16-ba26-49de-adb3-cbf7d2bc6775",
-      "count": 0
     }
   ]
 }

@@ -3,6 +3,7 @@
   "slug": "the-elusive-samurai",
   "match_key": "theelusivesamurai",
   "anilist_id": 128666,
+  "mangaplus_id": 100139,
   "article": "List of The Elusive Samurai chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_The_Elusive_Samurai_chapters",
   "scraped_at": "2026-08-18T00:10:08.883442232Z",
@@ -496,16 +497,16 @@
       "count": 232
     },
     {
+      "name": "mangaplus",
+      "ref": "100139",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100139",
+      "count": 0
+    },
+    {
       "name": "comick",
       "ref": "nige-jouzu-no-wakagimi",
       "url": "https://comick.dev/comic/nige-jouzu-no-wakagimi",
       "count": 6
-    },
-    {
-      "name": "mangadex",
-      "ref": "b6a5d154-7845-4129-b473-ba0aec3deffd",
-      "url": "https://mangadex.org/title/b6a5d154-7845-4129-b473-ba0aec3deffd",
-      "count": 0
     }
   ]
 }

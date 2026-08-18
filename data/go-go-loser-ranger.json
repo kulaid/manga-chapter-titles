@@ -442,12 +442,6 @@
       "ref": "00-ranger-reject",
       "url": "https://comick.dev/comic/00-ranger-reject",
       "count": 1
-    },
-    {
-      "name": "mangadex",
-      "ref": "7878c129-a33d-4bf9-b5d2-ff98cbe85bd6",
-      "url": "https://mangadex.org/title/7878c129-a33d-4bf9-b5d2-ff98cbe85bd6",
-      "count": 0
     }
   ]
 }

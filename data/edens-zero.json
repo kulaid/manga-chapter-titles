@@ -616,12 +616,6 @@
       "ref": "01-edens-zero",
       "url": "https://comick.dev/comic/01-edens-zero",
       "count": 3
-    },
-    {
-      "name": "mangadex",
-      "ref": "bbaa17c4-0f36-4bbb-9861-34fc8fdf20fc",
-      "url": "https://mangadex.org/title/bbaa17c4-0f36-4bbb-9861-34fc8fdf20fc",
-      "count": 0
     }
   ]
 }

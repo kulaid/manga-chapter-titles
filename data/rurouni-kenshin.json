@@ -542,12 +542,6 @@
       "ref": "rurouni-kenshin",
       "url": "https://comick.dev/comic/rurouni-kenshin",
       "count": 252
-    },
-    {
-      "name": "mangadex",
-      "ref": "d89dec94-7772-4b1a-b65d-c4bb01e72fd7",
-      "url": "https://mangadex.org/title/d89dec94-7772-4b1a-b65d-c4bb01e72fd7",
-      "count": 0
     }
   ]
 }

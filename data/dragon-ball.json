@@ -3,6 +3,7 @@
   "slug": "dragon-ball",
   "match_key": "dragonball",
   "anilist_id": 30042,
+  "mangaplus_id": 100011,
   "article": "List of Dragon Ball chapters (series)",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dragon_Ball_chapters_%28series%29",
   "scraped_at": "2026-08-18T00:15:28.505792494Z",
@@ -476,7 +477,7 @@
     "516": "S2-322",
     "517": "S2-323",
     "518": "S2-324",
-    "519": "S2-325",
+    "519": "Farewell, Dragon World!",
     "519.5": "Kanzenban Ending",
     "52": "The Climax Approaches!",
     "53": "The Final Blow",
@@ -999,7 +1000,7 @@
     "516": "comick",
     "517": "comick",
     "518": "comick",
-    "519": "comick",
+    "519": "mangaplus",
     "519.5": "comick",
     "52": "wikipedia",
     "53": "wikipedia",
@@ -1062,16 +1063,16 @@
       "count": 194
     },
     {
+      "name": "mangaplus",
+      "ref": "100011",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100011",
+      "count": 1
+    },
+    {
       "name": "comick",
       "ref": "dragon-ball",
       "url": "https://comick.dev/comic/dragon-ball",
-      "count": 327
-    },
-    {
-      "name": "mangadex",
-      "ref": "40bc649f-7b49-4645-859e-6cd94136e722",
-      "url": "https://mangadex.org/title/40bc649f-7b49-4645-859e-6cd94136e722",
-      "count": 0
+      "count": 326
     }
   ]
 }

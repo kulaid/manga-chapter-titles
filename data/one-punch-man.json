@@ -612,12 +612,6 @@
       "ref": "01-one-punch-man",
       "url": "https://comick.dev/comic/01-one-punch-man",
       "count": 100
-    },
-    {
-      "name": "mangadex",
-      "ref": "d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
-      "url": "https://mangadex.org/title/d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
-      "count": 0
     }
   ]
 }

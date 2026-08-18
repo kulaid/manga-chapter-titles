@@ -3,6 +3,7 @@
   "slug": "dandadan",
   "match_key": "dandadan",
   "anilist_id": 132029,
+  "mangaplus_id": 100171,
   "article": "List of Dandadan chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dandadan_chapters",
   "scraped_at": "2026-08-18T00:09:40.831244524Z",
@@ -421,10 +422,10 @@
     "239": "comick",
     "24": "wikipedia",
     "240": "comick",
-    "241": "comick",
-    "242": "comick",
-    "243": "comick",
-    "244": "comick",
+    "241": "mangaplus",
+    "242": "mangaplus",
+    "243": "mangaplus",
+    "244": "mangaplus",
     "25": "wikipedia",
     "26": "wikipedia",
     "27": "wikipedia",
@@ -518,16 +519,16 @@
       "count": 232
     },
     {
+      "name": "mangaplus",
+      "ref": "100171",
+      "url": "https://mangaplus.shueisha.co.jp/titles/100171",
+      "count": 4
+    },
+    {
       "name": "comick",
       "ref": "dandadan",
       "url": "https://comick.dev/comic/dandadan",
-      "count": 17
-    },
-    {
-      "name": "mangadex",
-      "ref": "68112dc1-2b80-4f20-beb8-2f2a8716a430",
-      "url": "https://mangadex.org/title/68112dc1-2b80-4f20-beb8-2f2a8716a430",
-      "count": 0
+      "count": 13
     }
   ]
 }
