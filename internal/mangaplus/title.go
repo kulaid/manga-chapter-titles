@@ -60,22 +60,66 @@ func cleanTitle(sub string, num float64) string {
 		return s
 	}
 
-	word := strings.ToLower(strings.Trim(fields[0], ".:"))
-	got, ok := parseNumberToken(fields[1])
-	if !ok {
-		return s
-	}
-	if !chapterWords[word] && got != num {
-		return s
+	// Two-token form: "Chapter 3:", "Episode One:", "Days 269".
+	if got, ok := parseNumberToken(fields[1]); ok {
+		word := strings.ToLower(strings.Trim(fields[0], ".:"))
+		if chapterWords[word] || got == num {
+			return joinFrom(fields, 2, s)
+		}
 	}
 
-	// Rejoin from the third token so the original spacing of the title is not
-	// preserved but its content is; MangaPlus pads some prefixes oddly.
-	rest := strings.TrimSpace(strings.Join(fields[2:], " "))
+	// One-token form: "#250", "258", "DBZ:325". A bare number is only a prefix
+	// when it is this chapter's own, so a title that genuinely opens with a
+	// number keeps it. A "#" or a "WORD:" marker says prefix on its own, which
+	// is what catches Dragon Ball's "DBZ:325" — that numbering is the volume
+	// edition's and does not match the chapter number at all.
+	if got, marked, ok := parseLeadingNumber(fields[0]); ok && (marked || got == num) {
+		return joinFrom(fields, 1, s)
+	}
+
+	return s
+}
+
+// joinFrom rebuilds the title from field i onward, falling back to the original
+// when nothing would be left — a prefix that is the whole string is a title.
+func joinFrom(fields []string, i int, original string) string {
+	rest := strings.TrimSpace(strings.Join(fields[i:], " "))
 	if rest == "" {
-		return s
+		return original
 	}
 	return rest
+}
+
+// parseLeadingNumber reads a one-token chapter prefix. marked reports whether
+// the token carried a "#" or a "WORD:" that identifies it as a prefix without
+// having to match the chapter number.
+func parseLeadingNumber(tok string) (n float64, marked bool, ok bool) {
+	t := strings.TrimSpace(tok)
+	if t == "" {
+		return 0, false, false
+	}
+
+	if strings.HasPrefix(t, "#") {
+		marked = true
+		t = strings.TrimPrefix(t, "#")
+	}
+	if i := strings.LastIndex(t, ":"); i >= 0 {
+		// "DBZ:325" — anything before the colon must be a word, not a number,
+		// or this is a time or a ratio rather than a prefix.
+		head := t[:i]
+		if head == "" || strings.ContainsAny(head, "0123456789") {
+			return 0, false, false
+		}
+		marked = true
+		t = t[i+1:]
+	}
+	t = strings.TrimRight(t, ".")
+
+	v, err := strconv.ParseFloat(t, 64)
+	if err != nil {
+		return 0, false, false
+	}
+	return v, marked, true
 }
 
 // parseNumberToken reads a prefix's number, which may be spelled out and may

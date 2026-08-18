@@ -54,6 +54,21 @@ func TestCleanTitle(t *testing.T) {
 		// Stripping must never consume the whole string and leave nothing.
 		{"Chapter 5", 5, "Chapter 5"},
 		{"", 1, ""},
+
+		// One-token prefixes. A "#" or a "WORD:" marks a prefix outright;
+		// Blue Box writes "#250" and Dragon Ball writes "DBZ:325", whose
+		// number is the volume edition's and matches no chapter number.
+		{"#250 In This Box", 250, "In This Box"},
+		{"DBZ:325 Farewell, Dragon World!", 519, "Farewell, Dragon World!"},
+		// A bare number is a prefix only when it is this chapter's own.
+		{"255 Bone Crisis, Part 24", 255, "Bone Crisis, Part 24"},
+		{"300 Spartans Return Home", 5, "300 Spartans Return Home"},
+		// Spy x Family's chapter titles really are "MISSION 137"; stripping
+		// would leave nothing, so the whole string stands.
+		{"MISSION 137", 137, "MISSION 137"},
+		{"#137", 137, "#137"},
+		// Not a prefix: a ratio or a time has digits before the colon.
+		{"20:30 The Meeting Time", 4, "20:30 The Meeting Time"},
 	}
 	for _, tt := range tests {
 		if got := cleanTitle(tt.in, tt.num); got != tt.want {
