@@ -60,26 +60,56 @@ type Merged struct {
 	Contributions []Contribution
 }
 
-// Merge combines results in priority order: the first source to supply a
-// chapter's title keeps it, and later sources only fill gaps. Callers pass
-// sources highest-priority first.
+// Stored is what a dataset file already holds for a series, as the input to a
+// merge.
+type Stored struct {
+	// Titles are the chapter titles on file.
+	Titles Titles
+	// Provenance maps a chapter number to the source its stored title came
+	// from, as persisted in chapter_sources.
+	Provenance map[float64]string
+	// DefaultSource ranks chapters that Provenance does not name. Files written
+	// before provenance was recorded — and Wikipedia-only files that enrichment
+	// skipped for want of an AniList ID — carry titles with no recorded source,
+	// and ranking those as unknown would invite an aggregator to overwrite
+	// licensed titles. Callers pass the source such a file's titles must have
+	// come from; empty means genuinely unknown.
+	DefaultSource string
+}
+
+// sourceOf reports the source that owns a stored chapter's title.
+func (s Stored) sourceOf(num float64) string {
+	if name := s.Provenance[num]; name != "" {
+		return name
+	}
+	return s.DefaultSource
+}
+
+// Merge combines a series' stored titles with freshly fetched ones, keeping for
+// each chapter the title whose source ranks best. See Rank for the order.
 //
-// Existing holds titles already known (e.g. from a previous run); they win over
-// every source, so re-running enrichment never overwrites what is already
-// there. Pass nil when starting fresh.
-func Merge(existing Titles, existingSource string, results []Result, names []string) Merged {
+// A fetched title replaces a stored one only on a strictly better rank. Equal
+// ranks keep the stored value, so re-running a source over its own titles never
+// churns the file, and a stored title whose source has stopped serving that
+// chapter is retained because nothing arrives to displace it. That retention is
+// what makes MangaPlus worth consulting at all: its free window slides forward,
+// so a title captured today is gone from the API within weeks.
+//
+// results and names are parallel; names identify each result's source for both
+// ranking and provenance.
+func Merge(stored Stored, results []Result, names []string) Merged {
 	out := Merged{
-		Titles:     make(Titles, len(existing)),
-		Provenance: make(map[float64]string, len(existing)),
+		Titles:     make(Titles, len(stored.Titles)),
+		Provenance: make(map[float64]string, len(stored.Titles)),
 	}
 
-	for num, title := range existing {
+	for num, title := range stored.Titles {
 		if title == "" {
 			continue
 		}
 		out.Titles[num] = title
-		if existingSource != "" {
-			out.Provenance[num] = existingSource
+		if name := stored.sourceOf(num); name != "" {
+			out.Provenance[num] = name
 		}
 	}
 
@@ -91,13 +121,14 @@ func Merge(existing Titles, existingSource string, results []Result, names []str
 		if i < len(names) {
 			name = names[i]
 		}
+		rank := Rank(name)
 
 		c := Contribution{Name: name, Ref: r.Ref, URL: r.URL, Total: len(r.Titles)}
 		for num, title := range r.Titles {
 			if title == "" {
 				continue
 			}
-			if _, taken := out.Titles[num]; taken {
+			if _, taken := out.Titles[num]; taken && rank >= Rank(out.Provenance[num]) {
 				continue
 			}
 			out.Titles[num] = title

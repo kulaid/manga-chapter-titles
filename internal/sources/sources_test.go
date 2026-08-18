@@ -10,7 +10,7 @@ func TestMergeExistingTitlesWin(t *testing.T) {
 		{Found: true, Ref: "cm", Titles: Titles{1: "A Dog and a Chainsaw", 2: "Pochita's Whereabouts"}},
 	}
 
-	m := Merge(existing, "wikipedia", results, []string{"comick"})
+	m := Merge(Stored{Titles: existing, DefaultSource: "wikipedia"}, results, []string{"comick"})
 
 	if m.Titles[1] != "Dog & Chainsaw" {
 		t.Errorf("chapter 1 = %q, want the existing title to survive", m.Titles[1])
@@ -34,7 +34,7 @@ func TestMergeRespectsSourcePriority(t *testing.T) {
 		{Found: true, Titles: Titles{1: "From MangaDex", 2: "Only MangaDex"}},
 	}
 
-	m := Merge(nil, "", results, []string{"comick", "mangadex"})
+	m := Merge(Stored{}, results, []string{"comick", "mangadex"})
 
 	if m.Titles[1] != "From Comick" {
 		t.Errorf("chapter 1 = %q, want the higher-priority source", m.Titles[1])
@@ -61,7 +61,7 @@ func TestMergeSkipsNotFoundSources(t *testing.T) {
 		{Found: true, Titles: Titles{1: "Real"}},
 	}
 
-	m := Merge(nil, "", results, []string{"comick", "mangadex"})
+	m := Merge(Stored{}, results, []string{"comick", "mangadex"})
 
 	if len(m.Contributions) != 1 || m.Contributions[0].Name != "mangadex" {
 		t.Errorf("contributions = %+v, want only the source that found the series", m.Contributions)
@@ -79,7 +79,7 @@ func TestMergeIgnoresEmptyTitles(t *testing.T) {
 		{Found: true, Titles: Titles{1: "Filled Later"}},
 	}
 
-	m := Merge(Titles{3: ""}, "wikipedia", results, []string{"comick", "mangadex"})
+	m := Merge(Stored{Titles: Titles{3: ""}, DefaultSource: "wikipedia"}, results, []string{"comick", "mangadex"})
 
 	if m.Titles[1] != "Filled Later" {
 		t.Errorf("chapter 1 = %q, want the empty title to have been skipped", m.Titles[1])
@@ -93,7 +93,7 @@ func TestMergeIgnoresEmptyTitles(t *testing.T) {
 }
 
 func TestMergeHandlesDecimalChapters(t *testing.T) {
-	m := Merge(nil, "", []Result{
+	m := Merge(Stored{}, []Result{
 		{Found: true, Titles: Titles{4: "Four", 4.5: "Interlude"}},
 	}, []string{"comick"})
 

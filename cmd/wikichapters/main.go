@@ -192,6 +192,12 @@ func runBuild(args []string) error {
 		fmt.Fprintf(os.Stderr, "Reusing %d AniList ID(s) already in %s/\n\n", len(knownIDs), *out)
 	}
 
+	// A rebuild merges into what is already on disk rather than replacing it,
+	// so every aggregator and curated title survives the scraper. This maps a
+	// series to the slug its file currently sits under, which is how a series
+	// whose name the parser has since changed is still recognised.
+	priorSlugByKey := priorSlugsByMatchKey(*out)
+
 	var entries []chaptertitles.IndexEntry
 	usedSlugs := map[string]bool{}
 	// Articles of a split series resolve to the same name, so they are folded
@@ -199,6 +205,12 @@ func runBuild(args []string) error {
 	// Keyed by MatchKey, which is the same normalisation consumers look up by.
 	seriesByKey := map[string]*chaptertitles.Series{}
 	entryByKey := map[string]int{}
+	// Chapter numbers this run's Wikipedia articles have supplied, per series.
+	// The collision warning below has to be judged against the articles scraped
+	// this run, not against the record on disk: that record already holds every
+	// part's chapters from last time, so measuring against it would report a
+	// numbering restart for every healthy split series on every rebuild.
+	wikiSeenByKey := map[string]map[string]bool{}
 	var skipped, failed, merged int
 
 	for i, article := range articles {
@@ -223,8 +235,11 @@ func runBuild(args []string) error {
 		if key := wikipedia.NormalizeName(wikipedia.SeriesNameFromArticle(result.Article)); key != "" {
 			if existing, ok := seriesByKey[key]; ok {
 				part := toSeries(article, result, nil)
+				novel := countUnseen(wikiSeenByKey[key], part.Chapters)
 				gained := mergeSeriesChapters(existing, part)
+				rebuildSourceRefs(existing, nil)
 				applyCuratedChapters(existing, ovr)
+				markSeen(wikiSeenByKey, key, part.Chapters)
 				if err := chaptertitles.Write(*out, existing); err != nil {
 					return fmt.Errorf("writing %s: %w", existing.Slug, err)
 				}
@@ -232,7 +247,7 @@ func runBuild(args []string) error {
 				merged++
 				fmt.Fprintf(os.Stderr, "%s %-60s +%d titles, merged into %s (%d)\n",
 					progress, truncate(article, 60), gained, existing.Slug, existing.ChapterCount)
-				if w := mergeCollisionWarning(article, gained, len(part.Chapters)); w != "" {
+				if w := mergeCollisionWarning(article, novel, len(part.Chapters)); w != "" {
 					fmt.Fprint(os.Stderr, w)
 				}
 				continue
@@ -240,9 +255,21 @@ func runBuild(args []string) error {
 		}
 
 		s := toSeries(article, result, usedSlugs)
+		scrapedChapters := s.Chapters
 		s.AniListID = knownIDs[article]
+
+		// Fold the scrape onto the record a previous run left, so the
+		// aggregator and curated titles attached to it are not thrown away.
+		// A series with no prior record is written exactly as scraped.
+		kept := 0
+		if prior := priorSeriesFor(*out, s, priorSlugByKey); prior != nil {
+			s = carryForward(prior, s)
+			kept = len(s.Chapters) - len(scrapedChapters)
+		}
+
 		resolveAniListID(ani, ovr, s)
 		applyCuratedChapters(s, ovr)
+		rebuildSourceRefs(s, nil)
 		if err := chaptertitles.Write(*out, s); err != nil {
 			return fmt.Errorf("writing %s: %w", s.Slug, err)
 		}
@@ -250,6 +277,7 @@ func runBuild(args []string) error {
 		if s.MatchKey != "" {
 			seriesByKey[s.MatchKey] = s
 			entryByKey[s.MatchKey] = len(entries)
+			markSeen(wikiSeenByKey, s.MatchKey, scrapedChapters)
 		}
 
 		entries = append(entries, indexEntryFor(s))
@@ -268,10 +296,13 @@ func runBuild(args []string) error {
 		if result.Inferred > 0 {
 			note = fmt.Sprintf(" (%d inferred)", result.Inferred)
 		}
+		if kept > 0 {
+			note += fmt.Sprintf(" (+%d kept)", kept)
+		}
 		if s.AniListID != 0 {
 			note += fmt.Sprintf(" [al:%d]", s.AniListID)
 		}
-		fmt.Fprintf(os.Stderr, "%s %-60s %d titles%s\n", progress, truncate(article, 60), len(result.Chapters), note)
+		fmt.Fprintf(os.Stderr, "%s %-60s %d titles%s\n", progress, truncate(article, 60), s.ChapterCount, note)
 	}
 
 	if err := writeIndexCopy(*out, entries); err != nil {
@@ -404,6 +435,9 @@ func runAdd(args []string) error {
 	ani := anilist.NewClient()
 	seriesByKey := map[string]*chaptertitles.Series{}
 	entryByKey := map[string]int{}
+	// See runBuild: a split series' collision warning is judged against the
+	// articles scraped this run, not against the record on disk.
+	wikiSeenByKey := map[string]map[string]bool{}
 	var added, mergedParts, skipped, failed int
 
 	for i, article := range todo {
@@ -427,8 +461,11 @@ func runAdd(args []string) error {
 		if key != "" {
 			if existing, ok := seriesByKey[key]; ok {
 				part := toSeries(article, result, nil)
+				novel := countUnseen(wikiSeenByKey[key], part.Chapters)
 				gained := mergeSeriesChapters(existing, part)
+				rebuildSourceRefs(existing, nil)
 				applyCuratedChapters(existing, ovr)
+				markSeen(wikiSeenByKey, key, part.Chapters)
 				if err := chaptertitles.Write(*dir, existing); err != nil {
 					return fmt.Errorf("writing %s: %w", existing.Slug, err)
 				}
@@ -436,7 +473,7 @@ func runAdd(args []string) error {
 				mergedParts++
 				fmt.Fprintf(os.Stderr, "%s %-60s +%d titles, merged into %s (%d)\n",
 					progress, truncate(article, 60), gained, existing.Slug, existing.ChapterCount)
-				if w := mergeCollisionWarning(article, gained, len(part.Chapters)); w != "" {
+				if w := mergeCollisionWarning(article, novel, len(part.Chapters)); w != "" {
 					fmt.Fprint(os.Stderr, w)
 				}
 				continue
@@ -460,6 +497,7 @@ func runAdd(args []string) error {
 		if s.MatchKey != "" {
 			seriesByKey[s.MatchKey] = s
 			entryByKey[s.MatchKey] = len(idx.Series)
+			markSeen(wikiSeenByKey, s.MatchKey, s.Chapters)
 		}
 		idx.Series = append(idx.Series, indexEntryFor(s))
 		added++
@@ -810,35 +848,258 @@ func applyCuratedChapters(s *chaptertitles.Series, ovr *overrides.File) int {
 	return n
 }
 
-// mergeSeriesChapters folds src's chapters into dst.
+// mergeSeriesChapters folds src's freshly scraped Wikipedia chapters into dst.
 //
 // Wikipedia splits a long series across several articles — One Piece has six,
 // Naruto three — and each is scraped separately. They are one series, so their
-// chapters are unioned rather than written to competing slugs. dst keeps the
-// title on the rare overlapping chapter, which makes a rebuild deterministic,
-// and keeps its own article as the record's provenance.
-// It returns how many of src's chapters were new. A part that contributes far
-// fewer than it holds is the signature of an article that restarts its
-// numbering at 1 — Naruto's "Part II" articles do — so its chapters collide
-// with the first part's and are dropped. The count lets the caller say so
-// rather than silently losing several hundred licensed titles. Guessing an
-// offset to realign them is deliberately not attempted: a wrong guess attaches
-// the wrong title to every chapter it touches.
+// chapters are unioned rather than written to competing slugs. dst keeps its own
+// article as the record's provenance.
+//
+// The union is rank-aware rather than first-wins, because dst now arrives
+// carrying whatever a previous run enriched it with. A licensed title from a
+// second article has to be able to displace the scanlator title an aggregator
+// supplied for that chapter, while a curated title, or an equally-ranked
+// Wikipedia title from the article scraped before this one, holds.
+//
+// It returns how many chapters src won. A part that wins far fewer than it holds
+// is the signature of an article that restarts its numbering at 1 — Naruto's
+// "Part II" articles do — so its chapters collide with the first part's and are
+// dropped. The count lets the caller say so rather than silently losing several
+// hundred licensed titles. Guessing an offset to realign them is deliberately
+// not attempted: a wrong guess attaches the wrong title to every chapter it
+// touches.
 func mergeSeriesChapters(dst, src *chaptertitles.Series) int {
-	if dst.Chapters == nil {
-		dst.Chapters = make(map[string]string, len(src.Chapters))
-	}
-	added := 0
-	for num, title := range src.Chapters {
-		if _, taken := dst.Chapters[num]; taken {
-			continue
-		}
-		dst.Chapters[num] = title
-		added++
-	}
-	dst.ChapterCount = len(dst.Chapters)
+	added := applyWikipediaTitles(dst, src.Chapters)
 	dst.InferredNumbers += src.InferredNumbers
 	return added
+}
+
+// applyWikipediaTitles merges a scrape's titles into a series record at
+// Wikipedia's rank, returning how many chapters they won.
+func applyWikipediaTitles(dst *chaptertitles.Series, scraped map[string]string) int {
+	stored := storedFor(dst)
+	// Anything already in this record with no source recorded came from
+	// Wikipedia: the record is itself Wikipedia-derived, and this merge only
+	// ever folds in another Wikipedia article. Saying so explicitly, rather than
+	// leaning on whether Article happens to be populated, is what keeps two
+	// parts of a split series at equal rank so the first one scraped wins.
+	if stored.DefaultSource == "" {
+		stored.DefaultSource = sources.NameWikipedia
+	}
+	fetched := make(sources.Titles, len(scraped))
+	for num, title := range scraped {
+		if n, err := strconv.ParseFloat(num, 64); err == nil {
+			fetched[n] = title
+		}
+	}
+
+	merged := sources.Merge(stored, []sources.Result{{
+		Found: true, Ref: dst.Article, URL: dst.SourceURL, Titles: fetched,
+	}}, []string{sources.NameWikipedia})
+
+	writeTitles(dst, merged)
+	if len(merged.Contributions) == 0 {
+		return 0
+	}
+	return merged.Contributions[0].Added
+}
+
+// storedFor describes what a series record already holds, for a merge.
+//
+// Chapters with nothing in chapter_sources are attributed to Wikipedia when the
+// record names an article. Ten series in the dataset are in exactly that state —
+// Wikipedia-only files that enrichment skipped for want of an AniList ID — and
+// ranking their titles as unknown would let an aggregator overwrite 617 licensed
+// Pokémon Adventures titles the moment one gets an ID pinned.
+func storedFor(s *chaptertitles.Series) sources.Stored {
+	stored := sources.Stored{
+		Titles:        make(sources.Titles, len(s.Chapters)),
+		Provenance:    make(map[float64]string, len(s.ChapterSources)),
+		DefaultSource: sourceNameForExisting(s),
+	}
+	for num, title := range s.Chapters {
+		n, err := strconv.ParseFloat(num, 64)
+		if err != nil {
+			continue
+		}
+		stored.Titles[n] = title
+		if src := s.ChapterSources[num]; src != "" {
+			stored.Provenance[n] = src
+		}
+	}
+	return stored
+}
+
+// writeTitles writes a merge's titles and provenance back onto a series record.
+func writeTitles(s *chaptertitles.Series, merged sources.Merged) {
+	chapters := make(map[string]string, len(merged.Titles))
+	provenance := make(map[string]string, len(merged.Provenance))
+	for num, title := range merged.Titles {
+		key := chaptertitles.FormatChapterNumber(num)
+		chapters[key] = title
+		if src, ok := merged.Provenance[num]; ok && src != "" {
+			provenance[key] = src
+		}
+	}
+	s.Chapters = chapters
+	s.ChapterSources = provenance
+	s.ChapterCount = len(chapters)
+}
+
+// priorSlugsByMatchKey maps each series in a dataset to the slug its file is
+// under, so a series whose slug has changed can still be found.
+//
+// The parser fixes rename articles — stripping "(1–186)" turns six One Piece
+// slugs into one — and a rename must not read as "no previous record" and
+// discard the enrichment attached to it.
+func priorSlugsByMatchKey(dir string) map[string]string {
+	byKey := map[string]string{}
+	idx, err := chaptertitles.ReadIndex(dir)
+	if err != nil {
+		return byKey
+	}
+	for _, e := range idx.Series {
+		if e.MatchKey != "" && e.Slug != "" {
+			byKey[e.MatchKey] = e.Slug
+		}
+	}
+	return byKey
+}
+
+// priorSeriesFor loads the record a previous run wrote for this series, or nil
+// when the dataset has none.
+//
+// The match key must agree. usedSlugs disambiguation puts genuinely distinct
+// series on neighbouring slugs, and merging one into the other would graft
+// another manga's chapter titles onto this one — the exact failure this dataset
+// joins on IDs to avoid. Every failure yields nil, which just means the series
+// is rebuilt from Wikipedia alone, as it was before.
+func priorSeriesFor(dir string, s *chaptertitles.Series, slugByKey map[string]string) *chaptertitles.Series {
+	slugs := []string{s.Slug}
+	if prior, ok := slugByKey[s.MatchKey]; ok && prior != s.Slug {
+		slugs = append(slugs, prior)
+	}
+	for _, slug := range slugs {
+		prior, err := chaptertitles.Read(dir, slug)
+		if err != nil || prior.MatchKey != s.MatchKey {
+			continue
+		}
+		return prior
+	}
+	return nil
+}
+
+// carryForward folds a fresh scrape onto the record already on disk, so a
+// rebuild refreshes Wikipedia without discarding what enrichment added.
+//
+// build used to write the scrape straight over the file, which is why it could
+// never be run without enrich behind it: every aggregator and curated title in
+// the dataset disappeared the moment the scraper ran. The scrape now merges in
+// at Wikipedia's rank instead. Article metadata is taken from the scrape, since
+// refreshing it is the point; the AniList ID is kept, since re-deriving it is
+// slow and AniList's search is not stable enough to do it for free.
+func carryForward(prior, scraped *chaptertitles.Series) *chaptertitles.Series {
+	out := *prior
+
+	out.Series = scraped.Series
+	out.Slug = scraped.Slug
+	out.MatchKey = scraped.MatchKey
+	out.Article = scraped.Article
+	out.SourceURL = scraped.SourceURL
+	out.ScrapedAt = scraped.ScrapedAt
+	out.InferredNumbers = scraped.InferredNumbers
+	if scraped.AniListID != 0 {
+		out.AniListID = scraped.AniListID
+	}
+
+	// Wikipedia's share of the record is replaced, not added to. A rebuild
+	// exists to pick up parser fixes, and those fixes both correct titles in
+	// place — the old parser read a section heading as Monster's chapter 87 —
+	// and renumber chapters, so merging additively would keep every stale title
+	// and leave renumbered chapters in the file twice under two numbers. Titles
+	// owned by anyone else are untouched, which is the whole point of build no
+	// longer overwriting.
+	stripSource(&out, sources.NameWikipedia)
+	applyWikipediaTitles(&out, scraped.Chapters)
+	rebuildSourceRefs(&out, nil)
+	return &out
+}
+
+// stripSource removes the chapters a given source owns from a series record,
+// so a fresh read of that source can replace them. Chapters with no source
+// recorded count as the record's default owner; see storedFor.
+func stripSource(s *chaptertitles.Series, name string) {
+	def := sourceNameForExisting(s)
+	chapters := make(map[string]string, len(s.Chapters))
+	provenance := make(map[string]string, len(s.ChapterSources))
+	for num, title := range s.Chapters {
+		owner := s.ChapterSources[num]
+		if owner == "" {
+			owner = def
+		}
+		if owner == name {
+			continue
+		}
+		chapters[num] = title
+		if owner != "" {
+			provenance[num] = owner
+		}
+	}
+	s.Chapters = chapters
+	s.ChapterSources = provenance
+	s.ChapterCount = len(chapters)
+}
+
+// rebuildSourceRefs recomputes a series' per-source counts from the provenance
+// map, which is the only thing that still says who owns each title once merges
+// are ranked: a source that supplied nothing this run can still own titles it
+// supplied in an earlier one. contribs, when given, refreshes the ref and URL
+// for the sources consulted this run.
+func rebuildSourceRefs(s *chaptertitles.Series, contribs []sources.Contribution) {
+	counts := map[string]int{}
+	for num := range s.Chapters {
+		if src := s.ChapterSources[num]; src != "" {
+			counts[src]++
+		}
+	}
+
+	type meta struct{ ref, url string }
+	metas := map[string]meta{}
+	for _, r := range s.Sources {
+		metas[r.Name] = meta{r.Ref, r.URL}
+	}
+	if s.Article != "" {
+		metas[sources.NameWikipedia] = meta{s.Article, s.SourceURL}
+	}
+	for _, c := range contribs {
+		if c.Ref != "" || c.URL != "" {
+			metas[c.Name] = meta{c.Ref, c.URL}
+		}
+		// A source consulted this run stays listed even when it owns nothing,
+		// so the record shows it was asked.
+		if _, ok := counts[c.Name]; !ok {
+			counts[c.Name] = 0
+		}
+	}
+
+	names := make([]string, 0, len(counts))
+	for name := range counts {
+		names = append(names, name)
+	}
+	sort.Slice(names, func(i, j int) bool {
+		if ri, rj := sources.Rank(names[i]), sources.Rank(names[j]); ri != rj {
+			return ri < rj
+		}
+		return names[i] < names[j]
+	})
+
+	refs := make([]chaptertitles.SourceRef, 0, len(names))
+	for _, name := range names {
+		refs = append(refs, chaptertitles.SourceRef{
+			Name: name, Ref: metas[name].ref, URL: metas[name].url, Count: counts[name],
+		})
+	}
+	s.Sources = refs
 }
 
 // mergeCollisionWarning describes a part whose chapters mostly collided with
@@ -850,6 +1111,33 @@ func mergeCollisionWarning(article string, added, held int) string {
 	return fmt.Sprintf("      warning: %s contributed %d of its %d chapters; "+
 		"the rest collided, so this article probably restarts numbering at 1\n",
 		article, added, held)
+}
+
+// countUnseen reports how many of a part's chapter numbers no earlier article
+// of the same series has supplied this run.
+func countUnseen(seen map[string]bool, chapters map[string]string) int {
+	n := 0
+	for num := range chapters {
+		if !seen[num] {
+			n++
+		}
+	}
+	return n
+}
+
+// markSeen records the chapter numbers an article supplied for a series.
+func markSeen(seenByKey map[string]map[string]bool, key string, chapters map[string]string) {
+	if key == "" {
+		return
+	}
+	seen, ok := seenByKey[key]
+	if !ok {
+		seen = make(map[string]bool, len(chapters))
+		seenByKey[key] = seen
+	}
+	for num := range chapters {
+		seen[num] = true
+	}
 }
 
 // existingAniListIDs reads the AniList IDs a previous run already resolved,
@@ -1233,12 +1521,6 @@ func enrichDataset(dir string, idx *chaptertitles.Index, srcs []sources.Source, 
 		}
 
 		before := len(s.Chapters)
-		existing := make(sources.Titles, len(s.Chapters))
-		for k, v := range s.Chapters {
-			if n, perr := strconv.ParseFloat(k, 64); perr == nil {
-				existing[n] = v
-			}
-		}
 
 		var results []sources.Result
 		var names []string
@@ -1251,7 +1533,7 @@ func enrichDataset(dir string, idx *chaptertitles.Index, srcs []sources.Source, 
 			names = append(names, src.Name())
 		}
 
-		merged := sources.Merge(existing, sourceNameForExisting(s), results, names)
+		merged := sources.Merge(storedFor(s), results, names)
 		applyMerge(s, merged)
 		applyCuratedChapters(s, ovr)
 
@@ -1297,42 +1579,8 @@ func sourceNameForExisting(s *chaptertitles.Series) string {
 
 // applyMerge writes a merge result back onto a series record.
 func applyMerge(s *chaptertitles.Series, merged sources.Merged) {
-	chapters := make(map[string]string, len(merged.Titles))
-	provenance := make(map[string]string, len(merged.Provenance))
-	for num, title := range merged.Titles {
-		key := chaptertitles.FormatChapterNumber(num)
-		chapters[key] = title
-		if src, ok := merged.Provenance[num]; ok && src != "" {
-			provenance[key] = src
-		}
-	}
-	s.Chapters = chapters
-	s.ChapterSources = provenance
-	s.ChapterCount = len(chapters)
-
-	// Rebuild the source list, keeping the Wikipedia entry that the scrape
-	// recorded and appending whatever the aggregators contributed.
-	var refs []chaptertitles.SourceRef
-	if s.Article != "" {
-		wikiCount := 0
-		for _, src := range provenance {
-			if src == "wikipedia" {
-				wikiCount++
-			}
-		}
-		refs = append(refs, chaptertitles.SourceRef{
-			Name: "wikipedia", Ref: s.Article, URL: s.SourceURL, Count: wikiCount,
-		})
-	}
-	for _, c := range merged.Contributions {
-		if c.Added == 0 && c.Total == 0 {
-			continue
-		}
-		refs = append(refs, chaptertitles.SourceRef{
-			Name: c.Name, Ref: c.Ref, URL: c.URL, Count: c.Added,
-		})
-	}
-	s.Sources = refs
+	writeTitles(s, merged)
+	rebuildSourceRefs(s, merged.Contributions)
 }
 
 // sourceNames lists the names of the sources that contributed to a series.
