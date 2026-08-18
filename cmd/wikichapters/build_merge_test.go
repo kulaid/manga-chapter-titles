@@ -342,3 +342,31 @@ func TestCarryForward_unattributedPriorTitlesCountAsWikipedia(t *testing.T) {
 		t.Errorf("chapter 1 = %q, want the fresh title", got.Chapters["1"])
 	}
 }
+
+func TestIndexEntryFor_recordsTheSourcesThatOwnTitles(t *testing.T) {
+	// build preserves the aggregator titles it used to discard, so the index it
+	// writes has to report them. Leaving them out made a build-only run look
+	// like every series was running on Wikipedia alone.
+	s := &chaptertitles.Series{
+		Series: "Chainsaw Man", Slug: "chainsaw-man", MatchKey: "chainsaw man",
+		Article:  "List of Chainsaw Man chapters",
+		Chapters: map[string]string{"1": "a", "2": "b", "3": "c"},
+		ChapterSources: map[string]string{
+			"1": "wikipedia", "2": "comick", "3": "curated",
+		},
+	}
+	rebuildSourceRefs(s, nil)
+
+	got := indexEntryFor(s)
+
+	want := []string{"curated", "wikipedia", "comick"}
+	if len(got.SourceNames) != len(want) {
+		t.Fatalf("SourceNames = %v, want %v", got.SourceNames, want)
+	}
+	for i := range want {
+		if got.SourceNames[i] != want[i] {
+			t.Errorf("SourceNames = %v, want %v (rank order)", got.SourceNames, want)
+			break
+		}
+	}
+}

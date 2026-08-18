@@ -3,22 +3,38 @@
 Builds a **manga chapter title dataset** as plain JSON files, so an application
 can look up "chapter 47 of Berserk" without hitting the network.
 
-Titles come from three sources, merged in this order:
+This is a **database** of chapter titles. Scraping is how most of the data gets
+in; it is not what makes a title correct. Where every source is wrong, the right
+answer is to write the title down by hand — see
+[curated titles](#curated-titles).
 
-| Priority | Source | What it gives | Trade-off |
+Each source has a **rank**, and for every chapter the best-ranked title wins:
+
+| Rank | Source | What it gives | Trade-off |
 | --- | --- | --- | --- |
+| 0 | **Curated** | Titles a person decided, in `overrides.json` | Only what someone has written |
 | 1 | **Wikipedia** | The *licensed* English titles (Viz, Kodansha, Yen Press) | Only licensed/notable series; lags recent chapters |
-| 2 | **Comick** | Broad coverage, names chapters MangaDex leaves untitled | Scanlator titles |
-| 3 | **MangaDex** | Fills what the other two miss | Scanlator titles, many entries untitled |
+| 2 | **MangaPlus** | Official Shueisha titles, and current | Only ~5–8 chapters per series; sometimes ALL CAPS |
+| 3 | **Comick** | Broad coverage, names chapters MangaDex leaves untitled | Scanlator titles |
+| 4 | **MangaDex** | Fills what the others miss | Scanlator titles, many entries untitled |
 
-Wikipedia goes first because its titles are the official ones. The aggregators
-cover far more series and stay current, so they fill the gaps rather than
-compete. Where several scanlation groups have named the same chapter, the
-**newest upload wins** — later groups are usually re-translations or fixes.
+A freshly fetched title replaces a stored one only on a **strictly better**
+rank. Equal ranks keep what is already on file, so re-running a source over its
+own titles never churns the dataset — and a title whose source has stopped
+serving that chapter is **retained**, because nothing arrives to displace it.
 
-Every source is joined on the **AniList ID**, never on a name, so a series a
-source does not carry contributes nothing rather than something plausible from a
-different manga.
+That retention is the point of MangaPlus. Its free window slides forward, so a
+title captured today is gone from the API within weeks; once stored, only
+Wikipedia or a curator can overwrite it.
+
+Where several scanlation groups have named the same chapter, the **newest
+upload wins** — later groups are usually re-translations or fixes.
+
+Every source is joined on an **ID, never on a name**. Most join on the AniList
+ID directly; MangaPlus has none of its own, so it joins through the
+`links.engtl` of a MangaDex entry already confirmed by its AniList ID. A series
+a source does not carry contributes nothing rather than something plausible
+from a different manga.
 
 The committed `data/` directory currently holds **338 series and 53,031 chapter
 titles** (2.8 MB), built from the 407 articles in Wikipedia's chapter-list
@@ -118,6 +134,12 @@ Neither is needed to use the data — `chapters` is self-contained — but they 
 a curator see *why* a title reads the way it does, and spot a series that is
 running entirely on scanlator titles.
 
+### `mangaplus_id`
+
+The series' MangaPlus title id, present when it has one — most series do not,
+since MangaPlus carries Shueisha titles only. It is recorded so the MangaDex
+round trip that derived it happens once per series rather than once per run.
+
 ### `anilist_id`
 
 The series' [AniList](https://anilist.co) manga ID, present in both the index
@@ -190,7 +212,7 @@ time, avoids any runtime dependency on Wikipedia.
 | Command | What it does |
 | --- | --- |
 | `build` | Scrapes every article in Wikipedia's chapter-list category and rewrites `data/` |
-| `enrich` | Fills chapter-title gaps from Comick and MangaDex, in place |
+| `enrich` | Fills and corrects chapter titles from MangaPlus, Comick and MangaDex, in place |
 | `fetch <series\|article\|URL>` | Scrapes one series; accepts a name, an article title, or a full URL |
 | `list` | Prints the articles `build` would scrape, without scraping them |
 | `lookup <series>` | Reads a series back out of an existing dataset |
@@ -207,7 +229,7 @@ Useful flags:
 - `-chapter <n>` — `lookup` only; print just that chapter's title
 - `-anilist=false` — `build` only; skip AniList lookups (saves ~1.5s per series)
 - `-only <series>` — `enrich` only; restrict to one series, for spot checks
-- `-comick=false` / `-mangadex=false` — `enrich` only; disable a source
+- `-comick=false` / `-mangadex=false` / `-mangaplus=false` — `enrich` only; disable a source
 - `-force` — `anilist` only; re-resolve series that already have an ID
 
 Flags may appear before or after the series name.
@@ -273,10 +295,10 @@ indistinguishable from a correct one — 86994 is a perfectly valid AniList ID,
 it just happens to be *No Guns Life* — and an override bypasses the title check
 that automatic resolution applies. Pass `-force` to record an ID anyway.
 
-The file lives outside `data/` deliberately. `build` regenerates `data/` from
-scratch, so a correction written into a series file would be erased on the next
-run; overrides are re-applied after automatic resolution on every build, which
-makes them permanent. They also short-circuit the AniList lookup entirely — a
+The file lives outside `data/` deliberately: it is the record of every decision
+a person made, kept separate from everything a machine derived. Overrides are
+re-applied after automatic resolution on every build, which makes them
+permanent. They also short-circuit the AniList lookup entirely — a
 hand-verified ID is never second-guessed.
 
 `overrides.json` is committed, hand-editable, and keyed by Wikipedia article
@@ -295,6 +317,45 @@ key is adjusted:
   }
 }
 ```
+
+### Curated titles
+
+An override may also carry a `chapters` map, which is how a wrong or missing
+*title* is fixed rather than a wrong ID. Curated titles rank above every
+scraper, so nothing automatic can overwrite one, and they are re-applied on
+every build.
+
+```json
+{
+  "overrides": {
+    "List of Vinland Saga chapters": {
+      "series": "Vinland Saga",
+      "anilist_id": 30642,
+      "chapters": {
+        "175.5": "Assassin's Creed: Valhalla x Vinland Saga",
+        "191.5": "Omake"
+      }
+    }
+  }
+}
+```
+
+Use this whenever the sources are wrong, and not only as a last resort. Two
+cases come up often:
+
+- **Wikipedia has a hole.** Fairy Tail's article names 295 of 545 chapters.
+  The rest are not going to appear on their own.
+- **Wikipedia has regressed.** An article can lose chapters it once listed —
+  Berserk's stops at 382 although 383–386 have been published and were captured
+  earlier. A rebuild replaces Wikipedia's share of a series wholesale, so a
+  title only Wikipedia carried disappears with it unless it is curated.
+
+An empty value **deletes** a chapter, which is how to say that a title on file
+is wrong and no source has a right one.
+
+Keys must be canonical, the way `FormatChapterNumber` writes them: chapter 0.10
+is stored `"0.1"`. Any other spelling of the same number is removed rather than
+left to sit beside it, since consumers parse both back to the same value.
 
 ## Politeness
 

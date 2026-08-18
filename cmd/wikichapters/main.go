@@ -1181,6 +1181,7 @@ func indexEntryFor(s *chaptertitles.Series) chaptertitles.IndexEntry {
 		File:         s.Slug + ".json",
 		Article:      s.Article,
 		ChapterCount: s.ChapterCount,
+		SourceNames:  sourceNames(s),
 	}
 }
 
