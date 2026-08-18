@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T00:39:00.820758759Z",
+  "generated_at": "2026-08-18T05:12:02.316501072Z",
   "count": 367,
   "series": [
     {
@@ -4339,7 +4339,7 @@
       "anilist_id": 30642,
       "file": "vinland-saga.json",
       "article": "List of Vinland Saga chapters",
-      "chapter_count": 226,
+      "chapter_count": 231,
       "sources": [
         "curated",
         "wikipedia",

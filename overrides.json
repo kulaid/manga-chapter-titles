@@ -282,10 +282,17 @@
       "anilist_title": "Vinland Saga",
       "note": "Volume-end extras. Comick numbers them one higher than the releases: the extra ships at the end of the volume it belongs to, so V24 (ending at 175) carries 175.5 rather than 176.5.",
       "chapters": {
+        "136.5": "Dogland Saga",
+        "16.5": "I Went to the Land of Aurora Borealis",
+        "166.5": "For Our Farewell is Near",
         "175.5": "Assassin's Creed: Valhalla x Vinland Saga",
         "176.5": "",
         "191.5": "Omake",
-        "192.5": ""
+        "192.5": "",
+        "21.5": "Ylva at Work",
+        "28.5": "Viking Girl Ylva, Hideo Nishimoto Edition",
+        "42.5": "Dimly-Remembered Vinland Saga",
+        "5.5": "Heroic Exploits of Viking Girl Ylva"
       }
     }
   }
