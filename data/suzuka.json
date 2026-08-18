@@ -5,7 +5,7 @@
   "anilist_id": 30430,
   "article": "List of Suzuka chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Suzuka_chapters",
-  "scraped_at": "2026-08-17T19:08:55.879497274Z",
+  "scraped_at": "2026-08-18T00:14:03.209943356Z",
   "chapter_count": 173,
   "inferred_numbers": 14,
   "chapters": {
@@ -30,7 +30,7 @@
     "114": "Airport",
     "115": "Summer Kimono",
     "116": "Palpatation",
-    "117": "羽柴もん",
+    "117": "Reunion",
     "118": "Refinement",
     "119": "Captain",
     "12": "Love Confession-Announcement",
@@ -52,7 +52,7 @@
     "134": "Dark Clouds",
     "135": "Unexpected",
     "136": "Tolerance",
-    "137": "Suzukamon",
+    "137": "Three People",
     "138": "Uncertainty",
     "139": "Teacher",
     "14": "Start",
@@ -63,7 +63,7 @@
     "144": "One Step",
     "145": "Negotiation Stoppage",
     "146": "First Chapter",
-    "147": "Esper Miho",
+    "147": "Body Heat",
     "148": "Restart",
     "149": "Hand Made",
     "15": "Determination",
@@ -75,8 +75,8 @@
     "155": "Fruition",
     "156": "Impossibility",
     "156.5": "Pretty Girl vs Steam vs Violence",
-    "157": "Pretty Girl vs Steam vs Violence",
-    "158": "Suzukamon",
+    "157": "Expectation",
+    "158": "The Request",
     "159": "Surprise",
     "16": "Distance",
     "160": "Parents",
@@ -157,9 +157,9 @@
     "76": "Abandon Ship",
     "77": "Name",
     "78": "Yokohama",
-    "79": "The Case of the Akitsuki Youth",
+    "79": "Nighttime Scene",
     "8": "Endless Arguments",
-    "80": "Suzukamon",
+    "80": "Nursing the Ill",
     "81": "Reliance",
     "82": "Broad Shoulders",
     "83": "Important",
@@ -167,7 +167,7 @@
     "85": "Stifling",
     "86": "Strife",
     "87": "Transformation",
-    "88": "Miho",
+    "88": "Approach",
     "89": "Reflection",
     "9": "Realization",
     "90": "True Feeling",
@@ -179,8 +179,8 @@
     "96": "Secret Things",
     "96.5": "The Invisible Man",
     "96.6": "Miki Special",
-    "97": "Miki",
-    "98": "Suzukamon",
+    "97": "Studying Abroad",
+    "98": "Interview",
     "99": "Friendly Accommodation"
   },
   "chapter_sources": {
@@ -370,6 +370,12 @@
       "ref": "suzuka",
       "url": "https://comick.dev/comic/suzuka",
       "count": 5
+    },
+    {
+      "name": "mangadex",
+      "ref": "69766b88-5843-4c6b-8c2b-e1da42e4c55f",
+      "url": "https://mangadex.org/title/69766b88-5843-4c6b-8c2b-e1da42e4c55f",
+      "count": 0
     }
   ]
 }

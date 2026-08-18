@@ -5,7 +5,7 @@
   "anilist_id": 33378,
   "article": "List of Kimi ni Todoke chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Kimi_ni_Todoke_chapters",
-  "scraped_at": "2026-08-17T19:04:23.620512205Z",
+  "scraped_at": "2026-08-18T00:11:38.80241166Z",
   "chapter_count": 124,
   "inferred_numbers": 4,
   "chapters": {
@@ -61,7 +61,7 @@
     "31": "Apart",
     "32": "You Don't Understand Her",
     "33": "Run",
-    "34": "KimiTodo Friend Notebook",
+    "34": "Someone He Likes",
     "35": "Kindness and Causing Trouble",
     "36": "Haven't You Been Paying Attention?",
     "37": "Give Her Up",
@@ -98,7 +98,7 @@
     "65": "Is Something Bothering You?",
     "66": "Important",
     "67": "Christmas Party",
-    "68": "Kimi ni Todoke Tribute",
+    "68": "Christmas Gift",
     "69": "To Protect Something",
     "7": "Friends",
     "70": "Let Me Care About You",
@@ -125,7 +125,7 @@
     "9": "Practicing on My Own",
     "90": "A Mistake",
     "91": "That's Where We Met",
-    "92": "45° Eyebrows",
+    "92": "True Feelings",
     "93": "Regret",
     "94": "Myself",
     "95": "Thank You",
@@ -266,6 +266,18 @@
       "ref": "List of Kimi ni Todoke chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Kimi_ni_Todoke_chapters",
       "count": 124
+    },
+    {
+      "name": "comick",
+      "ref": "kimi-ni-todoke",
+      "url": "https://comick.dev/comic/kimi-ni-todoke",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "b3b6fa42-08df-4663-b827-caaa49c7ccbf",
+      "url": "https://mangadex.org/title/b3b6fa42-08df-4663-b827-caaa49c7ccbf",
+      "count": 0
     }
   ]
 }

@@ -5,7 +5,7 @@
   "anilist_id": 30422,
   "article": "List of The Wallflower chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_The_Wallflower_chapters",
-  "scraped_at": "2026-08-17T19:09:55.916014152Z",
+  "scraped_at": "2026-08-18T00:14:42.355632405Z",
   "chapter_count": 147,
   "inferred_numbers": 1,
   "chapters": {
@@ -318,6 +318,12 @@
       "ref": "yamato-nadeshiko-shichihenge",
       "url": "https://comick.dev/comic/yamato-nadeshiko-shichihenge",
       "count": 8
+    },
+    {
+      "name": "mangadex",
+      "ref": "88fb63f1-00ab-44a8-8ff8-c2682a1cccdd",
+      "url": "https://mangadex.org/title/88fb63f1-00ab-44a8-8ff8-c2682a1cccdd",
+      "count": 0
     }
   ]
 }

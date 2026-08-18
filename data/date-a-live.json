@@ -5,12 +5,12 @@
   "anilist_id": 67163,
   "article": "List of Date A Live volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Date_A_Live_volumes",
-  "scraped_at": "2026-08-17T19:01:03.701016634Z",
+  "scraped_at": "2026-08-18T00:09:42.790519236Z",
   "chapter_count": 13,
   "inferred_numbers": 35,
   "chapters": {
     "0": "Murasame Reine",
-    "1": "Prologue: Chance Meeting: Restart",
+    "1": "A Girl with No Name",
     "10": "Vengeance Five Years Coming",
     "11": "Epilogue: Chance Meeting at Dusk",
     "12": "Prologue: Counterattack",
@@ -18,8 +18,8 @@
     "3": "Your Name...",
     "4": "Surprise Date",
     "5": "Savage Sandalphon",
-    "6": "Epilogue: Life With a Spirit",
-    "7": "Prologue: A New Day",
+    "6": "Flames to Pierce Time",
+    "7": "Kotori's Conference",
     "8": "Swimwear Battle",
     "9": "Final Rendezvous"
   },
@@ -44,6 +44,18 @@
       "ref": "List of Date A Live volumes",
       "url": "https://en.wikipedia.org/wiki/List_of_Date_A_Live_volumes",
       "count": 13
+    },
+    {
+      "name": "comick",
+      "ref": "date-a-live",
+      "url": "https://comick.dev/comic/date-a-live",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "93bb38b2-8394-44b6-8aa6-34febe2b89e2",
+      "url": "https://mangadex.org/title/93bb38b2-8394-44b6-8aa6-34febe2b89e2",
+      "count": 0
     }
   ]
 }

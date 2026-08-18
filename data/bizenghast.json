@@ -4,7 +4,7 @@
   "match_key": "bizenghast",
   "article": "List of Bizenghast volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Bizenghast_volumes",
-  "scraped_at": "2026-08-17T18:58:44.580855424Z",
+  "scraped_at": "2026-08-18T00:08:52.422452845Z",
   "chapter_count": 7,
   "inferred_numbers": 0,
   "chapters": {
@@ -15,5 +15,22 @@
     "5": "The Fairywaters",
     "6": "The Wild Beast",
     "7": "The Angel in Disguise"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Bizenghast volumes",
+      "url": "https://en.wikipedia.org/wiki/List_of_Bizenghast_volumes",
+      "count": 7
+    }
+  ]
 }

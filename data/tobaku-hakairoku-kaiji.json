@@ -5,7 +5,7 @@
   "anilist_id": 33573,
   "article": "List of Tobaku Hakairoku Kaiji chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tobaku_Hakairoku_Kaiji_chapters",
-  "scraped_at": "2026-08-17T19:55:55.702734239Z",
+  "scraped_at": "2026-08-18T00:15:56.60794407Z",
   "chapter_count": 134,
   "inferred_numbers": 0,
   "chapters": {
@@ -291,6 +291,12 @@
       "name": "comick",
       "ref": "tobaku-hakairoku-kaiji",
       "url": "https://comick.dev/comic/tobaku-hakairoku-kaiji",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "f7ddbe46-c4ec-4ba5-be7d-b100fc3bb34d",
+      "url": "https://mangadex.org/title/f7ddbe46-c4ec-4ba5-be7d-b100fc3bb34d",
       "count": 0
     }
   ]

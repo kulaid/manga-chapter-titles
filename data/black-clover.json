@@ -5,8 +5,8 @@
   "anilist_id": 86123,
   "article": "List of Black Clover chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Black_Clover_chapters",
-  "scraped_at": "2026-08-17T18:58:58.867608701Z",
-  "chapter_count": 392,
+  "scraped_at": "2026-08-18T00:08:55.467006497Z",
+  "chapter_count": 393,
   "inferred_numbers": 4,
   "chapters": {
     "1": "The Boy's Vow",
@@ -384,6 +384,7 @@
     "81": "Because He's Like That",
     "82": "The Forest of Witches",
     "83": "Infiltration",
+    "83.1": "Jump Giga Omake",
     "84": "Battlefield Decision",
     "85": "The Raging Bulls Charge",
     "86": "Flames of Hatred",
@@ -778,6 +779,7 @@
     "81": "wikipedia",
     "82": "wikipedia",
     "83": "wikipedia",
+    "83.1": "comick",
     "84": "wikipedia",
     "85": "wikipedia",
     "86": "wikipedia",
@@ -802,6 +804,18 @@
       "ref": "List of Black Clover chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Black_Clover_chapters",
       "count": 392
+    },
+    {
+      "name": "comick",
+      "ref": "black-clover",
+      "url": "https://comick.dev/comic/black-clover",
+      "count": 1
+    },
+    {
+      "name": "mangadex",
+      "ref": "e7eabe96-aa17-476f-b431-2497d5e9d060",
+      "url": "https://mangadex.org/title/e7eabe96-aa17-476f-b431-2497d5e9d060",
+      "count": 0
     }
   ]
 }

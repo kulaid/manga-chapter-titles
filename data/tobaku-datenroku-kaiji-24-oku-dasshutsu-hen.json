@@ -5,8 +5,8 @@
   "anilist_id": 101556,
   "article": "List of Tobaku Datenroku Kaiji: 24 Oku Dasshutsu-hen chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tobaku_Datenroku_Kaiji:_24_Oku_Dasshutsu-hen_chapters",
-  "scraped_at": "2026-08-17T19:55:52.049437551Z",
-  "chapter_count": 203,
+  "scraped_at": "2026-08-18T00:15:53.581342145Z",
+  "chapter_count": 206,
   "inferred_numbers": 0,
   "chapters": {
     "256": "2.4 Billion",
@@ -211,7 +211,10 @@
     "455": "Intervention",
     "456": "Patrol",
     "457": "Winning Over",
-    "458": "Offer"
+    "458": "Offer",
+    "459": "Rock Door",
+    "460": "Explanation",
+    "461": "Influence"
   },
   "chapter_sources": {
     "256": "wikipedia",
@@ -416,7 +419,10 @@
     "455": "wikipedia",
     "456": "wikipedia",
     "457": "wikipedia",
-    "458": "wikipedia"
+    "458": "wikipedia",
+    "459": "comick",
+    "460": "comick",
+    "461": "comick"
   },
   "sources": [
     {
@@ -424,6 +430,18 @@
       "ref": "List of Tobaku Datenroku Kaiji: 24 Oku Dasshutsu-hen chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Tobaku_Datenroku_Kaiji:_24_Oku_Dasshutsu-hen_chapters",
       "count": 203
+    },
+    {
+      "name": "comick",
+      "ref": "tobaku-datenroku-kaiji-24-oku-dasshutsu-hen",
+      "url": "https://comick.dev/comic/tobaku-datenroku-kaiji-24-oku-dasshutsu-hen",
+      "count": 3
+    },
+    {
+      "name": "mangadex",
+      "ref": "019dd911-cd1f-4bfb-839c-642be1472ba4",
+      "url": "https://mangadex.org/title/019dd911-cd1f-4bfb-839c-642be1472ba4",
+      "count": 0
     }
   ]
 }

@@ -5,7 +5,7 @@
   "anilist_id": 108556,
   "article": "List of Spy × Family chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Spy_%C3%97_Family_chapters",
-  "scraped_at": "2026-08-17T19:08:52.751911501Z",
+  "scraped_at": "2026-08-18T00:14:00.185901905Z",
   "chapter_count": 110,
   "inferred_numbers": 29,
   "chapters": {
@@ -244,6 +244,12 @@
       "ref": "00-spy-family",
       "url": "https://comick.dev/comic/00-spy-family",
       "count": 81
+    },
+    {
+      "name": "mangadex",
+      "ref": "6b958848-c885-4735-9201-12ee77abcb3c",
+      "url": "https://mangadex.org/title/6b958848-c885-4735-9201-12ee77abcb3c",
+      "count": 0
     }
   ]
 }

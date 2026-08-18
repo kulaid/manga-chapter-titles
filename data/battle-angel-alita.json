@@ -5,7 +5,7 @@
   "anilist_id": 30768,
   "article": "List of Battle Angel Alita chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Battle_Angel_Alita_chapters",
-  "scraped_at": "2026-08-17T18:58:33.55081443Z",
+  "scraped_at": "2026-08-18T00:08:43.385773707Z",
   "chapter_count": 307,
   "inferred_numbers": 307,
   "chapters": {
@@ -637,6 +637,12 @@
       "name": "comick",
       "ref": "gunnm",
       "url": "https://comick.dev/comic/gunnm",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "f64f7752-f0b5-4a21-913c-e8b077e0b8b2",
+      "url": "https://mangadex.org/title/f64f7752-f0b5-4a21-913c-e8b077e0b8b2",
       "count": 0
     }
   ]

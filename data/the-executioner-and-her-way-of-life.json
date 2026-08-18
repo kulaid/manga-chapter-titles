@@ -5,8 +5,8 @@
   "anilist_id": 119857,
   "article": "List of The Executioner and Her Way of Life volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_The_Executioner_and_Her_Way_of_Life_volumes",
-  "scraped_at": "2026-08-17T19:04:51.343655511Z",
-  "chapter_count": 47,
+  "scraped_at": "2026-08-18T00:11:56.504384304Z",
+  "chapter_count": 51,
   "inferred_numbers": 3,
   "chapters": {
     "1": "The Executioner",
@@ -14,7 +14,8 @@
     "11": "Ancient Capital Garm",
     "12": "Guiding Figure",
     "13": "Cries for Help",
-    "14": "Interlude: \"Prelude to a Journey",
+    "13.5": "Interlude: Prelude to a Journey",
+    "14": "Crossing Time",
     "15": "What Matters Most",
     "16": "My Best Friend",
     "17": "Way of Life",
@@ -41,7 +42,8 @@
     "36": "Reunion at the Water's Edge",
     "37": "The Beginning",
     "38": "From Here On",
-    "39": "Interlude: \"Until That Day Arrives",
+    "38.5": "Until That Day Arrives",
+    "39": "Dance of the Princess Knight",
     "4": "At the Ancient Capital",
     "40": "Undercover Operation",
     "41": "The Attached Vessel",
@@ -51,9 +53,11 @@
     "45": "A Pure Blank White",
     "46": "That Which Should Not Exist",
     "47": "Where the Road Leads",
+    "47.5": "Special Short Story",
     "5": "Maiden Bathed in Blood",
     "6": "Evil's Awakening",
-    "7": "Interlude: \"Killing Time",
+    "6.5": "Interlude: Killing Time",
+    "7": "Berserker",
     "8": "Final Strike",
     "9": "Pure Trust"
   },
@@ -63,6 +67,7 @@
     "11": "wikipedia",
     "12": "wikipedia",
     "13": "wikipedia",
+    "13.5": "comick",
     "14": "wikipedia",
     "15": "wikipedia",
     "16": "wikipedia",
@@ -90,6 +95,7 @@
     "36": "wikipedia",
     "37": "wikipedia",
     "38": "wikipedia",
+    "38.5": "comick",
     "39": "wikipedia",
     "4": "wikipedia",
     "40": "wikipedia",
@@ -100,8 +106,10 @@
     "45": "wikipedia",
     "46": "wikipedia",
     "47": "wikipedia",
+    "47.5": "comick",
     "5": "wikipedia",
     "6": "wikipedia",
+    "6.5": "comick",
     "7": "wikipedia",
     "8": "wikipedia",
     "9": "wikipedia"
@@ -112,6 +120,18 @@
       "ref": "List of The Executioner and Her Way of Life volumes",
       "url": "https://en.wikipedia.org/wiki/List_of_The_Executioner_and_Her_Way_of_Life_volumes",
       "count": 47
+    },
+    {
+      "name": "comick",
+      "ref": "shokei-shoujo-no-ikirumichi",
+      "url": "https://comick.dev/comic/shokei-shoujo-no-ikirumichi",
+      "count": 4
+    },
+    {
+      "name": "mangadex",
+      "ref": "bed89b51-15d3-44a5-b27a-a13a2f9a6dd8",
+      "url": "https://mangadex.org/title/bed89b51-15d3-44a5-b27a-a13a2f9a6dd8",
+      "count": 0
     }
   ]
 }

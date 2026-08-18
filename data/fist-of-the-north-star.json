@@ -5,7 +5,7 @@
   "anilist_id": 31149,
   "article": "List of Fist of the North Star chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Fist_of_the_North_Star_chapters",
-  "scraped_at": "2026-08-17T19:02:07.880715427Z",
+  "scraped_at": "2026-08-18T00:10:16.869476413Z",
   "chapter_count": 247,
   "inferred_numbers": 0,
   "chapters": {
@@ -515,8 +515,8 @@
     },
     {
       "name": "comick",
-      "ref": "hokuto-no-ken",
-      "url": "https://comick.dev/comic/hokuto-no-ken",
+      "ref": "00-fist-of-the-north-star-master-edition-raijin-comics",
+      "url": "https://comick.dev/comic/00-fist-of-the-north-star-master-edition-raijin-comics",
       "count": 2
     },
     {

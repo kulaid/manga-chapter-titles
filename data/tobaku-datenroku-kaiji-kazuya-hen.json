@@ -5,7 +5,7 @@
   "anilist_id": 46659,
   "article": "List of Tobaku Datenroku Kaiji: Kazuya-hen chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tobaku_Datenroku_Kaiji:_Kazuya-hen_chapters",
-  "scraped_at": "2026-08-17T19:55:53.032806063Z",
+  "scraped_at": "2026-08-18T00:15:54.581665203Z",
   "chapter_count": 100,
   "inferred_numbers": 0,
   "chapters": {
@@ -223,6 +223,12 @@
       "name": "comick",
       "ref": "tobaku-datenroku-kaiji-kazuya-hen",
       "url": "https://comick.dev/comic/tobaku-datenroku-kaiji-kazuya-hen",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "06679cb6-764a-4a2b-8db4-ab068f9a5ea3",
+      "url": "https://mangadex.org/title/06679cb6-764a-4a2b-8db4-ab068f9a5ea3",
       "count": 0
     }
   ]

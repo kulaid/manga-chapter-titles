@@ -5,7 +5,7 @@
   "anilist_id": 44841,
   "article": "List of Durarara!! chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Durarara%21%21_chapters",
-  "scraped_at": "2026-08-17T19:01:49.638803914Z",
+  "scraped_at": "2026-08-18T00:10:04.813312329Z",
   "chapter_count": 21,
   "inferred_numbers": 0,
   "chapters": {
@@ -60,6 +60,18 @@
       "ref": "List of Durarara!! chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Durarara%21%21_chapters",
       "count": 21
+    },
+    {
+      "name": "comick",
+      "ref": "durarara",
+      "url": "https://comick.dev/comic/durarara",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "207670b3-9dd1-4ea6-ad19-b7a03d1adb13",
+      "url": "https://mangadex.org/title/207670b3-9dd1-4ea6-ad19-b7a03d1adb13",
+      "count": 0
     }
   ]
 }

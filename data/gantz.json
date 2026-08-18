@@ -5,7 +5,7 @@
   "anilist_id": 30564,
   "article": "List of Gantz chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Gantz_chapters",
-  "scraped_at": "2026-08-17T19:02:41.256626638Z",
+  "scraped_at": "2026-08-18T00:10:31.899477448Z",
   "chapter_count": 388,
   "inferred_numbers": 0,
   "chapters": {
@@ -800,6 +800,12 @@
       "ref": "gantz",
       "url": "https://comick.dev/comic/gantz",
       "count": 5
+    },
+    {
+      "name": "mangadex",
+      "ref": "c196dcc8-d942-4abf-987f-bfa244650585",
+      "url": "https://mangadex.org/title/c196dcc8-d942-4abf-987f-bfa244650585",
+      "count": 0
     }
   ]
 }

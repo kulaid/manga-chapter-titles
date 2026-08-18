@@ -5,7 +5,7 @@
   "anilist_id": 54692,
   "article": "List of Noragami chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Noragami_chapters",
-  "scraped_at": "2026-08-17T19:05:47.630713978Z",
+  "scraped_at": "2026-08-18T00:12:33.424545805Z",
   "chapter_count": 158,
   "inferred_numbers": 14,
   "chapters": {
@@ -340,6 +340,12 @@
       "ref": "noragami",
       "url": "https://comick.dev/comic/noragami",
       "count": 35
+    },
+    {
+      "name": "mangadex",
+      "ref": "e5ce88e2-8c46-482d-8acf-5c6d5a64a585",
+      "url": "https://mangadex.org/title/e5ce88e2-8c46-482d-8acf-5c6d5a64a585",
+      "count": 0
     }
   ]
 }

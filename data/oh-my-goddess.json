@@ -5,7 +5,7 @@
   "anilist_id": 30446,
   "article": "List of Oh My Goddess! chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Oh_My_Goddess%21_chapters",
-  "scraped_at": "2026-08-17T19:05:52.29176143Z",
+  "scraped_at": "2026-08-18T00:12:36.395074712Z",
   "chapter_count": 350,
   "inferred_numbers": 0,
   "chapters": {
@@ -724,6 +724,12 @@
       "ref": "aa-megami-sama",
       "url": "https://comick.dev/comic/aa-megami-sama",
       "count": 171
+    },
+    {
+      "name": "mangadex",
+      "ref": "b973e612-0d54-48f1-844e-9c83c04b009d",
+      "url": "https://mangadex.org/title/b973e612-0d54-48f1-844e-9c83c04b009d",
+      "count": 0
     }
   ]
 }

@@ -5,7 +5,7 @@
   "anilist_id": 47051,
   "article": "List of Barakamon chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Barakamon_chapters",
-  "scraped_at": "2026-08-17T18:58:31.074520644Z",
+  "scraped_at": "2026-08-18T00:08:41.373457439Z",
   "chapter_count": 54,
   "inferred_numbers": 1,
   "chapters": {
@@ -132,6 +132,12 @@
       "ref": "barakamon",
       "url": "https://comick.dev/comic/barakamon",
       "count": 50
+    },
+    {
+      "name": "mangadex",
+      "ref": "b9a99e3f-6803-4efe-9f7c-f7d566703e4c",
+      "url": "https://mangadex.org/title/b9a99e3f-6803-4efe-9f7c-f7d566703e4c",
+      "count": 0
     }
   ]
 }

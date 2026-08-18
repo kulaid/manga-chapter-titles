@@ -5,7 +5,7 @@
   "anilist_id": 38483,
   "article": "List of A Town Where You Live chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_A_Town_Where_You_Live_chapters",
-  "scraped_at": "2026-08-17T19:09:21.196326278Z",
+  "scraped_at": "2026-08-18T00:14:23.299212401Z",
   "chapter_count": 277,
   "inferred_numbers": 0,
   "chapters": {
@@ -578,6 +578,12 @@
       "ref": "kimi-no-iru-machi",
       "url": "https://comick.dev/comic/kimi-no-iru-machi",
       "count": 15
+    },
+    {
+      "name": "mangadex",
+      "ref": "8f6c0971-2add-4a63-b238-74c033064502",
+      "url": "https://mangadex.org/title/8f6c0971-2add-4a63-b238-74c033064502",
+      "count": 0
     }
   ]
 }

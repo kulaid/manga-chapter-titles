@@ -5,7 +5,7 @@
   "anilist_id": 55297,
   "article": "List of Prison School chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Prison_School_chapters",
-  "scraped_at": "2026-08-17T19:06:19.713291329Z",
+  "scraped_at": "2026-08-18T00:13:01.991190145Z",
   "chapter_count": 278,
   "inferred_numbers": 2,
   "chapters": {
@@ -579,6 +579,12 @@
       "name": "comick",
       "ref": "prison-school",
       "url": "https://comick.dev/comic/prison-school",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "371a7405-bee1-402c-b0d7-74ea3fb4d587",
+      "url": "https://mangadex.org/title/371a7405-bee1-402c-b0d7-74ea3fb4d587",
       "count": 0
     }
   ]

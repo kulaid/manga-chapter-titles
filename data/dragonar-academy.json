@@ -5,14 +5,14 @@
   "anilist_id": 56589,
   "article": "List of Dragonar Academy volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dragonar_Academy_volumes",
-  "scraped_at": "2026-08-17T19:01:48.298503096Z",
+  "scraped_at": "2026-08-18T00:10:03.84477419Z",
   "chapter_count": 65,
   "inferred_numbers": 20,
   "chapters": {
-    "1": "Prologue",
-    "10": "Prologue",
-    "11": "Epilogue",
-    "12": "Prologue",
+    "1": "Eco the Dragon Girl",
+    "10": "Veronica and Sylvia",
+    "11": "Veronica and Sylvia: Part 2",
+    "12": "Avdocha the Executioner: Part 1",
     "13": "Avdocha the Executioner: Part 2",
     "14": "Avdocha the Executioner: Part 3",
     "15": "After-school Monster Hunter",
@@ -42,7 +42,7 @@
     "37": "The Tragedy of the Apollo House",
     "38": "Memories",
     "39": "Ash and Sylvia's Study Group",
-    "4": "Epilogue",
+    "4": "Avdocha the Convicted",
     "40": "A Visitor During Exam Preparations!",
     "41": "Ash's Memories: Part 1",
     "42": "Ash's Memories: Part 2",
@@ -53,7 +53,7 @@
     "47": "The Sonic Baron (Part 2)",
     "48": "The Sonic Baron (Part 3)",
     "49": "The Sonic Baron (Part 4)",
-    "5": "Prologue",
+    "5": "Mordred's Tombstone",
     "50": "Anya's Return",
     "51": "The Chevron Royal Family's Key Requirement 1",
     "52": "The Chevron Royal Family's Key Requirement 2",
@@ -64,7 +64,7 @@
     "57": "The Night Àfter the Battle, The Calm Before the Storm",
     "58": "Ashley's Imprisonment 1",
     "59": "Ashley's Imprisonment 2",
-    "6": "Prologue",
+    "6": "Ancient Palace's Abandoned Garden",
     "60": "The Battle Tournament of Holy Knights 1",
     "61": "The Battle Tournament of Holy Knights 2",
     "62": "The Battle Tournament of Holy Knights 3",
@@ -73,7 +73,7 @@
     "65": "Epilogue",
     "7": "Masquerade",
     "8": "Avalon's Imperial Princess",
-    "9": "Epilogue"
+    "9": "The Iron-Blooded Valkyrie"
   },
   "chapter_sources": {
     "1": "wikipedia",
@@ -148,6 +148,18 @@
       "ref": "List of Dragonar Academy volumes",
       "url": "https://en.wikipedia.org/wiki/List_of_Dragonar_Academy_volumes",
       "count": 65
+    },
+    {
+      "name": "comick",
+      "ref": "seikoku-no-dragonar",
+      "url": "https://comick.dev/comic/seikoku-no-dragonar",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "8ec73d28-74ff-43ab-9235-d0eb838698ad",
+      "url": "https://mangadex.org/title/8ec73d28-74ff-43ab-9235-d0eb838698ad",
+      "count": 0
     }
   ]
 }

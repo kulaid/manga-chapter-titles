@@ -4,16 +4,33 @@
   "match_key": "hensuki",
   "article": "List of Hensuki volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Hensuki_volumes",
-  "scraped_at": "2026-08-17T19:03:25.212455158Z",
+  "scraped_at": "2026-08-18T00:10:56.992907483Z",
   "chapter_count": 7,
   "inferred_numbers": 24,
   "chapters": {
-    "1": "Prologue",
+    "1": "Cinderella Dropped Her Panties",
     "2": "My Senior Can't Be This Abnormal",
     "3": "Since When Was I Under the Illusion That This Would Be a Normal Love Comedy?",
     "4": "My Senior and Junior Are Fighting Way Too Much",
     "5": "A Cruel Truth's Thesis",
     "6": "Epilogue",
     "7": "Prologue"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of Hensuki volumes",
+      "url": "https://en.wikipedia.org/wiki/List_of_Hensuki_volumes",
+      "count": 7
+    }
+  ]
 }

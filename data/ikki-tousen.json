@@ -5,7 +5,7 @@
   "anilist_id": 30372,
   "article": "List of Ikki Tousen chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Ikki_Tousen_chapters",
-  "scraped_at": "2026-08-17T19:03:54.708493085Z",
+  "scraped_at": "2026-08-18T00:11:16.029416107Z",
   "chapter_count": 24,
   "inferred_numbers": 23,
   "chapters": {
@@ -66,6 +66,18 @@
       "ref": "List of Ikki Tousen chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Ikki_Tousen_chapters",
       "count": 24
+    },
+    {
+      "name": "comick",
+      "ref": "ikkitousen",
+      "url": "https://comick.dev/comic/ikkitousen",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "7845e113-91ef-4042-9a58-887e99d0849f",
+      "url": "https://mangadex.org/title/7845e113-91ef-4042-9a58-887e99d0849f",
+      "count": 0
     }
   ]
 }

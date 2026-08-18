@@ -5,8 +5,8 @@
   "anilist_id": 85161,
   "article": "List of Is It Wrong to Try to Pick Up Girls in a Dungeon? chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Is_It_Wrong_to_Try_to_Pick_Up_Girls_in_a_Dungeon%3F_chapters",
-  "scraped_at": "2026-08-17T19:03:59.503744333Z",
-  "chapter_count": 87,
+  "scraped_at": "2026-08-18T00:11:19.063095367Z",
+  "chapter_count": 91,
   "inferred_numbers": 0,
   "chapters": {
     "0": "The Goddess' Campanella",
@@ -16,6 +16,7 @@
     "12": "Bump of Chicken",
     "13": "Roar",
     "14": "A Chance Meeting",
+    "14.5": "The Circumstances Behind the Goddess' Part-time Job",
     "15": "A Shopping Mishap??",
     "16": "The Supporter's Situation",
     "17": "A Thief's Dungeon Trap",
@@ -95,6 +96,9 @@
     "84": "Hero's Strike",
     "85": "Delight",
     "86": "Conflict",
+    "87": "The Invitation",
+    "88": "Party Night",
+    "89": "Shall we dance?",
     "9": "The Courage it Takes"
   },
   "chapter_sources": {
@@ -105,6 +109,7 @@
     "12": "wikipedia",
     "13": "wikipedia",
     "14": "wikipedia",
+    "14.5": "comick",
     "15": "wikipedia",
     "16": "wikipedia",
     "17": "wikipedia",
@@ -184,6 +189,9 @@
     "84": "wikipedia",
     "85": "wikipedia",
     "86": "wikipedia",
+    "87": "comick",
+    "88": "comick",
+    "89": "comick",
     "9": "wikipedia"
   },
   "sources": [
@@ -192,6 +200,18 @@
       "ref": "List of Is It Wrong to Try to Pick Up Girls in a Dungeon? chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Is_It_Wrong_to_Try_to_Pick_Up_Girls_in_a_Dungeon%3F_chapters",
       "count": 87
+    },
+    {
+      "name": "comick",
+      "ref": "dungeon-ni-deai-o-motomeru-no-wa-machigatte-iru-darou-ka",
+      "url": "https://comick.dev/comic/dungeon-ni-deai-o-motomeru-no-wa-machigatte-iru-darou-ka",
+      "count": 4
+    },
+    {
+      "name": "mangadex",
+      "ref": "8b459a49-b40f-4614-90a2-dc0a9209a42f",
+      "url": "https://mangadex.org/title/8b459a49-b40f-4614-90a2-dc0a9209a42f",
+      "count": 0
     }
   ]
 }

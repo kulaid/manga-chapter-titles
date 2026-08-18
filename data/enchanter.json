@@ -5,7 +5,7 @@
   "anilist_id": 30244,
   "article": "List of Enchanter chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Enchanter_chapters",
-  "scraped_at": "2026-08-17T19:01:56.210856371Z",
+  "scraped_at": "2026-08-18T00:10:09.836606248Z",
   "chapter_count": 48,
   "inferred_numbers": 48,
   "chapters": {
@@ -114,6 +114,18 @@
       "ref": "List of Enchanter chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Enchanter_chapters",
       "count": 48
+    },
+    {
+      "name": "comick",
+      "ref": "enchanter",
+      "url": "https://comick.dev/comic/enchanter",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "acd7cf51-8af4-4712-b942-82d2f654bcc9",
+      "url": "https://mangadex.org/title/acd7cf51-8af4-4712-b942-82d2f654bcc9",
+      "count": 0
     }
   ]
 }

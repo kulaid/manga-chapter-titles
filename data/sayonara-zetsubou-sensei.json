@@ -5,7 +5,7 @@
   "anilist_id": 30661,
   "article": "List of Sayonara, Zetsubou-Sensei chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Sayonara%2C_Zetsubou-Sensei_chapters",
-  "scraped_at": "2026-08-17T19:07:17.013471865Z",
+  "scraped_at": "2026-08-18T00:13:34.105203683Z",
   "chapter_count": 305,
   "inferred_numbers": 6,
   "chapters": {
@@ -634,6 +634,12 @@
       "ref": "sayonara-zetsubou-sensei",
       "url": "https://comick.dev/comic/sayonara-zetsubou-sensei",
       "count": 299
+    },
+    {
+      "name": "mangadex",
+      "ref": "ef25dabb-969e-4a87-b854-b15a53b9209f",
+      "url": "https://mangadex.org/title/ef25dabb-969e-4a87-b854-b15a53b9209f",
+      "count": 0
     }
   ]
 }

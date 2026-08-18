@@ -4,7 +4,7 @@
   "match_key": "honeycoming",
   "article": "List of HoneyComing chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_HoneyComing_chapters",
-  "scraped_at": "2026-08-17T19:03:40.814881907Z",
+  "scraped_at": "2026-08-18T00:11:04.988348291Z",
   "chapter_count": 19,
   "inferred_numbers": 0,
   "chapters": {
@@ -27,5 +27,34 @@
     "7": "The Reason for Being Diligent",
     "8": "Treasured Flower Language",
     "9": "Mary and the Devil"
-  }
+  },
+  "chapter_sources": {
+    "1": "wikipedia",
+    "10": "wikipedia",
+    "11": "wikipedia",
+    "12": "wikipedia",
+    "13": "wikipedia",
+    "14": "wikipedia",
+    "15": "wikipedia",
+    "16": "wikipedia",
+    "17": "wikipedia",
+    "18": "wikipedia",
+    "19": "wikipedia",
+    "2": "wikipedia",
+    "3": "wikipedia",
+    "4": "wikipedia",
+    "5": "wikipedia",
+    "6": "wikipedia",
+    "7": "wikipedia",
+    "8": "wikipedia",
+    "9": "wikipedia"
+  },
+  "sources": [
+    {
+      "name": "wikipedia",
+      "ref": "List of HoneyComing chapters",
+      "url": "https://en.wikipedia.org/wiki/List_of_HoneyComing_chapters",
+      "count": 19
+    }
+  ]
 }

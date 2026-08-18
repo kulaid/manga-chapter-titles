@@ -5,7 +5,7 @@
   "anilist_id": 87260,
   "article": "List of World's End Harem volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_World%27s_End_Harem_volumes",
-  "scraped_at": "2026-08-17T19:10:13.220107052Z",
+  "scraped_at": "2026-08-18T00:14:55.431069359Z",
   "chapter_count": 147,
   "inferred_numbers": 0,
   "chapters": {
@@ -318,6 +318,12 @@
       "ref": "world-s-end-harem",
       "url": "https://comick.dev/comic/world-s-end-harem",
       "count": 15
+    },
+    {
+      "name": "mangadex",
+      "ref": "308f0355-fedb-4861-a4e0-56fe35ae61d3",
+      "url": "https://mangadex.org/title/308f0355-fedb-4861-a4e0-56fe35ae61d3",
+      "count": 0
     }
   ]
 }

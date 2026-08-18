@@ -5,7 +5,7 @@
   "anilist_id": 30304,
   "article": "List of Urusei Yatsura chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Urusei_Yatsura_chapters",
-  "scraped_at": "2026-08-17T19:09:38.49452539Z",
+  "scraped_at": "2026-08-18T00:14:35.30743272Z",
   "chapter_count": 366,
   "inferred_numbers": 0,
   "chapters": {
@@ -755,6 +755,12 @@
       "name": "comick",
       "ref": "00-urusei-yatsura",
       "url": "https://comick.dev/comic/00-urusei-yatsura",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "6b9206b3-5c0f-4cf8-a0cc-d2c9e1aa4df9",
+      "url": "https://mangadex.org/title/6b9206b3-5c0f-4cf8-a0cc-d2c9e1aa4df9",
       "count": 0
     }
   ]

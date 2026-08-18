@@ -5,7 +5,7 @@
   "anilist_id": 86082,
   "article": "List of Delicious in Dungeon chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Delicious_in_Dungeon_chapters",
-  "scraped_at": "2026-08-17T19:01:09.072291082Z",
+  "scraped_at": "2026-08-18T00:09:46.778412717Z",
   "chapter_count": 119,
   "inferred_numbers": 0,
   "chapters": {
@@ -262,6 +262,12 @@
       "ref": "00-dungeon-meshi",
       "url": "https://comick.dev/comic/00-dungeon-meshi",
       "count": 22
+    },
+    {
+      "name": "mangadex",
+      "ref": "d90ea6cb-7bc3-4d80-8af0-28557e6c4e17",
+      "url": "https://mangadex.org/title/d90ea6cb-7bc3-4d80-8af0-28557e6c4e17",
+      "count": 0
     }
   ]
 }

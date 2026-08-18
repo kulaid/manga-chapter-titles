@@ -5,7 +5,7 @@
   "anilist_id": 44483,
   "article": "List of Space Brothers chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Space_Brothers_chapters",
-  "scraped_at": "2026-08-17T19:07:49.592826995Z",
+  "scraped_at": "2026-08-18T00:13:57.171098339Z",
   "chapter_count": 434,
   "inferred_numbers": 434,
   "chapters": {
@@ -891,6 +891,12 @@
       "name": "comick",
       "ref": "00-uchuu-kyoudai",
       "url": "https://comick.dev/comic/00-uchuu-kyoudai",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "a437129d-18e9-48d7-9484-9fb9b9073ddd",
+      "url": "https://mangadex.org/title/a437129d-18e9-48d7-9484-9fb9b9073ddd",
       "count": 0
     }
   ]

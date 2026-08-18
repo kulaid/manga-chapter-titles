@@ -5,7 +5,7 @@
   "anilist_id": 38930,
   "article": "List of Tottemo! Luckyman chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tottemo%21_Luckyman_chapters",
-  "scraped_at": "2026-08-17T19:09:19.370528189Z",
+  "scraped_at": "2026-08-18T00:14:22.365900004Z",
   "chapter_count": 190,
   "inferred_numbers": 190,
   "chapters": {
@@ -398,6 +398,18 @@
       "ref": "List of Tottemo! Luckyman chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Tottemo%21_Luckyman_chapters",
       "count": 190
+    },
+    {
+      "name": "comick",
+      "ref": "00-tottemo-luckyman",
+      "url": "https://comick.dev/comic/00-tottemo-luckyman",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "591810ec-c071-43bd-ab23-da657c6f0ffc",
+      "url": "https://mangadex.org/title/591810ec-c071-43bd-ab23-da657c6f0ffc",
+      "count": 0
     }
   ]
 }

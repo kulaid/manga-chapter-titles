@@ -5,7 +5,7 @@
   "anilist_id": 30513,
   "article": "List of Samurai Deeper Kyo chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Samurai_Deeper_Kyo_chapters",
-  "scraped_at": "2026-08-17T19:07:12.895457117Z",
+  "scraped_at": "2026-08-18T00:13:32.111160446Z",
   "chapter_count": 296,
   "inferred_numbers": 2,
   "chapters": {
@@ -261,7 +261,7 @@
     "57": "Shindaras Plan",
     "58": "Friends Reunited",
     "59": "Rubbed the Wrong Way",
-    "6": "Glossary",
+    "6": "Depth",
     "60": "A Bright and Shining Star",
     "61": "The Lone Wolf",
     "62": "The Man with a Scar on His back",
@@ -616,6 +616,12 @@
       "ref": "samurai-deeper-kyo",
       "url": "https://comick.dev/comic/samurai-deeper-kyo",
       "count": 11
+    },
+    {
+      "name": "mangadex",
+      "ref": "178f7c49-3dd7-4e92-90e2-bb08c9f7b789",
+      "url": "https://mangadex.org/title/178f7c49-3dd7-4e92-90e2-bb08c9f7b789",
+      "count": 0
     }
   ]
 }

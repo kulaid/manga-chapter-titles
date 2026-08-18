@@ -5,7 +5,7 @@
   "anilist_id": 81233,
   "article": "List of The Heroic Legend of Arslan chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_The_Heroic_Legend_of_Arslan_chapters",
-  "scraped_at": "2026-08-17T19:03:29.86445812Z",
+  "scraped_at": "2026-08-18T00:10:58.07766869Z",
   "chapter_count": 148,
   "inferred_numbers": 0,
   "chapters": {
@@ -319,6 +319,12 @@
       "name": "comick",
       "ref": "arslan-senki",
       "url": "https://comick.dev/comic/arslan-senki",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "a8dbdba7-6904-46cb-b03b-cf869b11110b",
+      "url": "https://mangadex.org/title/a8dbdba7-6904-46cb-b03b-cf869b11110b",
       "count": 0
     }
   ]

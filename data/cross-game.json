@@ -5,7 +5,7 @@
   "anilist_id": 31183,
   "article": "List of Cross Game chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Cross_Game_chapters",
-  "scraped_at": "2026-08-17T19:00:53.353061182Z",
+  "scraped_at": "2026-08-18T00:09:35.763515565Z",
   "chapter_count": 160,
   "inferred_numbers": 0,
   "chapters": {
@@ -344,6 +344,12 @@
       "ref": "00-cross-game",
       "url": "https://comick.dev/comic/00-cross-game",
       "count": 20
+    },
+    {
+      "name": "mangadex",
+      "ref": "8bd288e6-7c5a-403a-b5b6-a845a70ca376",
+      "url": "https://mangadex.org/title/8bd288e6-7c5a-403a-b5b6-a845a70ca376",
+      "count": 0
     }
   ]
 }

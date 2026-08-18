@@ -5,7 +5,7 @@
   "anilist_id": 31298,
   "article": "List of Golgo 13 chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Golgo_13_chapters",
-  "scraped_at": "2026-08-17T19:03:03.022243381Z",
+  "scraped_at": "2026-08-18T00:10:42.94946263Z",
   "chapter_count": 515,
   "inferred_numbers": 0,
   "chapters": {
@@ -1054,6 +1054,12 @@
       "ref": "00-golgo-13",
       "url": "https://comick.dev/comic/00-golgo-13",
       "count": 3
+    },
+    {
+      "name": "mangadex",
+      "ref": "b3683a72-dedf-4981-ad2f-d8d1e597718d",
+      "url": "https://mangadex.org/title/b3683a72-dedf-4981-ad2f-d8d1e597718d",
+      "count": 0
     }
   ]
 }

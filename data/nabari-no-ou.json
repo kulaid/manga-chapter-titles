@@ -5,7 +5,7 @@
   "anilist_id": 31721,
   "article": "List of Nabari no Ou chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Nabari_no_Ou_chapters",
-  "scraped_at": "2026-08-17T19:05:38.19428336Z",
+  "scraped_at": "2026-08-18T00:12:26.349353038Z",
   "chapter_count": 73,
   "inferred_numbers": 0,
   "chapters": {
@@ -164,6 +164,18 @@
       "ref": "List of Nabari no Ou chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Nabari_no_Ou_chapters",
       "count": 73
+    },
+    {
+      "name": "comick",
+      "ref": "nabari-no-ou",
+      "url": "https://comick.dev/comic/nabari-no-ou",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "b71a7827-9664-4336-9f79-bed88c088738",
+      "url": "https://mangadex.org/title/b71a7827-9664-4336-9f79-bed88c088738",
+      "count": 0
     }
   ]
 }

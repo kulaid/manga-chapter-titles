@@ -5,7 +5,7 @@
   "anilist_id": 86310,
   "article": "List of Fire Force chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Fire_Force_chapters",
-  "scraped_at": "2026-08-17T19:02:06.921115376Z",
+  "scraped_at": "2026-08-18T00:10:15.866258382Z",
   "chapter_count": 305,
   "inferred_numbers": 2,
   "chapters": {
@@ -633,6 +633,12 @@
       "name": "comick",
       "ref": "00-enen-no-shouboutai",
       "url": "https://comick.dev/comic/00-enen-no-shouboutai",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "ec514ef4-fb77-43b9-b9b4-528229de1308",
+      "url": "https://mangadex.org/title/ec514ef4-fb77-43b9-b9b4-528229de1308",
       "count": 0
     }
   ]

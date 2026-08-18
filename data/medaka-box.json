@@ -5,7 +5,7 @@
   "anilist_id": 43949,
   "article": "List of Medaka Box chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Medaka_Box_chapters",
-  "scraped_at": "2026-08-17T19:05:15.721898472Z",
+  "scraped_at": "2026-08-18T00:12:14.355169056Z",
   "chapter_count": 197,
   "inferred_numbers": 0,
   "chapters": {
@@ -418,6 +418,12 @@
       "ref": "medaka-box",
       "url": "https://comick.dev/comic/medaka-box",
       "count": 5
+    },
+    {
+      "name": "mangadex",
+      "ref": "881fccb1-e60c-4c82-b64c-28f709545174",
+      "url": "https://mangadex.org/title/881fccb1-e60c-4c82-b64c-28f709545174",
+      "count": 0
     }
   ]
 }

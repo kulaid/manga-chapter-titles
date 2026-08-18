@@ -5,7 +5,7 @@
   "anilist_id": 30023,
   "article": "List of Ranma ½ chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Ranma_%C2%BD_chapters",
-  "scraped_at": "2026-08-17T19:06:36.162418885Z",
+  "scraped_at": "2026-08-18T00:13:11.11645562Z",
   "chapter_count": 408,
   "inferred_numbers": 0,
   "chapters": {
@@ -840,6 +840,12 @@
       "ref": "00-ranma-1",
       "url": "https://comick.dev/comic/00-ranma-1",
       "count": 1
+    },
+    {
+      "name": "mangadex",
+      "ref": "d41bebac-1fd3-45dd-80f4-c371db540a2a",
+      "url": "https://mangadex.org/title/d41bebac-1fd3-45dd-80f4-c371db540a2a",
+      "count": 0
     }
   ]
 }

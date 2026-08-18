@@ -5,7 +5,7 @@
   "anilist_id": 30106,
   "article": "List of Cardcaptor Sakura chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Cardcaptor_Sakura_chapters",
-  "scraped_at": "2026-08-17T19:00:28.78649041Z",
+  "scraped_at": "2026-08-18T00:09:16.554709337Z",
   "chapter_count": 8,
   "inferred_numbers": 6,
   "chapters": {
@@ -40,6 +40,12 @@
       "ref": "00-cardcaptor-sakura",
       "url": "https://comick.dev/comic/00-cardcaptor-sakura",
       "count": 2
+    },
+    {
+      "name": "mangadex",
+      "ref": "e4967558-c7fa-4c48-9a4f-1e462f50fb2c",
+      "url": "https://mangadex.org/title/e4967558-c7fa-4c48-9a4f-1e462f50fb2c",
+      "count": 0
     }
   ]
 }

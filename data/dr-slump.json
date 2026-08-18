@@ -5,7 +5,7 @@
   "anilist_id": 30796,
   "article": "List of Dr. Slump chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dr._Slump_chapters",
-  "scraped_at": "2026-08-17T19:01:40.807980852Z",
+  "scraped_at": "2026-08-18T00:09:57.815105384Z",
   "chapter_count": 236,
   "inferred_numbers": 0,
   "chapters": {
@@ -495,6 +495,12 @@
       "name": "comick",
       "ref": "00-dr-slump",
       "url": "https://comick.dev/comic/00-dr-slump",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "985e4ae6-7a36-42c5-ae12-f4291c58798c",
+      "url": "https://mangadex.org/title/985e4ae6-7a36-42c5-ae12-f4291c58798c",
       "count": 0
     }
   ]

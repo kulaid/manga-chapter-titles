@@ -5,7 +5,7 @@
   "anilist_id": 33048,
   "article": "List of Kiss×sis chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Kiss%C3%97sis_chapters",
-  "scraped_at": "2026-08-17T19:04:34.304728498Z",
+  "scraped_at": "2026-08-18T00:11:43.478427666Z",
   "chapter_count": 156,
   "inferred_numbers": 0,
   "chapters": {
@@ -336,6 +336,12 @@
       "ref": "kiss-x-sis",
       "url": "https://comick.dev/comic/kiss-x-sis",
       "count": 1
+    },
+    {
+      "name": "mangadex",
+      "ref": "bf55dd16-ba26-49de-adb3-cbf7d2bc6775",
+      "url": "https://mangadex.org/title/bf55dd16-ba26-49de-adb3-cbf7d2bc6775",
+      "count": 0
     }
   ]
 }

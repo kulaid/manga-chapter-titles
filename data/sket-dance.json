@@ -5,7 +5,7 @@
   "anilist_id": 31414,
   "article": "List of Sket Dance chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Sket_Dance_chapters",
-  "scraped_at": "2026-08-17T19:07:41.600699203Z",
+  "scraped_at": "2026-08-18T00:13:50.251149759Z",
   "chapter_count": 291,
   "inferred_numbers": 0,
   "chapters": {
@@ -606,6 +606,12 @@
       "ref": "sket-dance",
       "url": "https://comick.dev/comic/sket-dance",
       "count": 5
+    },
+    {
+      "name": "mangadex",
+      "ref": "566eb93d-5958-44ca-b9d3-a8335bfead5a",
+      "url": "https://mangadex.org/title/566eb93d-5958-44ca-b9d3-a8335bfead5a",
+      "count": 0
     }
   ]
 }

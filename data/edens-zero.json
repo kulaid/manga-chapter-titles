@@ -5,7 +5,7 @@
   "anilist_id": 101860,
   "article": "List of Edens Zero chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Edens_Zero_chapters",
-  "scraped_at": "2026-08-17T19:01:52.786534634Z",
+  "scraped_at": "2026-08-18T00:10:06.868811588Z",
   "chapter_count": 296,
   "inferred_numbers": 0,
   "chapters": {
@@ -616,6 +616,12 @@
       "ref": "01-edens-zero",
       "url": "https://comick.dev/comic/01-edens-zero",
       "count": 3
+    },
+    {
+      "name": "mangadex",
+      "ref": "bbaa17c4-0f36-4bbb-9861-34fc8fdf20fc",
+      "url": "https://mangadex.org/title/bbaa17c4-0f36-4bbb-9861-34fc8fdf20fc",
+      "count": 0
     }
   ]
 }

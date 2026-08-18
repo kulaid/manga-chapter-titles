@@ -5,7 +5,7 @@
   "anilist_id": 30647,
   "article": "List of Hot Gimmick chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Hot_Gimmick_chapters",
-  "scraped_at": "2026-08-17T19:03:44.22053726Z",
+  "scraped_at": "2026-08-18T00:11:06.99405595Z",
   "chapter_count": 4,
   "inferred_numbers": 4,
   "chapters": {
@@ -26,6 +26,18 @@
       "ref": "List of Hot Gimmick chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Hot_Gimmick_chapters",
       "count": 4
+    },
+    {
+      "name": "comick",
+      "ref": "hot-gimmick",
+      "url": "https://comick.dev/comic/hot-gimmick",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "a169870d-fb20-44c6-a041-ba690d311ade",
+      "url": "https://mangadex.org/title/a169870d-fb20-44c6-a041-ba690d311ade",
+      "count": 0
     }
   ]
 }

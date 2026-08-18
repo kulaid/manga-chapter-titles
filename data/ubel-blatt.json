@@ -5,7 +5,7 @@
   "anilist_id": 30070,
   "article": "List of Übel Blatt chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_%C3%9Cbel_Blatt_chapters",
-  "scraped_at": "2026-08-17T19:09:31.118923292Z",
+  "scraped_at": "2026-08-18T00:14:30.304105885Z",
   "chapter_count": 171,
   "inferred_numbers": 0,
   "chapters": {
@@ -366,6 +366,12 @@
       "ref": "uebel-blatt",
       "url": "https://comick.dev/comic/uebel-blatt",
       "count": 1
+    },
+    {
+      "name": "mangadex",
+      "ref": "8a3e22a6-949a-4540-bfbf-559b8cae30f9",
+      "url": "https://mangadex.org/title/8a3e22a6-949a-4540-bfbf-559b8cae30f9",
+      "count": 0
     }
   ]
 }

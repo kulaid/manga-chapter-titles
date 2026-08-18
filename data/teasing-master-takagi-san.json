@@ -5,7 +5,7 @@
   "anilist_id": 85533,
   "article": "List of Teasing Master Takagi-san volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Teasing_Master_Takagi-san_volumes",
-  "scraped_at": "2026-08-17T19:09:00.944332709Z",
+  "scraped_at": "2026-08-18T00:14:08.241166946Z",
   "chapter_count": 349,
   "inferred_numbers": 0,
   "chapters": {
@@ -722,6 +722,12 @@
       "ref": "01-karakai-jouzu-no-takagi-san",
       "url": "https://comick.dev/comic/01-karakai-jouzu-no-takagi-san",
       "count": 31
+    },
+    {
+      "name": "mangadex",
+      "ref": "6e445564-d9a8-4862-bff1-f4d6be6dba2c",
+      "url": "https://mangadex.org/title/6e445564-d9a8-4862-bff1-f4d6be6dba2c",
+      "count": 0
     }
   ]
 }

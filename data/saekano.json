@@ -5,7 +5,7 @@
   "anilist_id": 81309,
   "article": "List of Saekano volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Saekano_volumes",
-  "scraped_at": "2026-08-17T19:07:04.068301566Z",
+  "scraped_at": "2026-08-18T00:13:26.093063905Z",
   "chapter_count": 51,
   "inferred_numbers": 3,
   "chapters": {
@@ -28,7 +28,7 @@
     "24": "見えない本音の察しかた",
     "25": "ノらない作家の振り向かせかた（前編）",
     "26": "ノらない作家の振り向かせかた（後編）",
-    "27": "TV Anime Adaptation Celebration Comic",
+    "27": "ノッてる作家の背中の押しかた",
     "28": "作家と作品の誘いかた（前編）",
     "29": "作家と作品の誘いかた（後編）",
     "3": "egoistic-lily",
@@ -40,13 +40,13 @@
     "35": "頼れる上司の収めかた",
     "36": "揺るがぬ決意の示しかた",
     "37": "書けない気持ちの起こしかた",
-    "38": "TV Anime Adaptation Second Season Celebration Comic",
+    "38": "あの日の景色のうつしかた",
     "39": "未来の道の定めかた",
     "4": "俺たちの戦いはこれからだ…って言ったら終わっちゃう",
     "40": "待ってたあの日の始めかた",
     "41": "あなたの未来の選びかた",
     "42": "キャンパスライフの描きかた",
-    "43": "TV Anime Adaptation Second Season Celebration Comic 2",
+    "43": "冴えない新入生の過ごしかた",
     "44": "叶えた夢の見つめかた",
     "45": "酔えない大人の仕事のしかた",
     "46": "築いた希望の崩しかた",
@@ -120,6 +120,12 @@
       "ref": "List of Saekano volumes",
       "url": "https://en.wikipedia.org/wiki/List_of_Saekano_volumes",
       "count": 51
+    },
+    {
+      "name": "comick",
+      "ref": "saenai-kanojo-heroine-no-sodatekata",
+      "url": "https://comick.dev/comic/saenai-kanojo-heroine-no-sodatekata",
+      "count": 0
     }
   ]
 }

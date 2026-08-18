@@ -5,7 +5,7 @@
   "anilist_id": 50002,
   "article": "List of Fighting Beauty Wulong chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Fighting_Beauty_Wulong_chapters",
-  "scraped_at": "2026-08-17T19:02:03.832494162Z",
+  "scraped_at": "2026-08-18T00:10:14.852095626Z",
   "chapter_count": 203,
   "inferred_numbers": 203,
   "chapters": {
@@ -424,6 +424,18 @@
       "ref": "List of Fighting Beauty Wulong chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Fighting_Beauty_Wulong_chapters",
       "count": 203
+    },
+    {
+      "name": "comick",
+      "ref": "kakutou-bijin-wulong",
+      "url": "https://comick.dev/comic/kakutou-bijin-wulong",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "32137160-9af6-4645-8480-562e84f614c3",
+      "url": "https://mangadex.org/title/32137160-9af6-4645-8480-562e84f614c3",
+      "count": 0
     }
   ]
 }

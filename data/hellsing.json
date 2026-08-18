@@ -5,8 +5,8 @@
   "anilist_id": 30267,
   "article": "List of Hellsing chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Hellsing_chapters",
-  "scraped_at": "2026-08-17T19:03:24.117579505Z",
-  "chapter_count": 89,
+  "scraped_at": "2026-08-18T00:10:55.966067778Z",
+  "chapter_count": 95,
   "inferred_numbers": 0,
   "chapters": {
     "1": "Vampire Hunter",
@@ -97,7 +97,13 @@
     "87": "Sorcerian 2",
     "88": "Oblivion",
     "89": "Romancia",
-    "9": "Dead Zone 3"
+    "9": "Dead Zone 3",
+    "90": "Black Onyx 3",
+    "91": "Black Onyx 4",
+    "92": "Sorcerian 1",
+    "93": "Sorcerian 2",
+    "94": "Oblivion",
+    "95": "Romancia"
   },
   "chapter_sources": {
     "1": "wikipedia",
@@ -188,7 +194,13 @@
     "87": "wikipedia",
     "88": "wikipedia",
     "89": "wikipedia",
-    "9": "wikipedia"
+    "9": "wikipedia",
+    "90": "comick",
+    "91": "comick",
+    "92": "comick",
+    "93": "comick",
+    "94": "comick",
+    "95": "comick"
   },
   "sources": [
     {
@@ -196,6 +208,18 @@
       "ref": "List of Hellsing chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Hellsing_chapters",
       "count": 89
+    },
+    {
+      "name": "comick",
+      "ref": "hellsing",
+      "url": "https://comick.dev/comic/hellsing",
+      "count": 6
+    },
+    {
+      "name": "mangadex",
+      "ref": "6fcfaa0e-6023-403e-97f9-5301dd3c258c",
+      "url": "https://mangadex.org/title/6fcfaa0e-6023-403e-97f9-5301dd3c258c",
+      "count": 0
     }
   ]
 }

@@ -5,7 +5,7 @@
   "anilist_id": 44729,
   "article": "List of Coppelion chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Coppelion_chapters",
-  "scraped_at": "2026-08-17T19:00:49.229017967Z",
+  "scraped_at": "2026-08-18T00:09:32.753500875Z",
   "chapter_count": 226,
   "inferred_numbers": 0,
   "chapters": {
@@ -470,6 +470,18 @@
       "ref": "List of Coppelion chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Coppelion_chapters",
       "count": 226
+    },
+    {
+      "name": "comick",
+      "ref": "coppelion",
+      "url": "https://comick.dev/comic/coppelion",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "092eda70-21b5-4f60-b04f-9f54f7dfa7a7",
+      "url": "https://mangadex.org/title/092eda70-21b5-4f60-b04f-9f54f7dfa7a7",
+      "count": 0
     }
   ]
 }

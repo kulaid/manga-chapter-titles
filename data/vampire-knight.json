@@ -5,7 +5,7 @@
   "anilist_id": 30618,
   "article": "List of Vampire Knight chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Vampire_Knight_chapters",
-  "scraped_at": "2026-08-17T19:09:44.119575605Z",
+  "scraped_at": "2026-08-18T00:14:39.33111358Z",
   "chapter_count": 125,
   "inferred_numbers": 125,
   "chapters": {
@@ -268,6 +268,18 @@
       "ref": "List of Vampire Knight chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Vampire_Knight_chapters",
       "count": 125
+    },
+    {
+      "name": "comick",
+      "ref": "vampire-knight",
+      "url": "https://comick.dev/comic/vampire-knight",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "baaa0ca4-efef-4b15-b91a-c1f85692c2a7",
+      "url": "https://mangadex.org/title/baaa0ca4-efef-4b15-b91a-c1f85692c2a7",
+      "count": 0
     }
   ]
 }

@@ -5,8 +5,8 @@
   "anilist_id": 99465,
   "article": "List of In Another World with My Smartphone volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_In_Another_World_with_My_Smartphone_volumes",
-  "scraped_at": "2026-08-17T19:03:56.694741587Z",
-  "chapter_count": 153,
+  "scraped_at": "2026-08-18T00:11:17.042833496Z",
+  "chapter_count": 155,
   "inferred_numbers": 153,
   "chapters": {
     "1": "Prologue",
@@ -55,6 +55,7 @@
     "138": "Interlude: A Very Normal Day for Brunhilde's Grand Duke",
     "139": "Chapter III: The Prismatis Rite",
     "14": "Chapter II: \"The Legacy of Babylon",
+    "14.5": "My Visit To The Recording Studio",
     "140": "Chapter I: A Double Confrontation with the Wicked Devout",
     "141": "Chapter II: A Moment of Calm",
     "142": "Chapter III: The Sacred Treasure, Complete",
@@ -87,6 +88,7 @@
     "29": "Chapter II: \"The Two Princes",
     "3": "Chapter II: \"The More The Merrier! Double the Joy, Half the Sorrow",
     "30": "Chapter III: \"If You're Prepared, There's Nothing To Fear!",
+    "30.5": "My Small Tiger Cub Is A Cute Cub",
     "31": "Interlude: \"Mystic Eyes of the Catoblepas",
     "32": "Interlude: \"A Tour Through Brunhild",
     "33": "Chapter I: \"Calamity",
@@ -210,6 +212,7 @@
     "138": "wikipedia",
     "139": "wikipedia",
     "14": "wikipedia",
+    "14.5": "comick",
     "140": "wikipedia",
     "141": "wikipedia",
     "142": "wikipedia",
@@ -242,6 +245,7 @@
     "29": "wikipedia",
     "3": "wikipedia",
     "30": "wikipedia",
+    "30.5": "comick",
     "31": "wikipedia",
     "32": "wikipedia",
     "33": "wikipedia",
@@ -324,6 +328,18 @@
       "ref": "List of In Another World with My Smartphone volumes",
       "url": "https://en.wikipedia.org/wiki/List_of_In_Another_World_with_My_Smartphone_volumes",
       "count": 153
+    },
+    {
+      "name": "comick",
+      "ref": "00-in-another-world-with-my-smartphone",
+      "url": "https://comick.dev/comic/00-in-another-world-with-my-smartphone",
+      "count": 2
+    },
+    {
+      "name": "mangadex",
+      "ref": "8bc61f6d-5b33-4c6b-bfdc-589daa4a4d78",
+      "url": "https://mangadex.org/title/8bc61f6d-5b33-4c6b-bfdc-589daa4a4d78",
+      "count": 0
     }
   ]
 }

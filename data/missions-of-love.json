@@ -5,7 +5,7 @@
   "anilist_id": 43463,
   "article": "List of Missions of Love chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Missions_of_Love_chapters",
-  "scraped_at": "2026-08-17T19:05:20.58617547Z",
+  "scraped_at": "2026-08-18T00:12:18.334607596Z",
   "chapter_count": 87,
   "inferred_numbers": 20,
   "chapters": {
@@ -29,8 +29,8 @@
     "22": "Mission 22 I Order You to Nurse Me Back to Health!",
     "23": "Mission 23 I Order You to Kiss Me Against My Will!",
     "24": "Mission 24 I Order You to Tell Me How to Make a Bond!",
-    "25": "Missions Legends",
-    "26": "World Masterpiece Theater",
+    "25": "Mission 25 The Promise",
+    "26": "Mission 26 I Order You to Be My Love Rival!",
     "27": "Mission 27 Shigure's Decision",
     "28": "Mission 28 Yukina's Reward",
     "28.5": "Extra: If Shina Was a Dating Sim",
@@ -40,7 +40,7 @@
     "31": "Mission 31 First Love",
     "32": "Mission 32 Shigure's Mark",
     "32.5": "Extra:Akuma de Reflection",
-    "33": "Missions Drama CD Voice Recording Report",
+    "33": "Mission 33 Unstoppable Feelings",
     "34": "Mission 34 Please Look at Me",
     "35": "Mission 35 Sensei's Secret",
     "36": "Mission 36 I Order You to Make Me Forget!",
@@ -95,7 +95,7 @@
     "76": "Extra Mission 2:I Command You To Play Newly Weds With Me!",
     "76.5": "Extra:Kitami Family Secret",
     "8": "Mission 8 I Order You to Confess Your Love To Me!",
-    "9": "Missions of Love Character Talk"
+    "9": "Mission 9 I Order You to Fight Over Me!"
   },
   "chapter_sources": {
     "1": "wikipedia",
@@ -198,6 +198,12 @@
       "ref": "watashi-ni-xx-shinasai",
       "url": "https://comick.dev/comic/watashi-ni-xx-shinasai",
       "count": 19
+    },
+    {
+      "name": "mangadex",
+      "ref": "72bde970-783a-4f1c-9e52-03199b969a1a",
+      "url": "https://mangadex.org/title/72bde970-783a-4f1c-9e52-03199b969a1a",
+      "count": 0
     }
   ]
 }

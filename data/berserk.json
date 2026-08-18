@@ -5,7 +5,7 @@
   "anilist_id": 30002,
   "article": "List of Berserk chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Berserk_chapters",
-  "scraped_at": "2026-08-17T20:53:53.00710911Z",
+  "scraped_at": "2026-08-18T00:08:48.453248917Z",
   "chapter_count": 406,
   "inferred_numbers": 8,
   "chapters": {
@@ -713,15 +713,15 @@
     "349": "wikipedia",
     "35": "wikipedia",
     "350": "wikipedia",
-    "350.5": "wikipedia",
+    "350.5": "comick",
     "351": "wikipedia",
     "352": "wikipedia",
     "353": "wikipedia",
     "354": "wikipedia",
     "355": "wikipedia",
     "356": "wikipedia",
-    "356.1": "wikipedia",
-    "356.2": "wikipedia",
+    "356.1": "comick",
+    "356.2": "comick",
     "357": "wikipedia",
     "358": "wikipedia",
     "359": "wikipedia",
@@ -751,10 +751,10 @@
     "380": "wikipedia",
     "381": "wikipedia",
     "382": "wikipedia",
-    "383": "wikipedia",
-    "384": "wikipedia",
-    "385": "wikipedia",
-    "386": "wikipedia",
+    "383": "comick",
+    "384": "comick",
+    "385": "comick",
+    "386": "comick",
     "39": "wikipedia",
     "4": "wikipedia",
     "40": "wikipedia",
@@ -804,7 +804,7 @@
     "80": "wikipedia",
     "81": "wikipedia",
     "82": "wikipedia",
-    "83": "wikipedia",
+    "83": "comick",
     "84": "wikipedia",
     "85": "wikipedia",
     "86": "wikipedia",
@@ -822,20 +822,24 @@
     "97": "wikipedia",
     "98": "wikipedia",
     "99": "wikipedia",
-    "99.5": "wikipedia"
+    "99.5": "comick"
   },
   "sources": [
+    {
+      "name": "curated",
+      "count": 16
+    },
     {
       "name": "wikipedia",
       "ref": "List of Berserk chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Berserk_chapters",
-      "count": 406
+      "count": 381
     },
     {
       "name": "comick",
       "ref": "berserk",
       "url": "https://comick.dev/comic/berserk",
-      "count": 0
+      "count": 9
     },
     {
       "name": "mangadex",

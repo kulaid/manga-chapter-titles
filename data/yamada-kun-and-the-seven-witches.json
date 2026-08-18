@@ -5,7 +5,7 @@
   "anilist_id": 65003,
   "article": "List of Yamada-kun and the Seven Witches chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Yamada-kun_and_the_Seven_Witches_chapters",
-  "scraped_at": "2026-08-17T19:10:17.357528471Z",
+  "scraped_at": "2026-08-18T00:14:58.37917103Z",
   "chapter_count": 244,
   "inferred_numbers": 0,
   "chapters": {
@@ -512,6 +512,12 @@
       "ref": "yamada-kun-to-7-nin-no-majo",
       "url": "https://comick.dev/comic/yamada-kun-to-7-nin-no-majo",
       "count": 1
+    },
+    {
+      "name": "mangadex",
+      "ref": "676fbea0-be6d-437e-be60-43800486842e",
+      "url": "https://mangadex.org/title/676fbea0-be6d-437e-be60-43800486842e",
+      "count": 0
     }
   ]
 }

@@ -5,7 +5,7 @@
   "anilist_id": 102988,
   "article": "List of Tokyo Revengers chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tokyo_Revengers_chapters",
-  "scraped_at": "2026-08-17T19:09:13.551976774Z",
+  "scraped_at": "2026-08-18T00:14:18.262766181Z",
   "chapter_count": 288,
   "inferred_numbers": 0,
   "chapters": {
@@ -600,6 +600,12 @@
       "ref": "03-tokyo-revengers",
       "url": "https://comick.dev/comic/03-tokyo-revengers",
       "count": 10
+    },
+    {
+      "name": "mangadex",
+      "ref": "59b36734-f2d6-46d7-97c0-06cfd2380852",
+      "url": "https://mangadex.org/title/59b36734-f2d6-46d7-97c0-06cfd2380852",
+      "count": 0
     }
   ]
 }

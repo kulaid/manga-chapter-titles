@@ -5,7 +5,7 @@
   "anilist_id": 30014,
   "article": "List of Rave Master chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Rave_Master_chapters",
-  "scraped_at": "2026-08-17T19:06:37.335302223Z",
+  "scraped_at": "2026-08-18T00:13:12.105456453Z",
   "chapter_count": 296,
   "inferred_numbers": 0,
   "chapters": {
@@ -616,6 +616,12 @@
       "ref": "rave",
       "url": "https://comick.dev/comic/rave",
       "count": 1
+    },
+    {
+      "name": "mangadex",
+      "ref": "5923081c-ad82-4a8b-a509-89ebe752db01",
+      "url": "https://mangadex.org/title/5923081c-ad82-4a8b-a509-89ebe752db01",
+      "count": 0
     }
   ]
 }

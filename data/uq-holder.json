@@ -5,7 +5,7 @@
   "anilist_id": 85151,
   "article": "List of UQ Holder! chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_UQ_Holder%21_chapters",
-  "scraped_at": "2026-08-17T19:09:36.746079129Z",
+  "scraped_at": "2026-08-18T00:14:34.404601262Z",
   "chapter_count": 192,
   "inferred_numbers": 0,
   "chapters": {
@@ -407,6 +407,12 @@
       "name": "comick",
       "ref": "uq-holder",
       "url": "https://comick.dev/comic/uq-holder",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "73d70237-b7c4-4350-ae11-fd09a103f84a",
+      "url": "https://mangadex.org/title/73d70237-b7c4-4350-ae11-fd09a103f84a",
       "count": 0
     }
   ]

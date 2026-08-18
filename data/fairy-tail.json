@@ -5,7 +5,7 @@
   "anilist_id": 30598,
   "article": "List of Fairy Tail chapters (volumes 1–15)",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Fairy_Tail_chapters_%28volumes_1%E2%80%9315%29",
-  "scraped_at": "2026-08-17T20:11:17.379894596Z",
+  "scraped_at": "2026-08-18T00:15:32.56035534Z",
   "chapter_count": 552,
   "inferred_numbers": 0,
   "chapters": {
@@ -1128,6 +1128,12 @@
       "ref": "00-fairy-tail",
       "url": "https://comick.dev/comic/00-fairy-tail",
       "count": 257
+    },
+    {
+      "name": "mangadex",
+      "ref": "227e3f72-863f-46f9-bafe-c43104ca29ee",
+      "url": "https://mangadex.org/title/227e3f72-863f-46f9-bafe-c43104ca29ee",
+      "count": 0
     }
   ]
 }

@@ -5,7 +5,7 @@
   "anilist_id": 31649,
   "article": "List of Liar Game chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Liar_Game_chapters",
-  "scraped_at": "2026-08-17T19:04:48.828247051Z",
+  "scraped_at": "2026-08-18T00:11:54.492252823Z",
   "chapter_count": 202,
   "inferred_numbers": 0,
   "chapters": {
@@ -428,6 +428,12 @@
       "ref": "liar-game",
       "url": "https://comick.dev/comic/liar-game",
       "count": 1
+    },
+    {
+      "name": "mangadex",
+      "ref": "d8779116-f000-446a-af46-cc221c0e7fc9",
+      "url": "https://mangadex.org/title/d8779116-f000-446a-af46-cc221c0e7fc9",
+      "count": 0
     }
   ]
 }

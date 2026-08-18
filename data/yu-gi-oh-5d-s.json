@@ -5,7 +5,7 @@
   "anilist_id": 45372,
   "article": "List of Yu-Gi-Oh! 5D's chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Yu-Gi-Oh%21_5D%27s_chapters",
-  "scraped_at": "2026-08-17T19:10:25.282800974Z",
+  "scraped_at": "2026-08-18T00:15:05.447340174Z",
   "chapter_count": 66,
   "inferred_numbers": 66,
   "chapters": {
@@ -150,6 +150,18 @@
       "ref": "List of Yu-Gi-Oh! 5D's chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Yu-Gi-Oh%21_5D%27s_chapters",
       "count": 66
+    },
+    {
+      "name": "comick",
+      "ref": "00-yu-gi-oh-5-d-s",
+      "url": "https://comick.dev/comic/00-yu-gi-oh-5-d-s",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "5a96c030-82b6-40f4-aa0f-c590b6f69f03",
+      "url": "https://mangadex.org/title/5a96c030-82b6-40f4-aa0f-c590b6f69f03",
+      "count": 0
     }
   ]
 }

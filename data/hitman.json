@@ -5,7 +5,7 @@
   "anilist_id": 102903,
   "article": "List of Hitman chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Hitman_chapters",
-  "scraped_at": "2026-08-17T19:03:39.230932334Z",
+  "scraped_at": "2026-08-18T00:11:03.988188946Z",
   "chapter_count": 100,
   "inferred_numbers": 0,
   "chapters": {
@@ -224,6 +224,12 @@
       "ref": "hitman",
       "url": "https://comick.dev/comic/hitman",
       "count": 3
+    },
+    {
+      "name": "mangadex",
+      "ref": "fae7c31a-3be5-401e-ab91-885160e04ebc",
+      "url": "https://mangadex.org/title/fae7c31a-3be5-401e-ab91-885160e04ebc",
+      "count": 0
     }
   ]
 }

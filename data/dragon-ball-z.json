@@ -5,7 +5,7 @@
   "anilist_id": 30042,
   "article": "List of Dragon Ball Z chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dragon_Ball_Z_chapters",
-  "scraped_at": "2026-08-17T19:55:29.820298305Z",
+  "scraped_at": "2026-08-18T00:15:31.499961422Z",
   "chapter_count": 325,
   "inferred_numbers": 1,
   "chapters": {
@@ -125,7 +125,7 @@
     "200": "The Cell Game Begins!",
     "201": "Heroes Assemble!",
     "202": "Hercule, Champion of the World",
-    "203": "Trunks: The Story",
+    "203": "Cell vs. Son Goku",
     "204": "Full Power",
     "205": "The Highest Level",
     "206": "Ring Out",
@@ -668,6 +668,12 @@
       "ref": "List of Dragon Ball Z chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Dragon_Ball_Z_chapters",
       "count": 325
+    },
+    {
+      "name": "comick",
+      "ref": "dragon-ball-z-anime-kids-comics",
+      "url": "https://comick.dev/comic/dragon-ball-z-anime-kids-comics",
+      "count": 0
     },
     {
       "name": "mangadex",

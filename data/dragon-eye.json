@@ -5,7 +5,7 @@
   "anilist_id": 30343,
   "article": "List of Dragon Eye chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dragon_Eye_chapters",
-  "scraped_at": "2026-08-17T19:01:44.51606895Z",
+  "scraped_at": "2026-08-18T00:10:00.835864231Z",
   "chapter_count": 12,
   "inferred_numbers": 12,
   "chapters": {
@@ -42,6 +42,18 @@
       "ref": "List of Dragon Eye chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Dragon_Eye_chapters",
       "count": 12
+    },
+    {
+      "name": "comick",
+      "ref": "ryuugan",
+      "url": "https://comick.dev/comic/ryuugan",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "4cf6421d-a8c6-4596-b384-6a812df60b3b",
+      "url": "https://mangadex.org/title/4cf6421d-a8c6-4596-b384-6a812df60b3b",
+      "count": 0
     }
   ]
 }

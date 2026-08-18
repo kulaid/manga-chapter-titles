@@ -5,7 +5,7 @@
   "anilist_id": 72223,
   "article": "List of Girls und Panzer books",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Girls_und_Panzer_books",
-  "scraped_at": "2026-08-17T19:02:53.973814771Z",
+  "scraped_at": "2026-08-18T00:10:38.985886416Z",
   "chapter_count": 150,
   "inferred_numbers": 263,
   "chapters": {
@@ -70,17 +70,17 @@
     "2": "Our Tankery (Part 2)",
     "2.5": "It's Everyone's Daily Life!",
     "20": "An Iron Wall! The Land Fortress Maus!!",
-    "21": "Girls und Panzer 1966 \"Full Charge!! Pivot Turn!",
-    "22": "Rabbit Garupan",
-    "23": "Erika's Pride",
-    "24": "This Is a Real Victory Celebration!?",
-    "25": "Lively Greetings at Sunset",
-    "26": "It's Mama und Panzer!",
-    "27": "It's a Tan Tankery!",
-    "28": "Duck Team Tankery",
-    "29": "Krasnaya Nitoka",
+    "21": "Pinch! It's the Automobile Club!",
+    "22": "It's Valentine's, Kuromorimine!",
+    "23": "It's Winter in Pravda!",
+    "24": "It's Giant Araippe vs. Ōarai Tank Company!",
+    "25": "It's Anchovy, Swim!",
+    "26": "It's Retaking the M3!",
+    "27": "It's a Visit from Darjeeling!",
+    "28": "It's the Yuzu-Momo Battle...?",
+    "29": "A Cool Midsummer Evening! It's the Ghost Story Meeting!",
     "3": "I'll Do It! Practice Match!!",
-    "30": "The Inherited Tankery",
+    "30": "Run, Type 89!",
     "31": "The Rivals are a Treasure!",
     "32": "Acting Like Me...?",
     "33": "Aah, Mother?",
@@ -88,7 +88,7 @@
     "35": "It's Midnight, Mika!",
     "36": "Ah, It's the Mothers' Side?",
     "37": "It's the Katyusha Diary! Chapter Two",
-    "38": "Anzio Wasn't Built in a Day",
+    "38": "The Death Match of Komoro 5",
     "39": "It's the Unexpected Chihatan Island!",
     "4": "So Strong! St. Gloriana Girls' College!!",
     "40": "It's Tracking Darjeeling!",
@@ -318,6 +318,12 @@
       "ref": "List of Girls und Panzer books",
       "url": "https://en.wikipedia.org/wiki/List_of_Girls_und_Panzer_books",
       "count": 150
+    },
+    {
+      "name": "comick",
+      "ref": "girls-und-panzer",
+      "url": "https://comick.dev/comic/girls-und-panzer",
+      "count": 0
     }
   ]
 }

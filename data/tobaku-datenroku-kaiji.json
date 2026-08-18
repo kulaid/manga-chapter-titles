@@ -5,7 +5,7 @@
   "anilist_id": 33574,
   "article": "List of Tobaku Datenroku Kaiji chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tobaku_Datenroku_Kaiji_chapters",
-  "scraped_at": "2026-08-17T19:55:51.024289827Z",
+  "scraped_at": "2026-08-18T00:15:52.60815771Z",
   "chapter_count": 131,
   "inferred_numbers": 0,
   "chapters": {
@@ -285,6 +285,12 @@
       "name": "comick",
       "ref": "tobaku-datenroku-kaiji",
       "url": "https://comick.dev/comic/tobaku-datenroku-kaiji",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "15a16d96-3817-4882-ad62-a93ba4c093ea",
+      "url": "https://mangadex.org/title/15a16d96-3817-4882-ad62-a93ba4c093ea",
       "count": 0
     }
   ]

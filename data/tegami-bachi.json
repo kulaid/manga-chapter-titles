@@ -5,7 +5,7 @@
   "anilist_id": 31709,
   "article": "List of Tegami Bachi chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Tegami_Bachi_chapters",
-  "scraped_at": "2026-08-17T19:09:02.021702288Z",
+  "scraped_at": "2026-08-18T00:14:09.245088396Z",
   "chapter_count": 102,
   "inferred_numbers": 0,
   "chapters": {
@@ -228,6 +228,12 @@
       "ref": "tegami-bachi",
       "url": "https://comick.dev/comic/tegami-bachi",
       "count": 3
+    },
+    {
+      "name": "mangadex",
+      "ref": "da229b4e-7722-40e2-8c0b-4def041fe884",
+      "url": "https://mangadex.org/title/da229b4e-7722-40e2-8c0b-4def041fe884",
+      "count": 0
     }
   ]
 }

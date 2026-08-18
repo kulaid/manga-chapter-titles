@@ -5,7 +5,7 @@
   "anilist_id": 30735,
   "article": "List of Black Lagoon chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Black_Lagoon_chapters",
-  "scraped_at": "2026-08-17T18:59:01.814730308Z",
+  "scraped_at": "2026-08-18T00:08:57.464286786Z",
   "chapter_count": 125,
   "inferred_numbers": 2,
   "chapters": {
@@ -77,7 +77,7 @@
     "47": "El Baile de la Muerte – Part 4\" [a.k.a. The Dance of Death]",
     "48": "El Baile de la Muerte – Part 5\" [a.k.a. The Dance of Death]",
     "49": "El Baile de la Muerte – Part 6\" [a.k.a. The Dance of Death]",
-    "5": "The Wondrously Captivating Roberta by Rei Hiroe, 3rd Grade, Ms. Basinger",
+    "5": "Das Wieder Erstehen Des Adlers/Die Rückkehr des Adlers – Part 1\" [a.k.a. The Recapture/Return of the Eagle]",
     "50": "El Baile de la Muerte – Part 7\" [a.k.a. The Dance of Death]",
     "51": "El Baile de la Muerte – Part 8\" [a.k.a. The Dance of Death]",
     "52": "El Baile de la Muerte – Part 9\" [a.k.a. The Dance of Death]",
@@ -109,7 +109,7 @@
     "75": "El Baile de la Muerte – Part 32\" [a.k.a. The Dance of Death]",
     "76": "El Baile de la Muerte – Part 33\" [a.k.a. The Dance of Death]",
     "76.5": "El Baile de la Muerte - Epilogue",
-    "77": "Epilogue",
+    "77": "The Wired Red Wild Card – Part 1",
     "78": "The Wired Red Wild Card – Part 2",
     "79": "The Wired Red Wild Card – Part 3",
     "8": "Das Wieder Erstehen Des Adlers/Die Rückkehr des Adlers – Part 4\" [a.k.a. The Recapture/Return of the Eagle]",
@@ -274,6 +274,12 @@
       "ref": "black-lagoon",
       "url": "https://comick.dev/comic/black-lagoon",
       "count": 8
+    },
+    {
+      "name": "mangadex",
+      "ref": "6da0b34b-db19-491a-b85c-6e31e0986f15",
+      "url": "https://mangadex.org/title/6da0b34b-db19-491a-b85c-6e31e0986f15",
+      "count": 0
     }
   ]
 }

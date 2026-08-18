@@ -5,14 +5,14 @@
   "anilist_id": 30336,
   "article": "List of Great Teacher Onizuka chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Great_Teacher_Onizuka_chapters",
-  "scraped_at": "2026-08-17T19:03:06.279195381Z",
+  "scraped_at": "2026-08-18T00:10:44.973934427Z",
   "chapter_count": 207,
   "inferred_numbers": 4,
   "chapters": {
     "1": "Enter Eikichi Onizuka",
     "10": "Gotta Be Rock N' Roll",
-    "100": "Scene 6: The Little Girl's Scandal",
-    "101": "Scene 7: For Tomorrow…",
+    "100": "Making the Adventure \"Go",
+    "101": "LOVE LOVE de Go",
     "102": "Just Can't Go Straight",
     "103": "Re-Inventing Anko",
     "104": "Moonlight Blues",
@@ -214,8 +214,8 @@
     "97.2": "The Little Girl's Hair",
     "97.3": "The Little Girl's Scandal",
     "97.4": "For Tomorrow...",
-    "98": "Scene 4: Where's the Office",
-    "99": "Scene 5: The Little Girl's Hair"
+    "98": "Making it a \"Go\" with the Treasure!",
+    "99": "Making it a \"Go\" with the Search Dogs"
   },
   "chapter_sources": {
     "1": "wikipedia",
@@ -438,6 +438,12 @@
       "ref": "gto",
       "url": "https://comick.dev/comic/gto",
       "count": 7
+    },
+    {
+      "name": "mangadex",
+      "ref": "02860cdf-1020-40f1-a23f-2025d80f6290",
+      "url": "https://mangadex.org/title/02860cdf-1020-40f1-a23f-2025d80f6290",
+      "count": 0
     }
   ]
 }

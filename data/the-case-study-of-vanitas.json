@@ -5,7 +5,7 @@
   "anilist_id": 86568,
   "article": "List of The Case Study of Vanitas chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_The_Case_Study_of_Vanitas_chapters",
-  "scraped_at": "2026-08-17T19:00:30.485134876Z",
+  "scraped_at": "2026-08-18T00:09:17.513534829Z",
   "chapter_count": 73,
   "inferred_numbers": 0,
   "chapters": {
@@ -170,6 +170,12 @@
       "ref": "vanitas-no-carte",
       "url": "https://comick.dev/comic/vanitas-no-carte",
       "count": 13
+    },
+    {
+      "name": "mangadex",
+      "ref": "e1d8b192-fa28-4651-bdaf-d4e0d4418ea8",
+      "url": "https://mangadex.org/title/e1d8b192-fa28-4651-bdaf-d4e0d4418ea8",
+      "count": 0
     }
   ]
 }

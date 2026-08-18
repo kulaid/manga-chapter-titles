@@ -5,7 +5,7 @@
   "anilist_id": 30003,
   "article": "List of 20th Century Boys chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_20th_Century_Boys_chapters",
-  "scraped_at": "2026-08-17T18:58:01.613696572Z",
+  "scraped_at": "2026-08-18T00:08:15.292258905Z",
   "chapter_count": 249,
   "inferred_numbers": 0,
   "chapters": {
@@ -522,6 +522,12 @@
       "ref": "20th-century-boys",
       "url": "https://comick.dev/comic/20th-century-boys",
       "count": 240
+    },
+    {
+      "name": "mangadex",
+      "ref": "ad06790a-01e3-400c-a449-0ec152d6756a",
+      "url": "https://mangadex.org/title/ad06790a-01e3-400c-a449-0ec152d6756a",
+      "count": 0
     }
   ]
 }

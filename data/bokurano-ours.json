@@ -5,7 +5,7 @@
   "anilist_id": 30670,
   "article": "List of Bokurano: Ours chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Bokurano:_Ours_chapters",
-  "scraped_at": "2026-08-17T18:59:14.818422572Z",
+  "scraped_at": "2026-08-18T00:09:06.466256217Z",
   "chapter_count": 68,
   "inferred_numbers": 4,
   "chapters": {
@@ -25,7 +25,7 @@
     "21": "Kunihiko Moji ①",
     "22": "Kunihiko Moji ②",
     "23": "Kunihiko Moji ③",
-    "24": "Bokurano Bonus",
+    "24": "Kunihiko Moji ④",
     "25": "Maki Ano ①",
     "26": "Maki Ano ②",
     "27": "Maki Ano ③",
@@ -38,7 +38,7 @@
     "33": "Takami Komoda ①",
     "34": "Takami Komoda ②",
     "35": "Takami Komoda ③",
-    "36": "Bokurano Backstage Revealed",
+    "36": "Takami Komoda ④",
     "37": "Takami Komoda ⑤",
     "38": "Aiko Tokosumi ①",
     "39": "Aiko Tokosumi ②",
@@ -58,7 +58,7 @@
     "51": "Kana Ushiro ④",
     "52": "Kana Ushiro ⑤",
     "53": "Jun Ushiro ①",
-    "54": "Bokurano Backstage Revealed",
+    "54": "Yoko Machi ①",
     "55": "Yoko Machi ②",
     "56": "Yoko Machi ③",
     "57": "Yoko Machi ④",
@@ -160,6 +160,12 @@
       "ref": "bokurano",
       "url": "https://comick.dev/comic/bokurano",
       "count": 2
+    },
+    {
+      "name": "mangadex",
+      "ref": "4d947ee1-47d6-42cc-bfad-e51147e58bee",
+      "url": "https://mangadex.org/title/4d947ee1-47d6-42cc-bfad-e51147e58bee",
+      "count": 0
     }
   ]
 }

@@ -36,9 +36,11 @@ ID directly; MangaPlus has none of its own, so it joins through the
 a source does not carry contributes nothing rather than something plausible
 from a different manga.
 
-The committed `data/` directory currently holds **338 series and 53,031 chapter
-titles** (2.8 MB), built from the 407 articles in Wikipedia's chapter-list
-category; the other 69 are volume lists carrying no chapter titles.
+The committed `data/` directory currently holds **367 series and 73,468 chapter
+titles** (4.6 MB), built from the 475 articles in Wikipedia's chapter-list
+category and its per-series subcategories. Of the rest, 34 are further parts of
+a series already counted — the six One Piece articles are one series — and 74
+are volume lists carrying no chapter titles.
 
 ## Quick start
 

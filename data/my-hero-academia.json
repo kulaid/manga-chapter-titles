@@ -5,7 +5,7 @@
   "anilist_id": 85486,
   "article": "List of My Hero Academia chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_My_Hero_Academia_chapters",
-  "scraped_at": "2026-08-17T19:05:37.101581374Z",
+  "scraped_at": "2026-08-18T00:12:25.431448628Z",
   "chapter_count": 431,
   "inferred_numbers": 0,
   "chapters": {
@@ -880,6 +880,18 @@
       "ref": "List of My Hero Academia chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_My_Hero_Academia_chapters",
       "count": 431
+    },
+    {
+      "name": "comick",
+      "ref": "00-boku-no-hero-academia",
+      "url": "https://comick.dev/comic/00-boku-no-hero-academia",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "4f3bcae4-2d96-4c9d-932c-90181d9c873e",
+      "url": "https://mangadex.org/title/4f3bcae4-2d96-4c9d-932c-90181d9c873e",
+      "count": 0
     }
   ]
 }

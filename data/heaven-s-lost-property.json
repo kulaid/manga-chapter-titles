@@ -5,8 +5,8 @@
   "anilist_id": 38144,
   "article": "List of Heaven's Lost Property chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Heaven%27s_Lost_Property_chapters",
-  "scraped_at": "2026-08-17T19:03:18.129495873Z",
-  "chapter_count": 77,
+  "scraped_at": "2026-08-18T00:10:52.998685295Z",
+  "chapter_count": 85,
   "inferred_numbers": 0,
   "chapters": {
     "1": "Falling",
@@ -46,10 +46,12 @@
     "40": "Leaving the Club",
     "41": "Execution",
     "42": "Combine",
+    "42.1": "An Oppai Mousepad and I ~Sakurai Tomoki Arc~",
     "43": "Division",
     "44": "Culture",
     "45": "Freedom",
     "46": "Love",
+    "46.1": "The Dirty Books Stored Properly Under My Bed - Conclusion",
     "47": "The Road Home",
     "48": "Stray Dogs",
     "49": "Sakurai",
@@ -59,6 +61,10 @@
     "52": "Language",
     "53": "The World",
     "54": "Sign of Life",
+    "54.1": "Sohara Mitsuki Arc: But I Just Picked Them Up!",
+    "54.2": "Astraea Arc: But I Just Picked Them Up!",
+    "54.3": "Nymph Arc: But I Just Picked Them Up!",
+    "54.4": "Ikaros Arc: But I Just Picked Them Up!",
     "55": "Power",
     "56": "Intellect",
     "57": "Holy Night",
@@ -84,6 +90,8 @@
     "75": "Freedom",
     "76": "Happiness",
     "77": "Normality",
+    "77.1": "The Strongest Middle Schooler",
+    "77.2": "Black and White!!",
     "8": "Homeless",
     "9": "Lies"
   },
@@ -125,10 +133,12 @@
     "40": "wikipedia",
     "41": "wikipedia",
     "42": "wikipedia",
+    "42.1": "comick",
     "43": "wikipedia",
     "44": "wikipedia",
     "45": "wikipedia",
     "46": "wikipedia",
+    "46.1": "comick",
     "47": "wikipedia",
     "48": "wikipedia",
     "49": "wikipedia",
@@ -138,6 +148,10 @@
     "52": "wikipedia",
     "53": "wikipedia",
     "54": "wikipedia",
+    "54.1": "comick",
+    "54.2": "comick",
+    "54.3": "comick",
+    "54.4": "comick",
     "55": "wikipedia",
     "56": "wikipedia",
     "57": "wikipedia",
@@ -163,6 +177,8 @@
     "75": "wikipedia",
     "76": "wikipedia",
     "77": "wikipedia",
+    "77.1": "comick",
+    "77.2": "comick",
     "8": "wikipedia",
     "9": "wikipedia"
   },
@@ -172,6 +188,18 @@
       "ref": "List of Heaven's Lost Property chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Heaven%27s_Lost_Property_chapters",
       "count": 77
+    },
+    {
+      "name": "comick",
+      "ref": "sora-no-otoshimono",
+      "url": "https://comick.dev/comic/sora-no-otoshimono",
+      "count": 8
+    },
+    {
+      "name": "mangadex",
+      "ref": "f66c2b61-7eda-4047-a5ff-97945db0589c",
+      "url": "https://mangadex.org/title/f66c2b61-7eda-4047-a5ff-97945db0589c",
+      "count": 0
     }
   ]
 }

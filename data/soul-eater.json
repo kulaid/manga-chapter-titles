@@ -5,14 +5,14 @@
   "anilist_id": 30908,
   "article": "List of Soul Eater chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Soul_Eater_chapters",
-  "scraped_at": "2026-08-17T19:07:48.56496372Z",
+  "scraped_at": "2026-08-18T00:13:56.248800791Z",
   "chapter_count": 118,
   "inferred_numbers": 3,
   "chapters": {
     "0.1": "Soul Eater",
     "0.2": "Black Star",
     "0.3": "Death The Kid",
-    "1": "Soul Eater",
+    "1": "Remedial Lesson (Part 1)",
     "1.1": "Remedial Lesson (Part 1)",
     "10": "The Experiment (Part 1)",
     "100": "To the Moon",
@@ -38,7 +38,7 @@
     "17": "A Fight to the Death at the Anniversary Celebration (Part 2)",
     "18": "A Fight to the Death at the Anniversary Celebration (Part 3)",
     "19": "A Fight to the Death at the Anniversary Celebration (Part 4)",
-    "2": "Black Star",
+    "2": "Remedial Lesson (Part 2)",
     "20": "A Fight to the Death at the Anniversary Celebration (Part 5)",
     "21": "A Fight to the Death at the Anniversary Celebration (Part 6)",
     "22": "A Fight to the Death at the Anniversary Celebration (Part 7)",
@@ -49,7 +49,7 @@
     "27": "The Bodyguard (Part 1)",
     "28": "The Bodyguard (Part 2)",
     "29": "Snake",
-    "3": "Death the Kid",
+    "3": "The 'New Student' and 'Soul Observation'",
     "30": "The Reunion Express (Part 1)",
     "31": "The Reunion Express (Part 2)",
     "32": "The Corner of the Room",
@@ -260,6 +260,12 @@
       "ref": "soul-eater",
       "url": "https://comick.dev/comic/soul-eater",
       "count": 5
+    },
+    {
+      "name": "mangadex",
+      "ref": "53ef1720-7a5d-40ad-90b0-2f9ca0a1ab01",
+      "url": "https://mangadex.org/title/53ef1720-7a5d-40ad-90b0-2f9ca0a1ab01",
+      "count": 0
     }
   ]
 }

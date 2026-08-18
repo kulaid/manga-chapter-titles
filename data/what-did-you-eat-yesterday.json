@@ -5,7 +5,7 @@
   "anilist_id": 37989,
   "article": "List of What Did You Eat Yesterday? chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_What_Did_You_Eat_Yesterday%3F_chapters",
-  "scraped_at": "2026-08-17T19:10:01.646208171Z",
+  "scraped_at": "2026-08-18T00:14:47.340607381Z",
   "chapter_count": 144,
   "inferred_numbers": 0,
   "chapters": {
@@ -306,6 +306,18 @@
       "ref": "List of What Did You Eat Yesterday? chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_What_Did_You_Eat_Yesterday%3F_chapters",
       "count": 144
+    },
+    {
+      "name": "comick",
+      "ref": "kinou-nani-tabeta",
+      "url": "https://comick.dev/comic/kinou-nani-tabeta",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "a1f335cb-4193-4189-a94e-a52e40632892",
+      "url": "https://mangadex.org/title/a1f335cb-4193-4189-a94e-a52e40632892",
+      "count": 0
     }
   ]
 }

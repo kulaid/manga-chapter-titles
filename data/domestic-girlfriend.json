@@ -5,7 +5,7 @@
   "anilist_id": 85802,
   "article": "List of Domestic Girlfriend chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Domestic_Girlfriend_chapters",
-  "scraped_at": "2026-08-17T19:01:33.41540158Z",
+  "scraped_at": "2026-08-18T00:09:53.842142804Z",
   "chapter_count": 288,
   "inferred_numbers": 0,
   "chapters": {
@@ -600,6 +600,12 @@
       "ref": "domestic-na-kanojo",
       "url": "https://comick.dev/comic/domestic-na-kanojo",
       "count": 12
+    },
+    {
+      "name": "mangadex",
+      "ref": "4f9eab7d-a2b2-4ee5-9d59-6744f0df4e12",
+      "url": "https://mangadex.org/title/4f9eab7d-a2b2-4ee5-9d59-6744f0df4e12",
+      "count": 0
     }
   ]
 }

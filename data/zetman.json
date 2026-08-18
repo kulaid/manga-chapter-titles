@@ -5,7 +5,7 @@
   "anilist_id": 31534,
   "article": "List of Zetman chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Zetman_chapters",
-  "scraped_at": "2026-08-17T19:10:34.460528247Z",
+  "scraped_at": "2026-08-18T00:15:11.460449265Z",
   "chapter_count": 226,
   "inferred_numbers": 0,
   "chapters": {
@@ -475,6 +475,12 @@
       "name": "comick",
       "ref": "zetman",
       "url": "https://comick.dev/comic/zetman",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "dd3f5e4f-0018-4fba-abe6-daca5a784d3a",
+      "url": "https://mangadex.org/title/dd3f5e4f-0018-4fba-abe6-daca5a784d3a",
       "count": 0
     }
   ]

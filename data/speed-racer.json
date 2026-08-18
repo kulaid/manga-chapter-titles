@@ -5,7 +5,7 @@
   "anilist_id": 37546,
   "article": "List of Speed Racer chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Speed_Racer_chapters",
-  "scraped_at": "2026-08-17T19:07:51.154962703Z",
+  "scraped_at": "2026-08-18T00:13:58.187626227Z",
   "chapter_count": 4,
   "inferred_numbers": 0,
   "chapters": {
@@ -31,6 +31,12 @@
       "name": "comick",
       "ref": "mach-go-go-go",
       "url": "https://comick.dev/comic/mach-go-go-go",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "8f1a1d63-59c8-4167-8e30-8d4d37274c01",
+      "url": "https://mangadex.org/title/8f1a1d63-59c8-4167-8e30-8d4d37274c01",
       "count": 0
     }
   ]

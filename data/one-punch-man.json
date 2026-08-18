@@ -5,7 +5,7 @@
   "anilist_id": 74347,
   "article": "List of One-Punch Man chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_One-Punch_Man_chapters",
-  "scraped_at": "2026-08-17T19:05:58.867592818Z",
+  "scraped_at": "2026-08-18T00:12:48.952811889Z",
   "chapter_count": 294,
   "inferred_numbers": 0,
   "chapters": {
@@ -612,6 +612,12 @@
       "ref": "01-one-punch-man",
       "url": "https://comick.dev/comic/01-one-punch-man",
       "count": 100
+    },
+    {
+      "name": "mangadex",
+      "ref": "d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
+      "url": "https://mangadex.org/title/d8a959f7-648e-4c8d-8f23-f1f3f8e129f3",
+      "count": 0
     }
   ]
 }

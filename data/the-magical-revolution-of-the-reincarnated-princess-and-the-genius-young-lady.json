@@ -5,11 +5,11 @@
   "anilist_id": 122344,
   "article": "List of The Magical Revolution of the Reincarnated Princess and the Genius Young Lady volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_The_Magical_Revolution_of_the_Reincarnated_Princess_and_the_Genius_Young_Lady_volumes",
-  "scraped_at": "2026-08-17T19:04:52.987387398Z",
+  "scraped_at": "2026-08-18T00:11:57.515584416Z",
   "chapter_count": 15,
   "inferred_numbers": 22,
   "chapters": {
-    "1": "Opening",
+    "1": "The Reincarnated Princess Can’t Brake Suddenly",
     "10": "For a Free Tomorrow",
     "11": "The Magic of Beginnings",
     "12": "Ending",
@@ -20,9 +20,9 @@
     "4": "Like Picturing a Rainbow",
     "5": "The Reincarnated Princess Still Yearns for Magic",
     "5.5": "Bonus",
-    "6": "Ending",
-    "7": "Opening",
-    "8": "Opening",
+    "6": "To Whom the Crown Should Pass",
+    "7": "Blind Eyes Unturned",
+    "8": "For Whom Magic Exists",
     "9": "Peeling Off the Mask"
   },
   "chapter_sources": {
@@ -54,6 +54,12 @@
       "ref": "00-the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady",
       "url": "https://comick.dev/comic/00-the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady",
       "count": 2
+    },
+    {
+      "name": "mangadex",
+      "ref": "46596dea-95de-40e8-b2b8-4e63aa6acd1a",
+      "url": "https://mangadex.org/title/46596dea-95de-40e8-b2b8-4e63aa6acd1a",
+      "count": 0
     }
   ]
 }

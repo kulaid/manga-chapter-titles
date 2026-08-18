@@ -5,7 +5,7 @@
   "anilist_id": 37627,
   "article": "List of Dance in the Vampire Bund volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Dance_in_the_Vampire_Bund_volumes",
-  "scraped_at": "2026-08-17T19:00:58.444623694Z",
+  "scraped_at": "2026-08-18T00:09:39.800214144Z",
   "chapter_count": 82,
   "inferred_numbers": 0,
   "chapters": {
@@ -182,6 +182,18 @@
       "ref": "List of Dance in the Vampire Bund volumes",
       "url": "https://en.wikipedia.org/wiki/List_of_Dance_in_the_Vampire_Bund_volumes",
       "count": 82
+    },
+    {
+      "name": "comick",
+      "ref": "dance-in-the-vampire-bund",
+      "url": "https://comick.dev/comic/dance-in-the-vampire-bund",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "72265368-9a36-4270-b91d-ced7f1f92b4d",
+      "url": "https://mangadex.org/title/72265368-9a36-4270-b91d-ced7f1f92b4d",
+      "count": 0
     }
   ]
 }

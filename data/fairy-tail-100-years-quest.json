@@ -5,7 +5,7 @@
   "anilist_id": 103255,
   "article": "List of Fairy Tail: 100 Years Quest chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Fairy_Tail:_100_Years_Quest_chapters",
-  "scraped_at": "2026-08-17T19:02:02.782186655Z",
+  "scraped_at": "2026-08-18T00:10:13.859004736Z",
   "chapter_count": 220,
   "inferred_numbers": 0,
   "chapters": {
@@ -464,6 +464,12 @@
       "ref": "02-fairy-tail-100-years-quest",
       "url": "https://comick.dev/comic/02-fairy-tail-100-years-quest",
       "count": 132
+    },
+    {
+      "name": "mangadex",
+      "ref": "52ede55c-1584-4019-b85b-3902a423c3ab",
+      "url": "https://mangadex.org/title/52ede55c-1584-4019-b85b-3902a423c3ab",
+      "count": 0
     }
   ]
 }

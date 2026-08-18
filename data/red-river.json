@@ -5,7 +5,7 @@
   "anilist_id": 30079,
   "article": "List of Red River chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Red_River_chapters",
-  "scraped_at": "2026-08-17T19:06:43.785690524Z",
+  "scraped_at": "2026-08-18T00:13:15.098141171Z",
   "chapter_count": 6,
   "inferred_numbers": 6,
   "chapters": {
@@ -30,6 +30,18 @@
       "ref": "List of Red River chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Red_River_chapters",
       "count": 6
+    },
+    {
+      "name": "comick",
+      "ref": "anatolia-story",
+      "url": "https://comick.dev/comic/anatolia-story",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "9a901eb2-94f6-4761-97fe-de211050b344",
+      "url": "https://mangadex.org/title/9a901eb2-94f6-4761-97fe-de211050b344",
+      "count": 0
     }
   ]
 }

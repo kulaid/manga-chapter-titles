@@ -5,7 +5,7 @@
   "anilist_id": 99757,
   "article": "List of Smile Down the Runway chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Smile_Down_the_Runway_chapters",
-  "scraped_at": "2026-08-17T19:07:46.32400443Z",
+  "scraped_at": "2026-08-18T00:13:54.23287742Z",
   "chapter_count": 194,
   "inferred_numbers": 0,
   "chapters": {
@@ -411,6 +411,12 @@
       "name": "comick",
       "ref": "runway-de-waratte",
       "url": "https://comick.dev/comic/runway-de-waratte",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "1d4e3c56-3e9f-4a50-a9ed-417fb87f1911",
+      "url": "https://mangadex.org/title/1d4e3c56-3e9f-4a50-a9ed-417fb87f1911",
       "count": 0
     }
   ]

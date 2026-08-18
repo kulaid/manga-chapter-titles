@@ -5,7 +5,7 @@
   "anilist_id": 30050,
   "article": "List of Shaman King chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Shaman_King_chapters",
-  "scraped_at": "2026-08-17T19:07:34.006516482Z",
+  "scraped_at": "2026-08-18T00:13:44.153077307Z",
   "chapter_count": 310,
   "inferred_numbers": 7,
   "chapters": {
@@ -644,6 +644,12 @@
       "ref": "shaman-king",
       "url": "https://comick.dev/comic/shaman-king",
       "count": 303
+    },
+    {
+      "name": "mangadex",
+      "ref": "5ce0d9df-a3cc-421e-bc33-796869b6b9f7",
+      "url": "https://mangadex.org/title/5ce0d9df-a3cc-421e-bc33-796869b6b9f7",
+      "count": 0
     }
   ]
 }

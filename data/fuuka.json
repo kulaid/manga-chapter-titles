@@ -5,7 +5,7 @@
   "anilist_id": 85216,
   "article": "List of Fuuka chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Fuuka_chapters",
-  "scraped_at": "2026-08-17T19:02:38.042816172Z",
+  "scraped_at": "2026-08-18T00:10:29.906654707Z",
   "chapter_count": 201,
   "inferred_numbers": 4,
   "chapters": {
@@ -28,7 +28,7 @@
     "113": "The Price for Performing.",
     "114": "Full Moon!",
     "115": "Tour and Friends.",
-    "116": "?. \"Japanese Food!",
+    "116": "The Tour Begins!",
     "117": "Why She's Sleepy.",
     "118": "I don't Mind.",
     "119": "Fuuka!",
@@ -51,7 +51,7 @@
     "133": "Play It Again!",
     "134": "New Year's Shrine Visit!",
     "135": "Fukuoka!",
-    "136": "?. \"Christmas!",
+    "136": "Shaken!",
     "137": "New Song!",
     "138": "Recollection",
     "139": "What To Say To Whom.",
@@ -160,7 +160,7 @@
     "54": "Serious Battle.",
     "55": "The Audience we Want to Reach.",
     "55.5": "Fuuka",
-    "56": "?. \"Fuuka.",
+    "56": "Just One Thing.",
     "57": "Hesitation.",
     "58": "Graduation.",
     "59": "Production Company.",
@@ -206,7 +206,7 @@
     "93": "Who'll Be Number One!",
     "94": "Pre-party!",
     "95": "Opening!",
-    "96": "?. \"Om-Rice!",
+    "96": "Clash!",
     "97": "Day Two!",
     "98": "Collaboration!",
     "99": "Our Wings!"
@@ -426,6 +426,12 @@
       "ref": "fuuka",
       "url": "https://comick.dev/comic/fuuka",
       "count": 6
+    },
+    {
+      "name": "mangadex",
+      "ref": "eb5c81e8-5d5b-4552-b582-ee9c29c5368b",
+      "url": "https://mangadex.org/title/eb5c81e8-5d5b-4552-b582-ee9c29c5368b",
+      "count": 0
     }
   ]
 }

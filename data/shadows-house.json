@@ -5,7 +5,7 @@
   "anilist_id": 104063,
   "article": "List of Shadows House chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Shadows_House_chapters",
-  "scraped_at": "2026-08-17T19:07:32.7570303Z",
+  "scraped_at": "2026-08-18T00:13:43.132443129Z",
   "chapter_count": 258,
   "inferred_numbers": 0,
   "chapters": {
@@ -534,6 +534,12 @@
       "ref": "List of Shadows House chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Shadows_House_chapters",
       "count": 241
+    },
+    {
+      "name": "comick",
+      "ref": "shadows-house-monochrome",
+      "url": "https://comick.dev/comic/shadows-house-monochrome",
+      "count": 0
     },
     {
       "name": "mangadex",

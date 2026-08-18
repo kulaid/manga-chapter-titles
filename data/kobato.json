@@ -5,7 +5,7 @@
   "anilist_id": 30118,
   "article": "List of Kobato chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Kobato_chapters",
-  "scraped_at": "2026-08-17T19:04:39.295735042Z",
+  "scraped_at": "2026-08-18T00:11:47.458783009Z",
   "chapter_count": 43,
   "inferred_numbers": 0,
   "chapters": {
@@ -110,6 +110,12 @@
       "ref": "kobato",
       "url": "https://comick.dev/comic/kobato",
       "count": 4
+    },
+    {
+      "name": "mangadex",
+      "ref": "e47adf50-f2de-4f19-8f32-412a9369a48d",
+      "url": "https://mangadex.org/title/e47adf50-f2de-4f19-8f32-412a9369a48d",
+      "count": 0
     }
   ]
 }

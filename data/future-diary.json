@@ -5,11 +5,14 @@
   "anilist_id": 30584,
   "article": "List of Future Diary chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Future_Diary_chapters",
-  "scraped_at": "2026-08-17T19:02:36.361563286Z",
-  "chapter_count": 59,
+  "scraped_at": "2026-08-18T00:10:28.925236279Z",
+  "chapter_count": 67,
   "inferred_numbers": 0,
   "chapters": {
+    "0": "Prologue",
     "1": "Future Diary",
+    "1.1": "Future Diary",
+    "1.2": "Future Diary (2)",
     "10": "Yuno Gasai's Happy Day",
     "11": "First Day / Child Combo Kill",
     "12": "Second Day / Suspicious Toybox",
@@ -21,6 +24,8 @@
     "18": "Even With Killing You",
     "19": "Beyond the Door",
     "2": "Concentration / The 12 Future Diary Holders",
+    "2.1": "The 12 Future Diary Holders",
+    "2.2": "The 12 Future Diary Holders (2)",
     "20": "The Two Escape",
     "21": "Their Dilemma",
     "22": "Adult's Power, Children's Power",
@@ -32,6 +37,8 @@
     "28": "Dummy Game",
     "29": "Dance of Fresh Blood",
     "3": "Heart's Bomb",
+    "3.1": "Heart's Bomb",
+    "3.2": "Heart's Bomb (2)",
     "30": "Family Lies",
     "31": "Fissure",
     "32": "Boy and Girl Revolution",
@@ -50,6 +57,7 @@
     "44": "The Gasai Bank Twin Tower Building Branch",
     "45": "Last Battle vs. 9th",
     "46": "Conclusion",
+    "46.5": "Extra",
     "47": "All Collapse Preludes",
     "48": "The End of Tender Lies and Deus",
     "49": "Aru Akise vs. Yuno Gasai",
@@ -70,7 +78,10 @@
     "9": "Happy End / Unhappy End"
   },
   "chapter_sources": {
+    "0": "comick",
     "1": "wikipedia",
+    "1.1": "comick",
+    "1.2": "comick",
     "10": "wikipedia",
     "11": "wikipedia",
     "12": "wikipedia",
@@ -82,6 +93,8 @@
     "18": "wikipedia",
     "19": "wikipedia",
     "2": "wikipedia",
+    "2.1": "comick",
+    "2.2": "comick",
     "20": "wikipedia",
     "21": "wikipedia",
     "22": "wikipedia",
@@ -93,6 +106,8 @@
     "28": "wikipedia",
     "29": "wikipedia",
     "3": "wikipedia",
+    "3.1": "comick",
+    "3.2": "comick",
     "30": "wikipedia",
     "31": "wikipedia",
     "32": "wikipedia",
@@ -111,6 +126,7 @@
     "44": "wikipedia",
     "45": "wikipedia",
     "46": "wikipedia",
+    "46.5": "comick",
     "47": "wikipedia",
     "48": "wikipedia",
     "49": "wikipedia",
@@ -136,6 +152,18 @@
       "ref": "List of Future Diary chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Future_Diary_chapters",
       "count": 59
+    },
+    {
+      "name": "comick",
+      "ref": "mirai-nikki",
+      "url": "https://comick.dev/comic/mirai-nikki",
+      "count": 8
+    },
+    {
+      "name": "mangadex",
+      "ref": "7bcdff73-7d1a-4c88-8501-58b027e1632c",
+      "url": "https://mangadex.org/title/7bcdff73-7d1a-4c88-8501-58b027e1632c",
+      "count": 0
     }
   ]
 }

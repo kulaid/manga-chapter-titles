@@ -5,7 +5,7 @@
   "anilist_id": 33866,
   "article": "List of Black Butler chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Black_Butler_chapters",
-  "scraped_at": "2026-08-17T18:58:45.549622229Z",
+  "scraped_at": "2026-08-18T00:08:53.413090167Z",
   "chapter_count": 229,
   "inferred_numbers": 0,
   "chapters": {
@@ -482,6 +482,12 @@
       "ref": "kuroshitsuji",
       "url": "https://comick.dev/comic/kuroshitsuji",
       "count": 14
+    },
+    {
+      "name": "mangadex",
+      "ref": "8bd19e5c-94f7-4368-a918-50f463857446",
+      "url": "https://mangadex.org/title/8bd19e5c-94f7-4368-a918-50f463857446",
+      "count": 0
     }
   ]
 }

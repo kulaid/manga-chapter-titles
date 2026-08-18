@@ -5,7 +5,7 @@
   "anilist_id": 97626,
   "article": "List of How Heavy Are the Dumbbells You Lift? chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_How_Heavy_Are_the_Dumbbells_You_Lift%3F_chapters",
-  "scraped_at": "2026-08-17T19:03:46.564874509Z",
+  "scraped_at": "2026-08-18T00:11:09.054806666Z",
   "chapter_count": 207,
   "inferred_numbers": 1,
   "chapters": {
@@ -438,6 +438,12 @@
       "ref": "danberu-nan-kiro-moteru",
       "url": "https://comick.dev/comic/danberu-nan-kiro-moteru",
       "count": 27
+    },
+    {
+      "name": "mangadex",
+      "ref": "44de2381-a8fd-45fc-a4c8-038d0095e098",
+      "url": "https://mangadex.org/title/44de2381-a8fd-45fc-a4c8-038d0095e098",
+      "count": 0
     }
   ]
 }

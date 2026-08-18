@@ -5,7 +5,7 @@
   "anilist_id": 37747,
   "article": "List of Ushio \u0026 Tora chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Ushio_\u0026_Tora_chapters",
-  "scraped_at": "2026-08-17T19:09:39.889374521Z",
+  "scraped_at": "2026-08-18T00:14:36.304697322Z",
   "chapter_count": 317,
   "inferred_numbers": 0,
   "chapters": {
@@ -658,6 +658,12 @@
       "ref": "ushio-to-tora",
       "url": "https://comick.dev/comic/ushio-to-tora",
       "count": 5
+    },
+    {
+      "name": "mangadex",
+      "ref": "353060d8-9596-4084-98e3-931581b36497",
+      "url": "https://mangadex.org/title/353060d8-9596-4084-98e3-931581b36497",
+      "count": 0
     }
   ]
 }

@@ -5,7 +5,7 @@
   "anilist_id": 33572,
   "article": "List of Gambling Apocalypse: Kaiji chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Gambling_Apocalypse:_Kaiji_chapters",
-  "scraped_at": "2026-08-17T19:55:49.117912834Z",
+  "scraped_at": "2026-08-18T00:15:50.617444334Z",
   "chapter_count": 158,
   "inferred_numbers": 0,
   "chapters": {
@@ -339,6 +339,12 @@
       "name": "comick",
       "ref": "tobaku-mokushiroku-kaiji",
       "url": "https://comick.dev/comic/tobaku-mokushiroku-kaiji",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "805973c7-1c02-4cdd-a9c8-6a98dd0e203a",
+      "url": "https://mangadex.org/title/805973c7-1c02-4cdd-a9c8-6a98dd0e203a",
       "count": 0
     }
   ]

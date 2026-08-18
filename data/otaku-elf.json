@@ -5,7 +5,7 @@
   "anilist_id": 110049,
   "article": "List of Otaku Elf chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Otaku_Elf_chapters",
-  "scraped_at": "2026-08-17T19:06:01.275199246Z",
+  "scraped_at": "2026-08-18T00:12:50.994903133Z",
   "chapter_count": 193,
   "inferred_numbers": 0,
   "chapters": {
@@ -410,6 +410,12 @@
       "ref": "edomae-elf",
       "url": "https://comick.dev/comic/edomae-elf",
       "count": 1
+    },
+    {
+      "name": "mangadex",
+      "ref": "1b0673c7-f4e9-4e3a-bfbd-46835ab22819",
+      "url": "https://mangadex.org/title/1b0673c7-f4e9-4e3a-bfbd-46835ab22819",
+      "count": 0
     }
   ]
 }

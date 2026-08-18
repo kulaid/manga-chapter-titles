@@ -5,7 +5,7 @@
   "anilist_id": 87321,
   "article": "List of Goblin Slayer volumes",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Goblin_Slayer_volumes",
-  "scraped_at": "2026-08-17T19:02:57.092491886Z",
+  "scraped_at": "2026-08-18T00:10:40.922704845Z",
   "chapter_count": 13,
   "inferred_numbers": 5,
   "chapters": {
@@ -44,6 +44,18 @@
       "ref": "List of Goblin Slayer volumes",
       "url": "https://en.wikipedia.org/wiki/List_of_Goblin_Slayer_volumes",
       "count": 13
+    },
+    {
+      "name": "comick",
+      "ref": "goblin-slayer",
+      "url": "https://comick.dev/comic/goblin-slayer",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "67a7dfd1-a39d-46c8-8ff2-9a24a9abaeb6",
+      "url": "https://mangadex.org/title/67a7dfd1-a39d-46c8-8ff2-9a24a9abaeb6",
+      "count": 0
     }
   ]
 }

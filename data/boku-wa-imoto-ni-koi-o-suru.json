@@ -5,7 +5,7 @@
   "anilist_id": 33127,
   "article": "List of Boku wa Imōto ni Koi o Suru chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Boku_wa_Im%C5%8Dto_ni_Koi_o_Suru_chapters",
-  "scraped_at": "2026-08-17T18:59:13.788438915Z",
+  "scraped_at": "2026-08-18T00:09:05.454946005Z",
   "chapter_count": 62,
   "inferred_numbers": 62,
   "chapters": {
@@ -142,6 +142,18 @@
       "ref": "List of Boku wa Imōto ni Koi o Suru chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Boku_wa_Im%C5%8Dto_ni_Koi_o_Suru_chapters",
       "count": 62
+    },
+    {
+      "name": "comick",
+      "ref": "boku-wa-imouto-ni-koi-wo-suru",
+      "url": "https://comick.dev/comic/boku-wa-imouto-ni-koi-wo-suru",
+      "count": 0
+    },
+    {
+      "name": "mangadex",
+      "ref": "5f36f32d-8ee9-42d4-9e0c-110c80148b35",
+      "url": "https://mangadex.org/title/5f36f32d-8ee9-42d4-9e0c-110c80148b35",
+      "count": 0
     }
   ]
 }

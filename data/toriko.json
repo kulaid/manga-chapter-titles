@@ -5,8 +5,8 @@
   "anilist_id": 37887,
   "article": "List of Toriko chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Toriko_chapters",
-  "scraped_at": "2026-08-17T19:09:18.241120387Z",
-  "chapter_count": 396,
+  "scraped_at": "2026-08-18T00:14:21.309796343Z",
+  "chapter_count": 399,
   "inferred_numbers": 0,
   "chapters": {
     "1": "Toriko the Bishoku-Ya!!",
@@ -192,6 +192,7 @@
     "261": "Ootake's Ambition!!",
     "262": "Midora's Dining Table!!",
     "263": "The World's Greatest Bishokuya!!",
+    "263.5": "Volume 29.5 Ending",
     "264": "Now, to Gourmet World!!",
     "265": "Rain of Blessings!!",
     "266": "The Final Treasure Chest!!",
@@ -373,6 +374,8 @@
     "68": "The Meeting Bar, Heavy Lodge",
     "69": "The Voyage to Ice Hell",
     "7": "At Hotel Gourmet!!",
+    "7.1": "Omake 1",
+    "7.2": "Omake 2",
     "70": "Insane Banquet On Board",
     "71": "The Upwind Path",
     "72": "Each One's Route",
@@ -590,6 +593,7 @@
     "261": "wikipedia",
     "262": "wikipedia",
     "263": "wikipedia",
+    "263.5": "comick",
     "264": "wikipedia",
     "265": "wikipedia",
     "266": "wikipedia",
@@ -771,6 +775,8 @@
     "68": "wikipedia",
     "69": "wikipedia",
     "7": "wikipedia",
+    "7.1": "comick",
+    "7.2": "comick",
     "70": "wikipedia",
     "71": "wikipedia",
     "72": "wikipedia",
@@ -810,6 +816,18 @@
       "ref": "List of Toriko chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Toriko_chapters",
       "count": 396
+    },
+    {
+      "name": "comick",
+      "ref": "00-toriko",
+      "url": "https://comick.dev/comic/00-toriko",
+      "count": 3
+    },
+    {
+      "name": "mangadex",
+      "ref": "a7a8149f-65cf-4cab-a243-9b00b91e3b24",
+      "url": "https://mangadex.org/title/a7a8149f-65cf-4cab-a243-9b00b91e3b24",
+      "count": 0
     }
   ]
 }

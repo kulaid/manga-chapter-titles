@@ -5,7 +5,7 @@
   "anilist_id": 30642,
   "article": "List of Vinland Saga chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Vinland_Saga_chapters",
-  "scraped_at": "2026-08-17T19:09:45.433681408Z",
+  "scraped_at": "2026-08-18T00:14:40.327026552Z",
   "chapter_count": 226,
   "inferred_numbers": 0,
   "chapters": {
@@ -237,7 +237,7 @@
     "99": "Departure"
   },
   "chapter_sources": {
-    "0": "wikipedia",
+    "0": "comick",
     "1": "wikipedia",
     "10": "wikipedia",
     "100": "wikipedia",
@@ -364,7 +364,7 @@
     "208": "wikipedia",
     "209": "wikipedia",
     "21": "wikipedia",
-    "21.5": "wikipedia",
+    "21.5": "comick",
     "210": "wikipedia",
     "211": "wikipedia",
     "212": "wikipedia",
@@ -399,7 +399,7 @@
     "40": "wikipedia",
     "41": "wikipedia",
     "42": "wikipedia",
-    "42.5": "wikipedia",
+    "42.5": "comick",
     "43": "wikipedia",
     "44": "wikipedia",
     "45": "wikipedia",
@@ -432,7 +432,7 @@
     "7": "wikipedia",
     "70": "wikipedia",
     "71": "wikipedia",
-    "71.5": "wikipedia",
+    "71.5": "comick",
     "72": "wikipedia",
     "73": "wikipedia",
     "74": "wikipedia",
@@ -466,15 +466,25 @@
   },
   "sources": [
     {
+      "name": "curated",
+      "count": 2
+    },
+    {
       "name": "wikipedia",
       "ref": "List of Vinland Saga chapters",
       "url": "https://en.wikipedia.org/wiki/List_of_Vinland_Saga_chapters",
-      "count": 226
+      "count": 220
     },
     {
       "name": "comick",
       "ref": "03-vinland-saga",
       "url": "https://comick.dev/comic/03-vinland-saga",
+      "count": 6
+    },
+    {
+      "name": "mangadex",
+      "ref": "5d1fc77e-706a-4fc5-bea8-486c9be0145d",
+      "url": "https://mangadex.org/title/5d1fc77e-706a-4fc5-bea8-486c9be0145d",
       "count": 0
     }
   ]
