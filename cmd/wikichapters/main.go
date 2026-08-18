@@ -23,6 +23,7 @@ import (
 	"github.com/kulaid/manga-chapter-titles/internal/anilist"
 	"github.com/kulaid/manga-chapter-titles/internal/comick"
 	"github.com/kulaid/manga-chapter-titles/internal/mangadex"
+	"github.com/kulaid/manga-chapter-titles/internal/mangaplus"
 	"github.com/kulaid/manga-chapter-titles/internal/overrides"
 	"github.com/kulaid/manga-chapter-titles/internal/sources"
 	"github.com/kulaid/manga-chapter-titles/internal/wikipedia"
@@ -337,6 +338,7 @@ func runAdd(args []string) error {
 	ovrPath := fs.String("overrides", overrides.DefaultFile, "hand-curated corrections applied after automatic resolution")
 	useComick := fs.Bool("comick", true, "consult Comick")
 	useMangaDex := fs.Bool("mangadex", true, "consult MangaDex")
+	useMangaPlus := fs.Bool("mangaplus", true, "consult MangaPlus for official Shueisha titles")
 	dryRun := fs.Bool("dry-run", false, "list what would be added without scraping")
 	refresh := fs.Bool("refresh", false, "re-scrape -series even though it is already in the dataset")
 	if err := parseArgs(fs, args); err != nil {
@@ -520,6 +522,9 @@ func runAdd(args []string) error {
 	}
 
 	var srcs []sources.Source
+	if *useMangaPlus {
+		srcs = append(srcs, newMangaPlusClient(idx))
+	}
 	if *useComick {
 		srcs = append(srcs, comick.New(wikipedia.DefaultUserAgent))
 	}
@@ -1011,6 +1016,9 @@ func carryForward(prior, scraped *chaptertitles.Series) *chaptertitles.Series {
 	if scraped.AniListID != 0 {
 		out.AniListID = scraped.AniListID
 	}
+	if scraped.MangaPlusID != 0 {
+		out.MangaPlusID = scraped.MangaPlusID
+	}
 
 	// Wikipedia's share of the record is replaced, not added to. A rebuild
 	// exists to pick up parser fixes, and those fixes both correct titles in
@@ -1169,6 +1177,7 @@ func indexEntryFor(s *chaptertitles.Series) chaptertitles.IndexEntry {
 		Slug:         s.Slug,
 		MatchKey:     s.MatchKey,
 		AniListID:    s.AniListID,
+		MangaPlusID:  s.MangaPlusID,
 		File:         s.Slug + ".json",
 		Article:      s.Article,
 		ChapterCount: s.ChapterCount,
@@ -1458,6 +1467,7 @@ func runEnrich(args []string) error {
 	limit := fs.Int("limit", 0, "stop after N series (0 = no limit)")
 	useComick := fs.Bool("comick", true, "consult Comick")
 	useMangaDex := fs.Bool("mangadex", true, "consult MangaDex")
+	useMangaPlus := fs.Bool("mangaplus", true, "consult MangaPlus for official Shueisha titles")
 	ovrPath := fs.String("overrides", overrides.DefaultFile, "hand-curated corrections applied after the sources")
 	if err := parseArgs(fs, args); err != nil {
 		return err
@@ -1473,9 +1483,12 @@ func runEnrich(args []string) error {
 		return fmt.Errorf("reading dataset: %w", err)
 	}
 
-	// Priority order: the licensed Wikipedia titles already in the file win,
-	// then Comick (which names more chapters than MangaDex), then MangaDex.
+	// Sources are consulted in rank order; the merge decides what wins, so this
+	// order only affects which fetch happens first. See sources.Rank.
 	var srcs []sources.Source
+	if *useMangaPlus {
+		srcs = append(srcs, newMangaPlusClient(idx))
+	}
 	if *useComick {
 		srcs = append(srcs, comick.New(wikipedia.DefaultUserAgent))
 	}
@@ -1536,6 +1549,8 @@ func enrichDataset(dir string, idx *chaptertitles.Index, srcs []sources.Source, 
 		merged := sources.Merge(storedFor(s), results, names)
 		applyMerge(s, merged)
 		applyCuratedChapters(s, ovr)
+		rememberMangaPlusID(s, results, names)
+		e.MangaPlusID = s.MangaPlusID
 
 		if werr := chaptertitles.Write(dir, s); werr != nil {
 			return fmt.Errorf("writing %s: %w", s.Slug, werr)
@@ -1566,6 +1581,47 @@ func enrichDataset(dir string, idx *chaptertitles.Index, srcs []sources.Source, 
 	fmt.Fprintf(os.Stderr, "\nDone: %d series checked, %d gained titles, %d titles added, %d skipped (no AniList ID)\n",
 		processed, enriched, addedTotal, skipped)
 	return nil
+}
+
+// newMangaPlusClient builds the MangaPlus source, seeded with the title ids the
+// dataset already holds so the run does not repeat a MangaDex lookup per series.
+func newMangaPlusClient(idx *chaptertitles.Index) *mangaplus.Client {
+	c := mangaplus.New(wikipedia.DefaultUserAgent)
+	c.Resolver = mangaPlusResolver{mangadex.New(wikipedia.DefaultUserAgent)}
+	for _, e := range idx.Series {
+		if e.AniListID != 0 && e.MangaPlusID != 0 {
+			c.TitleIDs[e.AniListID] = e.MangaPlusID
+		}
+	}
+	return c
+}
+
+// mangaPlusResolver finds a series' MangaPlus title id through MangaDex.
+//
+// MangaPlus carries no AniList ID, so the join runs through a MangaDex entry
+// confirmed by its links.al, whose links.engtl points at the MangaPlus page.
+// That keeps the match ID-based end to end.
+type mangaPlusResolver struct{ md *mangadex.Client }
+
+func (r mangaPlusResolver) MangaPlusID(anilistID int, seriesName string) (int, error) {
+	link, err := r.md.EngTL(anilistID, seriesName)
+	if err != nil {
+		return 0, err
+	}
+	return mangaplus.TitleIDFromEngTL(link), nil
+}
+
+// rememberMangaPlusID records the title id MangaPlus reported, so the next run
+// can skip resolving it. The id is carried on the result's Ref.
+func rememberMangaPlusID(s *chaptertitles.Series, results []sources.Result, names []string) {
+	for i, r := range results {
+		if i >= len(names) || names[i] != sources.NameMangaPlus || r.Ref == "" {
+			continue
+		}
+		if id, err := strconv.Atoi(r.Ref); err == nil && id != 0 {
+			s.MangaPlusID = id
+		}
+	}
 }
 
 // sourceNameForExisting reports which source the titles already in a file came

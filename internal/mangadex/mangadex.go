@@ -198,3 +198,32 @@ func (c *Client) Fetch(anilistID int, seriesName string) (sources.Result, error)
 		Titles: titles,
 	}, nil
 }
+
+// EngTL returns a series' links.engtl — the URL of its official English
+// edition — or "" when MangaDex has no confirmed entry for the AniList ID.
+//
+// The field is how a MangaPlus series is identified, since MangaPlus carries no
+// AniList ID of its own. The entry is confirmed by links.al exactly as every
+// other lookup here is, so no name matching is introduced: the name only
+// narrows the search, and an unconfirmed entry yields "".
+func (c *Client) EngTL(anilistID int, seriesName string) (string, error) {
+	params := url.Values{}
+	params.Set("title", seriesName)
+	params.Set("limit", "10")
+	for _, r := range []string{"safe", "suggestive", "erotica", "pornographic"} {
+		params.Add("contentRating[]", r)
+	}
+
+	var resp mangaSearchResponse
+	if err := c.get(apiBase+"/manga?"+params.Encode(), &resp); err != nil {
+		return "", err
+	}
+
+	want := strconv.Itoa(anilistID)
+	for _, m := range resp.Data {
+		if m.Attributes.Links["al"] == want {
+			return m.Attributes.Links["engtl"], nil
+		}
+	}
+	return "", nil
+}

@@ -37,6 +37,10 @@ type Series struct {
 	// confirmed. Consumers that already hold an AniList ID should match on it
 	// rather than on MatchKey, since it is exact.
 	AniListID int `json:"anilist_id,omitempty"`
+	// MangaPlusID is the series' MangaPlus title id, or 0 when it has none.
+	// Most series do not: MangaPlus carries Shueisha titles only. It is
+	// recorded so a run does not repeat the MangaDex round trip that derived it.
+	MangaPlusID int `json:"mangaplus_id,omitempty"`
 	// Article is the Wikipedia article the titles came from.
 	Article string `json:"article"`
 	// SourceURL is the canonical URL of that article.
@@ -81,6 +85,7 @@ type IndexEntry struct {
 	Slug         string `json:"slug"`
 	MatchKey     string `json:"match_key"`
 	AniListID    int    `json:"anilist_id,omitempty"`
+	MangaPlusID  int    `json:"mangaplus_id,omitempty"`
 	File         string `json:"file"`
 	Article      string `json:"article"`
 	ChapterCount int    `json:"chapter_count"`
