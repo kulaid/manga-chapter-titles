@@ -23,10 +23,26 @@ var wikiNumberedListStart = regexp.MustCompile(`(?is)^\s*\{\{\s*numbered list\s*
 // prefixes a bullet entry, e.g. "012. " or "008–011. ".
 var wikiChapterNumPrefix = regexp.MustCompile(`^\s*(\d+(?:\.\d+)?)\s*(?:[–—-]\s*(\d+(?:\.\d+)?))?\s*\.\s+`)
 
+// wikiRenumberedEntryPrefix matches a bullet whose label renames the chapter
+// for an arc but states the real series number in parentheses, e.g.
+// "Kintama Lesson 1 (Lesson 372). ". List of Gintama chapters writes its
+// Kintama and Mantama arcs this way. The parenthesised number is authoritative
+// and the whole label has to go: left in place it glues the arc name and an
+// unbalanced quote onto the title.
+var wikiRenumberedEntryPrefix = regexp.MustCompile(
+	`^[^.\n]{1,40}\(\s*(?i:chapter|lesson|ch\.|no\.|act|episode|part)\s*(\d+(?:\.\d+)?)\s*\)\s*\.\s+`)
+
 // wikiSpecialEntryPrefix matches a non-numeric bullet label such as
 // "Bonus Material. " or "Extra. ", which denotes an entry that is not a
 // numbered chapter and must not consume a chapter slot.
-var wikiSpecialEntryPrefix = regexp.MustCompile(`^[A-Za-z][A-Za-z0-9 '\-]{0,30}\.\s+`)
+//
+// The label must carry no digits. It used to admit them, which made it swallow
+// the "Lesson 1." prefix that List of Gintama chapters puts on every entry:
+// all 696 chapters were skipped as special entries, and the few bullets with
+// no lesson number — the one-shots bundled at the end of a volume — were left
+// to claim chapters 1-13 from list position. A label with a number in it is a
+// chapter marker; only a wordy one is an extra.
+var wikiSpecialEntryPrefix = regexp.MustCompile(`^[A-Za-z][A-Za-z '\-]{0,30}\.\s+`)
 
 // wikiTitleRangeSuffix matches a trailing "(1–4)" on a title, which names the
 // span of parts a collapsed multi-chapter entry covers.
@@ -75,7 +91,7 @@ var wikiExtraEntry = regexp.MustCompile(`(?i)^(bonus|extra|special|omake|afterwo
 // separator. A match only counts when a label, a separator, or a zero-padded
 // number is present — see stripChapterLabel.
 var wikiLabeledChapterPrefix = regexp.MustCompile(
-	`^(?i:(chapter|chapters|ch\.|navigation|trick|act|file|episode|case|story|round|stage|step|track|gate|night|fasıl|part|no\.)\s*)?` +
+	`^(?i:(chapter|chapters|ch\.|lesson|navigation|trick|act|file|episode|case|story|round|stage|step|track|gate|night|fasıl|part|no\.)\s*)?` +
 		`(\d+(?:\.\d+)?)(?:\s*[–—-]\s*(\d+(?:\.\d+)?))?` +
 		`\s*(?i:fasıl)?\s*([:.\-–—])?(?:\s+|$)`)
 
@@ -83,6 +99,27 @@ var wikiLabeledChapterPrefix = regexp.MustCompile(
 // Apostrophes are deliberately excluded: they open legitimate titles ("'Tis")
 // and italic markup has already been stripped by the time this is applied.
 const wikiQuoteTrim = "\"“”"
+
+// unquote removes the single pair of quotes these lists wrap a title in.
+//
+// It takes one character off each end, never a run: a title that itself ends on
+// a quoted phrase closes with two quotes in the source, one the phrase's and
+// one the list's, and trimming the run ate both. Gintama's lesson 132 came out
+// as ...Me or Your Work? with the inner phrase left hanging open.
+//
+// A title quoted on one end only is lopsided in the source -- Wikipedia writes
+// lesson 219 as ...not angry at all". -- so there is no pair to take and the
+// run trim still applies. Guessing which end is the stray would be inventing
+// punctuation.
+func unquote(s string) string {
+	r := []rune(s)
+	if len(r) >= 2 &&
+		strings.ContainsRune(wikiQuoteTrim, r[0]) &&
+		strings.ContainsRune(wikiQuoteTrim, r[len(r)-1]) {
+		return string(r[1 : len(r)-1])
+	}
+	return strings.Trim(s, wikiQuoteTrim)
+}
 
 // wikiRefTag strips <ref>...</ref> and self-closing <ref /> citations.
 var wikiRefTag = regexp.MustCompile(`(?is)<ref[^>]*/>|<ref[^>]*>.*?</ref>`)
@@ -278,13 +315,26 @@ func parseChapters(wikitext string, allowBareNumbers bool) (Chapters, int, int) 
 				continue
 			}
 
+			// An arc that renames its chapters still states the real number in
+			// parentheses; trust that over the running count.
+			if m := wikiRenumberedEntryPrefix.FindStringSubmatch(entry); m != nil {
+				if num, err := strconv.ParseFloat(m[1], 64); err == nil {
+					if title := CleanTitle(entry[len(m[0]):]); title != "" {
+						assign(num, title, true)
+						next = num + 1
+						continue
+					}
+				}
+			}
+
 			// A lettered label such as "Bonus Material." marks an extra that is
 			// not part of the chapter numbering; skip it without advancing.
 			if wikiSpecialEntryPrefix.MatchString(entry) {
 				continue
 			}
 
-			title := CleanTitle(entry)
+			raw := cleanMarkup(entry)
+			title := strings.TrimSpace(unquote(raw))
 			if title == "" {
 				continue
 			}
@@ -292,7 +342,15 @@ func parseChapters(wikitext string, allowBareNumbers bool) (Chapters, int, int) 
 			// The number may live inside the title ("Chapter 12: Foo") rather
 			// than as a list marker, in which case it is authoritative and the
 			// label should not survive into the title.
-			if start, end, rest, ok := stripChapterLabel(title, allowBareNumbers); ok {
+			//
+			// The still-quoted text is tried first so the label comes off before
+			// the quotes do; only a label that sits inside the quotes ("Chapter
+			// 12: Foo" as the whole quoted title) needs the unwrapped form.
+			start, end, rest, ok := stripChapterLabel(raw, allowBareNumbers)
+			if !ok {
+				start, end, rest, ok = stripChapterLabel(title, allowBareNumbers)
+			}
+			if ok {
 				labeled++
 				if rest == "" {
 					// A bare "Chapter 46" with no title carries no information.
@@ -353,7 +411,7 @@ func stripChapterLabel(title string, allowBareNumbers bool) (start, end float64,
 	// Removing the prefix can expose a quote that was balanced in the original
 	// ("Chapter 1: \"Maomao\"" leaves "\"Maomao"), so trim quotes again.
 	rest = strings.TrimSpace(title[len(m[0]):])
-	rest = strings.Trim(rest, wikiQuoteTrim)
+	rest = unquote(rest)
 	return start, end, strings.TrimSpace(rest), true
 }
 
@@ -487,6 +545,15 @@ func splitParams(s string) []string {
 // title: it unwraps {{Nihongo}} and similar templates to their first parameter,
 // resolves wikilinks, and strips refs, comments, markup and surrounding quotes.
 func CleanTitle(entry string) string {
+	return strings.TrimSpace(unquote(cleanMarkup(entry)))
+}
+
+// cleanMarkup is CleanTitle without the quote unwrapping, for callers that have
+// to take a chapter label off the front first. "Lesson 132." precedes a title
+// that itself closes on a quoted phrase, so the entry ends in two quotes and
+// only one of them belongs to the list -- which is impossible to tell before
+// the label is gone and the pair is balanced.
+func cleanMarkup(entry string) string {
 	s := wikiComment.ReplaceAllString(entry, "")
 	s = wikiRefTag.ReplaceAllString(s, "")
 	s = resolveTemplates(s)
@@ -501,10 +568,6 @@ func CleanTitle(entry string) string {
 	s = strings.ReplaceAll(s, "''", "")
 
 	s = wikiWhitespace.ReplaceAllString(s, " ")
-	s = strings.TrimSpace(s)
-
-	// Titles are conventionally quoted in these lists; drop the quotes.
-	s = strings.Trim(s, wikiQuoteTrim)
 	return strings.TrimSpace(s)
 }
 

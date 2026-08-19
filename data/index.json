@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T05:12:02.316501072Z",
+  "generated_at": "2026-08-19T04:39:15.47966287Z",
   "count": 367,
   "series": [
     {
@@ -1650,7 +1650,7 @@
       "anilist_id": 30044,
       "file": "gintama.json",
       "article": "List of Gintama chapters",
-      "chapter_count": 696,
+      "chapter_count": 708,
       "sources": [
         "wikipedia",
         "comick"

@@ -656,3 +656,106 @@ func TestParseChapters_rangeLabelLeftAloneWhenCountsDisagree(t *testing.T) {
 		}
 	}
 }
+
+func TestParseChapters_numberedLabelWordIsNotASpecialEntry(t *testing.T) {
+	// List of Gintama chapters numbers every entry "Lesson 1." rather than
+	// "001.". The special-entry rule, meant to skip non-numeric labels like
+	// "Bonus Material.", matched the whole "Lesson 1." prefix and dropped all
+	// 696 chapters — while the handful of bullets that carry no lesson number
+	// (the one-shots bundled at the end of a volume) fell through and were
+	// numbered 1, 2, 3... from list position. The dataset ended up holding
+	// one-shot titles for chapters 1-13 and none of the real ones.
+	//
+	// A label containing a number is a chapter marker, never a special entry.
+	wikitext := `
+{{Graphic novel list
+|ChapterList =
+* Lesson 1. {{nihongo|"Nobody with Naturally Wavy Hair Can Be That Bad"|天然パーマに悪い奴はいない|Tennen Pāma ni Warui Yatsu wa Inai}}
+* Lesson 2. {{nihongo|"Responsible Owners Should Clean Up After Their Pets"|ペットは飼主が責任を持って最後まで面倒を見ましょう|Petto wa Kainushi ga Sekinin o Motte Saigo made Mendō o Mimashō}}
+* {{nihongo|''[[Dandelion (manga)|Dandelion]]''|だんでらいおん|Danderaion}}
+* Bonus Material. "Something Extra"
+}}`
+
+	got, inferred := ParseChapters(wikitext)
+
+	assertChapters(t, got, map[float64]string{
+		1: "Nobody with Naturally Wavy Hair Can Be That Bad",
+		2: "Responsible Owners Should Clean Up After Their Pets",
+		3: "Dandelion",
+	})
+	if inferred != 1 {
+		t.Errorf("inferred = %d, want 1 (only the unnumbered one-shot bullet)", inferred)
+	}
+}
+
+func TestParseChapters_parenthesisedNumberInRenamedEntry(t *testing.T) {
+	// The Kintama and Mantama arcs of List of Gintama chapters restyle their
+	// lessons but keep the series numbering, which the article records in
+	// parentheses: "Kintama Lesson 1 (Lesson 372).". The parenthesised number
+	// is the real one, and the label must not survive into the title — it used
+	// to, dragging an unbalanced quote along with it.
+	wikitext := `
+{{Graphic novel list
+|ChapterList =
+* Lesson 371. {{nihongo|"Bald Head"|禿頭|Tokutō}}
+*Kintama Lesson 1 (Lesson 372). {{nihongo|"Nobody with a Straight Perm is a Bad Guy"|ストレートパーマに悪い奴はいない|Sutorēto Pāma ni Warui Yatsu wa Inai}}
+*Mantama Counter 1 (Lesson 380). {{nihongo|"A Man's Sword"|男の剣|Otoko no Ken}}
+}}`
+
+	got, inferred := ParseChapters(wikitext)
+
+	assertChapters(t, got, map[float64]string{
+		371: "Bald Head",
+		372: "Nobody with a Straight Perm is a Bad Guy",
+		380: "A Man's Sword",
+	})
+	if inferred != 0 {
+		t.Errorf("inferred = %d, want 0 (every entry states its number)", inferred)
+	}
+}
+
+func TestCleanTitle_unwrapsOnlyTheOuterQuotePair(t *testing.T) {
+	// A title that itself ends on a quoted phrase gets two closing quotes in
+	// the source: the phrase's and the list's. Trimming the whole run ate both,
+	// so Gintama's lesson 132 lost the quote that closes "...Your Work?" and
+	// lesson 376 lost the one closing ..."Enemy".
+	cases := []struct{ in, want string }{
+		{`"German Suplex Any Woman Who Asks, "Which Is More Important, Me or Your Work?""`,
+			`German Suplex Any Woman Who Asks, "Which Is More Important, Me or Your Work?"`},
+		{`"Writing "Friend" and Reading it as "Enemy""`,
+			`Writing "Friend" and Reading it as "Enemy"`},
+		{`""Prison Break, Season 2," What? Then It's No Longer a "Prison Break," Is It?"`,
+			`"Prison Break, Season 2," What? Then It's No Longer a "Prison Break," Is It?`},
+		// The ordinary case: one wrapping pair and nothing else.
+		{`"Dandelion"`, `Dandelion`},
+		// Lopsided quoting in the source is left alone rather than guessed at.
+		{`"People who say "I'm really getting angry" are in fact not angry at all".`,
+			`People who say "I'm really getting angry" are in fact not angry at all".`},
+	}
+
+	for _, c := range cases {
+		if got := CleanTitle(c.in); got != c.want {
+			t.Errorf("CleanTitle(%q)\n got %q\nwant %q", c.in, got, c.want)
+		}
+	}
+}
+
+func TestParseChapters_labelComesOffBeforeQuotes(t *testing.T) {
+	// Gintama's lesson 132 is a labelled entry whose title ends on a quoted
+	// phrase, so the source carries two closing quotes. Unwrapping before the
+	// "Lesson 132." label was stripped could not tell the phrase's quote from
+	// the list's and took both.
+	wikitext := `
+{{Graphic novel list
+|ChapterList =
+* Lesson 132. {{nihongo|"German Suplex Any Woman Who Asks, "Which Is More Important, Me or Your Work?""|私と仕事どっちが大事なのとかいう女にはジャーマンスープレックス|W}}
+* Lesson 193. {{nihongo|""Prison Break, Season 2," What? Then It's No Longer a "Prison Break," Is It?"|プ|P}}
+}}`
+
+	got, _ := ParseChapters(wikitext)
+
+	assertChapters(t, got, map[float64]string{
+		132: `German Suplex Any Woman Who Asks, "Which Is More Important, Me or Your Work?"`,
+		193: `"Prison Break, Season 2," What? Then It's No Longer a "Prison Break," Is It?`,
+	})
+}
