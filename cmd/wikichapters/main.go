@@ -10,8 +10,10 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
+	"io/fs"
 	"os"
 	"regexp"
 	"sort"
@@ -288,7 +290,9 @@ func runBuild(args []string) error {
 		// leave a directory of series nothing can look up.
 		const flushEvery = 20
 		if len(entries)%flushEvery == 0 {
-			if ferr := writeIndexCopy(*out, entries); ferr != nil {
+			// The index this run writes covers the category it enumerated;
+			// every other series already in the dataset keeps its row.
+			if ferr := writeIndexCopy(*out, append(entries, carriedIndexEntries(*out, entries)...)); ferr != nil {
 				return fmt.Errorf("writing index: %w", ferr)
 			}
 		}
@@ -306,6 +310,7 @@ func runBuild(args []string) error {
 		fmt.Fprintf(os.Stderr, "%s %-60s %d titles%s\n", progress, truncate(article, 60), s.ChapterCount, note)
 	}
 
+	entries = append(entries, carriedIndexEntries(*out, entries)...)
 	if err := writeIndexCopy(*out, entries); err != nil {
 		return fmt.Errorf("writing index: %w", err)
 	}
@@ -600,6 +605,9 @@ func runFetch(args []string) error {
 		return printJSON(s)
 	}
 	if err := chaptertitles.Write(*out, s); err != nil {
+		return err
+	}
+	if err := upsertIndexEntry(*out, s); err != nil {
 		return err
 	}
 	fmt.Fprintf(os.Stderr, "Wrote %s/%s.json (%d titles", *out, s.Slug, s.ChapterCount)
@@ -1297,6 +1305,62 @@ func runAniList(args []string) error {
 	fmt.Fprintf(os.Stderr, "\nDone: %d resolved, %d already had an ID, %d without a confident match\n",
 		resolved, already, missed)
 	return nil
+}
+
+// upsertIndexEntry records s in the dataset index, replacing the row the series
+// already has. Consumers resolve a series through index.json alone, so a series
+// file written without an index row is invisible to them -- which is what
+// "fetch" used to leave behind for every series Wikipedia does not file under
+// its chapter-list category, the only series "fetch" is needed for.
+func upsertIndexEntry(dir string, s *chaptertitles.Series) error {
+	var entries []chaptertitles.IndexEntry
+	if idx, err := chaptertitles.ReadIndex(dir); err == nil {
+		entries = idx.Series
+	} else if !errors.Is(err, fs.ErrNotExist) {
+		return fmt.Errorf("reading index: %w", err)
+	}
+
+	entry := indexEntryFor(s)
+	for i, e := range entries {
+		if e.Slug == s.Slug || (e.MatchKey != "" && e.MatchKey == s.MatchKey) {
+			entries[i] = entry
+			return writeIndexCopy(dir, entries)
+		}
+	}
+	return writeIndexCopy(dir, append(entries, entry))
+}
+
+// carriedIndexEntries returns the index rows of series that are in the dataset
+// but were not scraped this run, so a rebuild keeps them.
+//
+// A build writes the index from the articles it enumerated, and that category
+// is not the whole dataset: a series whose chapters Wikipedia lists on the
+// series article itself (Gachiakuta) is never in it and can only arrive through
+// "fetch". Rebuilding the index from the scrape alone dropped every one of
+// them, orphaning a file in data/ that nothing could look up again.
+func carriedIndexEntries(dir string, scraped []chaptertitles.IndexEntry) []chaptertitles.IndexEntry {
+	idx, err := chaptertitles.ReadIndex(dir)
+	if err != nil {
+		return nil
+	}
+
+	slugs := make(map[string]bool, len(scraped))
+	keys := make(map[string]bool, len(scraped))
+	for _, e := range scraped {
+		slugs[e.Slug] = true
+		if e.MatchKey != "" {
+			keys[e.MatchKey] = true
+		}
+	}
+
+	var carried []chaptertitles.IndexEntry
+	for _, e := range idx.Series {
+		if slugs[e.Slug] || (e.MatchKey != "" && keys[e.MatchKey]) {
+			continue
+		}
+		carried = append(carried, e)
+	}
+	return carried
 }
 
 // writeIndexCopy writes the index from a copy of entries. WriteIndex sorts what

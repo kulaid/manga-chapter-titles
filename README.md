@@ -36,8 +36,8 @@ ID directly; MangaPlus has none of its own, so it joins through the
 a source does not carry contributes nothing rather than something plausible
 from a different manga.
 
-The committed `data/` directory currently holds **367 series and 73,468 chapter
-titles** (4.6 MB), built from the 475 articles in Wikipedia's chapter-list
+The committed `data/` directory currently holds **368 series and 73,664 chapter
+titles** (5.3 MB), built from the 475 articles in Wikipedia's chapter-list
 category and its per-series subcategories. Of the rest, 34 are further parts of
 a series already counted — the six One Piece articles are one series — and 74
 are volume lists carrying no chapter titles.
@@ -236,6 +236,22 @@ Useful flags:
 
 Flags may appear before or after the series name.
 
+### Series Wikipedia files elsewhere
+
+`build` and `add` work from `Category:Lists of manga volumes and chapters`, and
+not every series is in it: one whose chapters are listed on its own article
+rather than a separate `List of X chapters` page — Gachiakuta, say — appears
+nowhere in that category and can only be added by name:
+
+```sh
+./bin/wikichapters fetch "Gachiakuta"      # writes data/gachiakuta.json and its index row
+./bin/wikichapters enrich -only "Gachiakuta"
+```
+
+`fetch` registers the series in `index.json`, which is the only thing consumers
+read to resolve a name, and a rebuild keeps the index row of every series it did
+not scrape — so a hand-fetched series is not dropped by the next `build`.
+
 ## How series are discovered
 
 `build` enumerates `Category:Lists of manga volumes and chapters`, which is how
@@ -261,6 +277,14 @@ The chapter lists are hand-written wikitext, and three formats are in use:
   share a single title across several chapters (Berserk, Vinland Saga)
 - `* {{Nihongo|...}}` plain bullets with no numbers, which continue from the
   previous entry
+
+An ongoing series also keeps its newest chapters in a bulleted section headed
+*Chapters not yet in tankōbon format* (a few articles word it *…in volume
+format*), because no volume collects them yet. Those bullets sit in no template
+parameter, so they are read as a chapter list of their own, ending at the next
+heading — the section that follows is usually an episode list, whose bullets are
+not chapters. Around 120 articles carry one, and without this the most recent
+licensed titles of every ongoing series were missing.
 
 On top of that the parser unwraps `{{Nihongo}}` and similar templates, resolves
 wikilinks, strips refs/comments/HTML, skips non-chapter bullets like

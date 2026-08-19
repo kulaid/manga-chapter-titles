@@ -221,3 +221,123 @@ func TestResolveAniListID_negativeOverrideMeansNoID(t *testing.T) {
 		t.Errorf("AniListID = %d, want 0 (deliberately unresolved)", s.AniListID)
 	}
 }
+
+// "fetch" is the only way a series Wikipedia does not file under its chapter-
+// list category gets in, and consumers resolve a series through index.json
+// alone -- so a series file written without an index row is invisible.
+
+func TestUpsertIndexEntry_registersAFetchedSeries(t *testing.T) {
+	dir := t.TempDir()
+	if err := chaptertitles.WriteIndex(dir, []chaptertitles.IndexEntry{
+		{Series: "Berserk", Slug: "berserk", MatchKey: "berserk", File: "berserk.json", ChapterCount: 381},
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	s := &chaptertitles.Series{
+		Series: "Gachiakuta", Slug: "gachiakuta", MatchKey: "gachiakuta",
+		Article: "Gachiakuta", ChapterCount: 174,
+	}
+	if err := upsertIndexEntry(dir, s); err != nil {
+		t.Fatal(err)
+	}
+
+	idx, err := chaptertitles.ReadIndex(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(idx.Series) != 2 {
+		t.Fatalf("index holds %d series, want 2: %+v", len(idx.Series), idx.Series)
+	}
+	var got *chaptertitles.IndexEntry
+	for i, e := range idx.Series {
+		if e.Slug == "gachiakuta" {
+			got = &idx.Series[i]
+		}
+	}
+	if got == nil {
+		t.Fatalf("gachiakuta is not in the index: %+v", idx.Series)
+	}
+	if got.File != "gachiakuta.json" || got.ChapterCount != 174 {
+		t.Errorf("entry = %+v, want file gachiakuta.json with 174 chapters", *got)
+	}
+}
+
+func TestUpsertIndexEntry_replacesTheRowTheSeriesAlreadyHas(t *testing.T) {
+	dir := t.TempDir()
+	if err := chaptertitles.WriteIndex(dir, []chaptertitles.IndexEntry{
+		{Series: "Gachiakuta", Slug: "gachiakuta", MatchKey: "gachiakuta", File: "gachiakuta.json", ChapterCount: 170},
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	s := &chaptertitles.Series{
+		Series: "Gachiakuta", Slug: "gachiakuta", MatchKey: "gachiakuta",
+		Article: "Gachiakuta", ChapterCount: 174,
+	}
+	if err := upsertIndexEntry(dir, s); err != nil {
+		t.Fatal(err)
+	}
+
+	idx, err := chaptertitles.ReadIndex(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(idx.Series) != 1 {
+		t.Fatalf("index holds %d series, want 1 (the row is replaced, not duplicated): %+v", len(idx.Series), idx.Series)
+	}
+	if idx.Series[0].ChapterCount != 174 {
+		t.Errorf("ChapterCount = %d, want the refreshed 174", idx.Series[0].ChapterCount)
+	}
+}
+
+func TestUpsertIndexEntry_missingIndexIsNotAnError(t *testing.T) {
+	dir := t.TempDir()
+
+	s := &chaptertitles.Series{Series: "Gachiakuta", Slug: "gachiakuta", MatchKey: "gachiakuta", ChapterCount: 174}
+	if err := upsertIndexEntry(dir, s); err != nil {
+		t.Fatalf("upsertIndexEntry on an empty directory: %v", err)
+	}
+
+	idx, err := chaptertitles.ReadIndex(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(idx.Series) != 1 {
+		t.Fatalf("index holds %d series, want 1", len(idx.Series))
+	}
+}
+
+// A build rewrites the index from the articles it scraped, so a series that is
+// in the dataset but not in Wikipedia's category -- everything "fetch" added --
+// used to be dropped from the index by the next build, leaving its file
+// orphaned in data/.
+
+func TestCarriedIndexEntries_keepsSeriesTheRunDidNotScrape(t *testing.T) {
+	dir := t.TempDir()
+	if err := chaptertitles.WriteIndex(dir, []chaptertitles.IndexEntry{
+		{Series: "Berserk", Slug: "berserk", MatchKey: "berserk", File: "berserk.json", ChapterCount: 381},
+		{Series: "Gachiakuta", Slug: "gachiakuta", MatchKey: "gachiakuta", File: "gachiakuta.json", ChapterCount: 174},
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	scraped := []chaptertitles.IndexEntry{
+		{Series: "Berserk", Slug: "berserk", MatchKey: "berserk", File: "berserk.json", ChapterCount: 382},
+	}
+
+	carried := carriedIndexEntries(dir, scraped)
+
+	if len(carried) != 1 {
+		t.Fatalf("carried %d entries, want 1: %+v", len(carried), carried)
+	}
+	if carried[0].Slug != "gachiakuta" {
+		t.Errorf("carried %q, want gachiakuta (berserk was scraped this run)", carried[0].Slug)
+	}
+}
+
+func TestCarriedIndexEntries_missingIndexIsNotAnError(t *testing.T) {
+	if carried := carriedIndexEntries(t.TempDir(), nil); len(carried) != 0 {
+		t.Errorf("carried %+v from an empty directory, want none", carried)
+	}
+}

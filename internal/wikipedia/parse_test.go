@@ -759,3 +759,62 @@ func TestParseChapters_labelComesOffBeforeQuotes(t *testing.T) {
 		193: `"Prison Break, Season 2," What? Then It's No Longer a "Prison Break," Is It?`,
 	})
 }
+
+func TestParseChapters_pendingChaptersSection(t *testing.T) {
+	// Ongoing series keep their newest chapters in a bulleted section after the
+	// volume list, because no volume collects them yet. Those bullets sit in no
+	// template parameter at all, so reading only ChapterList fields lost the
+	// most recent licensed titles -- Gachiakuta stopped at 169 although the
+	// article listed through 173. The section ends at the next heading, so the
+	// bullets of whatever follows it (an episode list, most often) stay out.
+	wikitext := `
+{{Graphic novel list
+| VolumeNumber    = 19
+| ChapterListCol2 =
+* 168. {{Nihongo|"The Curtain Closes"|閉幕|Heimaku}}
+* 169. {{Nihongo|"Red"|赤|Aka}}
+}}
+{{Graphic novel list/footer}}
+
+==== Chapters not yet in ''tankōbon'' format ====
+* 170. {{Nihongo|"A Bolt from the Blue"|一鳴驚人|Ichi Naru Odoroki Hito}}
+* 171. {{Nihongo|"A Living Hell"|生き地獄じゃ|Iki Jigoku ja}}
+{{Inc-up|date=August 2026}}
+
+=== Anime ===
+* Some bullet that is not a chapter
+`
+
+	got, inferred := ParseChapters(wikitext)
+
+	assertChapters(t, got, map[float64]string{
+		168: "The Curtain Closes",
+		169: "Red",
+		170: "A Bolt from the Blue",
+		171: "A Living Hell",
+	})
+	if inferred != 0 {
+		t.Errorf("inferred = %d, want 0 (every entry is explicitly numbered)", inferred)
+	}
+}
+
+func TestParseChapters_pendingChaptersSectionVolumeFormatWording(t *testing.T) {
+	// A handful of articles head the same list "Chapters not yet in volume
+	// format" (Vagabond, Battle Angel Alita) rather than naming tankōbon.
+	wikitext := `
+{{Graphic novel list
+| ChapterList =
+* 327. {{Nihongo|"Ninth"|九番|Kyūban}}
+}}
+
+== Chapters not yet in volume format ==
+* 328. {{Nihongo|"Tenth"|十番|Jūban}}
+`
+
+	got, _ := ParseChapters(wikitext)
+
+	assertChapters(t, got, map[float64]string{
+		327: "Ninth",
+		328: "Tenth",
+	})
+}

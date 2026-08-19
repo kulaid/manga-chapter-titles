@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -14,6 +15,21 @@ type Chapters map[float64]string
 // wikiChapterListField matches the start of a chapter-list parameter inside a
 // {{Graphic novel list}} entry, e.g. "|ChapterList =" or "| ChapterListCol2 =".
 var wikiChapterListField = regexp.MustCompile(`(?i)ChapterList(?:Col\d*)?\s*=`)
+
+// wikiPendingChaptersHeading matches the heading of the bulleted list an
+// ongoing series keeps after its volume list, holding the chapters that have
+// been published but not yet collected into a tankōbon — headed "Chapters not
+// yet in tankōbon format", or "Chapters not yet in volume format" as a few
+// articles word it. Those bullets sit in no template parameter at all, so
+// reading only ChapterList fields dropped the newest licensed titles of every
+// ongoing series: Gachiakuta stopped at chapter 169 although its article
+// listed through 173.
+var wikiPendingChaptersHeading = regexp.MustCompile(`(?im)^[ \t]*={2,6}[ \t]*Chapters not yet [^=\n]*={2,6}[ \t]*$`)
+
+// wikiSectionHeading matches any section heading, which is where a
+// pending-chapters list ends — the following section is usually the anime's
+// episode list, whose bullets are not chapters.
+var wikiSectionHeading = regexp.MustCompile(`(?m)^[ \t]*={2,6}[^\n]*$`)
 
 // wikiNumberedListStart matches the opening of a {{Numbered list|start=N}}
 // block, which supplies the chapter number of its first entry.
@@ -426,7 +442,29 @@ func HasChapterList(wikitext string) bool {
 // pipe or closing brace that sits at the depth of the enclosing template, so
 // nested templates and wikilinks containing pipes are kept intact.
 func extractChapterListFields(wikitext string) []string {
-	var fields []string
+	fields := append(chapterListParams(wikitext), pendingChapterSections(wikitext)...)
+
+	// Both kinds are read as one stream, so a list that carries no numbers of
+	// its own counts on from the entry above it in the article.
+	sort.SliceStable(fields, func(i, j int) bool { return fields[i].at < fields[j].at })
+
+	values := make([]string, 0, len(fields))
+	for _, f := range fields {
+		values = append(values, f.value)
+	}
+	return values
+}
+
+// chapterListField is one block of chapter entries and where the article keeps
+// it, so blocks from different sources can be put back into document order.
+type chapterListField struct {
+	at    int
+	value string
+}
+
+// chapterListParams returns every ChapterList / ChapterListColN parameter.
+func chapterListParams(wikitext string) []chapterListField {
+	var fields []chapterListField
 
 	for offset := 0; offset < len(wikitext); {
 		loc := wikiChapterListField.FindStringIndex(wikitext[offset:])
@@ -436,12 +474,31 @@ func extractChapterListFields(wikitext string) []string {
 		valueStart := offset + loc[1]
 		value, end := readFieldValue(wikitext, valueStart)
 		if strings.TrimSpace(value) != "" {
-			fields = append(fields, value)
+			fields = append(fields, chapterListField{at: valueStart, value: value})
 		}
 		if end <= valueStart {
 			offset = valueStart + 1
 		} else {
 			offset = end
+		}
+	}
+
+	return fields
+}
+
+// pendingChapterSections returns the body of every "Chapters not yet in
+// tankōbon format" section, ending each at the next heading so that only that
+// section's bullets are read.
+func pendingChapterSections(wikitext string) []chapterListField {
+	var fields []chapterListField
+
+	for _, loc := range wikiPendingChaptersHeading.FindAllStringIndex(wikitext, -1) {
+		body := wikitext[loc[1]:]
+		if next := wikiSectionHeading.FindStringIndex(body); next != nil {
+			body = body[:next[0]]
+		}
+		if strings.TrimSpace(body) != "" {
+			fields = append(fields, chapterListField{at: loc[1], value: body})
 		}
 	}
 
