@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-19T21:22:03.253877567Z",
-  "count": 368,
+  "generated_at": "2026-08-25T07:50:27.73706176Z",
+  "count": 369,
   "series": [
     {
       "series": "07-Ghost",
@@ -521,6 +521,18 @@
       "file": "blade-of-the-immortal.json",
       "article": "List of Blade of the Immortal chapters",
       "chapter_count": 207,
+      "sources": [
+        "wikipedia"
+      ]
+    },
+    {
+      "series": "Blame!",
+      "slug": "blame",
+      "match_key": "blame",
+      "anilist_id": 30149,
+      "file": "blame.json",
+      "article": "Blame!",
+      "chapter_count": 65,
       "sources": [
         "wikipedia"
       ]
