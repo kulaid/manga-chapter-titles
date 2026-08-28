@@ -1,5 +1,11 @@
 {
   "overrides": {
+    "List of A Certain Magical Index chapters": {
+      "series": "A Certain Magical Index",
+      "anilist_id": 37775,
+      "anilist_title": "Toaru Majutsu no Index",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
     "List of Akagi chapters": {
       "series": "Akagi",
       "anilist_id": 31218,
@@ -11,246 +17,6 @@
       "anilist_id": 96834,
       "anilist_title": "Arifureta Shokugyou de Sekai Saikyou",
       "note": "Wikipedia article is 'List of Arifureta volumes'; automatic title matching does not reach the AniList entry"
-    },
-    "List of Beyblade: Metal Fusion chapters": {
-      "series": "Beyblade: Metal Fusion",
-      "anilist_id": 40600,
-      "anilist_title": "Metal Fight Beyblade",
-      "note": "Licensed under a different name than the Japanese original"
-    },
-    "List of Big Windup! chapters": {
-      "series": "Big Windup!",
-      "anilist_id": 30994,
-      "anilist_title": "Ookiku Furikabutte",
-      "note": "Licensed English title differs from the romaji AniList lists"
-    },
-    "List of Boku wa Imōto ni Koi o Suru chapters": {
-      "series": "Boku wa Imōto ni Koi o Suru",
-      "anilist_id": 33127,
-      "anilist_title": "Boku wa Imouto ni Koi wo Suru: Secret Sweethearts",
-      "note": "AniList appends the subtitle; macrons differ"
-    },
-    "List of Hell Teacher: Jigoku Sensei Nube chapters": {
-      "series": "Hell Teacher: Jigoku Sensei Nube",
-      "anilist_id": 31044,
-      "anilist_title": "Jigoku Sensei Nube",
-      "note": "Wikipedia prefixes the licensed English title"
-    },
-    "List of KonoSuba volumes": {
-      "series": "KonoSuba",
-      "anilist_id": 85702,
-      "anilist_title": "Kono Subarashii Sekai ni Shukufuku wo!",
-      "note": "Wikipedia abbreviates the title; AniList search returns spin-offs"
-    },
-    "List of Neuro: Supernatural Detective chapters": {
-      "series": "Neuro: Supernatural Detective",
-      "anilist_id": 30674,
-      "anilist_title": "Majin Tantei Nougami Neuro",
-      "note": "Licensed English title differs; the 203-chapter series, not the 2004 one-shot"
-    },
-    "List of Rainbow: Nisha Rokubō no Shichinin chapters": {
-      "series": "Rainbow: Nisha Rokubō no Shichinin",
-      "anilist_id": 37482,
-      "anilist_title": "RAINBOW: Nisha Rokubou no Shichinin",
-      "note": "Macron spelling differs"
-    },
-    "List of The Wallflower chapters": {
-      "series": "The Wallflower",
-      "anilist_id": 30422,
-      "anilist_title": "Yamato Nadeshiko Shichi Henge",
-      "note": "Licensed English title bears no resemblance to the romaji"
-    },
-    "List of Trinity Seven chapters": {
-      "series": "Trinity Seven",
-      "anilist_id": 54822,
-      "anilist_title": "Trinity Seven: The Seven Magicians",
-      "note": "AniList appends the subtitle"
-    },
-    "List of Girlfriend, Girlfriend chapters": {
-      "series": "Girlfriend, Girlfriend",
-      "anilist_id": 116266,
-      "anilist_title": "Kanojo mo Kanojo",
-      "note": "Verified correct; AniList search is not stable run to run and dropped this entry from the top results, losing the ID"
-    },
-    "List of Radiant volumes": {
-      "series": "Radiant",
-      "anilist_id": -1,
-      "anilist_title": "",
-      "note": "French series; AniList carries no manga entry. Name-matching only reaches unrelated works listing 'Radiant' as a synonym (Ikujitsu, Sanran), so no ID is correct"
-    },
-    "List of A Certain Magical Index chapters": {
-      "series": "A Certain Magical Index",
-      "anilist_id": 37775,
-      "anilist_title": "Toaru Majutsu no Index",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Black Clover chapters": {
-      "series": "Black Clover",
-      "anilist_id": 86123,
-      "anilist_title": "Black Clover",
-      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
-    },
-    "List of Blue Box chapters": {
-      "series": "Blue Box",
-      "anilist_id": 132182,
-      "anilist_title": "Ao no Hako",
-      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
-    },
-    "List of Date A Live volumes": {
-      "series": "Date A Live",
-      "anilist_id": 67163,
-      "anilist_title": "Date A Live",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Dragonar Academy volumes": {
-      "series": "Dragonar Academy",
-      "anilist_id": 56589,
-      "anilist_title": "Seikoku no Dragonar",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Future Diary chapters": {
-      "series": "Future Diary",
-      "anilist_id": 30584,
-      "anilist_title": "Mirai Nikki",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Heaven's Lost Property chapters": {
-      "series": "Heaven's Lost Property",
-      "anilist_id": 38144,
-      "anilist_title": "Sora no Otoshimono",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Hellsing chapters": {
-      "series": "Hellsing",
-      "anilist_id": 30267,
-      "anilist_title": "HELLSING",
-      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
-    },
-    "List of In Another World with My Smartphone volumes": {
-      "series": "In Another World with My Smartphone",
-      "anilist_id": 99465,
-      "anilist_title": "Isekai wa Smartphone to Tomo ni.",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Kimi ni Todoke chapters": {
-      "series": "Kimi ni Todoke",
-      "anilist_id": 33378,
-      "anilist_title": "Kimi ni Todoke",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Love Hina chapters": {
-      "series": "Love Hina",
-      "anilist_id": 30016,
-      "anilist_title": "Love Hina",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of My Hero Academia chapters": {
-      "series": "My Hero Academia",
-      "anilist_id": 85486,
-      "anilist_title": "Boku no Hero Academia",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Nisekoi chapters": {
-      "series": "Nisekoi",
-      "anilist_id": 61499,
-      "anilist_title": "Nisekoi",
-      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
-    },
-    "List of Omamori Himari chapters": {
-      "series": "Omamori Himari",
-      "anilist_id": 31745,
-      "anilist_title": "Omamori Himari",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Saekano volumes": {
-      "series": "Saekano",
-      "anilist_id": 81309,
-      "anilist_title": "Saenai Heroine no Sodatekata",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Seirei Gensouki: Spirit Chronicles volumes": {
-      "series": "Seirei Gensouki: Spirit Chronicles",
-      "anilist_id": 99587,
-      "anilist_title": "Seirei Gensouki",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of The Executioner and Her Way of Life volumes": {
-      "series": "The Executioner and Her Way of Life",
-      "anilist_id": 119857,
-      "anilist_title": "Shokei Shoujo no Virgin Road",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of The Saga of Tanya the Evil volumes": {
-      "series": "The Saga of Tanya the Evil",
-      "anilist_id": 97216,
-      "anilist_title": "Youjo Senki",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Trigun chapters": {
-      "series": "Trigun",
-      "anilist_id": 30703,
-      "anilist_title": "Trigun",
-      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
-    },
-    "List of Yona of the Dawn volumes": {
-      "series": "Yona of the Dawn",
-      "anilist_id": 51525,
-      "anilist_title": "Akatsuki no Yona",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Yu-Gi-Oh! chapters": {
-      "series": "Yu-Gi-Oh!",
-      "anilist_id": 30054,
-      "anilist_title": "Yu☆Gi☆Oh!",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Yu-Gi-Oh! Arc-V chapters": {
-      "series": "Yu-Gi-Oh! Arc-V",
-      "anilist_id": 95866,
-      "anilist_title": "Yu☆Gi☆Oh! ARC-V",
-      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
-    },
-    "List of Do You Love Your Mom and Her Two-Hit Multi-Target Attacks? volumes": {
-      "series": "Do You Love Your Mom and Her Two-Hit Multi-Target Attacks?",
-      "anilist_id": 100310,
-      "anilist_title": "Tsuujou Kougeki ga Zentai Kougeki de Ni-kai Kougeki no Okaasan wa Suki desu ka?",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Is It Wrong to Try to Pick Up Girls in a Dungeon? chapters": {
-      "series": "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
-      "anilist_id": 85161,
-      "anilist_title": "Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Is It Wrong to Try to Pick Up Girls in a Dungeon? On the Side: Sword Oratoria chapters": {
-      "series": "Is It Wrong to Try to Pick Up Girls in a Dungeon? On the Side: Sword Oratoria",
-      "anilist_id": 85634,
-      "anilist_title": "Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka Gaiden: Sword Oratoria",
-      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
-    },
-    "List of Mars chapters": {
-      "series": "Mars",
-      "anilist_id": 60935,
-      "anilist_title": "Mars",
-      "note": "Verified against the AniList API; automatic matching returned a MANGA (3-wol, an unrelated work) entry of the same name"
-    },
-    "List of The Flowers of Evil chapters": {
-      "series": "The Flowers of Evil",
-      "anilist_id": 54705,
-      "anilist_title": "Aku no Hana",
-      "note": "Verified against the AniList API; automatic matching returned a MANGA (Agui Kkot, the Korean edition) entry of the same name"
-    },
-    "List of Tomie chapters": {
-      "series": "Tomie",
-      "anilist_id": 30912,
-      "anilist_title": "Tomie",
-      "note": "Verified against the AniList API; automatic matching returned a MANGA (Itou Junji Kyoufu Manga Collection) entry of the same name"
-    },
-    "List of Toriko chapters": {
-      "series": "Toriko",
-      "anilist_id": 37887,
-      "anilist_title": "Toriko",
-      "note": "Verified against the AniList API; automatic matching returned a MANGA (Suitei Chijo, an unrelated work) entry of the same name"
     },
     "List of Berserk chapters": {
       "series": "Berserk",
@@ -276,6 +42,312 @@
         "0.16": "The Golden Age (8)"
       }
     },
+    "List of Beyblade: Metal Fusion chapters": {
+      "series": "Beyblade: Metal Fusion",
+      "anilist_id": 40600,
+      "anilist_title": "Metal Fight Beyblade",
+      "note": "Licensed under a different name than the Japanese original"
+    },
+    "List of Big Windup! chapters": {
+      "series": "Big Windup!",
+      "anilist_id": 30994,
+      "anilist_title": "Ookiku Furikabutte",
+      "note": "Licensed English title differs from the romaji AniList lists"
+    },
+    "List of Black Clover chapters": {
+      "series": "Black Clover",
+      "anilist_id": 86123,
+      "anilist_title": "Black Clover",
+      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
+    },
+    "List of Black Lagoon chapters": {
+      "series": "Black Lagoon",
+      "note": "Magazine (serialization) chapter numbers 5-8 and 44-76 carried a Wikipedia '[a.k.a. ...]' translation gloss after the closing quote that a naive scrape glues onto the title; stripped here. Chapters 77-122 (magazine numbers) are remapped to the collected-volume (tankobon) numbering the actual releases use, 77-97, per the Vol.10-14 notes on the Wikipedia article: 'The Wired Red Wild Card' collapses to a single chapter 77 spanning Vol.10-11; Vol.12's in-page merges compress magazine 102-109 into tankobon 78-84 ('parts 1 to 7'); L'homme sombre magazine parts 9-12 renumber as parts 8-11 (tankobon 85-88); New Girl in the Hood / Where the Chips Fall are 89-91; El Requiem de los Desalmados (Vol.14) is 92-97.",
+      "chapters": {
+        "5": "Das Wieder Erstehen Des Adlers/Die Rückkehr des Adlers – Part 1",
+        "6": "Das Wieder Erstehen Des Adlers/Die Rückkehr des Adlers – Part 2",
+        "7": "Das Wieder Erstehen Des Adlers/Die Rückkehr des Adlers – Part 3",
+        "8": "Das Wieder Erstehen Des Adlers/Die Rückkehr des Adlers – Part 4",
+        "44": "El Baile de la Muerte – Part 1",
+        "45": "El Baile de la Muerte – Part 2",
+        "46": "El Baile de la Muerte – Part 3",
+        "47": "El Baile de la Muerte – Part 4",
+        "48": "El Baile de la Muerte – Part 5",
+        "49": "El Baile de la Muerte – Part 6",
+        "50": "El Baile de la Muerte – Part 7",
+        "51": "El Baile de la Muerte – Part 8",
+        "52": "El Baile de la Muerte – Part 9",
+        "53": "El Baile de la Muerte – Part 10",
+        "54": "El Baile de la Muerte – Part 11",
+        "55": "El Baile de la Muerte – Part 12",
+        "56": "El Baile de la Muerte – Part 13",
+        "57": "El Baile de la Muerte – Part 14",
+        "58": "El Baile de la Muerte – Part 15",
+        "59": "El Baile de la Muerte – Part 16",
+        "60": "El Baile de la Muerte – Part 17",
+        "61": "El Baile de la Muerte – Part 18",
+        "62": "El Baile de la Muerte – Part 19",
+        "63": "El Baile de la Muerte – Part 20",
+        "64": "El Baile de la Muerte – Part 21",
+        "65": "El Baile de la Muerte – Part 22",
+        "66": "El Baile de la Muerte – Part 23",
+        "67": "El Baile de la Muerte – Part 24",
+        "68": "El Baile de la Muerte – Part 25",
+        "69": "El Baile de la Muerte – Part 26",
+        "70": "El Baile de la Muerte – Part 27",
+        "71": "El Baile de la Muerte – Part 28",
+        "72": "El Baile de la Muerte – Part 29",
+        "73": "El Baile de la Muerte – Part 30",
+        "74": "El Baile de la Muerte – Part 31",
+        "75": "El Baile de la Muerte – Part 32",
+        "76": "El Baile de la Muerte – Part 33",
+        "76.5": "Epilogue",
+        "77": "The Wired Red Wild Card",
+        "78": "L'homme sombre – Part 1",
+        "79": "L'homme sombre – Part 2",
+        "80": "L'homme sombre – Part 3",
+        "81": "L'homme sombre – Part 4",
+        "82": "L'homme sombre – Part 5",
+        "83": "L'homme sombre – Part 6",
+        "84": "L'homme sombre – Part 7",
+        "85": "L'homme sombre – Part 8",
+        "86": "L'homme sombre – Part 9",
+        "87": "L'homme sombre – Part 10",
+        "88": "L'homme sombre – Part 11",
+        "89": "New Girl in the Hood – Part 1",
+        "90": "New Girl in the Hood – Part 2",
+        "91": "Where the Chips Fall",
+        "92": "El Réquiem de los Desalmados – Part 1",
+        "93": "El Réquiem de los Desalmados – Part 2",
+        "94": "El Réquiem de los Desalmados – Part 3",
+        "95": "El Réquiem de los Desalmados – Part 4",
+        "96": "El Réquiem de los Desalmados – Part 5",
+        "97": "El Réquiem de los Desalmados – Part 6",
+        "98": "",
+        "99": "",
+        "100": "",
+        "101": "",
+        "102": "",
+        "103": "",
+        "104": "",
+        "105": "",
+        "106": "",
+        "107": "",
+        "108": "",
+        "109": "",
+        "110": "",
+        "111": "",
+        "112": "",
+        "113": "",
+        "114": "",
+        "115": "",
+        "116": "",
+        "117": "",
+        "118": "",
+        "119": "",
+        "120": "",
+        "121": "",
+        "122": ""
+      }
+    },
+    "List of Blue Box chapters": {
+      "series": "Blue Box",
+      "anilist_id": 132182,
+      "anilist_title": "Ao no Hako",
+      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
+    },
+    "List of Boku wa Imōto ni Koi o Suru chapters": {
+      "series": "Boku wa Imōto ni Koi o Suru",
+      "anilist_id": 33127,
+      "anilist_title": "Boku wa Imouto ni Koi wo Suru: Secret Sweethearts",
+      "note": "AniList appends the subtitle; macrons differ"
+    },
+    "List of Date A Live volumes": {
+      "series": "Date A Live",
+      "anilist_id": 67163,
+      "anilist_title": "Date A Live",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Do You Love Your Mom and Her Two-Hit Multi-Target Attacks? volumes": {
+      "series": "Do You Love Your Mom and Her Two-Hit Multi-Target Attacks?",
+      "anilist_id": 100310,
+      "anilist_title": "Tsuujou Kougeki ga Zentai Kougeki de Ni-kai Kougeki no Okaasan wa Suki desu ka?",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Dragonar Academy volumes": {
+      "series": "Dragonar Academy",
+      "anilist_id": 56589,
+      "anilist_title": "Seikoku no Dragonar",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Future Diary chapters": {
+      "series": "Future Diary",
+      "anilist_id": 30584,
+      "anilist_title": "Mirai Nikki",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Girlfriend, Girlfriend chapters": {
+      "series": "Girlfriend, Girlfriend",
+      "anilist_id": 116266,
+      "anilist_title": "Kanojo mo Kanojo",
+      "note": "Verified correct; AniList search is not stable run to run and dropped this entry from the top results, losing the ID"
+    },
+    "List of Heaven's Lost Property chapters": {
+      "series": "Heaven's Lost Property",
+      "anilist_id": 38144,
+      "anilist_title": "Sora no Otoshimono",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Hell Teacher: Jigoku Sensei Nube chapters": {
+      "series": "Hell Teacher: Jigoku Sensei Nube",
+      "anilist_id": 31044,
+      "anilist_title": "Jigoku Sensei Nube",
+      "note": "Wikipedia prefixes the licensed English title"
+    },
+    "List of Hellsing chapters": {
+      "series": "Hellsing",
+      "anilist_id": 30267,
+      "anilist_title": "HELLSING",
+      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
+    },
+    "List of In Another World with My Smartphone volumes": {
+      "series": "In Another World with My Smartphone",
+      "anilist_id": 99465,
+      "anilist_title": "Isekai wa Smartphone to Tomo ni.",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Is It Wrong to Try to Pick Up Girls in a Dungeon? On the Side: Sword Oratoria chapters": {
+      "series": "Is It Wrong to Try to Pick Up Girls in a Dungeon? On the Side: Sword Oratoria",
+      "anilist_id": 85634,
+      "anilist_title": "Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka Gaiden: Sword Oratoria",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Is It Wrong to Try to Pick Up Girls in a Dungeon? chapters": {
+      "series": "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
+      "anilist_id": 85161,
+      "anilist_title": "Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Kimi ni Todoke chapters": {
+      "series": "Kimi ni Todoke",
+      "anilist_id": 33378,
+      "anilist_title": "Kimi ni Todoke",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of KonoSuba volumes": {
+      "series": "KonoSuba",
+      "anilist_id": 85702,
+      "anilist_title": "Kono Subarashii Sekai ni Shukufuku wo!",
+      "note": "Wikipedia abbreviates the title; AniList search returns spin-offs"
+    },
+    "List of Love Hina chapters": {
+      "series": "Love Hina",
+      "anilist_id": 30016,
+      "anilist_title": "Love Hina",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Mars chapters": {
+      "series": "Mars",
+      "anilist_id": 60935,
+      "anilist_title": "Mars",
+      "note": "Verified against the AniList API; automatic matching returned a MANGA (3-wol, an unrelated work) entry of the same name"
+    },
+    "List of My Hero Academia chapters": {
+      "series": "My Hero Academia",
+      "anilist_id": 85486,
+      "anilist_title": "Boku no Hero Academia",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Neuro: Supernatural Detective chapters": {
+      "series": "Neuro: Supernatural Detective",
+      "anilist_id": 30674,
+      "anilist_title": "Majin Tantei Nougami Neuro",
+      "note": "Licensed English title differs; the 203-chapter series, not the 2004 one-shot"
+    },
+    "List of Nisekoi chapters": {
+      "series": "Nisekoi",
+      "anilist_id": 61499,
+      "anilist_title": "Nisekoi",
+      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
+    },
+    "List of Omamori Himari chapters": {
+      "series": "Omamori Himari",
+      "anilist_id": 31745,
+      "anilist_title": "Omamori Himari",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Radiant volumes": {
+      "series": "Radiant",
+      "anilist_id": -1,
+      "anilist_title": "",
+      "note": "French series; AniList carries no manga entry. Name-matching only reaches unrelated works listing 'Radiant' as a synonym (Ikujitsu, Sanran), so no ID is correct"
+    },
+    "List of Rainbow: Nisha Rokubō no Shichinin chapters": {
+      "series": "Rainbow: Nisha Rokubō no Shichinin",
+      "anilist_id": 37482,
+      "anilist_title": "RAINBOW: Nisha Rokubou no Shichinin",
+      "note": "Macron spelling differs"
+    },
+    "List of Saekano volumes": {
+      "series": "Saekano",
+      "anilist_id": 81309,
+      "anilist_title": "Saenai Heroine no Sodatekata",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Seirei Gensouki: Spirit Chronicles volumes": {
+      "series": "Seirei Gensouki: Spirit Chronicles",
+      "anilist_id": 99587,
+      "anilist_title": "Seirei Gensouki",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of The Executioner and Her Way of Life volumes": {
+      "series": "The Executioner and Her Way of Life",
+      "anilist_id": 119857,
+      "anilist_title": "Shokei Shoujo no Virgin Road",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of The Flowers of Evil chapters": {
+      "series": "The Flowers of Evil",
+      "anilist_id": 54705,
+      "anilist_title": "Aku no Hana",
+      "note": "Verified against the AniList API; automatic matching returned a MANGA (Agui Kkot, the Korean edition) entry of the same name"
+    },
+    "List of The Saga of Tanya the Evil volumes": {
+      "series": "The Saga of Tanya the Evil",
+      "anilist_id": 97216,
+      "anilist_title": "Youjo Senki",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of The Wallflower chapters": {
+      "series": "The Wallflower",
+      "anilist_id": 30422,
+      "anilist_title": "Yamato Nadeshiko Shichi Henge",
+      "note": "Licensed English title bears no resemblance to the romaji"
+    },
+    "List of Tomie chapters": {
+      "series": "Tomie",
+      "anilist_id": 30912,
+      "anilist_title": "Tomie",
+      "note": "Verified against the AniList API; automatic matching returned a MANGA (Itou Junji Kyoufu Manga Collection) entry of the same name"
+    },
+    "List of Toriko chapters": {
+      "series": "Toriko",
+      "anilist_id": 37887,
+      "anilist_title": "Toriko",
+      "note": "Verified against the AniList API; automatic matching returned a MANGA (Suitei Chijo, an unrelated work) entry of the same name"
+    },
+    "List of Trigun chapters": {
+      "series": "Trigun",
+      "anilist_id": 30703,
+      "anilist_title": "Trigun",
+      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
+    },
+    "List of Trinity Seven chapters": {
+      "series": "Trinity Seven",
+      "anilist_id": 54822,
+      "anilist_title": "Trinity Seven: The Seven Magicians",
+      "note": "AniList appends the subtitle"
+    },
     "List of Vinland Saga chapters": {
       "series": "Vinland Saga",
       "anilist_id": 30642,
@@ -294,6 +366,24 @@
         "42.5": "Dimly-Remembered Vinland Saga",
         "5.5": "Heroic Exploits of Viking Girl Ylva"
       }
+    },
+    "List of Yona of the Dawn volumes": {
+      "series": "Yona of the Dawn",
+      "anilist_id": 51525,
+      "anilist_title": "Akatsuki no Yona",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
+    },
+    "List of Yu-Gi-Oh! Arc-V chapters": {
+      "series": "Yu-Gi-Oh! Arc-V",
+      "anilist_id": 95866,
+      "anilist_title": "Yu☆Gi☆Oh! ARC-V",
+      "note": "Verified against the AniList API; automatic matching returned a ONE_SHOT entry of the same name"
+    },
+    "List of Yu-Gi-Oh! chapters": {
+      "series": "Yu-Gi-Oh!",
+      "anilist_id": 30054,
+      "anilist_title": "Yu☆Gi☆Oh!",
+      "note": "Verified against the AniList API; automatic matching returned a NOVEL entry of the same name"
     }
   }
 }

@@ -507,10 +507,11 @@
       "anilist_id": 30735,
       "file": "black-lagoon.json",
       "article": "List of Black Lagoon chapters",
-      "chapter_count": 125,
+      "chapter_count": 106,
       "sources": [
         "wikipedia",
-        "comick"
+        "comick",
+        "curated"
       ]
     },
     {
