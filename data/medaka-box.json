@@ -6,9 +6,10 @@
   "article": "List of Medaka Box chapters",
   "source_url": "https://en.wikipedia.org/wiki/List_of_Medaka_Box_chapters",
   "scraped_at": "2026-08-18T00:12:14.355169056Z",
-  "chapter_count": 197,
+  "chapter_count": 198,
   "inferred_numbers": 0,
   "chapters": {
+    "0": "Oneshot",
     "1": "The School Council in Action",
     "10": "You Could've Drowned",
     "100": "Create A Themed Quiz, Please",
@@ -208,6 +209,7 @@
     "99": "Please Tell Me Just One More Thing"
   },
   "chapter_sources": {
+    "0": "curated",
     "1": "wikipedia",
     "10": "wikipedia",
     "100": "wikipedia",
