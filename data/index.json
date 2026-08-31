@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-25T07:50:27.73706176Z",
-  "count": 369,
+  "generated_at": "2026-08-31T08:37:28.932488607Z",
+  "count": 370,
   "series": [
     {
       "series": "07-Ghost",
@@ -4217,6 +4217,15 @@
         "wikipedia",
         "comick"
       ]
+    },
+    {
+      "series": "Tsukihime",
+      "slug": "tsukihime",
+      "match_key": "tsukihime",
+      "anilist_id": 30705,
+      "file": "tsukihime.json",
+      "article": "(manual entry, no Wikipedia chapter list exists)",
+      "chapter_count": 75
     },
     {
       "series": "Twin Spica",
